@@ -1,8 +1,10 @@
 using UnityEngine;
 
 public class PlayerMovement:MonoBehaviour {
-    public float walk = 1.0f;
+    [SerializeField] private float walkSpeed = 1.0f;
     public Rigidbody rb;
+
+    // Direction of the player based on Update() input.
     public Vector3 movement;
 
     // Start is called before the first frame update
@@ -27,6 +29,6 @@ public class PlayerMovement:MonoBehaviour {
     /// </summary>
     /// <param name="direction">Direction of the player as a <see cref="Vector3"/></param>
     void movePlayer(Vector3 direction) {
-        rb.velocity = direction * walk;
+        rb.velocity = direction * walkSpeed;
     }
 }
