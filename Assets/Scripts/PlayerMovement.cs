@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class PlayerMovement:MonoBehaviour {
     [SerializeField] private float walkSpeed = 1.0f;
     public Rigidbody rb;
