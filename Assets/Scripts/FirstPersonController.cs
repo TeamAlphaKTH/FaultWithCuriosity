@@ -13,7 +13,6 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private float jumpForce = 8f;
 
     [Header("Functional Options")]
-
     [SerializeField] private bool canJump = true;
 
     [Header("Controls")]
