@@ -1,25 +1,48 @@
 using UnityEngine;
+
 public class FirstPersonController:MonoBehaviour {
     public bool CanMove { get; private set; } = true;
 
     [Header("Movement Parameters")]
     [SerializeField] private float walkSpeed = 3.0f;
     [SerializeField] private float runSpeed = 10.0f;
-    [SerializeField] private float gravity = 30.0f;
+
+    [Header("Jumping Parameters")]
+    [SerializeField] private float gravity = 30f;
+    [SerializeField] private float jumpForce = 8f;
+
+    [Header("Functional Options")]
+    [SerializeField] private bool canJump = true;
+
+    [Header("Controls")]
+    [SerializeField] private KeyCode jumpKey = KeyCode.Space;
 
     private Vector2 currentInput;
     private Vector3 moveDirection;
     private CharacterController characterController;
 
+    // Start is called before the first frame update
     void Start() {
         characterController = GetComponent<CharacterController>();
     }
 
+    // Update is called once per frame
     void Update() {
-
         if(CanMove) {
             HandleInput();
-            ApplyFinalMovements();
+            HandleJump();
+            ApplyFinalMovement();
+        }
+    }
+
+    /// <summary>
+    /// Handles jump
+    /// </summary>
+    private void HandleJump() {
+        if(canJump) {
+            if(Input.GetKey(jumpKey) && characterController.isGrounded) {
+                moveDirection.y = jumpForce;
+            }
         }
     }
 
@@ -42,13 +65,9 @@ public class FirstPersonController:MonoBehaviour {
     }
 
     /// <summary>
-    /// Applies the final movements to the character.
+    /// Applies movement to player, depending on positional values
     /// </summary>
-    /// <remarks>
-    /// If the character is not grounded, applies gravity to the movement direction.
-    /// Then, moves the character controller according to the final movement direction.
-    /// </remarks>
-    void ApplyFinalMovements() {
+    private void ApplyFinalMovement() {
         if(!characterController.isGrounded) {
             moveDirection.y -= gravity * Time.deltaTime;
         }
