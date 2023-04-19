@@ -85,12 +85,15 @@ public class FirstPersonController:MonoBehaviour {
 			//Turn off gravity and normal movement while on "Ladder"
 			if(gravity != 0f)
 				oldGravity = gravity;
+
 			gravity = 0f;
+
 			if(!characterController.isGrounded) {
 				CanMove = false;
 			} else {
 				CanMove = true;
 			}
+
 			//Handles movement on "Ladder"
 			if(Input.GetAxis("Vertical") > 0) {
 				Debug.Log(Input.GetAxis("Vertical"));
