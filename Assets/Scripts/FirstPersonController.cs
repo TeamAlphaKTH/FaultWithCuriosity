@@ -1,6 +1,6 @@
 using UnityEngine;
 public class FirstPersonController:MonoBehaviour {
-    public bool canMove { get; private set; } = true;
+    public bool CanMove { get; private set; } = true;
 
     [Header("Movement Parameters")]
     [SerializeField] private float walkSpeed = 3.0f;
@@ -17,7 +17,7 @@ public class FirstPersonController:MonoBehaviour {
 
     void Update() {
 
-        if(canMove) {
+        if(CanMove) {
             HandleInput();
             ApplyFinalMovements();
         }
