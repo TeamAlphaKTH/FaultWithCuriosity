@@ -19,8 +19,8 @@ public class FirstPersonController:MonoBehaviour {
     [SerializeField] private float deceleration = 100f;
 
     [Header("Jumping Parameters")]
-    [SerializeField] private float gravity = 30f;
-    [SerializeField] private float jumpForce = 8f;
+    [SerializeField] private float gravity = 40f;
+    [SerializeField] private float jumpForce = 7.8f;
 
     [Header("Functional Options")]
     [SerializeField] private bool canJump = true;
@@ -33,23 +33,18 @@ public class FirstPersonController:MonoBehaviour {
 
     // Slope sliding parameters
     private Vector3 hitPointNormal;
-
     private bool IsSliding {
         get {
-            if(characterController.isGrounded) {
-                float slopeCheckDistance = characterController.height / 25f + characterController.radius;
-                Vector3 slopeCheckOrigin = transform.position + Vector3.down * slopeCheckDistance;
-                if(Physics.Raycast(slopeCheckOrigin, transform.forward, out RaycastHit slopeHit, slopeCheckDistance)) {
-                    if(slopeHit.collider != characterController) {
-                        hitPointNormal = slopeHit.normal;
-                        return Vector3.Angle(hitPointNormal, Vector3.up) > characterController.slopeLimit;
-                    }
-                }
+            // Check if characther is grounded and spherecast hit a slope
+            if(characterController.isGrounded && Physics.SphereCast(transform.position, 0.5f, Vector3.down, out RaycastHit slopeHit, 2f, Physics.DefaultRaycastLayers)) {
+                // Check if slope angle is greater than character controller's slope limit
+                hitPointNormal = slopeHit.normal;
+                return Vector3.Angle(hitPointNormal, Vector3.up) > characterController.slopeLimit;
+            } else {
+                return false;
             }
-            return false;
         }
     }
-
 
     private Vector2 currentInput;
 
@@ -93,7 +88,7 @@ public class FirstPersonController:MonoBehaviour {
     /// </remarks>
     private void HandleInput() {
         // If the player is running, the walk speed is set to the run speed, otherwise it is set to the walk speed.
-        float baseSpeed = IsRunning ? runSpeed : walkSpeed;
+        float baseSpeed = IsRunning && !IsSliding ? runSpeed : walkSpeed;
         float speed = baseSpeed;
 
         float horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -138,13 +133,16 @@ public class FirstPersonController:MonoBehaviour {
     /// Applies movement to player, depending on positional values
     /// </summary>
     private void ApplyFinalMovement() {
-        if(!characterController.isGrounded)
+        // Apply gravity
+        if(!characterController.isGrounded) {
             moveDirection.y -= gravity * Time.deltaTime;
-
-        if(willSlideOnSlope && IsSliding)
+        }
+        // Apply slope sliding
+        if(willSlideOnSlope && IsSliding) {
             moveDirection += new Vector3(hitPointNormal.x, -hitPointNormal.y, hitPointNormal.z) * slopeSlideSpeed;
+        }
 
-
+        // Move the character
         characterController.Move(moveDirection * Time.deltaTime);
     }
 
