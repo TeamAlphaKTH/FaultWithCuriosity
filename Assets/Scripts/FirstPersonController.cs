@@ -33,16 +33,29 @@ public class FirstPersonController:MonoBehaviour {
 
     // Slope sliding parameters
     private Vector3 hitPointNormal;
+
     private bool IsSliding {
         get {
-            if(characterController.isGrounded && Physics.Raycast(transform.position, Vector3.down, out RaycastHit slopeHit, 2f)) {
-                hitPointNormal = slopeHit.normal;
-                return Vector3.Angle(hitPointNormal, Vector3.up) > characterController.slopeLimit;
+            float maxAngle = -1f;
+            float raycastDistance = characterController.height / 2f;
+            for(int i = 0; i < 8; i++) { // Cast 8 rays around the character
+                Vector3 direction = Quaternion.AngleAxis(i * 45f, Vector3.up) * -transform.forward;
+                if(Physics.Raycast(transform.position, direction, out RaycastHit hit, raycastDistance)) {
+                    float angle = Vector3.Angle(hit.normal, Vector3.up);
+                    if(angle > maxAngle) {
+                        maxAngle = angle;
+                        hitPointNormal = hit.normal;
+                    }
+                }
+            }
+            if(characterController.isGrounded) {
+                return maxAngle > characterController.slopeLimit;
             } else {
                 return false;
             }
         }
     }
+
 
     private Vector2 currentInput;
 
@@ -131,13 +144,12 @@ public class FirstPersonController:MonoBehaviour {
     /// Applies movement to player, depending on positional values
     /// </summary>
     private void ApplyFinalMovement() {
-        if(!characterController.isGrounded) {
+        if(!characterController.isGrounded)
             moveDirection.y -= gravity * Time.deltaTime;
-        }
 
-        if(willSlideOnSlope && IsSliding) {
+        if(willSlideOnSlope && IsSliding)
             moveDirection += new Vector3(hitPointNormal.x, -hitPointNormal.y, hitPointNormal.z) * slopeSlideSpeed;
-        }
+
 
         characterController.Move(moveDirection * Time.deltaTime);
     }
