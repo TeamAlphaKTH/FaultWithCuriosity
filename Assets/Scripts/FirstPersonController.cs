@@ -15,11 +15,11 @@ public class FirstPersonController:MonoBehaviour {
     private float jumpForce;
 
     [Header("Crouching Parameters")]
-    [SerializeField] private float crouchHeight = 0.5f;
-    [SerializeField] private float standingHeight = 1.0f;
-    [SerializeField] private float timeToCrouch = 0.25f;
+    [SerializeField] private float crouchHeight = 1.0f;
+    [SerializeField] private float standingHeight = 2.0f;
     [SerializeField] private Vector3 crouchingCenter = new Vector3(0, 0.5f, 0);
     [SerializeField] private Vector3 standingCenter = new Vector3(0, 0, 0);
+    private float timeToCrouch = 0.25f;
     private bool isCrouching;
     private bool duringCrouchAnimation;
 
@@ -27,12 +27,13 @@ public class FirstPersonController:MonoBehaviour {
     [SerializeField] private bool canJump = true;
     [SerializeField] private bool canCrouch = true;
 
-
     [Header("Controls")]
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
     [SerializeField] private KeyCode crouchKey = KeyCode.LeftControl;
 
+    [Header("Camera")]
     [SerializeField] private Camera playerCamera;
+
     private Vector2 currentInput;
     private Vector3 moveDirection;
     private CharacterController characterController;
@@ -40,6 +41,7 @@ public class FirstPersonController:MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         characterController = GetComponent<CharacterController>();
+
     }
 
     // Update is called once per frame
@@ -66,7 +68,7 @@ public class FirstPersonController:MonoBehaviour {
 
     private void HandleCrouch() {
         if(canCrouch) {
-            if(Input.GetKey(crouchKey) && !duringCrouchAnimation && characterController.isGrounded) {
+            if(Input.GetKeyDown(crouchKey) && !duringCrouchAnimation && characterController.isGrounded) {
                 StartCoroutine(CrouchStand());
             }
         }
@@ -79,25 +81,23 @@ public class FirstPersonController:MonoBehaviour {
         duringCrouchAnimation = true;
 
         float timeElapsed = 0;
-        float targetObjectHeight = isCrouching ? characterController.transform.localScale.y * 2 : characterController.transform.localScale.y / 2;
         float targetHeight = isCrouching ? standingHeight : crouchHeight;
         float currentHeight = characterController.height;
+
+
+
         Vector3 targetCenter = isCrouching ? standingCenter : crouchingCenter;
         Vector3 currentCenter = characterController.center;
-        Vector3 newScale = characterController.transform.localScale;
         while(timeElapsed < timeToCrouch) {
-            characterController.height = Mathf.Lerp(currentHeight, targetObjectHeight, timeElapsed / timeToCrouch);
-            characterController.center = Vector3.Lerp(currentCenter, targetCenter, timeElapsed / timeToCrouch);
-            newScale.y = Mathf.Lerp(newScale.y, targetObjectHeight, timeElapsed / timeToCrouch);
-            characterController.transform.localScale = newScale;
+            characterController.height = Mathf.Lerp(currentHeight, targetHeight, timeElapsed / timeToCrouch);
+            characterController.center = Vector3.Lerp(currentCenter, -targetCenter, timeElapsed / timeToCrouch);
+
             timeElapsed += Time.deltaTime;
             yield return null;
         }
 
-        characterController.transform.localScale = new Vector3(characterController.transform.localScale.x, targetObjectHeight, characterController.transform.localScale.z);
         characterController.height = targetHeight;
-        characterController.center = targetCenter;
-
+        characterController.center = -targetCenter;
         isCrouching = !isCrouching;
 
         duringCrouchAnimation = false;
