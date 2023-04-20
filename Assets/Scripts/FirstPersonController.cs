@@ -1,8 +1,12 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class FirstPersonController:MonoBehaviour {
     public bool CanMove { get; private set; } = true;
     private bool IsRunning => Input.GetKey(runKey) && canRun;
+
+    private bool useStamina = true;
 
     [Header("Movement Parameters")]
     [SerializeField] private float walkSpeed = 3.0f;
@@ -29,6 +33,18 @@ public class FirstPersonController:MonoBehaviour {
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
     [SerializeField] private KeyCode runKey = KeyCode.LeftShift;
 
+    [Header("Stamina system parameters")]
+    [SerializeField] private float maxStamina = 100.0f;
+    [SerializeField] private float staminaRegenIncrements = 1.0f;
+    [SerializeField] private float staminaUseDecrements = 15.0f;
+    [SerializeField] private float staminaRegenDelayTimer = 3.0f;
+    [SerializeField] private float speedToRegen = 0.2f;
+    [SerializeField] private float regenTimer = 0.01f;
+    [SerializeField] private float currentStamina;
+    private Coroutine regeneratingStamina;
+    public static Action<float> OnStaminaChange;
+
+
     private Vector2 currentInput;
 
     // Initialize currentSpeed to zero so that the character doesn't move when the game starts.
@@ -40,6 +56,7 @@ public class FirstPersonController:MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         characterController = GetComponent<CharacterController>();
+        currentStamina = maxStamina;
     }
 
     // Update is called once per frame
@@ -48,6 +65,9 @@ public class FirstPersonController:MonoBehaviour {
             HandleInput();
             HandleJump();
             ApplyFinalMovement();
+            if(useStamina) {
+                HandleStamina();
+            }
         }
     }
 
@@ -113,6 +133,43 @@ public class FirstPersonController:MonoBehaviour {
     }
 
     /// <summary>
+    /// Handles the management of the player's stamina.
+    /// </summary>
+    private void HandleStamina() {
+        if(IsRunning && currentInput != Vector2.zero) {
+
+            if(regeneratingStamina != null) {
+                StopCoroutine(regeneratingStamina);
+                regeneratingStamina = null;
+            }
+
+            // Decrease the current stamina based on the stamina use decrements and the time passed since the last frame.
+            currentStamina -= staminaUseDecrements * Time.deltaTime;
+            if(currentStamina < 0) {
+                currentStamina = 0;
+            }
+
+            // Invoke the OnStaminaChange event to notify any listeners that the player's stamina has changed.
+            OnStaminaChange?.Invoke(currentStamina);
+
+            // Disable running if the current stamina has reached zero
+            if(currentStamina <= 0) {
+                canRun = false;
+            }
+
+            // Cap the current stamina to the maximum stamina value.
+            if(currentStamina > 100) {
+                currentStamina = 100;
+            }
+        }
+
+        // Start regenerating stamina if the player is not running and their current stamina is less than the maximum stamina.
+        if(!IsRunning && currentStamina < maxStamina && regeneratingStamina == null) {
+            regeneratingStamina = StartCoroutine(RegenStamina());
+        }
+    }
+
+    /// <summary>
     /// Applies movement to player, depending on positional values
     /// </summary>
     private void ApplyFinalMovement() {
@@ -170,5 +227,40 @@ public class FirstPersonController:MonoBehaviour {
             CanMove = true;
             gravity = oldGravity;
         }
+    }
+
+    /// <summary>
+    /// Coroutine that regenerates the player's stamina over time.
+    /// </summary>
+    private IEnumerator RegenStamina() {
+
+        // Wait for the specified amount of time before starting to regenerate stamina.
+        yield return new WaitForSeconds(staminaRegenDelayTimer);
+        WaitForSeconds TimeToWait = new(speedToRegen);
+
+        while(currentStamina < maxStamina) {
+
+            // Enable running if the player's stamina is greater than zero.
+            if(currentStamina > 0) {
+                canRun = true;
+            }
+
+            // Increase the current stamina based on the stamina regen increments.
+            currentStamina += staminaRegenIncrements;
+
+            // Cap the current stamina to the maximum stamina value.
+            if(currentStamina > maxStamina) {
+                currentStamina = maxStamina;
+            }
+
+            // Invoke the OnStaminaChange event to notify any listeners that the player's stamina has changed.
+            OnStaminaChange?.Invoke(currentStamina);
+
+            // Wait for the specified amount of time before regenerating stamina again.
+            yield return TimeToWait;
+        }
+
+        // Reset the regeneratingStamina coroutine to null once the player's stamina has fully regenerated.
+        regeneratingStamina = null;
     }
 }
