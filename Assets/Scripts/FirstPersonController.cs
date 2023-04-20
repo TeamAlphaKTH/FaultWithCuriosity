@@ -13,17 +13,32 @@ public class FirstPersonController:MonoBehaviour {
 
     [Header("Functional Options")]
     [SerializeField] private bool canJump = true;
+    [SerializeField] private bool canUseHeadBob = true;
 
     [Header("Controls")]
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
 
+    [Header("Head Bob Parameters")]
+    [SerializeField] private float walkBobSpeed = 14f;
+    [SerializeField] private float walkBobAmount = 0.05f;
+    [SerializeField] private float runBobSpeed = 18f;
+    [SerializeField] private float runBobAmount = 0.1f;
+    [SerializeField] private float crouchBobSpeed = 8f;
+    [SerializeField] private float crouchBobAmount = 0.025f;
+    private float defaultXPos = 0.2f;
+    private float defaultYPos = 0.2f;
+    private float timer = 0;
+
     private Vector2 currentInput;
     private Vector3 moveDirection;
     private CharacterController characterController;
+    private Camera playerCamera;
 
     // Start is called before the first frame update
     void Start() {
+        playerCamera = GetComponentInChildren<Camera>();
         characterController = GetComponent<CharacterController>();
+        defaultYPos = playerCamera.transform.localPosition.y;
     }
 
     // Update is called once per frame
@@ -32,6 +47,9 @@ public class FirstPersonController:MonoBehaviour {
             HandleInput();
             HandleJump();
             ApplyFinalMovement();
+            if(canUseHeadBob) {
+                HandleHeadBob();
+            }
         }
     }
 
@@ -72,5 +90,18 @@ public class FirstPersonController:MonoBehaviour {
             moveDirection.y -= gravity * Time.deltaTime;
         }
         characterController.Move(moveDirection * Time.deltaTime);
+    }
+
+    /// <summary>
+    /// Makes the camera move up and down when moving to simulate head bobbing. The camera moves at different speeds depending on if the player is crouching, walking or running.
+    /// </summary>
+    private void HandleHeadBob() {
+        if(!characterController.isGrounded) {
+            return;
+        }
+        if(Mathf.Abs(moveDirection.x) > 0.1f || Mathf.Abs(moveDirection.z) > 0.1f) {
+            timer += Time.deltaTime * walkBobSpeed;/*(isCrouching ? crouchBobSpeed : isRunning ? runBobSpeed : walkBobSpeed);*/
+            playerCamera.transform.localPosition = new Vector3(playerCamera.transform.localPosition.x, defaultYPos + Mathf.Sin(timer) * (walkBobAmount)/*(isCrouching ? crouchBobAmount : isRunning ? runBobAmount : walkBobAmount)*/);
+        }
     }
 }

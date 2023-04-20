@@ -450,6 +450,16 @@ MonoBehaviour:
   walkSpeed: 3
   runSpeed: 10
   gravity: 30
+  jumpForce: 8
+  canJump: 1
+  canUseHeadBob: 1
+  jumpKey: 32
+  walkBobSpeed: 14
+  walkBobAmount: 0.035
+  runBobSpeed: 18
+  runBobAmount: 0.1
+  crouchBobSpeed: 8
+  crouchBobAmount: 0.025
 --- !u!1 &847775017
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,6 +576,7 @@ GameObject:
   - component: {fileID: 955899829}
   - component: {fileID: 955899828}
   - component: {fileID: 955899827}
+  - component: {fileID: 955899830}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -647,6 +658,20 @@ Transform:
   m_Father: {fileID: 1755074886}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &955899830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955899826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c713e27f95d9c884e8df92d38a757c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitivity: 300
+  person: {fileID: 743268829}
 --- !u!1 &1755074885
 GameObject:
   m_ObjectHideFlags: 0
