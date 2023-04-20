@@ -1,3 +1,4 @@
+using UnityEngine;
 public class FirstPersonController:MonoBehaviour {
     public bool CanMove { get; private set; } = true;
     private bool IsRunning => Input.GetKey(runKey) && canRun;
@@ -187,20 +188,18 @@ public class FirstPersonController:MonoBehaviour {
             gravity = oldGravity;
         }
     }
-}
-characterController.Move(moveDirection * Time.deltaTime);
-    }
+
 
     /// <summary>
     /// Makes the camera move up and down when moving to simulate head bobbing. The camera moves at different speeds depending on if the player is crouching, walking or running.
     /// </summary>
     private void HandleHeadBob() {
-    if(!characterController.isGrounded) {
-        return;
+        if(!characterController.isGrounded) {
+            return;
+        }
+        if(Mathf.Abs(moveDirection.x) > 0.1f || Mathf.Abs(moveDirection.z) > 0.1f) {
+            timer += Time.deltaTime * walkBobSpeed;/*(isCrouching ? crouchBobSpeed : isRunning ? runBobSpeed : walkBobSpeed);*/
+            playerCamera.transform.localPosition = new Vector3(playerCamera.transform.localPosition.x, defaultYPos + Mathf.Sin(timer) * (walkBobAmount)/*(isCrouching ? crouchBobAmount : isRunning ? runBobAmount : walkBobAmount)*/);
+        }
     }
-    if(Mathf.Abs(moveDirection.x) > 0.1f || Mathf.Abs(moveDirection.z) > 0.1f) {
-        timer += Time.deltaTime * walkBobSpeed;/*(isCrouching ? crouchBobSpeed : isRunning ? runBobSpeed : walkBobSpeed);*/
-        playerCamera.transform.localPosition = new Vector3(playerCamera.transform.localPosition.x, defaultYPos + Mathf.Sin(timer) * (walkBobAmount)/*(isCrouching ? crouchBobAmount : isRunning ? runBobAmount : walkBobAmount)*/);
-    }
-}
 }
