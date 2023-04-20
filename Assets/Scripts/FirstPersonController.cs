@@ -7,6 +7,7 @@ public class FirstPersonController:MonoBehaviour {
     [Header("Movement Parameters")]
     [SerializeField] private float walkSpeed = 3.0f;
     [SerializeField] private float runSpeed = 6.0f;
+    [SerializeField] private float climbSpeed = 3.0f;
 
     // Movement speed when the player is not moving forward.
     [SerializeField] private float slowSpeedWalk = 1.8f;
@@ -34,7 +35,7 @@ public class FirstPersonController:MonoBehaviour {
     private Vector2 currentSpeed = Vector2.zero;
     private Vector3 moveDirection;
     private CharacterController characterController;
-
+    private float oldGravity;
 
     // Start is called before the first frame update
     void Start() {
@@ -99,12 +100,10 @@ public class FirstPersonController:MonoBehaviour {
             }
         }
 
-
         // 2D vector based on the player's input axis for vertical and horizontal movement and scales it by walk speed.
         currentInput = new Vector2(speed * verticalInput, speed * horizontalInput);
 
         currentSpeed = Vector2.MoveTowards(currentSpeed, currentInput, accelerationRate * Time.deltaTime);
-
         Debug.Log("Current speed: " + currentSpeed);
         float moveDirectionY = moveDirection.y;
 
@@ -121,5 +120,55 @@ public class FirstPersonController:MonoBehaviour {
             moveDirection.y -= gravity * Time.deltaTime;
         }
         characterController.Move(moveDirection * Time.deltaTime);
+    }
+
+    /// <summary>
+    /// Handles player on ladder going up down left and right 
+    /// </summary>
+    /// <param name="ladderHitbox"></param>
+    private void OnTriggerStay(Collider ladderHitbox) {
+        //Check that the gameobject is a "Ladder"
+        if(ladderHitbox.CompareTag("Ladder")) {
+            //Turn off gravity and normal movement while on "Ladder"
+            if(gravity != 0f)
+                oldGravity = gravity;
+
+            gravity = 0f;
+
+            if(!characterController.isGrounded) {
+                CanMove = false;
+            } else {
+                CanMove = true;
+            }
+
+            //Handles movement on "Ladder"
+            if(Input.GetAxis("Vertical") > 0) {
+                Debug.Log(Input.GetAxis("Vertical"));
+                moveDirection = (transform.TransformDirection(Vector3.up) * climbSpeed);
+                characterController.Move(moveDirection * Time.deltaTime);
+            } else if(Input.GetAxis("Vertical") < 0) {
+                moveDirection = (transform.TransformDirection(Vector3.down) * climbSpeed);
+                characterController.Move(moveDirection * Time.deltaTime);
+            }
+            if(Input.GetAxis("Horizontal") > 0) {
+                moveDirection = (transform.TransformDirection(Vector3.right) * climbSpeed);
+                characterController.Move(moveDirection * Time.deltaTime);
+            } else if(Input.GetAxis("Horizontal") < 0) {
+                moveDirection = (transform.TransformDirection(Vector3.left) * climbSpeed);
+                characterController.Move(moveDirection * Time.deltaTime);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Handles when player leave ladder
+    /// </summary>
+    /// <param name="ladderHitbox"></param>
+    private void OnTriggerExit(Collider ladderHitbox) {
+        if(ladderHitbox.CompareTag("Ladder")) {
+            //Activates normal movement and gravity
+            CanMove = true;
+            gravity = oldGravity;
+        }
     }
 }
