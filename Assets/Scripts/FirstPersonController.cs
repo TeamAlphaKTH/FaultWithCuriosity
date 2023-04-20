@@ -8,6 +8,7 @@ public class FirstPersonController:MonoBehaviour {
     [SerializeField] private float walkSpeed = 3.0f;
     [SerializeField] private float runSpeed = 6.0f;
     [SerializeField] private float climbSpeed = 3.0f;
+    [SerializeField] private float slopeSlideSpeed = 8.0f;
 
     // Movement speed when the player is not moving forward.
     [SerializeField] private float slowSpeedWalk = 1.8f;
@@ -24,10 +25,24 @@ public class FirstPersonController:MonoBehaviour {
     [Header("Functional Options")]
     [SerializeField] private bool canJump = true;
     [SerializeField] private bool canRun = true;
+    [SerializeField] private bool willSlideOnSlope = true;
 
     [Header("Controls")]
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
     [SerializeField] private KeyCode runKey = KeyCode.LeftShift;
+
+    // Slope sliding parameters
+    private Vector3 hitPointNormal;
+    private bool IsSliding {
+        get {
+            if(characterController.isGrounded && Physics.Raycast(transform.position, Vector3.down, out RaycastHit slopeHit, 2f)) {
+                hitPointNormal = slopeHit.normal;
+                return Vector3.Angle(hitPointNormal, Vector3.up) > characterController.slopeLimit;
+            } else {
+                return false;
+            }
+        }
+    }
 
     private Vector2 currentInput;
 
@@ -56,7 +71,7 @@ public class FirstPersonController:MonoBehaviour {
     /// </summary>
     private void HandleJump() {
         if(canJump) {
-            if(Input.GetKey(jumpKey) && characterController.isGrounded) {
+            if(Input.GetKey(jumpKey) && characterController.isGrounded && !IsSliding) {
                 moveDirection.y = jumpForce;
             }
         }
@@ -119,6 +134,11 @@ public class FirstPersonController:MonoBehaviour {
         if(!characterController.isGrounded) {
             moveDirection.y -= gravity * Time.deltaTime;
         }
+
+        if(willSlideOnSlope && IsSliding) {
+            moveDirection += new Vector3(hitPointNormal.x, -hitPointNormal.y, hitPointNormal.z) * slopeSlideSpeed;
+        }
+
         characterController.Move(moveDirection * Time.deltaTime);
     }
 
