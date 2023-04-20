@@ -965,7 +965,7 @@ GameObject:
   - component: {fileID: 4256443570720659492}
   - component: {fileID: 8066599698167049067}
   m_Layer: 0
-  m_Name: PlayerAaron
+  m_Name: Player Aaron
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3008,7 +3008,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5908237021158961320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.675, z: 0.17499995}
+  m_LocalPosition: {x: 0, y: 1.675, z: 0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3048,7 +3048,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 60
+  field of view: 80
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -3368,7 +3368,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -4495383315222395891, guid: e326b60e34a653045a9552207617cde6, type: 3}
-  - {fileID: 8574030390731135242, guid: e326b60e34a653045a9552207617cde6, type: 3}
+  - {fileID: 2100000, guid: 9c0a7223f2cab624c97e1df38877b783, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
