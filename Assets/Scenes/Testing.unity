@@ -449,11 +449,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 3
   runSpeed: 10
+  climbSpeed: 3
+  slowSpeedWalk: 1.8
+  slowSpeedRun: 3.6
+  acceleration: 100
+  deceleration: 100
   gravity: 30
   jumpForce: 8
   canJump: 1
+  canRun: 1
   canUseHeadBob: 1
   jumpKey: 32
+  runKey: 304
   walkBobSpeed: 14
   walkBobAmount: 0.035
   runBobSpeed: 18

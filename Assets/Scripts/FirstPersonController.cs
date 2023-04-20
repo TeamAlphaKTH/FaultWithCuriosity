@@ -32,11 +32,10 @@ public class FirstPersonController:MonoBehaviour {
     [Header("Head Bob Parameters")]
     [SerializeField] private float walkBobSpeed = 14f;
     [SerializeField] private float walkBobAmount = 0.05f;
-    [SerializeField] private float runBobSpeed = 18f;
+    [SerializeField] private float runBobSpeed = 15f;
     [SerializeField] private float runBobAmount = 0.1f;
     [SerializeField] private float crouchBobSpeed = 8f;
     [SerializeField] private float crouchBobAmount = 0.025f;
-    private float defaultXPos = 0.2f;
     private float defaultYPos = 0.2f;
     private float timer = 0;
 
@@ -198,8 +197,8 @@ public class FirstPersonController:MonoBehaviour {
             return;
         }
         if(Mathf.Abs(moveDirection.x) > 0.1f || Mathf.Abs(moveDirection.z) > 0.1f) {
-            timer += Time.deltaTime * walkBobSpeed;/*(isCrouching ? crouchBobSpeed : isRunning ? runBobSpeed : walkBobSpeed);*/
-            playerCamera.transform.localPosition = new Vector3(playerCamera.transform.localPosition.x, defaultYPos + Mathf.Sin(timer) * (walkBobAmount)/*(isCrouching ? crouchBobAmount : isRunning ? runBobAmount : walkBobAmount)*/);
+            timer += Time.deltaTime * /*walkBobSpeed;*/(/*IsCrouching ? crouchBobSpeed : */IsRunning ? runBobSpeed : walkBobSpeed);
+            playerCamera.transform.localPosition = new Vector3(playerCamera.transform.localPosition.x, defaultYPos + Mathf.Sin(timer) * (/*walkBobAmount)(IsCrouching ? crouchBobAmount : */IsRunning ? runBobAmount : walkBobAmount));
         }
     }
 }
