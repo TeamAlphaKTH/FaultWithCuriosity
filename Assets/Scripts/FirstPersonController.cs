@@ -73,10 +73,6 @@ public class FirstPersonController:MonoBehaviour {
 	[SerializeField] private Camera playerCamera;
 	[SerializeField] private float cameraPos = -0.7f;
 
-	private Vector2 currentInput;
-	private Vector3 moveDirection;
-	private CharacterController characterController;
-
     // Start is called before the first frame update
 	void Start() {
 		characterController = GetComponent<CharacterController>();
