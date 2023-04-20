@@ -35,8 +35,8 @@ public class FirstPersonController:MonoBehaviour {
     private Vector3 hitPointNormal;
     private bool IsSliding {
         get {
-            // Check if characther is grounded and spherecast hit a slope
-            if(characterController.isGrounded && Physics.SphereCast(transform.position, 0.5f, Vector3.down, out RaycastHit slopeHit, 2f, Physics.DefaultRaycastLayers)) {
+            // Check if characther is grounded and raycast hit a slope
+            if(characterController.isGrounded && Physics.Raycast(transform.position, Vector3.down, out RaycastHit slopeHit, 2f)) {
                 // Check if slope angle is greater than character controller's slope limit
                 hitPointNormal = slopeHit.normal;
                 return Vector3.Angle(hitPointNormal, Vector3.up) > characterController.slopeLimit;
