@@ -36,23 +36,17 @@ public class FirstPersonController:MonoBehaviour {
 
     private bool IsSliding {
         get {
-            float maxAngle = -1f;
-            float raycastDistance = characterController.height / 2f;
-            for(int i = 0; i < 8; i++) { // Cast 8 rays around the character
-                Vector3 direction = Quaternion.AngleAxis(i * 45f, Vector3.up) * -transform.forward;
-                if(Physics.Raycast(transform.position, direction, out RaycastHit hit, raycastDistance)) {
-                    float angle = Vector3.Angle(hit.normal, Vector3.up);
-                    if(angle > maxAngle) {
-                        maxAngle = angle;
-                        hitPointNormal = hit.normal;
+            if(characterController.isGrounded) {
+                float slopeCheckDistance = characterController.height / 25f + characterController.radius;
+                Vector3 slopeCheckOrigin = transform.position + Vector3.down * slopeCheckDistance;
+                if(Physics.Raycast(slopeCheckOrigin, transform.forward, out RaycastHit slopeHit, slopeCheckDistance)) {
+                    if(slopeHit.collider != characterController) {
+                        hitPointNormal = slopeHit.normal;
+                        return Vector3.Angle(hitPointNormal, Vector3.up) > characterController.slopeLimit;
                     }
                 }
             }
-            if(characterController.isGrounded) {
-                return maxAngle > characterController.slopeLimit;
-            } else {
-                return false;
-            }
+            return false;
         }
     }
 
