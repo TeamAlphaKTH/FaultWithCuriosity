@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class FirstPersonController:MonoBehaviour {
     public bool CanMove { get; private set; } = true;
@@ -9,14 +10,29 @@ public class FirstPersonController:MonoBehaviour {
 
     [Header("Jumping Parameters")]
     [SerializeField] private float gravity = 30f;
-    [SerializeField] private float jumpForce = 8f;
+    [SerializeField] private float standingJump = 8f;
+    [SerializeField] private float crouchJump = 4f;
+    private float jumpForce;
+
+    [Header("Crouching Parameters")]
+    [SerializeField] private float crouchHeight = 0.5f;
+    [SerializeField] private float standingHeight = 1.0f;
+    [SerializeField] private float timeToCrouch = 0.25f;
+    [SerializeField] private Vector3 crouchingCenter = new Vector3(0, 0.5f, 0);
+    [SerializeField] private Vector3 standingCenter = new Vector3(0, 0, 0);
+    private bool isCrouching;
+    private bool duringCrouchAnimation;
 
     [Header("Functional Options")]
     [SerializeField] private bool canJump = true;
+    [SerializeField] private bool canCrouch = true;
+
 
     [Header("Controls")]
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
+    [SerializeField] private KeyCode crouchKey = KeyCode.LeftControl;
 
+    [SerializeField] private Camera playerCamera;
     private Vector2 currentInput;
     private Vector3 moveDirection;
     private CharacterController characterController;
@@ -31,6 +47,7 @@ public class FirstPersonController:MonoBehaviour {
         if(CanMove) {
             HandleInput();
             HandleJump();
+            HandleCrouch();
             ApplyFinalMovement();
         }
     }
@@ -40,10 +57,50 @@ public class FirstPersonController:MonoBehaviour {
     /// </summary>
     private void HandleJump() {
         if(canJump) {
-            if(Input.GetKey(jumpKey) && characterController.isGrounded) {
+            jumpForce = isCrouching ? crouchJump : standingJump;
+            if(Input.GetKeyDown(jumpKey) && characterController.isGrounded) {
                 moveDirection.y = jumpForce;
             }
         }
+    }
+
+    private void HandleCrouch() {
+        if(canCrouch) {
+            if(Input.GetKey(crouchKey) && !duringCrouchAnimation && characterController.isGrounded) {
+                StartCoroutine(CrouchStand());
+            }
+        }
+    }
+
+    private IEnumerator CrouchStand() {
+        if(isCrouching && Physics.Raycast(playerCamera.transform.position, Vector3.up, 1f)) {
+            yield break;
+        }
+        duringCrouchAnimation = true;
+
+        float timeElapsed = 0;
+        float targetObjectHeight = isCrouching ? characterController.transform.localScale.y * 2 : characterController.transform.localScale.y / 2;
+        float targetHeight = isCrouching ? standingHeight : crouchHeight;
+        float currentHeight = characterController.height;
+        Vector3 targetCenter = isCrouching ? standingCenter : crouchingCenter;
+        Vector3 currentCenter = characterController.center;
+        Vector3 newScale = characterController.transform.localScale;
+        while(timeElapsed < timeToCrouch) {
+            characterController.height = Mathf.Lerp(currentHeight, targetObjectHeight, timeElapsed / timeToCrouch);
+            characterController.center = Vector3.Lerp(currentCenter, targetCenter, timeElapsed / timeToCrouch);
+            newScale.y = Mathf.Lerp(newScale.y, targetObjectHeight, timeElapsed / timeToCrouch);
+            characterController.transform.localScale = newScale;
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        characterController.transform.localScale = new Vector3(characterController.transform.localScale.x, targetObjectHeight, characterController.transform.localScale.z);
+        characterController.height = targetHeight;
+        characterController.center = targetCenter;
+
+        isCrouching = !isCrouching;
+
+        duringCrouchAnimation = false;
     }
 
     /// <summary>
@@ -60,6 +117,7 @@ public class FirstPersonController:MonoBehaviour {
         float moveDirectionY = moveDirection.y;
 
         //Calculates the movement direction of the character based on the current input vector and the orientation of the character in the world.
+        /* *** Crouching speed has to be added *** */
         moveDirection = (transform.TransformDirection(Vector3.forward) * currentInput.x) + (transform.TransformDirection(Vector3.right) * currentInput.y);
         moveDirection.y = moveDirectionY;
     }

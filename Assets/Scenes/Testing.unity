@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -450,6 +450,17 @@ MonoBehaviour:
   walkSpeed: 3
   runSpeed: 10
   gravity: 30
+  jumpForce: 8
+  crouchHeight: 1
+  standingHeight: 2
+  timeToCrouch: 0.25
+  crouchingCenter: {x: 0, y: 0.5, z: 0}
+  standingCenter: {x: 0, y: 0, z: 0}
+  canJump: 1
+  canCrouch: 1
+  jumpKey: 32
+  crouchKey: 99
+  playerCamera: {fileID: 955899828}
 --- !u!1 &847775017
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,6 +576,7 @@ GameObject:
   m_Component:
   - component: {fileID: 955899829}
   - component: {fileID: 955899828}
+  - component: {fileID: 955899830}
   - component: {fileID: 955899827}
   m_Layer: 0
   m_Name: Main Camera
@@ -647,6 +659,20 @@ Transform:
   m_Father: {fileID: 1755074886}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &955899830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955899826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c713e27f95d9c884e8df92d38a757c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitivity: 125
+  person: {fileID: 743268829}
 --- !u!1 &1755074885
 GameObject:
   m_ObjectHideFlags: 0
