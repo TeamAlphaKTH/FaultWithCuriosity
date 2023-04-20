@@ -135,7 +135,7 @@ public class FirstPersonController:MonoBehaviour {
 			yield return null;
 		}
 
-		playerCamera.transform.position -= new Vector3(0, cameraPos, 0);
+		playerCamera.transform.position += new Vector3(0, cameraPos, 0);
 		characterController.height = targetHeight;
 		characterController.center = targetCenter;
 
