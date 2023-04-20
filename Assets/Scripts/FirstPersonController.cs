@@ -27,10 +27,10 @@ public class FirstPersonController:MonoBehaviour {
 	[SerializeField] private float crouchJump = 4f;
 
     [Header("Crouching Parameters")]
-	[SerializeField] private float crouchHeight = 1.0f;
-	[SerializeField] private float standingHeight = 2.0f;
-	[SerializeField] private Vector3 crouchingCenter = new Vector3(0, 0.5f, 0);
-	[SerializeField] private Vector3 standingCenter = new Vector3(0, 0, 0);
+	[SerializeField] private float crouchHeight;
+	[SerializeField] private float standingHeight;
+    [SerializeField] private Vector3 crouchingCenter;
+	[SerializeField] private Vector3 standingCenter;
 	private float timeToCrouch = 0.25f;
 	private bool isCrouching;
 	private bool duringCrouchAnimation;
@@ -73,9 +73,16 @@ public class FirstPersonController:MonoBehaviour {
 	[SerializeField] private Camera playerCamera;
 	[SerializeField] private float cameraPos = -0.7f;
 
-    // Start is called before the first frame update
-	void Start() {
+	void Awake() {
 		characterController = GetComponent<CharacterController>();
+		standingCenter = characterController.center;
+        standingHeight = characterController.height;
+	}
+
+	// Start is called before the first frame update
+	void Start() {
+        crouchHeight = standingHeight / 2;
+        crouchingCenter = standingCenter / 2;
 	}
 
 	// Update is called once per frame
@@ -122,15 +129,15 @@ public class FirstPersonController:MonoBehaviour {
 		Vector3 currentCenter = characterController.center;
 		while(timeElapsed < timeToCrouch) {
 			characterController.height = Mathf.Lerp(currentHeight, targetHeight, timeElapsed / timeToCrouch);
-			characterController.center = Vector3.Lerp(currentCenter, -targetCenter, timeElapsed / timeToCrouch);
+			characterController.center = Vector3.Lerp(currentCenter, targetCenter, timeElapsed / timeToCrouch);
 
 			timeElapsed += Time.deltaTime;
 			yield return null;
 		}
 
-		playerCamera.transform.position += new Vector3(0, cameraPos, 0);
+		playerCamera.transform.position -= new Vector3(0, cameraPos, 0);
 		characterController.height = targetHeight;
-		characterController.center = -targetCenter;
+		characterController.center = targetCenter;
 
 		cameraPos = -cameraPos;
 		isCrouching = !isCrouching;
