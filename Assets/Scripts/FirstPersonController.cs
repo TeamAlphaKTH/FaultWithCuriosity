@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
 public class FirstPersonController:MonoBehaviour {
 
@@ -94,7 +94,7 @@ public class FirstPersonController:MonoBehaviour {
 			ApplyFinalMovement();
 		}
 	}
-	
+
 	/// <summary>
 	/// Handles jump
 	/// </summary>
@@ -135,11 +135,18 @@ public class FirstPersonController:MonoBehaviour {
 			yield return null;
 		}
 
+		/* 
+		 * Används för att förändra kameran
+		 * 
 		playerCamera.transform.position += new Vector3(0, cameraPos, 0);
+
+		// gör motsatsen dvs. standing -> crouch men också crouch -> standing
+		cameraPos = -cameraPos;
+		*/
+
 		characterController.height = targetHeight;
 		characterController.center = targetCenter;
 
-		cameraPos = -cameraPos;
 		isCrouching = !isCrouching;
 
 		duringCrouchAnimation = false;
