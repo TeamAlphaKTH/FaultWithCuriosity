@@ -26,12 +26,19 @@ public class FirstPersonController:MonoBehaviour {
 	[SerializeField] private float standingJump = 8f;
 	[SerializeField] private float crouchJump = 4f;
 
+	[Header("Camera Reference")]
+	[SerializeField] private Camera playerCamera;
+	[SerializeField] private float cameraPos = -0.7f;
+
 	[Header("Crouching Parameters")]
 	[SerializeField] private float crouchHeight;
 	[SerializeField] private float standingHeight;
 	[SerializeField] private Vector3 crouchingCenter;
 	[SerializeField] private Vector3 standingCenter;
+
+	// Changes the time between toggle and hold crouch - must be above 0.15f
 	private float timeToCrouch = 0.25f;
+
 	private bool isCrouching;
 	private bool duringCrouchAnimation;
 
@@ -69,10 +76,6 @@ public class FirstPersonController:MonoBehaviour {
 	private CharacterController characterController;
 	private float oldGravity;
 
-	[Header("Camera")]
-	[SerializeField] private Camera playerCamera;
-	[SerializeField] private float cameraPos = -0.7f;
-
 	void Awake() {
 		characterController = GetComponent<CharacterController>();
 		standingCenter = characterController.center;
@@ -96,7 +99,7 @@ public class FirstPersonController:MonoBehaviour {
 	}
 
 	/// <summary>
-	/// Handles jump
+	/// Handles jump 
 	/// </summary>
 	private void HandleJump() {
 		if(canJump) {
@@ -107,15 +110,26 @@ public class FirstPersonController:MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Handles the character crouch.
+	/// </summary>
+	/// <remarks>
+	/// 
+	/// </remarks>
 	private void HandleCrouch() {
 		if(canCrouch) {
-			if(Input.GetKeyDown(crouchKey) && !duringCrouchAnimation && characterController.isGrounded) {
+
+			// Both toggle coruch and hold crouch with || Input.GetKeyUp(crouchKey)  
+			if(Input.GetKeyDown(crouchKey) || Input.GetKeyUp(crouchKey) && !duringCrouchAnimation && characterController.isGrounded) {
 				StartCoroutine(CrouchStand());
 			}
 		}
 	}
 
 	private IEnumerator CrouchStand() {
+
+		// Can't stand when blocking object (1f up) is above player
+		// won't stand up when hold crouch is released - changes automatically to toggle crouch
 		if(isCrouching && Physics.Raycast(playerCamera.transform.position, Vector3.up, 1f)) {
 			yield break;
 		}
@@ -127,6 +141,11 @@ public class FirstPersonController:MonoBehaviour {
 
 		Vector3 targetCenter = isCrouching ? standingCenter : crouchingCenter;
 		Vector3 currentCenter = characterController.center;
+
+		// Above while loop for hold crouch 
+		isCrouching = !isCrouching;
+
+		// Changes the characters hitbox / collider
 		while(timeElapsed < timeToCrouch) {
 			characterController.height = Mathf.Lerp(currentHeight, targetHeight, timeElapsed / timeToCrouch);
 			characterController.center = Vector3.Lerp(currentCenter, targetCenter, timeElapsed / timeToCrouch);
@@ -135,19 +154,15 @@ public class FirstPersonController:MonoBehaviour {
 			yield return null;
 		}
 
-		/* 
-		 * Används för att förändra kameran
-		 * 
+		// Moves the camera down
 		playerCamera.transform.position += new Vector3(0, cameraPos, 0);
 
-		// gör motsatsen dvs. standing -> crouch men också crouch -> standing
+		// Reverses the position of the camera to stand / crouch - crouch -> stand and stand -> crouch
 		cameraPos = -cameraPos;
-		*/
 
+		// Ensure correct moved charachter collider
 		characterController.height = targetHeight;
 		characterController.center = targetCenter;
-
-		isCrouching = !isCrouching;
 
 		duringCrouchAnimation = false;
 	}
