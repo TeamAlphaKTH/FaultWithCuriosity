@@ -16,12 +16,6 @@ public class FirstPersonController:MonoBehaviour {
 	[SerializeField] private float slowSpeedWalk = 1.8f;
 	[SerializeField] private float slowSpeedRun = 3.6f;
 
-	// Movement speed when the player is crouching - might not be used
-	[SerializeField] private float crouchWalkSpeed;
-	[SerializeField] private float crouchRunSpeed;
-	[SerializeField] private float crouchSlowSpeedWalk;
-	[SerializeField] private float crouchSlowSpeedRun;
-
 	// Lower values will make the character accelerate slower, higher values will make the character accelerate faster.
 	[SerializeField] private float acceleration = 100f;
 	[SerializeField] private float deceleration = 100f;
