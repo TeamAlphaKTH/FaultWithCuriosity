@@ -148,7 +148,6 @@ public class FirstPersonController:MonoBehaviour {
 			}
 		}
 	}
-
 	private IEnumerator CrouchStand() {
 
 		// Can't stand when blocking object (1f up) is above player
