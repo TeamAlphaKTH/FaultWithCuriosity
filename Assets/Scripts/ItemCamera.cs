@@ -11,6 +11,9 @@ public class ItemCamera : MonoBehaviour
 	[SerializeField] private bool canRechargeCamera;
     public static bool canUseCamera = true;
 
+	[Header("Polaroid GameObject")]
+	[SerializeField] private GameObject itemPolaroid;
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -34,6 +37,7 @@ public class ItemCamera : MonoBehaviour
         if(Input.GetKeyDown(useCameraButton)) {
             if(canUseCamera) {
                 charges--;
+                SpawnItemPolaroid();
             }
         }
     }
@@ -52,4 +56,7 @@ public class ItemCamera : MonoBehaviour
         }
         
     }
+	private void SpawnItemPolaroid() {
+        Instantiate(itemPolaroid, transform.position, Quaternion.identity);
+	}
 }

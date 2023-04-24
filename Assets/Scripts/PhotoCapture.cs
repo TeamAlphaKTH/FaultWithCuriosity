@@ -47,7 +47,7 @@ public class PhotoCapture : MonoBehaviour
         Rect regionToRead = new Rect(0, 0, Screen.width, Screen.height);
         screenCapture.ReadPixels(regionToRead, 0, 0, false);
         screenCapture.Apply();
-        ShowPhoto();
+        //ShowPhoto();
     }
 
     private void ShowPhoto() {
