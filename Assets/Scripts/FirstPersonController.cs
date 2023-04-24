@@ -257,22 +257,18 @@ public class FirstPersonController:MonoBehaviour {
 
             // Decrease the current stamina based on the stamina use decrements and the time passed since the last frame.
             currentStamina -= staminaUseDecrements * Time.deltaTime;
-            if(currentStamina < 0) {
-                currentStamina = 0;
-            }
-
-            // Invoke the OnStaminaChange event to notify any listeners that the player's stamina has changed.
-            OnStaminaChange?.Invoke(currentStamina);
-
-            // Disable running if the current stamina has reached zero
             if(currentStamina <= 0) {
+                currentStamina = 0;
                 canRun = false;
             }
 
             // Cap the current stamina to the maximum stamina value.
-            if(currentStamina > 100) {
+            else if(currentStamina > 100) {
                 currentStamina = 100;
             }
+
+            // Invoke the OnStaminaChange event to notify any listeners that the player's stamina has changed.
+            OnStaminaChange?.Invoke(currentStamina);
         }
 
         // Start regenerating stamina if the player is not running and their current stamina is less than the maximum stamina.
