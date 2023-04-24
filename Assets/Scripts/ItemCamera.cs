@@ -57,6 +57,6 @@ public class ItemCamera : MonoBehaviour
         
     }
 	private void SpawnItemPolaroid() {
-        Instantiate(itemPolaroid, transform.position, Quaternion.identity);
+        Instantiate(itemPolaroid, new Vector3(Random.Range(transform.position.x - 0.5f, transform.position.x + 0.5f), Random.Range(transform.position.y - 0.5f, transform.position.y + 0.5f), Random.Range(transform.position.z - 0.5f, transform.position.z + 0.5f)), Quaternion.identity);
 	}
 }
