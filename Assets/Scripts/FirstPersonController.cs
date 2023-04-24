@@ -33,7 +33,7 @@ public class FirstPersonController:MonoBehaviour {
     [SerializeField] private float walkBobSpeed = 14f;
     [SerializeField] private float walkBobAmount = 0.05f;
     [SerializeField] private float runBobSpeed = 15f;
-    [SerializeField] private float runBobAmount = 0.1f;
+    [SerializeField] private float runBobAmount = 0.07f;
     [SerializeField] private float crouchBobSpeed = 8f;
     [SerializeField] private float crouchBobAmount = 0.025f;
     private float defaultYPos = 0.2f;
