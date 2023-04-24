@@ -151,10 +151,6 @@ public class FirstPersonController:MonoBehaviour {
 		float targetHeight = isCrouching ? standingHeight : crouchHeight;
 		float currentHeight = characterController.height;
 
-		// Calculates the new camera position 
-		var halfHeightDifference = new Vector3(0, standingHeight - targetHeight, 0);
-		var newCameraPosition = initialCameraPosition - halfHeightDifference;
-
 		Vector3 targetCenter = isCrouching ? standingCenter : crouchingCenter;
 		Vector3 currentCenter = characterController.center;
 
@@ -169,6 +165,10 @@ public class FirstPersonController:MonoBehaviour {
 			timeElapsed += Time.deltaTime;
 			yield return null;
 		}
+
+		// Calculates the new camera position 
+		var halfHeightDifference = new Vector3(0, standingHeight - targetHeight, 0);
+		var newCameraPosition = initialCameraPosition - halfHeightDifference;
 
 		// Moves the camera down
 		playerCamera.transform.localPosition = newCameraPosition;
