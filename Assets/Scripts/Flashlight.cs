@@ -15,12 +15,20 @@ public class Flashlight:MonoBehaviour {
     public float batteryLevel = 100;
     private float minIntensity = 1f;
     private float maxIntensity = 7f;
-    private float flickerDuration = 0.2f;
+    private float flickerDuration = 0.65f;
     private float flickerDelay = 0.1f;
     private bool isFlickering = false;
 
+    [Header("Paranoia parameters")]
+    [SerializeField] private float maxParanoia = 100f;
+    [SerializeField] private float paranoiaIncrements = 0.2f;
+    [SerializeField] private float currentParanoia;
+    [SerializeField] private TMP_Text paranoiaText;
+
     private void Awake() {
         batteryText.SetText("100%");
+        paranoiaText.SetText("0%");
+        currentParanoia = 0;
     }
 
     void Start() {
@@ -63,15 +71,22 @@ public class Flashlight:MonoBehaviour {
                     CancelInvoke("Flicker");
                 }
             }
-        } else {
+        } else if(batteryLevel < 0) {
             batteryLevel = Mathf.Max(batteryLevel, 0);
             isFlickering = false;
             FlashlightLight.gameObject.SetActive(false);
             flashlightActive = false;
+        } else if(!flashlightActive && currentParanoia < 100) {
+            currentParanoia = currentParanoia * 1.001f + paranoiaIncrements * Time.deltaTime;
         }
-        batteryText.SetText(batteryLevel.ToString("F0") + "%");
-    }
 
+        if(currentParanoia >= 100) {
+            Debug.Log("Dead");
+        }
+
+        batteryText.SetText(batteryLevel.ToString("F0") + "%");
+        paranoiaText.SetText(currentParanoia.ToString("F0") + "%");
+    }
 
     private void Flicker() {
         float randomIntensity = Random.Range(minIntensity, maxIntensity);
