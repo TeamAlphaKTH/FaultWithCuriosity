@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311924, g: 0.38073963, b: 0.3587269, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1289,6 +1289,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4256443570720659492, guid: b30b71d7a9fe69047a6731dc71eb2398, type: 3}
       propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 1135625743}
+    - target: {fileID: 4256443570720659492, guid: b30b71d7a9fe69047a6731dc71eb2398, type: 3}
+      propertyPath: headbobPlayerCamera
       value: 
       objectReference: {fileID: 1819142494}
     m_RemovedComponents: []
