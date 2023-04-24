@@ -178,8 +178,8 @@ public class FirstPersonController:MonoBehaviour {
 		}
 
 		// Calculates the new camera position 
-		var halfHeightDifference = new Vector3(0, standingHeight - targetHeight, 0);
-		var newCameraPosition = initialCameraPosition - halfHeightDifference;
+		Vector3 halfHeightDifference = new(0, standingHeight - targetHeight, 0);
+		Vector3 newCameraPosition = initialCameraPosition - halfHeightDifference;
 
 		// Moves the camera down
 		playerCamera.transform.localPosition = newCameraPosition;
