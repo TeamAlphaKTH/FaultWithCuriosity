@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -47,7 +48,6 @@ public class FirstPersonController:MonoBehaviour {
     [SerializeField] private KeyCode runKey = KeyCode.LeftShift;
     [SerializeField] private KeyCode crouchKey = KeyCode.LeftControl;
 
-
     [Header("Head Bob Parameters")]
     [SerializeField] private float walkBobSpeed = 14f;
     [SerializeField] private float walkBobAmount = 0.05f;
@@ -68,6 +68,7 @@ public class FirstPersonController:MonoBehaviour {
     [SerializeField] private float regenTimer = 0.01f;
     [SerializeField] private float currentStamina;
     private Coroutine regeneratingStamina;
+    private bool useStamina = true;
     public static Action<float> OnStaminaChange;
 
 
@@ -123,8 +124,9 @@ public class FirstPersonController:MonoBehaviour {
             ApplyFinalMovement();
             if(useStamina) {
                 HandleStamina();
-            if(canUseHeadBob) {
-                HandleHeadBob();
+                if(canUseHeadBob) {
+                    HandleHeadBob();
+                }
             }
         }
     }
