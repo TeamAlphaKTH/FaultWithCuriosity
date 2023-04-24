@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -5,8 +6,6 @@ public class FirstPersonController:MonoBehaviour {
 
     public static bool CanMove { get; set; } = true;
     private bool IsRunning => Input.GetKey(runKey) && canRun;
-
-    //private bool IsCrouching => isCrouching && !duringCrouchAnimation;
 
     [Header("Movement Parameters")]
     [SerializeField] private float walkSpeed = 3.0f;
@@ -33,22 +32,25 @@ public class FirstPersonController:MonoBehaviour {
     [SerializeField] private float gravity = 40f;
     [SerializeField] private float jumpForce = 7.8f;
     [SerializeField] private float standingJump = 8f;
-    [SerializeField] private float crouchJump = 4f;
+    [SerializeField] private float crouchJump;
+
+    [Header("Camera Reference")]
+    [SerializeField] public Transform playerCamera;
+    [SerializeField] private Camera headbobPlayerCamera;
+    Vector3 initialCameraPosition;
 
     [Header("Crouching Parameters")]
+    [SerializeField] private float crouchMultiplier = 0.6f;
+    // All these parameters are Seralized for testing purposes - their value is set in start()
     [SerializeField] private float crouchHeight;
     [SerializeField] private float standingHeight;
     [SerializeField] private Vector3 crouchingCenter;
     [SerializeField] private Vector3 standingCenter;
+
+    // Changes the time between toggle and hold crouch - must be above 0.15f
     private float timeToCrouch = 0.25f;
     private bool isCrouching;
     private bool duringCrouchAnimation;
-
-    [Header("Controls")]
-    [SerializeField] private KeyCode jumpKey = KeyCode.Space;
-    [SerializeField] private KeyCode runKey = KeyCode.LeftShift;
-    [SerializeField] private KeyCode crouchKey = KeyCode.LeftControl;
-
 
     [Header("Head Bob Parameters")]
     [SerializeField] private float walkBobSpeed = 14f;
@@ -61,17 +63,23 @@ public class FirstPersonController:MonoBehaviour {
     private float defaultZPos;
     private float timer = 0;
 
-    private Vector2 currentInput;
+    [Header("Stamina system parameters")]
+    [SerializeField] private float maxStamina = 100.0f;
+    [SerializeField] private float staminaRegenIncrements = 1.0f;
+    [SerializeField] private float staminaUseDecrements = 15.0f;
+    [SerializeField] private float staminaRegenDelayTimer = 3.0f;
+    [SerializeField] private float speedToRegen = 0.2f;
+    [SerializeField] private float regenTimer = 0.01f;
+    [SerializeField] private float currentStamina;
+    private Coroutine regeneratingStamina;
+    private bool useStamina = true;
+    public static Action<float> OnStaminaChange;
 
-    // Initialize currentSpeed to zero so that the character doesn't move when the game starts.
-    private Vector2 currentSpeed = Vector2.zero;
-    private Vector3 moveDirection;
-    private CharacterController characterController;
-    private float oldGravity;
-
-    [Header("Camera")]
-    [SerializeField] private Camera playerCamera;
-    [SerializeField] private float cameraPos = -0.7f;
+    [Header("Controls")]
+    [SerializeField] private KeyCode jumpKey = KeyCode.Space;
+    [SerializeField] private KeyCode runKey = KeyCode.LeftShift;
+    [SerializeField] private KeyCode holdCrouchKey = KeyCode.LeftControl;
+    [SerializeField] private KeyCode toggleCrouchKey = KeyCode.C;
 
     // Slope sliding parameters
     private Vector3 hitPointNormal;
@@ -88,6 +96,15 @@ public class FirstPersonController:MonoBehaviour {
         }
     }
 
+    private Vector2 currentInput;
+
+    // Initialize currentSpeed to zero so that the character doesn't move when the game starts.
+    private Vector2 currentSpeed = Vector2.zero;
+    private Vector3 moveDirection;
+    private CharacterController characterController;
+    private float oldGravity;
+
+    // Is called first
     void Awake() {
         characterController = GetComponent<CharacterController>();
         standingCenter = characterController.center;
@@ -96,11 +113,17 @@ public class FirstPersonController:MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        crouchHeight = standingHeight / 2;
-        crouchingCenter = standingCenter / 2;
-        playerCamera = GetComponentInChildren<Camera>();
+        // for crouching
+        initialCameraPosition = playerCamera.transform.localPosition;
+        crouchHeight = standingHeight * crouchMultiplier;
+        crouchingCenter = standingCenter * crouchMultiplier;
+        crouchJump = standingJump * crouchMultiplier;
+
+        headbobPlayerCamera = GetComponentInChildren<Camera>();
         defaultYPos = playerCamera.transform.localPosition.y;
         defaultZPos = playerCamera.transform.localPosition.z;
+
+        currentStamina = maxStamina;
     }
 
     // Update is called once per frame
@@ -110,14 +133,18 @@ public class FirstPersonController:MonoBehaviour {
             HandleJump();
             HandleCrouch();
             ApplyFinalMovement();
-            if(canUseHeadBob) {
-                HandleHeadBob();
+            if(useStamina) {
+                HandleStamina();
+                if(canUseHeadBob) {
+                    HandleHeadBob();
+                }
             }
         }
     }
 
+
     /// <summary>
-    /// Handles jump
+    /// Handles jump 
     /// </summary>
     private void HandleJump() {
         if(canJump) {
@@ -128,15 +155,21 @@ public class FirstPersonController:MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Handles the character crouch.
+    /// </summary>
     private void HandleCrouch() {
         if(canCrouch) {
-            if(Input.GetKeyDown(crouchKey) && !duringCrouchAnimation && characterController.isGrounded) {
+            // Both toggle coruch and hold crouch with || Input.GetKeyUp(crouchKey)  
+            if(Input.GetKeyDown(holdCrouchKey) || Input.GetKeyUp(holdCrouchKey) || Input.GetKeyDown(toggleCrouchKey) && !duringCrouchAnimation && characterController.isGrounded) {
                 StartCoroutine(CrouchStand());
             }
         }
     }
 
     private IEnumerator CrouchStand() {
+        // Can't stand when blocking object (1f up) is above player
+        // won't stand up when hold crouch is released - changes automatically to toggle crouch
         if(isCrouching && Physics.Raycast(playerCamera.transform.position, Vector3.up, 1f)) {
             yield break;
         }
@@ -148,6 +181,11 @@ public class FirstPersonController:MonoBehaviour {
 
         Vector3 targetCenter = isCrouching ? standingCenter : crouchingCenter;
         Vector3 currentCenter = characterController.center;
+
+        // Above while loop for hold crouch 
+        isCrouching = !isCrouching;
+
+        // Changes the characters hitbox / collider
         while(timeElapsed < timeToCrouch) {
             characterController.height = Mathf.Lerp(currentHeight, targetHeight, timeElapsed / timeToCrouch);
             characterController.center = Vector3.Lerp(currentCenter, targetCenter, timeElapsed / timeToCrouch);
@@ -156,15 +194,20 @@ public class FirstPersonController:MonoBehaviour {
             yield return null;
         }
 
-        playerCamera.transform.position += new Vector3(0, cameraPos, 0);
+        // Calculates the new camera position 
+        Vector3 halfHeightDifference = new(0, standingHeight - targetHeight, 0);
+        Vector3 newCameraPosition = initialCameraPosition - halfHeightDifference;
+
+        // Moves the camera down
+        playerCamera.transform.localPosition = newCameraPosition;
+
+        // Ensure correct moved charachter collider
         characterController.height = targetHeight;
         characterController.center = targetCenter;
 
-        cameraPos = -cameraPos;
-        isCrouching = !isCrouching;
-
         duringCrouchAnimation = false;
     }
+
 
     /// <summary>
     /// Makes the camera move up and down when moving to simulate head bobbing. The camera moves at different speeds depending on if the player is crouching, walking or running.
@@ -215,6 +258,10 @@ public class FirstPersonController:MonoBehaviour {
                 // Moving diagonally forward, use normal diagonal speed.
                 speed = diagonalSpeed;
             }
+        }
+
+        if(isCrouching) {
+            speed *= crouchMultiplier;
         }
 
         // 2D vector based on the player's input axis for vertical and horizontal movement and scales it by walk speed.
@@ -282,6 +329,74 @@ public class FirstPersonController:MonoBehaviour {
                 characterController.Move(moveDirection * Time.deltaTime);
             }
         }
+    }
+
+    /// <summary>
+    /// Handles the management of the player's stamina.
+    /// </summary>
+    private void HandleStamina() {
+        if(IsRunning && currentInput != Vector2.zero) {
+
+            if(regeneratingStamina != null) {
+                StopCoroutine(regeneratingStamina);
+                regeneratingStamina = null;
+            }
+
+            // Decrease the current stamina based on the stamina use decrements and the time passed since the last frame.
+            currentStamina -= staminaUseDecrements * Time.deltaTime;
+            if(currentStamina <= 0) {
+                currentStamina = 0;
+                canRun = false;
+            }
+
+            // Cap the current stamina to the maximum stamina value.
+            else if(currentStamina > 100) {
+                currentStamina = 100;
+            }
+
+            // Invoke the OnStaminaChange event to notify any listeners that the player's stamina has changed.
+            OnStaminaChange?.Invoke(currentStamina);
+        }
+
+        // Start regenerating stamina if the player is not running and their current stamina is less than the maximum stamina.
+        if(!IsRunning && currentStamina < maxStamina && regeneratingStamina == null) {
+            regeneratingStamina = StartCoroutine(RegenStamina());
+        }
+    }
+
+    /// <summary>
+    /// Coroutine that regenerates the player's stamina over time.
+    /// </summary>
+    private IEnumerator RegenStamina() {
+
+        // Wait for the specified amount of time before starting to regenerate stamina.
+        yield return new WaitForSeconds(staminaRegenDelayTimer);
+        WaitForSeconds TimeToWait = new(speedToRegen);
+
+        while(currentStamina < maxStamina) {
+
+            // Enable running if the player's stamina is greater than zero.
+            if(currentStamina > 0) {
+                canRun = true;
+            }
+
+            // Increase the current stamina based on the stamina regen increments.
+            currentStamina += staminaRegenIncrements;
+
+            // Cap the current stamina to the maximum stamina value.
+            if(currentStamina > maxStamina) {
+                currentStamina = maxStamina;
+            }
+
+            // Invoke the OnStaminaChange event to notify any listeners that the player's stamina has changed.
+            OnStaminaChange?.Invoke(currentStamina);
+
+            // Wait for the specified amount of time before regenerating stamina again.
+            yield return TimeToWait;
+        }
+
+        // Reset the regeneratingStamina coroutine to null once the player's stamina has fully regenerated.
+        regeneratingStamina = null;
     }
 
     /// <summary>
