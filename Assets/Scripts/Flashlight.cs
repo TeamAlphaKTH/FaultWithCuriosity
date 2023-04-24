@@ -1,17 +1,23 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Flashlight:MonoBehaviour {
     [Header("Flashlight Parameters")]
     [SerializeField] Light FlashlightLight;
+    [SerializeField] private Slider batterySlider;
     private bool flashlightActive = false;
     private bool canUseFlashlight = true;
-    private float batteryLevel = 100;
+    public float batteryLevel = 100;
     [SerializeField] private KeyCode flashlightKey = KeyCode.F;
     private float minIntensity = 1f;
     private float maxIntensity = 7f;
     private float flickerDuration = 0.2f;
     private float flickerDelay = 0.1f;
     private bool isFlickering = false;
+
+    private void Awake() {
+        batterySlider.value = 100;
+    }
 
     void Start() {
         // Flashlight starts off
@@ -34,6 +40,7 @@ public class Flashlight:MonoBehaviour {
         // Handle battery level and flickering
         if(flashlightActive && batteryLevel > 0) {
             batteryLevel -= 10f * Time.deltaTime;
+            batterySlider.value = batteryLevel;
 
             if(batteryLevel < 20) {
                 if(!isFlickering) {
