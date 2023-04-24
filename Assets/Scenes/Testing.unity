@@ -551,7 +551,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -40.786}
 --- !u!1001 &453499384
 PrefabInstance:
@@ -1626,11 +1626,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbc530bdacd1a724598cbc617530e7d8, type: 3}
---- !u!4 &1573139234 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7618862434350273014, guid: b30b71d7a9fe69047a6731dc71eb2398, type: 3}
-  m_PrefabInstance: {fileID: 7857653165097562777}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2046590072
 GameObject:
   m_ObjectHideFlags: 0
@@ -1908,11 +1903,15 @@ PrefabInstance:
     - target: {fileID: 4256443570720659492, guid: b30b71d7a9fe69047a6731dc71eb2398, type: 3}
       propertyPath: playerCamera
       value: 
-      objectReference: {fileID: 1573139234}
+      objectReference: {fileID: 364730528}
     - target: {fileID: 4256443570720659492, guid: b30b71d7a9fe69047a6731dc71eb2398, type: 3}
       propertyPath: playerStance
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4256443570720659492, guid: b30b71d7a9fe69047a6731dc71eb2398, type: 3}
+      propertyPath: headbobPlayerCamera
+      value: 
+      objectReference: {fileID: 364730531}
     - target: {fileID: 4256443570720659492, guid: b30b71d7a9fe69047a6731dc71eb2398, type: 3}
       propertyPath: playerStanceSmoothing
       value: 1
