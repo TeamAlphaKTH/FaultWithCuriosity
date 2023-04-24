@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Flashlight:MonoBehaviour {
     [Header("Flashlight Parameters")]
@@ -30,7 +29,7 @@ public class Flashlight:MonoBehaviour {
     }
 
     void Update() {
-        if(canUseFlashlight && batteryLevel != 0) {
+        if(canUseFlashlight) {
             FlashlightControl();
         }
     }
