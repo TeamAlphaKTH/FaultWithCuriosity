@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class FirstPersonController:MonoBehaviour {
 
-    public bool CanMove { get; private set; } = true;
+    public static bool CanMove { get; set; } = true;
     private bool IsRunning => Input.GetKey(runKey) && canRun;
 
     //private bool IsCrouching => isCrouching && !duringCrouchAnimation;
