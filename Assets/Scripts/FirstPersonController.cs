@@ -149,7 +149,6 @@ public class FirstPersonController:MonoBehaviour {
 		}
 	}
 	private IEnumerator CrouchStand() {
-
 		// Can't stand when blocking object (1f up) is above player
 		// won't stand up when hold crouch is released - changes automatically to toggle crouch
 		if(isCrouching && Physics.Raycast(playerCamera.transform.position, Vector3.up, 1f)) {
