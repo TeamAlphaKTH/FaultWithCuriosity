@@ -219,6 +219,10 @@ public class FirstPersonController:MonoBehaviour {
 			}
 		}
 
+		if(isCrouching) {
+			speed *= crouchMultiplier;
+		}
+
 		// 2D vector based on the player's input axis for vertical and horizontal movement and scales it by walk speed.
 		currentInput = new Vector2(speed * verticalInput, speed * horizontalInput);
 
