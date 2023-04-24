@@ -5,11 +5,15 @@ using UnityEngine.UI;
 public class Flashlight:MonoBehaviour {
     [Header("Flashlight Parameters")]
     [SerializeField] Light FlashlightLight;
+    [SerializeField] private KeyCode flashlightKey = KeyCode.F;
     [SerializeField] private TMP_Text batteryText;
+    [SerializeField] private float batterySpeed = 10f;
+    [SerializeField] private float incrementBattery = 15f;
+    [SerializeField] private KeyCode rechargeBattery = KeyCode.B;
+
     private bool flashlightActive = false;
     private bool canUseFlashlight = true;
     public float batteryLevel = 100;
-    [SerializeField] private KeyCode flashlightKey = KeyCode.F;
     private float minIntensity = 1f;
     private float maxIntensity = 7f;
     private float flickerDuration = 0.2f;
@@ -38,9 +42,16 @@ public class Flashlight:MonoBehaviour {
             FlashlightLight.gameObject.SetActive(flashlightActive);
         }
 
+        if(Input.GetKeyDown(rechargeBattery)) {
+            batteryLevel += incrementBattery;
+            if(batteryLevel > 100) {
+                batteryLevel = 100;
+            }
+        }
+
         // Handle battery level and flickering
         if(flashlightActive && batteryLevel > 0) {
-            batteryLevel -= 10f * Time.deltaTime;
+            batteryLevel -= batterySpeed * Time.deltaTime;
 
             if(batteryLevel < 20) {
                 if(!isFlickering) {
