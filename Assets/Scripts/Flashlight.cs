@@ -1,10 +1,11 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Flashlight:MonoBehaviour {
     [Header("Flashlight Parameters")]
     [SerializeField] Light FlashlightLight;
-    [SerializeField] private Slider batterySlider;
+    [SerializeField] private TMP_Text batteryText;
     private bool flashlightActive = false;
     private bool canUseFlashlight = true;
     public float batteryLevel = 100;
@@ -16,7 +17,7 @@ public class Flashlight:MonoBehaviour {
     private bool isFlickering = false;
 
     private void Awake() {
-        batterySlider.value = 100;
+        batteryText.SetText("100%");
     }
 
     void Start() {
@@ -40,7 +41,6 @@ public class Flashlight:MonoBehaviour {
         // Handle battery level and flickering
         if(flashlightActive && batteryLevel > 0) {
             batteryLevel -= 10f * Time.deltaTime;
-            batterySlider.value = batteryLevel;
 
             if(batteryLevel < 20) {
                 if(!isFlickering) {
@@ -59,6 +59,7 @@ public class Flashlight:MonoBehaviour {
             FlashlightLight.gameObject.SetActive(false);
             flashlightActive = false;
         }
+        batteryText.SetText(batteryLevel.ToString("F0") + "%");
     }
 
 
