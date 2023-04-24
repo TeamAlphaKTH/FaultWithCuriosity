@@ -65,7 +65,8 @@ public class FirstPersonController:MonoBehaviour {
 	[Header("Controls")]
 	[SerializeField] private KeyCode jumpKey = KeyCode.Space;
 	[SerializeField] private KeyCode runKey = KeyCode.LeftShift;
-	[SerializeField] private KeyCode crouchKey = KeyCode.LeftControl;
+	[SerializeField] private KeyCode holdCrouchKey = KeyCode.LeftControl;
+	[SerializeField] private KeyCode toggleCrouchKey = KeyCode.C;
 
 	// Slope sliding parameters
 	private Vector3 hitPointNormal;
@@ -142,7 +143,7 @@ public class FirstPersonController:MonoBehaviour {
 	private void HandleCrouch() {
 		if(canCrouch) {
 			// Both toggle coruch and hold crouch with || Input.GetKeyUp(crouchKey)  
-			if(Input.GetKeyDown(crouchKey) || Input.GetKeyUp(crouchKey) && !duringCrouchAnimation && characterController.isGrounded) {
+			if(Input.GetKeyDown(holdCrouchKey) || Input.GetKeyUp(holdCrouchKey) || Input.GetKeyDown(toggleCrouchKey) && !duringCrouchAnimation && characterController.isGrounded) {
 				StartCoroutine(CrouchStand());
 			}
 		}
