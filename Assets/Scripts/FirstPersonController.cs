@@ -71,11 +71,12 @@ public class FirstPersonController:NetworkBehaviour {
     private float oldGravity;
 
     [Header("Camera")]
-    [SerializeField] private Camera playerCamera;
+    private Camera playerCamera;
     [SerializeField] private float cameraPos = -0.7f;
 
     public override void OnNetworkSpawn() {
         characterController = GetComponent<CharacterController>();
+        playerCamera = GetComponentInChildren<Camera>();
         standingCenter = characterController.center;
         standingHeight = characterController.height;
         Initialize();
@@ -84,6 +85,7 @@ public class FirstPersonController:NetworkBehaviour {
 
     // Start is called before the first frame update
     void Initialize() {
+        if(!IsOwner) { playerCamera.enabled = false; }
         crouchHeight = standingHeight / 2;
         crouchingCenter = standingCenter / 2;
     }
@@ -92,6 +94,7 @@ public class FirstPersonController:NetworkBehaviour {
     void Update() {
         if(!IsOwner)
             return;
+
         if(CanMove) {
             HandleInput();
             HandleJump();
