@@ -1,15 +1,16 @@
 using UnityEngine;
 
 public class Flashlight:MonoBehaviour {
+    [Header("Flashlight Parameters")]
     [SerializeField] Light FlashlightLight;
     private bool flashlightActive = false;
     private bool canUseFlashlight = true;
-    [SerializeField] private float batteryLevel = 100;
+    private float batteryLevel = 100;
     [SerializeField] private KeyCode flashlightKey = KeyCode.F;
     private float minIntensity = 1f;
     private float maxIntensity = 7f;
-    [SerializeField] private float flickerDuration = 0.2f;
-    [SerializeField] private float flickerDelay = 0.1f;
+    private float flickerDuration = 0.2f;
+    private float flickerDelay = 0.1f;
     private bool isFlickering = false;
 
     void Start() {
@@ -24,33 +25,35 @@ public class Flashlight:MonoBehaviour {
     }
 
     private void FlashlightControl() {
+        // Toggle flashlight on/off with key press
         if(Input.GetKeyDown(flashlightKey)) {
-            if(!flashlightActive) {
-                FlashlightLight.gameObject.SetActive(true);
-                flashlightActive = true;
-            } else {
-                FlashlightLight.gameObject.SetActive(false);
-                flashlightActive = false;
-            }
+            flashlightActive = !flashlightActive;
+            FlashlightLight.gameObject.SetActive(flashlightActive);
         }
 
-        if(flashlightActive && batteryLevel < 20) {
-            if(!isFlickering) {
-                isFlickering = true;
-                InvokeRepeating("Flicker", flickerDelay, flickerDuration);
-            }
-        } else if(isFlickering) {
-            isFlickering = false;
-            CancelInvoke("Flicker");
-        }
-        Debug.Log("Battery level: " + batteryLevel);
+        // Handle battery level and flickering
         if(flashlightActive && batteryLevel > 0) {
             batteryLevel -= 10f * Time.deltaTime;
+
+            if(batteryLevel < 20) {
+                if(!isFlickering) {
+                    isFlickering = true;
+                    InvokeRepeating("Flicker", flickerDelay, flickerDuration);
+                }
+            } else {
+                if(isFlickering) {
+                    isFlickering = false;
+                    CancelInvoke("Flicker");
+                }
+            }
         } else {
+            batteryLevel = Mathf.Max(batteryLevel, 0);
+            isFlickering = false;
             FlashlightLight.gameObject.SetActive(false);
             flashlightActive = false;
         }
     }
+
 
     private void Flicker() {
         float randomIntensity = Random.Range(minIntensity, maxIntensity);
