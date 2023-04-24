@@ -43,6 +43,13 @@ public class Flashlight:MonoBehaviour {
             isFlickering = false;
             CancelInvoke("Flicker");
         }
+        Debug.Log("Battery level: " + batteryLevel);
+        if(flashlightActive && batteryLevel > 0) {
+            batteryLevel -= 10f * Time.deltaTime;
+        } else {
+            FlashlightLight.gameObject.SetActive(false);
+            flashlightActive = false;
+        }
     }
 
     private void Flicker() {
