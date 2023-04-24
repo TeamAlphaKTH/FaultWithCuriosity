@@ -33,9 +33,8 @@ public class FirstPersonController:MonoBehaviour {
 	[SerializeField] private float crouchJump;
 
 	[Header("Camera Reference")]
-	[SerializeField] private Camera playerCamera;
-	// cameraPos should get from previous height - newheight
-	[SerializeField] private float cameraPos = -0.7f;
+	[SerializeField] public Transform playerCamera;
+	Vector3 initialCameraPosition;
 
 	[Header("Crouching Parameters")]
 	[SerializeField] private float crouchMultiplier = 0.6f;
@@ -47,7 +46,6 @@ public class FirstPersonController:MonoBehaviour {
 
 	// Changes the time between toggle and hold crouch - must be above 0.15f
 	private float timeToCrouch = 0.25f;
-
 	private bool isCrouching;
 	private bool duringCrouchAnimation;
 
@@ -85,7 +83,7 @@ public class FirstPersonController:MonoBehaviour {
 	private CharacterController characterController;
 	private float oldGravity;
 
-	//
+	// Is called first
 	void Awake() {
 		characterController = GetComponent<CharacterController>();
 		standingCenter = characterController.center;
@@ -95,9 +93,11 @@ public class FirstPersonController:MonoBehaviour {
 	// Start is called before the first frame update
 	void Start() {
 		// for crouching
+		initialCameraPosition = playerCamera.transform.localPosition;
 		crouchHeight = standingHeight * crouchMultiplier;
 		crouchingCenter = standingCenter * crouchMultiplier;
 		crouchJump = standingJump * crouchMultiplier;
+
 	}
 
 	// Update is called once per frame
@@ -151,6 +151,10 @@ public class FirstPersonController:MonoBehaviour {
 		float targetHeight = isCrouching ? standingHeight : crouchHeight;
 		float currentHeight = characterController.height;
 
+		// Calculates the new camera position 
+		var halfHeightDifference = new Vector3(0, standingHeight - targetHeight, 0);
+		var newCameraPosition = initialCameraPosition - halfHeightDifference;
+
 		Vector3 targetCenter = isCrouching ? standingCenter : crouchingCenter;
 		Vector3 currentCenter = characterController.center;
 
@@ -167,10 +171,7 @@ public class FirstPersonController:MonoBehaviour {
 		}
 
 		// Moves the camera down
-		playerCamera.transform.position += new Vector3(0, cameraPos, 0);
-
-		// Reverses the position of the camera to stand / crouch - crouch -> stand and stand -> crouch
-		cameraPos = -cameraPos;
+		playerCamera.transform.localPosition = newCameraPosition;
 
 		// Ensure correct moved charachter collider
 		characterController.height = targetHeight;
