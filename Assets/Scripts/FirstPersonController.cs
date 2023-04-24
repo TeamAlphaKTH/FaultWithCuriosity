@@ -16,6 +16,12 @@ public class FirstPersonController:MonoBehaviour {
 	[SerializeField] private float slowSpeedWalk = 1.8f;
 	[SerializeField] private float slowSpeedRun = 3.6f;
 
+	// Movement speed when the player is crouching - might not be used
+	[SerializeField] private float crouchWalkSpeed;
+	[SerializeField] private float crouchRunSpeed;
+	[SerializeField] private float crouchSlowSpeedWalk;
+	[SerializeField] private float crouchSlowSpeedRun;
+
 	// Lower values will make the character accelerate slower, higher values will make the character accelerate faster.
 	[SerializeField] private float acceleration = 100f;
 	[SerializeField] private float deceleration = 100f;
@@ -24,13 +30,16 @@ public class FirstPersonController:MonoBehaviour {
 	[SerializeField] private float gravity = 40f;
 	[SerializeField] private float jumpForce = 7.8f;
 	[SerializeField] private float standingJump = 8f;
-	[SerializeField] private float crouchJump = 4f;
+	[SerializeField] private float crouchJump;
 
 	[Header("Camera Reference")]
 	[SerializeField] private Camera playerCamera;
+	// cameraPos should get from previous height - newheight
 	[SerializeField] private float cameraPos = -0.7f;
 
 	[Header("Crouching Parameters")]
+	[SerializeField] private float crouchMultiplier = 0.6f;
+	// All these parameters are Seralized for testing purposes - their value is set in start()
 	[SerializeField] private float crouchHeight;
 	[SerializeField] private float standingHeight;
 	[SerializeField] private Vector3 crouchingCenter;
@@ -76,6 +85,7 @@ public class FirstPersonController:MonoBehaviour {
 	private CharacterController characterController;
 	private float oldGravity;
 
+	//
 	void Awake() {
 		characterController = GetComponent<CharacterController>();
 		standingCenter = characterController.center;
@@ -84,8 +94,10 @@ public class FirstPersonController:MonoBehaviour {
 
 	// Start is called before the first frame update
 	void Start() {
-		crouchHeight = standingHeight / 2;
-		crouchingCenter = standingCenter / 2;
+		// for crouching
+		crouchHeight = standingHeight * crouchMultiplier;
+		crouchingCenter = standingCenter * crouchMultiplier;
+		crouchJump = standingJump * crouchMultiplier;
 	}
 
 	// Update is called once per frame
