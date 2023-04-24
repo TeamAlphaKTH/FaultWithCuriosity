@@ -1,10 +1,16 @@
 using UnityEngine;
 
 public class Flashlight:MonoBehaviour {
-    [SerializeField] GameObject FlashlightLight;
+    [SerializeField] Light FlashlightLight;
     private bool flashlightActive = false;
     private bool canUseFlashlight = true;
+    [SerializeField] private float batteryLevel = 100;
     [SerializeField] private KeyCode flashlightKey = KeyCode.F;
+    private float minIntensity = 1f;
+    private float maxIntensity = 7f;
+    [SerializeField] private float flickerDuration = 0.2f;
+    [SerializeField] private float flickerDelay = 0.1f;
+    private bool isFlickering = false;
 
     void Start() {
         // Flashlight starts off
@@ -12,7 +18,7 @@ public class Flashlight:MonoBehaviour {
     }
 
     void Update() {
-        if(canUseFlashlight) {
+        if(canUseFlashlight && batteryLevel != 0) {
             FlashlightControl();
         }
     }
@@ -27,5 +33,20 @@ public class Flashlight:MonoBehaviour {
                 flashlightActive = false;
             }
         }
+
+        if(flashlightActive && batteryLevel < 20) {
+            if(!isFlickering) {
+                isFlickering = true;
+                InvokeRepeating("Flicker", flickerDelay, flickerDuration);
+            }
+        } else if(isFlickering) {
+            isFlickering = false;
+            CancelInvoke("Flicker");
+        }
+    }
+
+    private void Flicker() {
+        float randomIntensity = Random.Range(minIntensity, maxIntensity);
+        FlashlightLight.intensity = randomIntensity;
     }
 }
