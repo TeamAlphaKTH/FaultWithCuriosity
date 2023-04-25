@@ -23,21 +23,21 @@ public class Flashlight:MonoBehaviour {
     private float flickerDelay = 0.1f;
     [SerializeField] private bool isFlickering = false;
 
-    [Header("Paranoia parameters")]
-    [SerializeField] private float maxParanoia = 100f;
-    [SerializeField] private float paranoiaIncrements = 0.2f;
-    [SerializeField] private float currentParanoia;
-    [SerializeField] private Slider paranoiaSlider;
+    [Header("Sanity parameters")]
+    [SerializeField] private float maxSanity = 100f;
+    [SerializeField] private float sanityDecrement = 0.8f;
+    [SerializeField] private float currentSanity;
+    [SerializeField] private Slider sanitySlider;
 
     private void Awake() {
-        batteryText.SetText("100%");
-        currentParanoia = 0;
+        batteryText.SetText("100");
+        currentSanity = 100;
     }
 
     void Start() {
         // Flashlight starts off
         FlashlightLight.gameObject.SetActive(false);
-        paranoiaSlider.value = 0f;
+        sanitySlider.value = 100f;
     }
 
     void Update() {
@@ -110,16 +110,17 @@ public class Flashlight:MonoBehaviour {
             flashlightActive = false;
         }
 
-        if(!flashlightActive && currentParanoia < 100) {
-            currentParanoia = currentParanoia * 1.001f + paranoiaIncrements * Time.deltaTime;
+        if(!flashlightActive && currentSanity <= 100 && currentSanity > 0) {
+            // currentSanity = currentSanity - sanityDecrement * 1.01f * Time.deltaTime;
+            currentSanity = currentSanity - (sanityDecrement * Time.deltaTime + sanityDecrement * 1.0000001f);
         }
 
-        if(currentParanoia >= 100) {
+        if(currentSanity <= 0) {
             Debug.Log("Dead");
         }
 
         batteryText.SetText(batteryLevel.ToString("F0"));
-        paranoiaSlider.value = currentParanoia;
+        sanitySlider.value = currentSanity;
     }
 
     private void Flicker() {
