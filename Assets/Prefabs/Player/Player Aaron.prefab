@@ -909,7 +909,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.85
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -1126,12 +1126,11 @@ MonoBehaviour:
   crouchBobSpeed: 8
   crouchBobAmount: 0.025
   maxStamina: 100
-  staminaRegenIncrements: 1
-  staminaUseDecrements: 15
+  staminaRegenIncrements: 0.25
+  staminaUseDecrements: 4
   staminaRegenDelayTimer: 3
-  speedToRegen: 0.2
-  regenTimer: 0.01
-  currentStamina: 0
+  speedToRegen: 0.125
+  currentStamina: 100
   staminaSlider: {fileID: 0}
   jumpKey: 32
   runKey: 304
@@ -1178,7 +1177,7 @@ MonoBehaviour:
   FlashlightLight: {fileID: 9214482713791953321}
   flashlightKey: 102
   batteryText: {fileID: 0}
-  batterySpeed: 10
+  batterySpeed: 0.3
   incrementBattery: 15
   rechargeBattery: 98
   batteryBlock1: {fileID: 0}
