@@ -10,7 +10,7 @@ public class PlayerActions:MonoBehaviour {
 	private Animator doorAnimator;
 
 	[Header("Controls")]
-	[SerializeField] private KeyCode actionButton = KeyCode.E;
+	[SerializeField] public static KeyCode actionButton = KeyCode.E;
 	[SerializeField] public static KeyCode useCameraButton = KeyCode.Mouse0;
 
 	[Header("Door specific variables")]
@@ -41,9 +41,6 @@ public class PlayerActions:MonoBehaviour {
 
 		if(itemObject && hitObject.collider.gameObject.CompareTag("Polaroid")) {
 			uiText.text = "Press " + actionButton + " to gamble";
-			if(Input.GetKeyDown(actionButton)) {
-				GamblePolaroid();
-			}
 		} else {
 			uiText.text = "";
 		}
@@ -87,9 +84,5 @@ public class PlayerActions:MonoBehaviour {
 			doorAnimator.SetBool("OpenDoor", false);
 			isDoorOpenFront = false;
 		}
-	}
-
-	private void GamblePolaroid() {
-
 	}
 }

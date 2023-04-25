@@ -25,6 +25,10 @@ public class PhotoCapture:MonoBehaviour {
 	//[SerializeField] private KeyCode useCamera = KeyCode.Mouse0;
 	[SerializeField] private KeyCode closePicture = KeyCode.Mouse1;
 
+	// Raycast
+	private RaycastHit hitObject;
+	private bool itemObject = false;
+
 	// Start is called before the first frame update
 	void Start() {
 		screenCapture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
@@ -35,6 +39,12 @@ public class PhotoCapture:MonoBehaviour {
 		if(Input.GetKeyDown(PlayerActions.useCameraButton) && ItemCamera.canUseCamera && !viewingPhoto) {
 			StartCoroutine(CapturePhoto());
 		}
+
+		itemObject = Physics.Raycast(transform.position, transform.forward, out hitObject, 6f);
+		if(!viewingPhoto && Input.GetKeyDown(PlayerActions.actionButton) && itemObject && hitObject.collider.gameObject.CompareTag("Polaroid")) {
+			ShowPhoto();
+		}
+
 		if(viewingPhoto && Input.GetKeyDown(closePicture)) {
 			RemovePhoto();
 		}
@@ -65,21 +75,18 @@ public class PhotoCapture:MonoBehaviour {
 		StartCoroutine(CameraFlashEffect());
 		GUI.SetActive(true);
 		SpawnItemPolaroid();
-		ShowPhoto();
 	}
 
 	public void ShowPhoto() {
 		viewingPhoto = true;
-
-		//Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
-		//photoDisplayArea.sprite = photoSprite;
-
+		GUI.SetActive(false);
 		photoFrame.SetActive(true);
 	}
 
 	private void RemovePhoto() {
 		viewingPhoto = false;
 		photoFrame.SetActive(false);
+		GUI.SetActive(true);
 	}
 
 
