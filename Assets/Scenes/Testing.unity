@@ -1299,10 +1299,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charges: 3
-  useCameraButton: 323
   rechargeCameraButton: 325
   canRechargeCamera: 0
-  itemPolaroid: {fileID: 3200962645262021285, guid: 850c4a5b7a83f3c41ba2b1987822e39c, type: 3}
 --- !u!1 &764247812
 GameObject:
   m_ObjectHideFlags: 0
@@ -1473,7 +1471,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834092609}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00132, y: -0.0031, z: 0.00941}
+  m_LocalPosition: {x: 0.00132, y: -0.00491, z: 0.00482}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2281,7 +2279,8 @@ MonoBehaviour:
   photoFrame: {fileID: 1583129894}
   cameraFlash: {fileID: 834092609}
   flashTime: 0.2
-  useCamera: 323
+  GUI: {fileID: 655759082}
+  itemPolaroid: {fileID: 0}
   closePicture: 27
 --- !u!1 &1924467249
 GameObject:
