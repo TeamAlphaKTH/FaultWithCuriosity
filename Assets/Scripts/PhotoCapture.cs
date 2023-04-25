@@ -12,10 +12,10 @@ public class PhotoCapture:MonoBehaviour {
 	[SerializeField] private float flashTime;
 
 	private Texture2D screenCapture;
-	private bool viewingPhoto;
+	public static bool viewingPhoto = false;
 
 	[Header("Controls")]
-	[SerializeField] private KeyCode useCamera = KeyCode.Mouse0;
+	//[SerializeField] private KeyCode useCamera = KeyCode.Mouse0;
 	[SerializeField] private KeyCode closePicture = KeyCode.Escape;
 
 	// Start is called before the first frame update
@@ -25,10 +25,8 @@ public class PhotoCapture:MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		if(Input.GetKeyDown(useCamera) && ItemCamera.canUseCamera) {
-			if(!viewingPhoto) {
-				StartCoroutine(CapturePhoto());
-			}
+		if(Input.GetKeyDown(PlayerActions.useCameraButton) && ItemCamera.canUseCamera && !viewingPhoto) {
+			StartCoroutine(CapturePhoto());
 		}
 		if(viewingPhoto && Input.GetKeyDown(closePicture)) {
 			RemovePhoto();
@@ -52,14 +50,19 @@ public class PhotoCapture:MonoBehaviour {
 		screenCapture.ReadPixels(regionToRead, 0, 0, false);
 		screenCapture.Apply();
 
-		Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
-		photoDisplayArea.sprite = photoSprite;
+		//Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
+		//photoDisplayArea.sprite = photoSprite;
 
 		StartCoroutine(CameraFlashEffect());
+		ShowPhoto();
 	}
 
 	public void ShowPhoto() {
 		viewingPhoto = true;
+
+		Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
+		photoDisplayArea.sprite = photoSprite;
+
 		photoFrame.SetActive(true);
 	}
 
