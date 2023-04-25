@@ -14,6 +14,13 @@ public class PhotoCapture:MonoBehaviour {
 	private Texture2D screenCapture;
 	public static bool viewingPhoto = false;
 
+	// All text GUI needs to be in this parent object
+	[Header("GUI")]
+	[SerializeField] private GameObject GUI;
+
+	[Header("Polaroid GameObject")]
+	[SerializeField] private GameObject itemPolaroid;
+
 	[Header("Controls")]
 	//[SerializeField] private KeyCode useCamera = KeyCode.Mouse0;
 	[SerializeField] private KeyCode closePicture = KeyCode.Escape;
@@ -44,24 +51,28 @@ public class PhotoCapture:MonoBehaviour {
 
 	private IEnumerator CapturePhoto() {
 		// CameraUI set false
+		GUI.SetActive(false);
+
 		yield return new WaitForEndOfFrame();
 
 		Rect regionToRead = new(0, 0, Screen.width, Screen.height);
 		screenCapture.ReadPixels(regionToRead, 0, 0, false);
 		screenCapture.Apply();
 
-		//Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
-		//photoDisplayArea.sprite = photoSprite;
+		Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
+		photoDisplayArea.sprite = photoSprite;
 
 		StartCoroutine(CameraFlashEffect());
+		GUI.SetActive(true);
+		SpawnItemPolaroid();
 		ShowPhoto();
 	}
 
 	public void ShowPhoto() {
 		viewingPhoto = true;
 
-		Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
-		photoDisplayArea.sprite = photoSprite;
+		//Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
+		//photoDisplayArea.sprite = photoSprite;
 
 		photoFrame.SetActive(true);
 	}
@@ -70,4 +81,10 @@ public class PhotoCapture:MonoBehaviour {
 		viewingPhoto = false;
 		photoFrame.SetActive(false);
 	}
+
+
+	private void SpawnItemPolaroid() {
+		Instantiate(itemPolaroid, new Vector3(Random.Range(FirstPersonController.characterController.transform.position.x - 0.5f, FirstPersonController.characterController.transform.position.x + 0.5f), Random.Range(FirstPersonController.characterController.transform.position.y + 0.5f, FirstPersonController.characterController.transform.position.y + 1.5f), Random.Range(FirstPersonController.characterController.transform.position.z - 0.5f, FirstPersonController.characterController.transform.position.z + 0.5f)), Quaternion.identity);
+	}
+
 }

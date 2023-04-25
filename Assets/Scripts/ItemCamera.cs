@@ -8,9 +8,6 @@ public class ItemCamera:MonoBehaviour {
 	[SerializeField] private bool canRechargeCamera;
 	public static bool canUseCamera = true;
 
-	[Header("Polaroid GameObject")]
-	[SerializeField] private GameObject itemPolaroid;
-
 	// Start is called before the first frame update
 	void Start() {
 
@@ -32,7 +29,6 @@ public class ItemCamera:MonoBehaviour {
 		if(Input.GetKeyDown(PlayerActions.useCameraButton)) {
 			if(canUseCamera && !PhotoCapture.viewingPhoto) {
 				charges--;
-				SpawnItemPolaroid();
 			}
 		}
 	}
@@ -50,9 +46,5 @@ public class ItemCamera:MonoBehaviour {
 			}
 		}
 
-	}
-
-	private void SpawnItemPolaroid() {
-		Instantiate(itemPolaroid, new Vector3(Random.Range(FirstPersonController.characterController.transform.position.x - 0.5f, FirstPersonController.characterController.transform.position.x + 0.5f), Random.Range(FirstPersonController.characterController.transform.position.y + 0.5f, FirstPersonController.characterController.transform.position.y + 1.5f), Random.Range(FirstPersonController.characterController.transform.position.z - 0.5f, FirstPersonController.characterController.transform.position.z + 0.5f)), Quaternion.identity);
 	}
 }
