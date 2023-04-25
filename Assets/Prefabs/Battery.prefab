@@ -80,10 +80,10 @@ CapsuleCollider:
   m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.002
-  m_Height: 0.007
+  m_Radius: 0.002089588
+  m_Height: 0.007486342
   m_Direction: 1
-  m_Center: {x: 0, y: 0.001, z: 0}
+  m_Center: {x: -0.000089587644, y: 0.0009872027, z: 0}
 --- !u!1001 &351298111443472152
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -136,6 +136,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: d454bee2cacbb984896b5da71f6b0ad2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ce05d600d6182854fa89c17d782b6494, type: 2}
     - target: {fileID: 919132149155446097, guid: d454bee2cacbb984896b5da71f6b0ad2, type: 3}
       propertyPath: m_Name
       value: Battery

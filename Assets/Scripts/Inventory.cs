@@ -8,6 +8,7 @@ public class Inventory:MonoBehaviour {
     [SerializeField] private TextMeshProUGUI drugText;
     private int drugNr;
     [SerializeField] private GameObject battery;
+    [SerializeField] private GameObject pills;
 
     [SerializeField] private TextMeshProUGUI batteryText;
     private int batteryNr;
@@ -54,6 +55,7 @@ public class Inventory:MonoBehaviour {
         if(drugNr > 0) {
             drugNr--;
             drugText.text = drugNr.ToString();
+            Instantiate(pills, FirstPersonController.characterController.transform.position + new Vector3(0, 1, 0.2f), Quaternion.identity);
         }
     }
 
