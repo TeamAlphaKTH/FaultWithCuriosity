@@ -381,7 +381,7 @@ RectTransform:
   m_Children:
   - {fileID: 260995590930628085}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -466,7 +466,8 @@ MonoBehaviour:
   openInventory: 9
   inventory: {fileID: 8104607747449258031}
   drugText: {fileID: 6337586555353061278}
-  battery: {fileID: 0}
+  battery: {fileID: 6279387176689119369, guid: d2f80818a0aa4f54e93d10c70f4ce8b0, type: 3}
+  pills: {fileID: 8089285298227710101, guid: 43af071bec562b642a28a806bc7c20dd, type: 3}
   batteryText: {fileID: 3930375264430701768}
   flashlightSlider: {fileID: 1749383082794881439}
   cameraSlider: {fileID: 6185489668665618228}
@@ -2331,7 +2332,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7272305691459057611}
         m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: UseDrugs
+        m_MethodName: DropDrugs
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

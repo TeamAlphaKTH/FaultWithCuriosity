@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311924, g: 0.38073963, b: 0.3587269, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -787,6 +787,119 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &628748795
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 311888162753988331, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 311888162753988331, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 311888162753988331, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 311888162753988331, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 311888162753988331, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 311888162753988331, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 311888162753988331, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 311888162753988331, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 311888162753988331, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 311888162753988331, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 311888162753988331, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 311888162753988331, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 311888162753988331, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 311888162753988331, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 311888162753988331, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 311888162753988331, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 311888162753988331, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 311888162753988331, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 311888162753988331, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 311888162753988331, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 311888162753988331, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 862974221300416552, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
+      propertyPath: m_Name
+      value: InventoryUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557018654588700118, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DropDrugs
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272305691459057611, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
+      propertyPath: pills
+      value: 
+      objectReference: {fileID: 8089285298227710101, guid: 43af071bec562b642a28a806bc7c20dd, type: 3}
+    - target: {fileID: 7272305691459057611, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
+      propertyPath: battery
+      value: 
+      objectReference: {fileID: 6279387176689119369, guid: d2f80818a0aa4f54e93d10c70f4ce8b0, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7dcdd34c0e33d4f4881149e27df8c5d2, type: 3}
 --- !u!1 &682123733
 GameObject:
   m_ObjectHideFlags: 0
@@ -1672,15 +1785,14 @@ MonoBehaviour:
   batterySpeed: 10
   incrementBattery: 15
   rechargeBattery: 98
-  batteryBlock1: {fileID: 1864993667}
-  batteryBlock2: {fileID: 1580225949}
-  batteryBlock3: {fileID: 208198437}
-  batteryLevel: 100
+  batteryBlock1: {fileID: 0}
+  batteryBlock2: {fileID: 0}
+  batteryBlock3: {fileID: 0}
   isFlickering: 0
   maxParanoia: 100
-  paranoiaIncrements: 0.65
+  paranoiaIncrements: 0.2
   currentParanoia: 0
-  paranoiaSlider: {fileID: 102581563}
+  paranoiaSlider: {fileID: 0}
 --- !u!1 &1580225947
 GameObject:
   m_ObjectHideFlags: 0
