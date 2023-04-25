@@ -228,6 +228,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &161775434 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3200962645262021285, guid: 850c4a5b7a83f3c41ba2b1987822e39c, type: 3}
+  m_PrefabInstance: {fileID: 789733656762201922}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &306671096
 GameObject:
   m_ObjectHideFlags: 0
@@ -2280,7 +2285,7 @@ MonoBehaviour:
   cameraFlash: {fileID: 834092609}
   flashTime: 0.2
   GUI: {fileID: 655759082}
-  itemPolaroid: {fileID: 0}
+  itemPolaroid: {fileID: 161775434}
   closePicture: 27
 --- !u!1 &1924467249
 GameObject:

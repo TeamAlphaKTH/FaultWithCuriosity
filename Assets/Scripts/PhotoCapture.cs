@@ -23,7 +23,7 @@ public class PhotoCapture:MonoBehaviour {
 
 	[Header("Controls")]
 	//[SerializeField] private KeyCode useCamera = KeyCode.Mouse0;
-	[SerializeField] private KeyCode closePicture = KeyCode.Escape;
+	[SerializeField] private KeyCode closePicture = KeyCode.Mouse1;
 
 	// Start is called before the first frame update
 	void Start() {
