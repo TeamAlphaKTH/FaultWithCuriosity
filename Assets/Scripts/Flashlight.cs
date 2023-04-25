@@ -13,7 +13,6 @@ public class Flashlight:MonoBehaviour {
     [SerializeField] private Image batteryBlock1;
     [SerializeField] private Image batteryBlock2;
     [SerializeField] private Image batteryBlock3;
-    // [SerializeField] private Image batteryImage3;
 
     private bool flashlightActive = false;
     private bool canUseFlashlight = true;
