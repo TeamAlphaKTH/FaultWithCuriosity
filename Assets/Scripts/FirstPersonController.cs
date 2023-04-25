@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FirstPersonController:MonoBehaviour {
 
@@ -71,6 +72,7 @@ public class FirstPersonController:MonoBehaviour {
     [SerializeField] private float speedToRegen = 0.2f;
     [SerializeField] private float regenTimer = 0.01f;
     [SerializeField] private float currentStamina;
+    [SerializeField] private Slider staminaSlider;
     private Coroutine regeneratingStamina;
     private bool useStamina = true;
     public static Action<float> OnStaminaChange;
@@ -124,6 +126,7 @@ public class FirstPersonController:MonoBehaviour {
         defaultZPos = playerCamera.transform.localPosition.z;
 
         currentStamina = maxStamina;
+        staminaSlider.value = maxStamina;
     }
 
     // Update is called once per frame
@@ -362,6 +365,7 @@ public class FirstPersonController:MonoBehaviour {
         if(!IsRunning && currentStamina < maxStamina && regeneratingStamina == null) {
             regeneratingStamina = StartCoroutine(RegenStamina());
         }
+        staminaSlider.value = currentStamina;
     }
 
     /// <summary>
