@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2994,6 +2994,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6115413529688286820, guid: cdc0b54091800994aa7022a82edd917b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8854231278979cf43a1799f2431811d0, type: 2}
     - target: {fileID: 8681303806250907813, guid: cdc0b54091800994aa7022a82edd917b, type: 3}
       propertyPath: m_Name
       value: ItemPolaroid
@@ -3056,7 +3060,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2341564776458746402, guid: b30b71d7a9fe69047a6731dc71eb2398, type: 3}
       propertyPath: m_Name
-      value: f
+      value: Player Aaron
       objectReference: {fileID: 0}
     - target: {fileID: 3113456765007798424, guid: b30b71d7a9fe69047a6731dc71eb2398, type: 3}
       propertyPath: m_RootOrder

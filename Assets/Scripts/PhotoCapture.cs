@@ -69,6 +69,7 @@ public class PhotoCapture:MonoBehaviour {
 		screenCapture.ReadPixels(regionToRead, 0, 0, false);
 		screenCapture.Apply();
 
+		// Makes a sprite of the screenshot and places it in PhotoDisplayArea in ItemPolaroidObject
 		Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
 		photoDisplayArea.sprite = photoSprite;
 
@@ -80,6 +81,7 @@ public class PhotoCapture:MonoBehaviour {
 	public void ShowPhoto() {
 		viewingPhoto = true;
 		GUI.SetActive(false);
+		// Sets PhotoFrameBG (Blank canvas) in ItemPolaroidObject to true
 		photoFrame.SetActive(true);
 	}
 
@@ -89,7 +91,7 @@ public class PhotoCapture:MonoBehaviour {
 		GUI.SetActive(true);
 	}
 
-
+	// Bug - becomes a clone of original object and change with the original
 	private void SpawnItemPolaroid() {
 		Instantiate(itemPolaroid, new Vector3(Random.Range(FirstPersonController.characterController.transform.position.x - 0.5f, FirstPersonController.characterController.transform.position.x + 0.5f), Random.Range(FirstPersonController.characterController.transform.position.y + 0.5f, FirstPersonController.characterController.transform.position.y + 1.5f), Random.Range(FirstPersonController.characterController.transform.position.z - 0.5f, FirstPersonController.characterController.transform.position.z + 0.5f)), Quaternion.identity);
 	}
