@@ -3,7 +3,7 @@ using UnityEngine;
 public class ItemCamera:MonoBehaviour {
 	[Header("Camera Item Parameters")]
 	[SerializeField] private int charges = 3;
-	[SerializeField] private KeyCode useCameraButton = KeyCode.Mouse1;
+	[SerializeField] private KeyCode useCameraButton = KeyCode.Mouse0;
 	[SerializeField] private KeyCode rechargeCameraButton = KeyCode.Mouse2;
 	[SerializeField] private bool canRechargeCamera;
 	public static bool canUseCamera = true;

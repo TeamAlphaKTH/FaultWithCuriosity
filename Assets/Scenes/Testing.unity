@@ -1299,7 +1299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charges: 3
-  useCameraButton: 324
+  useCameraButton: 323
   rechargeCameraButton: 325
   canRechargeCamera: 0
   itemPolaroid: {fileID: 3200962645262021285, guid: 850c4a5b7a83f3c41ba2b1987822e39c, type: 3}
@@ -2281,6 +2281,8 @@ MonoBehaviour:
   photoFrame: {fileID: 1583129894}
   cameraFlash: {fileID: 834092609}
   flashTime: 0.2
+  useCamera: 323
+  closePicture: 27
 --- !u!1 &1924467249
 GameObject:
   m_ObjectHideFlags: 0
