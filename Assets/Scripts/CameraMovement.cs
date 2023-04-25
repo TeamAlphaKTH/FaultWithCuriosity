@@ -4,7 +4,7 @@ public class CameraMovement:MonoBehaviour {
     private float xRotation;
     private float yRotation;
     [SerializeField] private float sensitivity; //Make global for settings later
-    [SerializeField] private Transform person;
+    [SerializeField] public Transform person;
 
     // Start is called before the first frame update
     void Start() {

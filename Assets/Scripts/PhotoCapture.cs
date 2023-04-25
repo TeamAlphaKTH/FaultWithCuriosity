@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class PhotoCapture : MonoBehaviour
 {
     [Header("Photo Taker")]
-    [SerializeField] private Image photoDisplayArea;
-    [SerializeField] private GameObject photoFrame;
+    [SerializeField] public Image photoDisplayArea;
+    [SerializeField] public GameObject photoFrame;
 
     [Header("Flash Effect")]
     [SerializeField] private GameObject cameraFlash;
@@ -50,7 +50,7 @@ public class PhotoCapture : MonoBehaviour
         //ShowPhoto();
     }
 
-    private void ShowPhoto() {
+    public void ShowPhoto() {
         Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
         photoDisplayArea.sprite = photoSprite;
 

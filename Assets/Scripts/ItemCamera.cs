@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.ProBuilder.Shapes;
+using UnityEngine.Windows.WebCam;
 
 public class ItemCamera : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class ItemCamera : MonoBehaviour
     [SerializeField] private KeyCode rechargeCameraButton = KeyCode.Mouse2;
 	[SerializeField] private bool canRechargeCamera;
     public static bool canUseCamera = true;
-
+    
 	[Header("Polaroid GameObject")]
 	[SerializeField] private GameObject itemPolaroid;
 
@@ -20,10 +22,10 @@ public class ItemCamera : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+	// Update is called once per frame
+	void Update()
     {
-        canUseCamera = charges > 0 ? true : false;
+		canUseCamera = charges > 0 ? true : false;
 		UseCamera();
 		canRechargeCamera = charges >= 3 ? false : true;
 		RechargeCamera();
@@ -56,6 +58,7 @@ public class ItemCamera : MonoBehaviour
         }
         
     }
+
 	private void SpawnItemPolaroid() {
         Instantiate(itemPolaroid, new Vector3(Random.Range(transform.position.x - 0.5f, transform.position.x + 0.5f), Random.Range(transform.position.y - 0.5f, transform.position.y + 0.5f), Random.Range(transform.position.z - 0.5f, transform.position.z + 0.5f)), Quaternion.identity);
 	}
