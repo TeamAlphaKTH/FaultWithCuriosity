@@ -1,12 +1,12 @@
 using System;
 using System.Net;
 using System.Net.Sockets;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CreateButtonScript : MonoBehaviour {
 
-	[SerializeField] private InputField portnumberInput;
+	[SerializeField] private TMP_InputField portnumberInput;
 	public bool wrongFormat = false;
 	public void OnButtonPress() {
 		//find local ips using the [port]

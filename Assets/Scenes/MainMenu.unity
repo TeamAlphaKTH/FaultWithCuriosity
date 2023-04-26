@@ -581,7 +581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 715f7bff1ae471a4c86054f272a3489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portnumberInput: {fileID: 0}
+  portnumberInput: {fileID: 1962159325}
   wrongFormat: 0
 --- !u!114 &53430065
 MonoBehaviour:
@@ -2972,7 +2972,6 @@ GameObject:
   - component: {fileID: 835892203}
   - component: {fileID: 835892202}
   - component: {fileID: 835892201}
-  - component: {fileID: 835892204}
   m_Layer: 0
   m_Name: Join Button
   m_TagString: Untagged
@@ -3083,18 +3082,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 835892198}
   m_CullTransparentMesh: 1
---- !u!114 &835892204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 835892198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f51027473d5270f42816a1cd888d49a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &891971537
 GameObject:
   m_ObjectHideFlags: 0
