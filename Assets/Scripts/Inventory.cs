@@ -24,7 +24,7 @@ public class Inventory:MonoBehaviour {
 	void Update() {
 		drugText.text = drugNr.ToString();
 		batteryText.text = batteryNr.ToString();
-		if(Input.GetKeyDown(openInventory)) {
+		if(Input.GetKeyDown(openInventory) && !PauseMenu.paused) {
 			switch(inventory.activeSelf) {
 				case true:
 				inventory.SetActive(false);
