@@ -8,11 +8,6 @@ public class ItemCamera:MonoBehaviour {
 	[SerializeField] private bool canRechargeCamera;
 	public static bool canUseCamera = true;
 
-	// Start is called before the first frame update
-	void Start() {
-
-	}
-
 	// Update is called once per frame
 	void Update() {
 		canUseCamera = charges > 0 ? true : false;

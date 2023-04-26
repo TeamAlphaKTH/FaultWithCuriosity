@@ -30,18 +30,18 @@ public class PhotoCapture:MonoBehaviour {
 	private GameObject currentItemPolaroid;
 	private GameObject currentPhotoFrame;
 
-	// Update is called once per frame
 	void Update() {
 		if(Input.GetKeyDown(ItemCamera.useCameraButton) && ItemCamera.canUseCamera && !viewingPhoto) {
 			StartCoroutine(CapturePhoto());
 		}
-
+		// Raycast to see if player is looking at a Polaroid
 		itemObject = Physics.Raycast(transform.position, transform.forward, out hitObject, 6f);
 		if(!viewingPhoto && Input.GetKeyDown(PlayerActions.actionButton) && itemObject && hitObject.collider.gameObject.CompareTag("Polaroid")) {
 			currentItemPolaroid = hitObject.collider.gameObject.transform.parent.gameObject;
 			ShowPhoto();
 		}
 
+		// Close Photo
 		if(viewingPhoto && Input.GetKeyDown(closePicture)) {
 			RemovePhoto();
 		}
@@ -57,15 +57,16 @@ public class PhotoCapture:MonoBehaviour {
 	}
 
 	/// <summary>
-	/// 
+	/// Captures the photo.
 	/// </summary>
 	/// <returns></returns>
 	private IEnumerator CapturePhoto() {
 		// Game UI set to false so that it does not show in screenshot
 		GUI.SetActive(false);
-
+		// Wait for end of frame so that the UI is not captured in the screenshot
 		yield return new WaitForEndOfFrame();
 
+		// Takes a screenshot of the screen
 		Rect regionToRead = new(0, 0, Screen.width, Screen.height);
 		Texture2D newTexture = new(Screen.width, Screen.height, TextureFormat.RGB24, false);
 		newTexture.ReadPixels(regionToRead, 0, 0, false);
@@ -76,12 +77,17 @@ public class PhotoCapture:MonoBehaviour {
 		Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
 		photoDisplayArea.sprite = photoSprite;
 
+		// Sets PhotoFrameBG (Blank canvas) in ItemPolaroidObject to true
 		StartCoroutine(CameraFlashEffect());
 		GUI.SetActive(true);
 		SpawnItemPolaroid();
 	}
 
+	/// <summary>
+	/// Shows the photo.
+	/// </summary>
 	public void ShowPhoto() {
+		// Set viewingPhoto to true so that player cannot move
 		viewingPhoto = true;
 		GUI.SetActive(false);
 
@@ -95,16 +101,22 @@ public class PhotoCapture:MonoBehaviour {
 		Destroy(currentItemPolaroidBody);
 	}
 
+	/// <summary>
+	/// Removes the photo.
+	/// </summary>
 	private void RemovePhoto() {
+		// Set viewingPhoto to false so that player can move
 		viewingPhoto = false;
 		currentPhotoFrame.SetActive(false);
 		Destroy(currentItemPolaroid);
 		GUI.SetActive(true);
 	}
 
-	// Bug - becomes a clone of original object and change with the original
+	/// <summary>
+	/// Spawns the item polaroid.
+	/// </summary>
 	private void SpawnItemPolaroid() {
-
+		// Random position and rotation
 		Vector3 randomPosition = new(
 			Random.Range(FirstPersonController.characterController.transform.position.x, FirstPersonController.characterController.transform.position.x + 0.5f),
 			Random.Range(FirstPersonController.characterController.transform.position.y + 0.5f, FirstPersonController.characterController.transform.position.y + 1.5f),
@@ -112,7 +124,7 @@ public class PhotoCapture:MonoBehaviour {
 			);
 
 		Quaternion randomRotation = Random.rotation;
-
+		// Spawn Polaroid
 		GameObject newPolaroid = Instantiate(itemPolaroid, randomPosition, randomRotation);
 
 	}
