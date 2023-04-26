@@ -1,8 +1,11 @@
 using TMPro;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Flashlight:MonoBehaviour {
+public class Flashlight:NetworkBehaviour {
+	[Header("Networking")]
+	private GameObject cam;
 
 	[Header("Flashlight Parameters")]
 	[SerializeField] private Light flashlightLight;
@@ -28,17 +31,36 @@ public class Flashlight:MonoBehaviour {
 	[SerializeField] public static float currentParanoia;
 	[SerializeField] private Slider paranoiaSlider;
 
-	private void Awake() {
+	public override void OnNetworkSpawn() {
+		if(!IsOwner) {
+			//GetComponentInChildren<Light>().enabled = false;
+			return;
+		}
+		cam = GetComponentInChildren<Camera>().gameObject;
+		flashlightLight = cam.GetComponentInChildren<Light>();
+
+		batteryText = GameObject.Find("Battery Percentage").GetComponent<TextMeshProUGUI>();
+		batteryBlock1 = GameObject.Find("Percentage1").GetComponent<Image>();
+		batteryBlock2 = GameObject.Find("Percentage2").GetComponent<Image>();
+		batteryBlock3 = GameObject.Find("Percentage3").GetComponent<Image>();
+		paranoiaSlider = GameObject.Find("Paranoia Slider").GetComponent<Slider>();
+
 		batteryText.SetText("100%");
 		currentParanoia = 0;
 	}
 
 	void Start() {
+		if(!IsOwner) {
+			return;
+		}
 		paranoiaSlider.value = 0f;
 		maxIntensity = flashlightLight.intensity;
 	}
 
 	void Update() {
+		if(!IsOwner) {
+			return;
+		}
 		if(canUseFlashlight) {
 			FlashlightControl();
 		}

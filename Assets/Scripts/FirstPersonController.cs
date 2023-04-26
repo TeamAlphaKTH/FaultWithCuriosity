@@ -1,12 +1,15 @@
 using System;
 using System.Collections;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FirstPersonController:MonoBehaviour {
+public class FirstPersonController:NetworkBehaviour {
 
 	public static bool CanMove { get; set; } = true;
 	private bool IsRunning => Input.GetKey(runKey) && canRun;
+	[Header("SpawnPoint")]
+	[SerializeField] private GameObject spawnPoint;
 
 	[Header("Movement Parameters")]
 	[SerializeField] private float walkSpeed = 3.0f;
@@ -106,14 +109,27 @@ public class FirstPersonController:MonoBehaviour {
 	private float oldGravity;
 
 	// Is called first
-	void Awake() {
+	public override void OnNetworkSpawn() {
+		if(!IsOwner) {
+			GetComponentInChildren<Camera>().enabled = false;
+			return;
+		}
 		characterController = GetComponent<CharacterController>();
+		spawnPoint = GameObject.Find("Spawn Point");
+
+		staminaSlider = GameObject.Find("Stamina Slider").GetComponent<Slider>();
 		standingCenter = characterController.center;
 		standingHeight = characterController.height;
+		Initialize();
+		base.OnNetworkSpawn();
 	}
 
 	// Start is called before the first frame update
-	void Start() {
+	void Initialize() {
+		if(!IsOwner) {
+			return;
+		}
+		transform.position = spawnPoint.transform.localPosition;
 		// for crouching
 		initialCameraPosition = playerCamera.transform.localPosition;
 		crouchHeight = standingHeight * crouchMultiplier;
@@ -130,6 +146,9 @@ public class FirstPersonController:MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
+		if(!IsOwner) {
+			return;
+		}
 		if(CanMove) {
 			HandleInput();
 			HandleJump();
