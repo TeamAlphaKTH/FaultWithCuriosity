@@ -66,8 +66,10 @@ public class PhotoCapture:MonoBehaviour {
 		yield return new WaitForEndOfFrame();
 
 		Rect regionToRead = new(0, 0, Screen.width, Screen.height);
-		screenCapture.ReadPixels(regionToRead, 0, 0, false);
-		screenCapture.Apply();
+		Texture2D newTexture = new(Screen.width, Screen.height, TextureFormat.RGB24, false);
+		newTexture.ReadPixels(regionToRead, 0, 0, false);
+		newTexture.Apply();
+		screenCapture = newTexture;
 
 		// Makes a sprite of the screenshot and places it in PhotoDisplayArea in ItemPolaroidObject
 		Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
