@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu:MonoBehaviour {
 	public void Play() {
-		SceneManager.LoadScene("Testing");
+		SceneManager.LoadScene("Dungeon");
 	}
 	public void Quit() {
 		Application.Quit();
