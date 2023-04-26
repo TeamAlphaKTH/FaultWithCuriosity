@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class FirstPersonController:MonoBehaviour {
-
 	public bool CanMove { get; private set; } = true;
 	private bool IsRunning => Input.GetKey(runKey) && canRun;
 
@@ -54,12 +53,12 @@ public class FirstPersonController:MonoBehaviour {
 	private bool duringCrouchAnimation;
 
 	[Header("Head Bob Parameters")]
-	[SerializeField] private float walkBobSpeed = 14f;
-	[SerializeField] private float walkBobAmount = 0.05f;
-	[SerializeField] private float runBobSpeed = 15f;
-	[SerializeField] private float runBobAmount = 0.07f;
-	[SerializeField] private float crouchBobSpeed = 8f;
-	[SerializeField] private float crouchBobAmount = 0.025f;
+	[SerializeField] private float walkBobSpeed = 10f;
+	[SerializeField] private float walkBobAmount = 0.1f;
+	[SerializeField] private float runBobSpeed = 111f;
+	[SerializeField] private float runBobAmount = 0.14f;
+	[SerializeField] private float crouchBobSpeed = 3f;
+	[SerializeField] private float crouchBobAmount = 0.05f;
 	private float defaultYPos = 0.2f;
 	private float defaultZPos;
 	private float timer = 0;
@@ -220,7 +219,7 @@ public class FirstPersonController:MonoBehaviour {
 		}
 		if(Mathf.Abs(moveDirection.x) > 0.1f || Mathf.Abs(moveDirection.z) > 0.1f) {
 			timer += Time.deltaTime * (isCrouching ? crouchBobSpeed : IsRunning ? runBobSpeed : walkBobSpeed);
-			playerCamera.transform.localPosition = new Vector3(playerCamera.transform.localPosition.x, (isCrouching ? crouchHeight : defaultYPos) + Mathf.Sin(timer) * (isCrouching ? crouchBobAmount : IsRunning ? runBobAmount : walkBobAmount), defaultZPos);
+			playerCamera.transform.localPosition = new Vector3(playerCamera.transform.localPosition.x, (isCrouching ? crouchHeight : defaultYPos) + (-Mathf.Abs(Mathf.Sin(timer)) * (isCrouching ? crouchBobAmount : IsRunning ? runBobAmount : walkBobAmount)), defaultZPos);
 		}
 	}
 
