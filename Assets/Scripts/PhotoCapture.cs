@@ -21,10 +21,7 @@ public class PhotoCapture:MonoBehaviour {
 	[Header("Polaroid GameObject")]
 	[SerializeField] private GameObject itemPolaroid;
 
-	[Header("Controls")]
-	[SerializeField] private KeyCode closePicture = KeyCode.Mouse1;
-
-	// Raycast
+	// Code needed for finding specific polaroid
 	private RaycastHit hitObject;
 	private bool itemObject = false;
 	private GameObject currentItemPolaroid;
@@ -36,13 +33,13 @@ public class PhotoCapture:MonoBehaviour {
 		}
 		// Raycast to see if player is looking at a Polaroid
 		itemObject = Physics.Raycast(transform.position, transform.forward, out hitObject, 6f);
-		if(!viewingPhoto && Input.GetKeyDown(PlayerActions.actionButton) && itemObject && hitObject.collider.gameObject.CompareTag("Polaroid")) {
+		if(!viewingPhoto && Input.GetKeyDown(CameraMovement.interactKey) && itemObject && hitObject.collider.gameObject.CompareTag("Polaroid")) {
 			currentItemPolaroid = hitObject.collider.gameObject.transform.parent.gameObject;
 			ShowPhoto();
 		}
 
 		// Close Photo
-		if(viewingPhoto && Input.GetKeyDown(closePicture)) {
+		if(viewingPhoto && Input.GetKeyDown(ItemCamera.useCameraButton)) {
 			RemovePhoto();
 		}
 	}
