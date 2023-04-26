@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Flashlight:MonoBehaviour {
+
 	[Header("Flashlight Parameters")]
 	[SerializeField] private Light flashlightLight;
 	[SerializeField] private KeyCode flashlightKey = KeyCode.F;
@@ -16,7 +17,7 @@ public class Flashlight:MonoBehaviour {
 
 	private bool flashlightActive = true;
 	private bool canUseFlashlight = true;
-	public float batteryLevel = 100;
+	public static float batteryLevel = 100;
 	private float maxIntensity;
 	private float flickerDuration = 0.5f;
 	private float flickerDelay = 0.1f;
@@ -24,7 +25,7 @@ public class Flashlight:MonoBehaviour {
 
 	[Header("Paranoia parameters")]
 	[SerializeField] private float paranoiaIncrements = 1.5f;
-	[SerializeField] private float currentParanoia;
+	[SerializeField] public static float currentParanoia;
 	[SerializeField] private Slider paranoiaSlider;
 
 	private void Awake() {
