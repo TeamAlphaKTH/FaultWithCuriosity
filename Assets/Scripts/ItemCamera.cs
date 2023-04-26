@@ -3,7 +3,7 @@ using UnityEngine;
 public class ItemCamera:MonoBehaviour {
 	[Header("Camera Item Parameters")]
 	[SerializeField] private int charges = 3;
-	//[SerializeField] private KeyCode useCameraButton = KeyCode.Mouse0;
+	[SerializeField] public static KeyCode useCameraButton = KeyCode.Mouse0;
 	[SerializeField] private KeyCode rechargeCameraButton = KeyCode.Mouse2;
 	[SerializeField] private bool canRechargeCamera;
 	public static bool canUseCamera = true;
@@ -26,7 +26,7 @@ public class ItemCamera:MonoBehaviour {
 	/// charges exceed 0
 	/// </summary>
 	private void UseCamera() {
-		if(Input.GetKeyDown(PlayerActions.useCameraButton)) {
+		if(Input.GetKeyDown(useCameraButton)) {
 			if(canUseCamera && !PhotoCapture.viewingPhoto) {
 				charges--;
 			}

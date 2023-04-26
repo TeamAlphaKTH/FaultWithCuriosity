@@ -2950,6 +2950,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2154455911222927915, guid: cdc0b54091800994aa7022a82edd917b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3156862612152214230, guid: cdc0b54091800994aa7022a82edd917b, type: 3}
       propertyPath: m_RootOrder
       value: 25
@@ -2994,6 +2998,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4610932880490871680, guid: cdc0b54091800994aa7022a82edd917b, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 6115413529688286820, guid: cdc0b54091800994aa7022a82edd917b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -3008,7 +3016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8681303806250907813, guid: cdc0b54091800994aa7022a82edd917b, type: 3}
       propertyPath: m_TagString
-      value: Polaroid
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

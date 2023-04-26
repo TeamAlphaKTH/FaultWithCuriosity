@@ -22,29 +22,24 @@ public class PhotoCapture:MonoBehaviour {
 	[SerializeField] private GameObject itemPolaroid;
 
 	[Header("Controls")]
-	//[SerializeField] private KeyCode useCamera = KeyCode.Mouse0;
 	[SerializeField] private KeyCode closePicture = KeyCode.Mouse1;
 
 	// Raycast
 	private RaycastHit hitObject;
 	private bool itemObject = false;
+	private GameObject currentItemPolaroid;
 	private GameObject currentPhotoFrame;
-
-	// Start is called before the first frame update
-	void Start() {
-		//screenCapture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
-	}
 
 	// Update is called once per frame
 	void Update() {
-		if(Input.GetKeyDown(PlayerActions.useCameraButton) && ItemCamera.canUseCamera && !viewingPhoto) {
+		if(Input.GetKeyDown(ItemCamera.useCameraButton) && ItemCamera.canUseCamera && !viewingPhoto) {
 			StartCoroutine(CapturePhoto());
 		}
 
 		itemObject = Physics.Raycast(transform.position, transform.forward, out hitObject, 6f);
 		if(!viewingPhoto && Input.GetKeyDown(PlayerActions.actionButton) && itemObject && hitObject.collider.gameObject.CompareTag("Polaroid")) {
-			GameObject currentItemPolaroid = hitObject.collider.gameObject.transform.parent.gameObject;
-			ShowPhoto(currentItemPolaroid);
+			currentItemPolaroid = hitObject.collider.gameObject.transform.parent.gameObject;
+			ShowPhoto();
 		}
 
 		if(viewingPhoto && Input.GetKeyDown(closePicture)) {
@@ -61,8 +56,12 @@ public class PhotoCapture:MonoBehaviour {
 		cameraFlash.SetActive(false);
 	}
 
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <returns></returns>
 	private IEnumerator CapturePhoto() {
-		// CameraUI set false
+		// Game UI set to false so that it does not show in screenshot
 		GUI.SetActive(false);
 
 		yield return new WaitForEndOfFrame();
@@ -82,24 +81,24 @@ public class PhotoCapture:MonoBehaviour {
 		SpawnItemPolaroid();
 	}
 
-	public void ShowPhoto(GameObject currentItemPolaroid) {
+	public void ShowPhoto() {
 		viewingPhoto = true;
 		GUI.SetActive(false);
-		// Sets PhotoFrameBG (Blank canvas) in ItemPolaroidObject to true
-		//Transform position = currentItemPolaroid.transform;
-		Debug.Log(currentItemPolaroid.transform.childCount);
 
+		// Object is hardcoded and only The ItemPolaroid within the ItemPolaroid should be Tagged "Polaroid"
+		// Sets PhotoFrameBG (Blank canvas) in ItemPolaroidObject to true
 		currentPhotoFrame = currentItemPolaroid.transform.GetChild(1).GetChild(0).gameObject;
 		currentPhotoFrame.SetActive(true);
+
+		// Destroy the visable body of the ItemPolaroid
 		GameObject currentItemPolaroidBody = currentItemPolaroid.transform.GetChild(0).gameObject;
-		//photoFrame.SetActive(true);
 		Destroy(currentItemPolaroidBody);
 	}
 
 	private void RemovePhoto() {
 		viewingPhoto = false;
 		currentPhotoFrame.SetActive(false);
-		Destroy(currentPhotoFrame.transform.parent.parent.gameObject);
+		Destroy(currentItemPolaroid);
 		GUI.SetActive(true);
 	}
 
@@ -107,12 +106,14 @@ public class PhotoCapture:MonoBehaviour {
 	private void SpawnItemPolaroid() {
 
 		Vector3 randomPosition = new(
-			Random.Range(FirstPersonController.characterController.transform.position.x - 0.5f, FirstPersonController.characterController.transform.position.x + 0.5f),
+			Random.Range(FirstPersonController.characterController.transform.position.x, FirstPersonController.characterController.transform.position.x + 0.5f),
 			Random.Range(FirstPersonController.characterController.transform.position.y + 0.5f, FirstPersonController.characterController.transform.position.y + 1.5f),
-			Random.Range(FirstPersonController.characterController.transform.position.z - 0.5f, FirstPersonController.characterController.transform.position.z + 0.5f)
+			Random.Range(FirstPersonController.characterController.transform.position.z, FirstPersonController.characterController.transform.position.z + 0.5f)
 			);
 
-		GameObject newPolaroid = Instantiate(itemPolaroid, randomPosition, Quaternion.identity);
+		Quaternion randomRotation = Random.rotation;
+
+		GameObject newPolaroid = Instantiate(itemPolaroid, randomPosition, randomRotation);
 
 	}
 
