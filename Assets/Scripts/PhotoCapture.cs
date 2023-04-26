@@ -28,10 +28,11 @@ public class PhotoCapture:MonoBehaviour {
 	// Raycast
 	private RaycastHit hitObject;
 	private bool itemObject = false;
+	private GameObject currentPhotoFrame;
 
 	// Start is called before the first frame update
 	void Start() {
-		screenCapture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
+		//screenCapture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
 	}
 
 	// Update is called once per frame
@@ -42,7 +43,8 @@ public class PhotoCapture:MonoBehaviour {
 
 		itemObject = Physics.Raycast(transform.position, transform.forward, out hitObject, 6f);
 		if(!viewingPhoto && Input.GetKeyDown(PlayerActions.actionButton) && itemObject && hitObject.collider.gameObject.CompareTag("Polaroid")) {
-			ShowPhoto();
+			GameObject currentItemPolaroid = hitObject.collider.gameObject.transform.parent.gameObject;
+			ShowPhoto(currentItemPolaroid);
 		}
 
 		if(viewingPhoto && Input.GetKeyDown(closePicture)) {
@@ -80,16 +82,24 @@ public class PhotoCapture:MonoBehaviour {
 		SpawnItemPolaroid();
 	}
 
-	public void ShowPhoto() {
+	public void ShowPhoto(GameObject currentItemPolaroid) {
 		viewingPhoto = true;
 		GUI.SetActive(false);
 		// Sets PhotoFrameBG (Blank canvas) in ItemPolaroidObject to true
-		photoFrame.SetActive(true);
+		//Transform position = currentItemPolaroid.transform;
+		Debug.Log(currentItemPolaroid.transform.childCount);
+
+		currentPhotoFrame = currentItemPolaroid.transform.GetChild(1).GetChild(0).gameObject;
+		currentPhotoFrame.SetActive(true);
+		GameObject currentItemPolaroidBody = currentItemPolaroid.transform.GetChild(0).gameObject;
+		//photoFrame.SetActive(true);
+		Destroy(currentItemPolaroidBody);
 	}
 
 	private void RemovePhoto() {
 		viewingPhoto = false;
-		photoFrame.SetActive(false);
+		currentPhotoFrame.SetActive(false);
+		Destroy(currentPhotoFrame.transform.parent.parent.gameObject);
 		GUI.SetActive(true);
 	}
 
