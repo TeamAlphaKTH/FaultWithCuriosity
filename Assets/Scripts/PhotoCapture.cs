@@ -93,7 +93,14 @@ public class PhotoCapture:MonoBehaviour {
 
 	// Bug - becomes a clone of original object and change with the original
 	private void SpawnItemPolaroid() {
-		GameObject newPolaroid = Instantiate(itemPolaroid, new Vector3(Random.Range(FirstPersonController.characterController.transform.position.x - 0.5f, FirstPersonController.characterController.transform.position.x + 0.5f), Random.Range(FirstPersonController.characterController.transform.position.y + 0.5f, FirstPersonController.characterController.transform.position.y + 1.5f), Random.Range(FirstPersonController.characterController.transform.position.z - 0.5f, FirstPersonController.characterController.transform.position.z + 0.5f)), Quaternion.identity);
+
+		Vector3 randomPosition = new(
+			Random.Range(FirstPersonController.characterController.transform.position.x - 0.5f, FirstPersonController.characterController.transform.position.x + 0.5f),
+			Random.Range(FirstPersonController.characterController.transform.position.y + 0.5f, FirstPersonController.characterController.transform.position.y + 1.5f),
+			Random.Range(FirstPersonController.characterController.transform.position.z - 0.5f, FirstPersonController.characterController.transform.position.z + 0.5f)
+			);
+
+		GameObject newPolaroid = Instantiate(itemPolaroid, randomPosition, Quaternion.identity);
 
 	}
 
