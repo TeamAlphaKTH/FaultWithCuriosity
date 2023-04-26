@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class FirstPersonController:MonoBehaviour {
 
-	public bool CanMove { get; private set; } = true;
+	public static bool CanMove { get; set; } = true;
 	private bool IsRunning => Input.GetKey(runKey) && canRun;
 
 	[Header("Movement Parameters")]
@@ -102,7 +102,7 @@ public class FirstPersonController:MonoBehaviour {
 	// Initialize currentSpeed to zero so that the character doesn't move when the game starts.
 	private Vector2 currentSpeed = Vector2.zero;
 	private Vector3 moveDirection;
-	private CharacterController characterController;
+	public static CharacterController characterController;
 	private float oldGravity;
 
 	// Is called first
