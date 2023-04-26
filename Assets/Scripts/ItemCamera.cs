@@ -11,9 +11,14 @@ public class ItemCamera:MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 		canUseCamera = charges > 0 ? true : false;
-		UseCamera();
+		if(Input.GetKeyDown(useCameraButton) && canUseCamera && !PhotoCapture.viewingPhoto) {
+			UseCamera();
+		}
 		canRechargeCamera = charges >= 3 ? false : true;
-		RechargeCamera();
+		// Requires to have a battery in the future and its use on camera
+		if(Input.GetKeyDown(rechargeCameraButton) && canRechargeCamera) {
+			RechargeCamera();
+		}
 	}
 
 	/// <summary>
@@ -21,11 +26,7 @@ public class ItemCamera:MonoBehaviour {
 	/// charges exceed 0
 	/// </summary>
 	private void UseCamera() {
-		if(Input.GetKeyDown(useCameraButton)) {
-			if(canUseCamera && !PhotoCapture.viewingPhoto) {
-				charges--;
-			}
-		}
+		charges--;
 	}
 
 	/// <summary>
@@ -33,13 +34,6 @@ public class ItemCamera:MonoBehaviour {
 	/// also that the charges does not exceed 3
 	/// </summary>
 	private void RechargeCamera() {
-		if(Input.GetKeyDown(rechargeCameraButton)) {
-			// Requires to have a battery in the future and its use on camera
-			if(canRechargeCamera) {
-				// amount of recharges 
-				charges++;
-			}
-		}
-
+		charges++;
 	}
 }
