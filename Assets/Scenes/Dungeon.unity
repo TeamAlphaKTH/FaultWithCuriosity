@@ -399,6 +399,10 @@ PrefabInstance:
       propertyPath: paranoiaSlider
       value: 
       objectReference: {fileID: 643887895}
+    - target: {fileID: 2114133169800093613, guid: b30b71d7a9fe69047a6731dc71eb2398, type: 3}
+      propertyPath: flashlightLight
+      value: 
+      objectReference: {fileID: 692455717}
     - target: {fileID: 2341564776458746402, guid: b30b71d7a9fe69047a6731dc71eb2398, type: 3}
       propertyPath: m_Name
       value: Player Aaron
@@ -643,6 +647,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!108 &692455717 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 9214482713791953321, guid: b30b71d7a9fe69047a6731dc71eb2398, type: 3}
+  m_PrefabInstance: {fileID: 497503666}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &703039538
 PrefabInstance:
   m_ObjectHideFlags: 0
