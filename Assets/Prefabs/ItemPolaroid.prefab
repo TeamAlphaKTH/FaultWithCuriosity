@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 936271212048756660}
   - component: {fileID: 1510288989996205302}
   - component: {fileID: 41097395760092782}
+  - component: {fileID: 7789965034371457566}
   m_Layer: 0
   m_Name: ItemPolaroidBody
   m_TagString: Polaroid
@@ -231,6 +232,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7789965034371457566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955179807293405274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd12f38e289b6e47a0942cdb1d6080b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemText: {fileID: 0}
+  itemUI: {fileID: 0}
 --- !u!1 &4383684629101983375
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,6 +589,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3156862612152214230}
+  - component: {fileID: 8877882758753288668}
   m_Layer: 0
   m_Name: ItemPolaroid
   m_TagString: Untagged
@@ -596,8 +612,35 @@ Transform:
   - {fileID: 2022475584703560088}
   - {fileID: 1073473657932161485}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &8877882758753288668
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8681303806250907813}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!1 &9089398066411474281
 GameObject:
   m_ObjectHideFlags: 0

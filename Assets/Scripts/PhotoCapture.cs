@@ -3,9 +3,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PhotoCapture:MonoBehaviour {
-	[Header("Photo Taker")]
-	[SerializeField] public Image photoDisplayArea;
-	[SerializeField] public GameObject photoFrame;
+	// In current version are not necessary
+	//[Header("Photo Taker")]
+	//[SerializeField] public Image photoDisplayArea;
 
 	[Header("Flash Effect")]
 	[SerializeField] private GameObject cameraFlash;
@@ -72,6 +72,8 @@ public class PhotoCapture:MonoBehaviour {
 
 		// Makes a sprite of the screenshot and places it in PhotoDisplayArea in ItemPolaroidObject
 		Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
+		GameObject photoDisplayAreaObject = itemPolaroid.transform.GetChild(1).GetChild(0).GetChild(0).GetChild(1).gameObject;
+		Image photoDisplayArea = photoDisplayAreaObject.GetComponent<Image>();
 		photoDisplayArea.sprite = photoSprite;
 
 		// Sets PhotoFrameBG (Blank canvas) in ItemPolaroidObject to true
@@ -110,7 +112,7 @@ public class PhotoCapture:MonoBehaviour {
 	}
 
 	/// <summary>
-	/// Spawns the item polaroid.
+	/// Spawns the item polaroid in a random location around infront of the player.
 	/// </summary>
 	private void SpawnItemPolaroid() {
 		// Random position and rotation
