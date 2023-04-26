@@ -23,7 +23,7 @@ public class Flashlight:MonoBehaviour {
 	private bool isFlickering = false;
 
 	[Header("Paranoia parameters")]
-	[SerializeField] private float paranoiaIncrements = 0.2f;
+	[SerializeField] private float paranoiaIncrements = 1.5f;
 	[SerializeField] private float currentParanoia;
 	[SerializeField] private Slider paranoiaSlider;
 
@@ -105,7 +105,7 @@ public class Flashlight:MonoBehaviour {
 		}
 
 		if(!flashlightActive && currentParanoia < 100) {
-			currentParanoia = currentParanoia * 1.001f + paranoiaIncrements * Time.deltaTime;
+			currentParanoia += paranoiaIncrements * Time.deltaTime;
 		}
 
 		if(currentParanoia >= 100) {
