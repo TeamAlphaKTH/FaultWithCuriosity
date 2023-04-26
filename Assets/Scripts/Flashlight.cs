@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Flashlight:MonoBehaviour {
+public class Flashlight : MonoBehaviour {
 
 	[Header("Flashlight Parameters")]
 	[SerializeField] private Light flashlightLight;
@@ -39,61 +39,64 @@ public class Flashlight:MonoBehaviour {
 	}
 
 	void Update() {
-		if(canUseFlashlight) {
+		if (canUseFlashlight) {
 			FlashlightControl();
 		}
 	}
 
 	private void FlashlightControl() {
-		// Toggle flashlight on/off with key press
-		if(Input.GetKeyDown(flashlightKey)) {
-			flashlightActive = !flashlightActive;
-			flashlightLight.gameObject.SetActive(flashlightActive);
-		}
 
-		if(Input.GetKeyDown(rechargeBattery)) {
-			batteryLevel += incrementBattery;
-			if(batteryLevel > 100) {
-				batteryLevel = 100;
+		if (!PauseMenu.paused) {
+			// Toggle flashlight on/off with key press
+			if (Input.GetKeyDown(flashlightKey)) {
+				flashlightActive = !flashlightActive;
+				flashlightLight.gameObject.SetActive(flashlightActive);
 			}
 
-			if(!isFlickering && batteryLevel > 10) {
-				CancelInvoke("Flicker");
-				flashlightLight.intensity = maxIntensity;
+			if (Input.GetKeyDown(rechargeBattery)) {
+				batteryLevel += incrementBattery;
+				if (batteryLevel > 100) {
+					batteryLevel = 100;
+				}
+
+				if (!isFlickering && batteryLevel > 10) {
+					CancelInvoke("Flicker");
+					flashlightLight.intensity = maxIntensity;
+				}
 			}
 		}
-		if(batteryLevel <= 100 && batteryLevel > 50) {
+		if (batteryLevel <= 100 && batteryLevel > 50) {
 			batteryBlock3.enabled = true;
 			batteryBlock2.enabled = true;
 			batteryBlock1.enabled = true;
 			batteryBlock3.color = new Color32(0, 255, 19, 120);
 			batteryBlock2.color = new Color32(0, 255, 19, 120);
 			batteryBlock1.color = new Color32(0, 255, 19, 120);
-		} else if(batteryLevel <= 50 && batteryLevel >= 10) {
+		} else if (batteryLevel <= 50 && batteryLevel >= 10) {
 			batteryBlock3.enabled = false;
 			batteryBlock2.enabled = true;
 			batteryBlock1.enabled = true;
 			batteryBlock2.color = new Color32(255, 241, 0, 120);
 			batteryBlock1.color = new Color32(255, 241, 0, 120);
-		} else if(batteryLevel < 10 && batteryLevel > 0) {
+		} else if (batteryLevel < 10 && batteryLevel > 0) {
 			batteryBlock2.enabled = false;
 			batteryBlock1.enabled = true;
 			batteryBlock1.color = new Color32(255, 32, 0, 120);
-		} else if(batteryLevel <= 0) {
+		} else if (batteryLevel <= 0) {
 			batteryBlock1.enabled = false;
 		}
 
 		// Handle battery level and flickering
-		if(flashlightActive && batteryLevel >= 0) {
+		if (flashlightActive && batteryLevel >= 0) {
 			batteryLevel -= batterySpeed * Time.deltaTime;
 
-			if(batteryLevel < 10) {
-				if(!isFlickering) {
+			if (batteryLevel < 10) {
+				if (!isFlickering) {
 					isFlickering = true;
 					InvokeRepeating("Flicker", flickerDelay, flickerDuration);
 				}
 			} else {
-				if(isFlickering) {
+				if (isFlickering) {
 					isFlickering = false;
 					CancelInvoke("Flicker");
 				}
@@ -105,11 +108,11 @@ public class Flashlight:MonoBehaviour {
 			flashlightActive = false;
 		}
 
-		if(!flashlightActive && currentParanoia < 100) {
+		if (!flashlightActive && currentParanoia < 100) {
 			currentParanoia += paranoiaIncrements * Time.deltaTime;
 		}
 
-		if(currentParanoia >= 100) {
+		if (currentParanoia >= 100) {
 			Debug.Log("Dead");
 		}
 
