@@ -1104,7 +1104,7 @@ MonoBehaviour:
   acceleration: 100
   deceleration: 100
   canJump: 1
-  canRun: 0
+  canRun: 1
   canCrouch: 1
   willSlideOnSlope: 1
   canUseHeadBob: 1
@@ -1183,9 +1183,7 @@ MonoBehaviour:
   batteryBlock1: {fileID: 0}
   batteryBlock2: {fileID: 0}
   batteryBlock3: {fileID: 0}
-  batteryLevel: 100
   paranoiaIncrements: 1.5
-  currentParanoia: 0
   paranoiaSlider: {fileID: 0}
 --- !u!1 &2518085779979156402
 GameObject:
@@ -3232,6 +3230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivity: 300
   person: {fileID: 3113456765007798424}
+  interactionRange: 5
 --- !u!1 &6013710358182810699
 GameObject:
   m_ObjectHideFlags: 0
