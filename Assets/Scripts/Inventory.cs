@@ -6,12 +6,12 @@ public class Inventory:MonoBehaviour {
     [SerializeField] private KeyCode openInventory = KeyCode.Tab;
     [SerializeField] private GameObject inventory;
     [SerializeField] private TextMeshProUGUI drugText;
-    private int drugNr;
+    public static int drugNr;
     [SerializeField] private GameObject battery;
     [SerializeField] private GameObject pills;
 
     [SerializeField] private TextMeshProUGUI batteryText;
-    private int batteryNr;
+    public static int batteryNr;
     [SerializeField] private Slider flashlightSlider;
     [SerializeField] private Slider cameraSlider;
 
@@ -21,6 +21,8 @@ public class Inventory:MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        drugText.text = drugNr.ToString();
+        batteryText.text = batteryNr.ToString();
         if(Input.GetKeyDown(openInventory)) {
             switch(inventory.activeSelf) {
                 case true:

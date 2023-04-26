@@ -26,7 +26,7 @@ public class Flashlight:MonoBehaviour {
     [Header("Paranoia parameters")]
     [SerializeField] private float maxParanoia = 100f;
     [SerializeField] private float paranoiaIncrements = 0.2f;
-    [SerializeField] private float currentParanoia;
+    [SerializeField] public static float currentParanoia;
     [SerializeField] private Slider paranoiaSlider;
 
     private void Awake() {

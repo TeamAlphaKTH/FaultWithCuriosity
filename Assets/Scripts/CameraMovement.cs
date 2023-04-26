@@ -12,7 +12,7 @@ public class CameraMovement:MonoBehaviour {
     [SerializeField] private float interactionRange = 5f;
     private IInteractable currentTarget;
 
-    [SerializeField] private KeyCode interactKey = KeyCode.E;
+    [SerializeField] public static KeyCode interactKey = KeyCode.E;
 
 
     private void Awake() {
@@ -34,17 +34,19 @@ public class CameraMovement:MonoBehaviour {
             xRotation = Mathf.Clamp(xRotation, -90, 90);
             transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
 
-        //Rotates the body sideways.
-        person.rotation = Quaternion.Euler(0, yRotation, 0);
+            //Rotates the body sideways.
+            person.rotation = Quaternion.Euler(0, yRotation, 0);
 
 
-        RaycastForInteractable();
-        if(Input.GetKeyDown(interactKey)) {
-            if(currentTarget != null) {
-                currentTarget.OnInteract();
+            RaycastForInteractable();
+            if(Input.GetKeyDown(interactKey)) {
+                if(currentTarget != null) {
+                    currentTarget.OnInteract();
+                }
             }
         }
     }
+
 
     private void RaycastForInteractable() {
         RaycastHit hitTarget;
@@ -98,3 +100,4 @@ public class CameraMovement:MonoBehaviour {
         }
     }
 }
+
