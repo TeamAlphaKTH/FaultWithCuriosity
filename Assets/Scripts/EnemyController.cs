@@ -27,7 +27,7 @@ public class EnemyController:MonoBehaviour {
 		distanceToPlayer = Vector3.Distance(player.position, transform.position);
 
 		//If the player is further than the paranoiaDistance, move the AI closer.
-		if(distanceToPlayer > paranoiaDistance) {
+		if(distanceToPlayer * 3 > paranoiaDistance) {
 			enemyAIAgent.SetDestination(player.position);
 			enemyAIAgent.stoppingDistance = paranoiaDistance;
 		} else {
