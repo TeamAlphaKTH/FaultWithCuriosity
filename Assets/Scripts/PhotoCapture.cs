@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class PhotoCapture:MonoBehaviour {
 	[Header("Camera Item Parameters")]
 	[SerializeField] private int charges = 3;
-	[SerializeField] public static KeyCode useCameraButton = KeyCode.Mouse1;
 	[SerializeField] private KeyCode rechargeCameraButton = KeyCode.Mouse2;
 	private bool canRechargeCamera;
 	private bool canUseCamera;
@@ -35,7 +34,7 @@ public class PhotoCapture:MonoBehaviour {
 		canUseCamera = charges > 0 ? true : false;
 		canRechargeCamera = charges >= 3 ? false : true;
 
-		if(Input.GetKeyDown(useCameraButton) && canUseCamera && !viewingPhoto) {
+		if(Input.GetKeyDown(FirstPersonController.useCameraButton) && canUseCamera && !viewingPhoto) {
 			StartCoroutine(CapturePhoto());
 			UseCamera();
 		}
@@ -47,7 +46,7 @@ public class PhotoCapture:MonoBehaviour {
 		}
 
 		// Close Photo
-		if(viewingPhoto && Input.GetKeyDown(useCameraButton)) {
+		if(viewingPhoto && Input.GetKeyDown(FirstPersonController.useCameraButton)) {
 			RemovePhoto();
 		}
 
