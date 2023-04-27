@@ -187,6 +187,13 @@ public class FirstPersonController:MonoBehaviour {
 		// Above while loop for hold crouch 
 		isCrouching = !isCrouching;
 
+		// Calculates the new camera position 
+		Vector3 halfHeightDifference = new(0, standingHeight - targetHeight, 0);
+		Vector3 newCameraPosition = initialCameraPosition - halfHeightDifference;
+
+		// Moves the camera down
+		playerCamera.transform.localPosition = newCameraPosition;
+
 		// Changes the characters hitbox / collider
 		while(timeElapsed < timeToCrouch) {
 			characterController.height = Mathf.Lerp(currentHeight, targetHeight, timeElapsed / timeToCrouch);
@@ -195,13 +202,6 @@ public class FirstPersonController:MonoBehaviour {
 			timeElapsed += Time.deltaTime;
 			yield return null;
 		}
-
-		// Calculates the new camera position 
-		Vector3 halfHeightDifference = new(0, standingHeight - targetHeight, 0);
-		Vector3 newCameraPosition = initialCameraPosition - halfHeightDifference;
-
-		// Moves the camera down
-		playerCamera.transform.localPosition = newCameraPosition;
 
 		// Ensure correct moved charachter collider
 		characterController.height = targetHeight;
