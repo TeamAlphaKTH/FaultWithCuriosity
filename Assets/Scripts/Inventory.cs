@@ -24,20 +24,22 @@ public class Inventory:MonoBehaviour {
 	void Update() {
 		drugText.text = drugNr.ToString();
 		batteryText.text = batteryNr.ToString();
-		if(Input.GetKeyDown(openInventory)) {
+		if(Input.GetKeyDown(openInventory) && !PauseMenu.paused) {
 			switch(inventory.activeSelf) {
 				case true:
 				inventory.SetActive(false);
 				Cursor.lockState = CursorLockMode.Locked;
 				// FirstPersonController.CanMove = true;
 				CameraMovement.CanRotate = true;
-
+				PhotoCapture.canUseCamera = true;
 				break;
+
 				case false:
 				inventory.SetActive(true);
 				Cursor.lockState = CursorLockMode.Confined;
 				// FirstPersonController.CanMove = false;
 				CameraMovement.CanRotate = false;
+				PhotoCapture.canUseCamera = false;
 				break;
 			}
 		}
@@ -66,6 +68,7 @@ public class Inventory:MonoBehaviour {
 		if(batteryNr > 0 && cameraSlider.value < 3) {
 			batteryNr--;
 			cameraSlider.value++;
+			PhotoCapture.charges++;
 		}
 
 	}
