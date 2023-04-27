@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -21,7 +22,7 @@ public class EnemyController:MonoBehaviour {
 		currentParanoia = Flashlight.currentParanoia;
 
 		//Get the current paranoia 10s for distance
-		int paranoiaDistance = 105 - (int)currentParanoia * 10 / 10;
+		int paranoiaDistance = 101 - (int)Math.Floor(currentParanoia);
 
 		distanceToPlayer = Vector3.Distance(player.position, transform.position);
 
