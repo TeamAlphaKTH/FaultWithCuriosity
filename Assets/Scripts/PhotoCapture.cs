@@ -52,7 +52,6 @@ public class PhotoCapture:MonoBehaviour {
 	/// </summary>
 	/// <returns></returns>
 	private IEnumerator CameraFlashEffect() {
-		cameraFlash.SetActive(true);
 		yield return new WaitForSeconds(flashTime);
 		cameraFlash.SetActive(false);
 	}
@@ -81,6 +80,7 @@ public class PhotoCapture:MonoBehaviour {
 		photoDisplayArea.sprite = photoSprite;
 
 		// Sets PhotoFrameBG (Blank canvas) in ItemPolaroidObject to true
+		// the coroutine below needs to be located AFTER the picture is being taken!
 		StartCoroutine(CameraFlashEffect());
 		GUI.SetActive(true);
 		SpawnItemPolaroid();
