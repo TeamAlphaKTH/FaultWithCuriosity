@@ -18,6 +18,9 @@ public class PhotoCapture:MonoBehaviour {
 	[Header("GUI")]
 	[SerializeField] private GameObject GUI;
 
+	[Header("Enemy Object")]
+	[SerializeField] private GameObject itemEnemy;
+
 	[Header("Polaroid GameObject")]
 	[SerializeField] private GameObject itemPolaroid;
 
@@ -31,9 +34,9 @@ public class PhotoCapture:MonoBehaviour {
 
 		if(Input.GetKeyDown(FirstPersonController.useCameraButton) && canUseCamera && !viewingPhoto && charges > 0) {
 			cameraFlash.SetActive(true);
+			GambleRandom();
 			StartCoroutine(CapturePhoto());
 			UseCamera();
-			GambleRandom();
 		}
 		// Raycast to see if player is looking at a Polaroid
 		itemObject = Physics.Raycast(transform.position, transform.forward, out hitObject, 6f);
@@ -55,6 +58,7 @@ public class PhotoCapture:MonoBehaviour {
 	private IEnumerator CameraFlashEffect() {
 		yield return new WaitForSeconds(flashTime);
 		cameraFlash.SetActive(false);
+		itemEnemy.SetActive(true);
 	}
 
 	/// <summary>
@@ -142,7 +146,8 @@ public class PhotoCapture:MonoBehaviour {
 	}
 
 	private void GambleRandom() {
-		bool gamble = Random.Range(0, 2) < 1 ? true : false;
+		bool gamble = Random.Range(0, 2) == 1 ? false : true;
 		Debug.Log(gamble);
+		itemEnemy.SetActive(gamble);
 	}
 }
