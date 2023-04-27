@@ -17,13 +17,14 @@ public class Inventory:MonoBehaviour {
 
 	private void Start() {
 		flashlightSlider.value = Flashlight.batteryLevel;
-		Debug.Log("isStart");
+		cameraSlider.value = PhotoCapture.charges;
 	}
 
 	// Update is called once per frame
 	void Update() {
 		drugText.text = drugNr.ToString();
 		batteryText.text = batteryNr.ToString();
+
 		if(Input.GetKeyDown(openInventory) && !PauseMenu.paused) {
 			switch(inventory.activeSelf) {
 				case true:
@@ -45,6 +46,7 @@ public class Inventory:MonoBehaviour {
 		}
 
 		flashlightSlider.value = Flashlight.batteryLevel;
+		cameraSlider.value = PhotoCapture.charges;
 	}
 
 	public void UseDrugs() {
@@ -67,7 +69,6 @@ public class Inventory:MonoBehaviour {
 		batteryNr = int.Parse(batteryText.text);
 		if(batteryNr > 0 && cameraSlider.value < 3) {
 			batteryNr--;
-			cameraSlider.value++;
 			PhotoCapture.charges++;
 		}
 
