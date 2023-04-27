@@ -32,35 +32,34 @@ public class Flashlight:NetworkBehaviour {
 	[SerializeField] private Slider paranoiaSlider;
 
 	public override void OnNetworkSpawn() {
-		if(!IsOwner) {
-			//GetComponentInChildren<Light>().enabled = false;
-			return;
-		}
+		if(!IsOwner) { return; }
+
 		cam = GetComponentInChildren<Camera>().gameObject;
+
 		flashlightLight = cam.GetComponentInChildren<Light>();
 
-		batteryText = GameObject.Find("Battery Percentage").GetComponent<TextMeshProUGUI>();
-		batteryBlock1 = GameObject.Find("Percentage1").GetComponent<Image>();
-		batteryBlock2 = GameObject.Find("Percentage2").GetComponent<Image>();
-		batteryBlock3 = GameObject.Find("Percentage3").GetComponent<Image>();
-		paranoiaSlider = GameObject.Find("Paranoia Slider").GetComponent<Slider>();
 
-		batteryText.SetText("100%");
+		this.batteryText = GameObject.Find("Battery Percentage").GetComponent<TextMeshProUGUI>();
+		this.batteryBlock1 = GameObject.Find("Percentage1").GetComponent<Image>();
+		this.batteryBlock2 = GameObject.Find("Percentage2").GetComponent<Image>();
+		this.batteryBlock3 = GameObject.Find("Percentage3").GetComponent<Image>();
+		this.paranoiaSlider = GameObject.Find("Paranoia Slider").GetComponent<Slider>();
+
+		this.batteryText.SetText("100%");
 		currentParanoia = 0;
+		this.maxIntensity = flashlightLight.intensity;
+
+
+		this.paranoiaSlider.value = 0f;
 	}
 
 	void Start() {
-		if(!IsOwner) {
-			return;
-		}
-		paranoiaSlider.value = 0f;
-		maxIntensity = flashlightLight.intensity;
+		if(!IsOwner) { return; }
 	}
 
 	void Update() {
-		if(!IsOwner) {
-			return;
-		}
+		if(!IsOwner) { return; }
+
 		if(canUseFlashlight) {
 			FlashlightControl();
 		}
@@ -69,8 +68,15 @@ public class Flashlight:NetworkBehaviour {
 	private void FlashlightControl() {
 		// Toggle flashlight on/off with key press
 		if(Input.GetKeyDown(flashlightKey)) {
-			flashlightActive = !flashlightActive;
-			flashlightLight.gameObject.SetActive(flashlightActive);
+			if(flashlightActive) {
+				ChangeLightIntensityServerRpc(0);
+				//flashlightLight.intensity = 0;
+				flashlightActive = false;
+			} else {
+				ChangeLightIntensityServerRpc(maxIntensity);
+				//flashlightLight.intensity = maxIntensity;
+				flashlightActive = true;
+			}
 		}
 
 		if(Input.GetKeyDown(rechargeBattery)) {
@@ -81,7 +87,7 @@ public class Flashlight:NetworkBehaviour {
 
 			if(!isFlickering && batteryLevel > 10) {
 				CancelInvoke("Flicker");
-				flashlightLight.intensity = maxIntensity;
+				ChangeLightIntensityServerRpc(maxIntensity);
 			}
 		}
 		if(batteryLevel <= 100 && batteryLevel > 50) {
@@ -123,7 +129,7 @@ public class Flashlight:NetworkBehaviour {
 		} else {
 			batteryLevel = Mathf.Max(batteryLevel, 0);
 			isFlickering = false;
-			flashlightLight.gameObject.SetActive(false);
+			ChangeLightIntensityServerRpc(0);
 			flashlightActive = false;
 		}
 
@@ -141,6 +147,15 @@ public class Flashlight:NetworkBehaviour {
 
 	private void Flicker() {
 		float randomIntensity = Random.Range(0, maxIntensity * 0.8f);
-		flashlightLight.intensity = randomIntensity;
+		ChangeLightIntensityServerRpc(randomIntensity);
+	}
+
+	[ClientRpc]
+	private void ChangeIntensityClientRpc(float newIntensity) {
+		flashlightLight.intensity = newIntensity;
+	}
+	[ServerRpc]
+	public void ChangeLightIntensityServerRpc(float newIntensity) {
+		ChangeIntensityClientRpc(newIntensity);
 	}
 }
