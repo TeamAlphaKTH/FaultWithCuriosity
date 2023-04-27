@@ -148,6 +148,7 @@ public class PhotoCapture:MonoBehaviour {
 	private void GambleRandom() {
 		bool gamble = Random.Range(0, 2) == 1 ? false : true;
 		Debug.Log(gamble);
+		itemPolaroid.transform.GetChild(2).gameObject.SetActive(gamble);
 		itemEnemy.SetActive(gamble);
 	}
 }
