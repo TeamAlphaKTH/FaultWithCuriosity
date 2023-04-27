@@ -84,6 +84,8 @@ public class FirstPersonController:NetworkBehaviour {
 	[SerializeField] private KeyCode runKey = KeyCode.LeftShift;
 	[SerializeField] private KeyCode holdCrouchKey = KeyCode.LeftControl;
 	[SerializeField] private KeyCode toggleCrouchKey = KeyCode.C;
+	[SerializeField] public static KeyCode useCameraButton = KeyCode.Mouse1;
+	[SerializeField] public static KeyCode openInventory = KeyCode.Tab;
 
 	// Slope sliding parameters
 	private Vector3 hitPointNormal;
@@ -162,7 +164,6 @@ public class FirstPersonController:NetworkBehaviour {
 			}
 		}
 	}
-
 
 	/// <summary>
 	/// Handles jump 
@@ -289,7 +290,6 @@ public class FirstPersonController:NetworkBehaviour {
 		currentInput = new Vector2(speed * verticalInput, speed * horizontalInput);
 
 		currentSpeed = Vector2.MoveTowards(currentSpeed, currentInput, accelerationRate * Time.deltaTime);
-		Debug.Log("Current speed: " + currentSpeed);
 		float moveDirectionY = moveDirection.y;
 
 		// Calculates the movement direction of the character based on the current input vector and the orientation of the character in the world.
