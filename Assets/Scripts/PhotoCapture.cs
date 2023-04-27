@@ -33,6 +33,7 @@ public class PhotoCapture:MonoBehaviour {
 			cameraFlash.SetActive(true);
 			StartCoroutine(CapturePhoto());
 			UseCamera();
+			GambleRandom();
 		}
 		// Raycast to see if player is looking at a Polaroid
 		itemObject = Physics.Raycast(transform.position, transform.forward, out hitObject, 6f);
@@ -138,5 +139,10 @@ public class PhotoCapture:MonoBehaviour {
 	/// </summary>
 	private void UseCamera() {
 		charges--;
+	}
+
+	private void GambleRandom() {
+		bool gamble = Random.Range(0, 2) < 1 ? true : false;
+		Debug.Log(gamble);
 	}
 }
