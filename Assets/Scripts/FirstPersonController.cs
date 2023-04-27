@@ -82,6 +82,7 @@ public class FirstPersonController:MonoBehaviour {
 	[SerializeField] private KeyCode holdCrouchKey = KeyCode.LeftControl;
 	[SerializeField] private KeyCode toggleCrouchKey = KeyCode.C;
 	[SerializeField] public static KeyCode useCameraButton = KeyCode.Mouse1;
+	[SerializeField] public static KeyCode openInventory = KeyCode.Tab;
 
 	// Slope sliding parameters
 	private Vector3 hitPointNormal;

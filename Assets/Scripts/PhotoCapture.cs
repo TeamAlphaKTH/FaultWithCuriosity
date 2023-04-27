@@ -4,9 +4,7 @@ using UnityEngine.UI;
 
 public class PhotoCapture:MonoBehaviour {
 	[Header("Camera Item Parameters")]
-	[SerializeField] public static int charges = 3;
-	[SerializeField] private KeyCode rechargeCameraButton = KeyCode.Mouse2;
-	private bool canRechargeCamera;
+	[SerializeField] public static float charges = 3;
 	public static bool canUseCamera = true;
 
 	[Header("Flash Effect")]
@@ -31,8 +29,6 @@ public class PhotoCapture:MonoBehaviour {
 
 	void Update() {
 
-		canRechargeCamera = charges >= 3 ? false : true;
-
 		if(Input.GetKeyDown(FirstPersonController.useCameraButton) && canUseCamera && !viewingPhoto && charges > 0) {
 			StartCoroutine(CapturePhoto());
 			UseCamera();
@@ -49,10 +45,6 @@ public class PhotoCapture:MonoBehaviour {
 			RemovePhoto();
 		}
 
-		// Recharge camera - remove when linked to inventory
-		if(Input.GetKeyDown(rechargeCameraButton) && canRechargeCamera) {
-			RechargeCamera();
-		}
 	}
 	/// <summary>
 	/// Increases light intensity on object - CameraFlash
@@ -146,13 +138,4 @@ public class PhotoCapture:MonoBehaviour {
 	private void UseCamera() {
 		charges--;
 	}
-
-	/// <summary>
-	/// Method for recharging camera by testing if there is a battery and it is used on the camera
-	/// also that the charges does not exceed 3
-	/// </summary>
-	private void RechargeCamera() {
-		charges++;
-	}
-
 }
