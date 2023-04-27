@@ -3,9 +3,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PhotoCapture:MonoBehaviour {
-	// In current version are not necessary
-	//[Header("Photo Taker")]
-	//[SerializeField] public Image photoDisplayArea;
+	[Header("Camera Item Parameters")]
+	[SerializeField] private int charges = 3;
+	[SerializeField] public static KeyCode useCameraButton = KeyCode.Mouse1;
+	[SerializeField] private KeyCode rechargeCameraButton = KeyCode.Mouse2;
+	private bool canRechargeCamera;
+	private bool canUseCamera;
 
 	[Header("Flash Effect")]
 	[SerializeField] private GameObject cameraFlash;
@@ -28,8 +31,13 @@ public class PhotoCapture:MonoBehaviour {
 	private GameObject currentPhotoFrame;
 
 	void Update() {
-		if(Input.GetKeyDown(ItemCamera.useCameraButton) && ItemCamera.canUseCamera && !viewingPhoto) {
+
+		canUseCamera = charges > 0 ? true : false;
+		canRechargeCamera = charges >= 3 ? false : true;
+
+		if(Input.GetKeyDown(useCameraButton) && canUseCamera && !viewingPhoto) {
 			StartCoroutine(CapturePhoto());
+			UseCamera();
 		}
 		// Raycast to see if player is looking at a Polaroid
 		itemObject = Physics.Raycast(transform.position, transform.forward, out hitObject, 6f);
@@ -39,8 +47,13 @@ public class PhotoCapture:MonoBehaviour {
 		}
 
 		// Close Photo
-		if(viewingPhoto && Input.GetKeyDown(ItemCamera.useCameraButton)) {
+		if(viewingPhoto && Input.GetKeyDown(useCameraButton)) {
 			RemovePhoto();
+		}
+
+		// Recharge camera - remove when linked to inventory
+		if(Input.GetKeyDown(rechargeCameraButton) && canRechargeCamera) {
+			RechargeCamera();
 		}
 	}
 	/// <summary>
@@ -126,6 +139,22 @@ public class PhotoCapture:MonoBehaviour {
 		// Spawn Polaroid
 		GameObject newPolaroid = Instantiate(itemPolaroid, randomPosition, randomRotation);
 
+	}
+
+	/// <summary>
+	/// Method for using camera if the button is pressed and player canUseCamera is true,
+	/// charges exceed 0
+	/// </summary>
+	private void UseCamera() {
+		charges--;
+	}
+
+	/// <summary>
+	/// Method for recharging camera by testing if there is a battery and it is used on the camera
+	/// also that the charges does not exceed 3
+	/// </summary>
+	private void RechargeCamera() {
+		charges++;
 	}
 
 }
