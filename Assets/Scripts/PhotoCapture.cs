@@ -30,6 +30,7 @@ public class PhotoCapture:MonoBehaviour {
 	void Update() {
 
 		if(Input.GetKeyDown(FirstPersonController.useCameraButton) && canUseCamera && !viewingPhoto && charges > 0) {
+			cameraFlash.SetActive(true);
 			StartCoroutine(CapturePhoto());
 			UseCamera();
 		}
