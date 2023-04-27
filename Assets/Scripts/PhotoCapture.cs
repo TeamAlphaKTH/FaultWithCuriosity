@@ -4,10 +4,10 @@ using UnityEngine.UI;
 
 public class PhotoCapture:MonoBehaviour {
 	[Header("Camera Item Parameters")]
-	[SerializeField] private int charges = 3;
+	[SerializeField] public static int charges = 3;
 	[SerializeField] private KeyCode rechargeCameraButton = KeyCode.Mouse2;
 	private bool canRechargeCamera;
-	private bool canUseCamera;
+	public static bool canUseCamera = true;
 
 	[Header("Flash Effect")]
 	[SerializeField] private GameObject cameraFlash;
@@ -31,10 +31,9 @@ public class PhotoCapture:MonoBehaviour {
 
 	void Update() {
 
-		canUseCamera = charges > 0 ? true : false;
 		canRechargeCamera = charges >= 3 ? false : true;
 
-		if(Input.GetKeyDown(FirstPersonController.useCameraButton) && canUseCamera && !viewingPhoto) {
+		if(Input.GetKeyDown(FirstPersonController.useCameraButton) && canUseCamera && !viewingPhoto && charges > 0) {
 			StartCoroutine(CapturePhoto());
 			UseCamera();
 		}

@@ -10,8 +10,9 @@ public class PolaroidItem:MonoBehaviour, IInteractable {
 		itemText.text = "";
 	}
 
+	// DO NOT REMOVE THIS, WLL NOT WORK!
 	public void OnInteract() {
-		//throw new System.NotImplementedException();
+
 	}
 
 	public void OnStartHover() {
