@@ -5,6 +5,7 @@ using UnityEngine.AI;
 public class EnemyController:MonoBehaviour {
 	[SerializeField] private float damageMultiplier = 0.1f;
 	[SerializeField] private float damageDistance = 3f;
+	[SerializeField] private float teleportDistanceMultiplier = 3f;
 
 	private static float scareDistance;
 	private static Transform[] scarePoints;
@@ -19,7 +20,7 @@ public class EnemyController:MonoBehaviour {
 		player = GameObject.Find("Player Aaron").GetComponent<Transform>();
 		enemyAIAgent = gameObject.GetComponent<NavMeshAgent>();
 
-		scareDistance = damageDistance * 2;
+		scareDistance = damageDistance * teleportDistanceMultiplier;
 		scarePoints = GameObject.Find("Enemy Scare Points").GetComponentsInChildren<Transform>();
 	}
 
