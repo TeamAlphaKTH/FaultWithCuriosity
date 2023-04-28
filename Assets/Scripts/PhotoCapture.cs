@@ -89,6 +89,9 @@ public class PhotoCapture:MonoBehaviour {
 		StartCoroutine(CameraFlashEffect());
 		GUI.SetActive(true);
 		SpawnItemPolaroid();
+
+		//Scare the enemy away
+		EnemyController.ScareTeleport(transform.position);
 	}
 
 	/// <summary>
