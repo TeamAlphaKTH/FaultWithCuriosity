@@ -1,11 +1,12 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Keypad:MonoBehaviour {
-	private Text answer;
+	private TMP_Text answer;
 
 	void Start() {
-		answer = GetComponent<Text>();
+		answer = GameObject.Find("Input Text").GetComponentInChildren<TMP_Text>();
 	}
 
 	/// <summary>
