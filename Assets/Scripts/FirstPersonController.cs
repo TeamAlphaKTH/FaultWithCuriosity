@@ -8,8 +8,6 @@ public class FirstPersonController:NetworkBehaviour {
 
 	public static bool CanMove { get; set; } = true;
 	private bool IsRunning => Input.GetKey(runKey) && canRun;
-	[Header("SpawnPoint")]
-	[SerializeField] private GameObject spawnPoint;
 
 	[Header("Movement Parameters")]
 	[SerializeField] private float walkSpeed = 3.0f;
@@ -117,7 +115,6 @@ public class FirstPersonController:NetworkBehaviour {
 			return;
 		}
 		characterController = GetComponent<CharacterController>();
-		spawnPoint = GameObject.Find("Spawn Point");
 
 		staminaSlider = GameObject.Find("Stamina Slider").GetComponent<Slider>();
 		standingCenter = characterController.center;
@@ -131,7 +128,6 @@ public class FirstPersonController:NetworkBehaviour {
 		if(!IsOwner) {
 			return;
 		}
-		transform.position = spawnPoint.transform.localPosition;
 		// for crouching
 		initialCameraPosition = playerCamera.transform.localPosition;
 		crouchHeight = standingHeight * crouchMultiplier;
