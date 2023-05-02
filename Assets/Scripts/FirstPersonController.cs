@@ -152,6 +152,7 @@ public class FirstPersonController:NetworkBehaviour {
 	void SpawnEnemy() {
 		Transform[] enemySpawn = enemySpawnPoints.GetComponentsInChildren<Transform>();
 		Instantiate(enemyGhostPrefab, enemySpawn[1].position, Quaternion.identity);
+		EnemyController.player = this.transform;
 	}
 
 	// Update is called once per frame

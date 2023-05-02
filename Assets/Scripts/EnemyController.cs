@@ -13,7 +13,7 @@ public class EnemyController:NetworkBehaviour {
 	private static Transform[] scarePoints;
 
 	private static NavMeshAgent enemyAIAgent;
-	private Transform player;
+	public static Transform player;
 	private static float distanceToPlayer;
 	private float currentParanoia;
 
@@ -23,7 +23,7 @@ public class EnemyController:NetworkBehaviour {
 		scareDistance = damageDistance * teleportDistanceMultiplier;
 		scarePoints = scarePointsObject.GetComponentsInChildren<Transform>();
 		// Must specify for coop
-		player = GameObject.Find("Player Aaron(Clone)").GetComponent<Transform>();
+		//player = GameObject.Find("Player Aaron(Clone)").GetComponent<Transform>();
 	}
 
 
