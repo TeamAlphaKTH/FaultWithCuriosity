@@ -1,6 +1,7 @@
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class PauseMenu:MonoBehaviour {
+public class PauseMenu:NetworkBehaviour {
 
 	public static bool paused = false;
 	[SerializeField] private GameObject PauseMenuCanvas;
@@ -11,25 +12,29 @@ public class PauseMenu:MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		if(Input.GetKeyDown(KeyCode.Escape)) {
-			if(paused) {
-				Play();
-			} else {
+		if(!IsOwner) {
+			if(paused)
 				Stop();
-			}
+			else
+				Play();
 		}
+		if(Input.GetKeyDown(KeyCode.P)) {
+			if(paused) { Play(); } else
+				Stop();
+		}
+
 	}
 
 	public void Stop() {
 		PauseMenuCanvas.SetActive(true);
 		Time.timeScale = 0f;
-		paused = true;
+		pauseServerRpc(true);
 		Cursor.lockState = CursorLockMode.None;
 	}
 	public void Play() {
 		PauseMenuCanvas.SetActive(false);
 		Time.timeScale = 1f;
-		paused = false;
+		pauseServerRpc(false);
 		Cursor.lockState = CursorLockMode.Locked;
 	}
 	public void MainMenuButton() {
@@ -40,4 +45,13 @@ public class PauseMenu:MonoBehaviour {
 		Application.Quit();
 		Debug.Log("Player Has Quit The Game");
 	}
+	[ServerRpc]
+	public void pauseServerRpc(bool state) {
+		pauseClientRpc(state);
+	}
+	[ClientRpc]
+	public void pauseClientRpc(bool state) {
+		paused = state;
+	}
 }
+
