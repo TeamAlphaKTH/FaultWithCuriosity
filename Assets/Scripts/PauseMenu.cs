@@ -31,7 +31,6 @@ public class PauseMenu:NetworkBehaviour {
 	public void Stop() {
 		PauseMenuCanvas.SetActive(true);
 		if(IsHost) {
-			Time.timeScale = 0f;
 			pauseServerRpc(true);
 			pausedClient = true;
 		} else {
@@ -43,7 +42,6 @@ public class PauseMenu:NetworkBehaviour {
 	public void Play() {
 		PauseMenuCanvas.SetActive(false);
 		if(IsHost) {
-			Time.timeScale = 1f;
 			pauseServerRpc(false);
 			pausedClient = false;
 		} else {
@@ -67,5 +65,10 @@ public class PauseMenu:NetworkBehaviour {
 	[ClientRpc]
 	public void pauseClientRpc(bool state) {
 		paused = state;
+		if(!paused) {
+			Time.timeScale = 1f;
+		} else {
+			Time.timeScale = 0f;
+		}
 	}
 }
