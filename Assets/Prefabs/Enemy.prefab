@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 944410776071859794}
   - component: {fileID: 2129462145115719042}
   - component: {fileID: 7557721787104134981}
+  - component: {fileID: 4247343195012319776}
+  - component: {fileID: -3634028456655815398}
   m_Layer: 29
   m_Name: Enemy
   m_TagString: Enemy
@@ -123,6 +125,7 @@ MonoBehaviour:
   damageMultiplier: 0.1
   damageDistance: 3
   teleportDistanceMultiplier: 3
+  scarePointsObject: {fileID: 6404843973516372202, guid: 1392ec8f04897394b906a3b1f8691a24, type: 3}
 --- !u!136 &7557721787104134981
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -146,3 +149,45 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4247343195012319776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658567079213968394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &-3634028456655815398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658567079213968394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4776b33a71444b48a242dad0efc29d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  InLocalSpace: 0
+  Interpolate: 1

@@ -1,11 +1,13 @@
 using System;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController:MonoBehaviour {
+public class EnemyController:NetworkBehaviour {
 	[SerializeField] private float damageMultiplier = 0.1f;
 	[SerializeField] private float damageDistance = 3f;
 	[SerializeField] private float teleportDistanceMultiplier = 3f;
+	[SerializeField] private GameObject scarePointsObject;
 
 	public static float scareDistance;
 	private static Transform[] scarePoints;
@@ -15,13 +17,19 @@ public class EnemyController:MonoBehaviour {
 	private static float distanceToPlayer;
 	private float currentParanoia;
 
+	public override void OnNetworkSpawn() {
+
+		enemyAIAgent = gameObject.GetComponent<NavMeshAgent>();
+		scareDistance = damageDistance * teleportDistanceMultiplier;
+		scarePoints = scarePointsObject.GetComponentsInChildren<Transform>();
+		// Must specify for coop
+		player = GameObject.Find("Player Aaron(Clone)").GetComponent<Transform>();
+	}
+
+
 	// Start is called before the first frame update
 	void Start() {
-		player = GameObject.Find("Player Aaron").GetComponent<Transform>();
-		enemyAIAgent = gameObject.GetComponent<NavMeshAgent>();
 
-		scareDistance = damageDistance * teleportDistanceMultiplier;
-		scarePoints = GameObject.Find("Enemy Scare Points").GetComponentsInChildren<Transform>();
 	}
 
 	// Update is called once per frame
