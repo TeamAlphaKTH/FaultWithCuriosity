@@ -33,13 +33,6 @@ public class EnemyController:MonoBehaviour {
 
 		distanceToPlayer = Vector3.Distance(player.position, transform.position);
 
-		// Enemy needs to have collider for camera scare / either this or constant collider which can phase trough defined layers
-		if(distanceToPlayer <= scareDistance + 1f) {
-			this.GetComponent<Collider>().enabled = true;
-		} else {
-			this.GetComponent<Collider>().enabled = false;
-		}
-
 		//If the player is further than the paranoiaDistance, move the AI closer.
 		if(distanceToPlayer * 3 > paranoiaDistance) {
 			enemyAIAgent.SetDestination(player.position);
