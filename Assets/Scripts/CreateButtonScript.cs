@@ -34,7 +34,7 @@ public class CreateButtonScript : NetworkBehaviour {
 
 		if (!wrongFormat) {
 			SceneManager.LoadScene("Dungeon");
-			NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData(localIp, port);
+			NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData(localIp, port, localIp);
 			NetworkManager.Singleton.StartHost();
 			wrongFormat = false;
 		}
