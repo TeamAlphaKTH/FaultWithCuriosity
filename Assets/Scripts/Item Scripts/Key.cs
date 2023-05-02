@@ -34,5 +34,4 @@ public class Key:NetworkBehaviour, IInteractable {
 		NetworkObject key1 = key;
 		key1.Despawn();
 	}
-
 }
