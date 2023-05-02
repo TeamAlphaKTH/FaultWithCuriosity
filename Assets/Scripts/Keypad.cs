@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Keypad:MonoBehaviour {
 	private TMP_Text answer;
@@ -14,6 +13,8 @@ public class Keypad:MonoBehaviour {
 	/// </summary>
 	/// <param name="number">The number.</param>
 	public void InputNumber(int number) {
-		answer.text += number.ToString();
+		if(answer.text.Length < 4) {
+			answer.text += number.ToString();
+		}
 	}
 }
