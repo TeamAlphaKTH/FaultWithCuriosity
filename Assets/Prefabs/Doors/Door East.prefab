@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7902106308417823378}
   - component: {fileID: 7911191010258080460}
   - component: {fileID: 4583357385760530246}
+  - component: {fileID: 7034220407144608740}
   m_Layer: 0
   m_Name: Door Model
   m_TagString: Untagged
@@ -118,6 +119,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f480663d65389142bc841528b04760a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  locked: 1
+  keyId: 0
+--- !u!65 &7034220407144608740
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768731660228450046}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 1, z: 0.99999994}
+  m_Center: {x: 0, y: -0.000000029802322, z: 0.000000007450581}
 --- !u!1 &6287680974656882406
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,7 +178,7 @@ Transform:
   m_Children:
   - {fileID: 7960397079524824291}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &693041507671946039
 MeshFilter:
