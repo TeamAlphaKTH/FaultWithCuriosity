@@ -1210,7 +1210,7 @@ Transform:
   - {fileID: 3400683780383106019}
   - {fileID: 7618862434350273014}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4256443570720659492
 MonoBehaviour:
@@ -3388,7 +3388,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5908237021158961320}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!114 &6917776427550108655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3419,7 +3419,14 @@ MonoBehaviour:
   cameraFlash: {fileID: 2340202770603413214}
   flashTime: 0.2
   GUI: {fileID: 0}
+  objectEnemy: {fileID: 0}
   itemPolaroid: {fileID: 8681303806250907813, guid: cdc0b54091800994aa7022a82edd917b, type: 3}
+  gambleAffect: 10
+  maxGambleParanoia: 95
+  sphereRadius: 2
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &6013710358182810699
 GameObject:
   m_ObjectHideFlags: 0
