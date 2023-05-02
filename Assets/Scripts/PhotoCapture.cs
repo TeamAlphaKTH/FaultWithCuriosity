@@ -84,13 +84,15 @@ public class PhotoCapture:NetworkBehaviour {
 		Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
 		GameObject photoDisplayAreaObject = itemPolaroid.transform.GetChild(1).GetChild(0).GetChild(0).GetChild(1).gameObject;
 		Image photoDisplayArea = photoDisplayAreaObject.GetComponent<Image>();
-		photoDisplayArea.sprite = photoSprite;
+
+		//photoDisplayArea.sprite = photoSprite;
 
 		// Sets PhotoFrameBG (Blank canvas) in ItemPolaroidObject to true
 		// the coroutine below needs to be located AFTER the picture is being taken!
 		StartCoroutine(CameraFlashEffect());
 		GUI.SetActive(true);
-		SpawnItemPolaroid();
+		Debug.Log(photoSprite.texture.EncodeToPNG().Length.ToString());
+		SpawnItemPolaroid(photoSprite.texture.EncodeToPNG());
 
 		//Scare the enemy away
 		EnemyController.ScareTeleport(transform.position);
@@ -130,7 +132,7 @@ public class PhotoCapture:NetworkBehaviour {
 	/// <summary>
 	/// Spawns the item polaroid in a random location around infront of the player.
 	/// </summary>
-	private void SpawnItemPolaroid() {
+	private void SpawnItemPolaroid(byte[] spriteData) {
 		// Random position and rotation
 		Vector3 randomPosition = new(
 			Random.Range(FirstPersonController.characterController.transform.position.x, FirstPersonController.characterController.transform.position.x + 0.5f),
@@ -141,7 +143,7 @@ public class PhotoCapture:NetworkBehaviour {
 		Quaternion randomRotation = Random.rotation;
 		// Spawn Polaroid
 
-		SpawnPolaroidServerRpc(randomPosition, randomRotation);
+		SpawnPolaroidServerRpc(randomPosition, randomRotation, spriteData);
 
 	}
 
@@ -153,8 +155,13 @@ public class PhotoCapture:NetworkBehaviour {
 		charges--;
 	}
 	[ServerRpc]
-	private void SpawnPolaroidServerRpc(Vector3 pos, Quaternion rot) {
+	private void SpawnPolaroidServerRpc(Vector3 pos, Quaternion rot, byte[] spriteBytes) {
+		Texture2D texture = new(2, 2);
+		texture.LoadImage(spriteBytes);
+		Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
+
 		GameObject newPolaroid = Instantiate(itemPolaroid, pos, rot);
+		newPolaroid.transform.GetChild(1).GetChild(0).GetChild(0).GetChild(1).gameObject.GetComponent<Image>().sprite = sprite;
 		newPolaroid.GetComponent<NetworkObject>().Spawn();
 	}
 	[ServerRpc]
@@ -162,5 +169,4 @@ public class PhotoCapture:NetworkBehaviour {
 		NetworkObject polaroid1 = polaroid;
 		polaroid1.Despawn();
 	}
-
 }

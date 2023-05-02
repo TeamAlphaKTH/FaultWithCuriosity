@@ -1096,6 +1096,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NetworkManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8013939876601506356, guid: 8f296d39375d3224e864793043b541ab, type: 3}
+      propertyPath: NetworkConfig.RpcHashSize
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
