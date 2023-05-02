@@ -12,7 +12,6 @@ public class PhotoCapture:NetworkBehaviour {
 	[SerializeField] private GameObject cameraFlash;
 	[SerializeField] private float flashTime;
 
-	private Texture2D screenCapture;
 	public static bool viewingPhoto = false;
 
 	// All text GUI needs to be in this parent object
@@ -74,18 +73,15 @@ public class PhotoCapture:NetworkBehaviour {
 		yield return new WaitForEndOfFrame();
 
 		// Takes a screenshot of the screen
-		Rect regionToRead = new(0, 0, Screen.width, Screen.height);
-		Texture2D newTexture = new(Screen.width, Screen.height, TextureFormat.RGB24, false);
-		newTexture.ReadPixels(regionToRead, 0, 0, false);
-		newTexture.Apply();
-		screenCapture = newTexture;
+		Rect regionToRead = new((Screen.width - Screen.height) / 2, 0, Screen.height, Screen.height);
+		Texture2D screenCapture = new(1024, 1024, TextureFormat.RGB24, false);
+		screenCapture.ReadPixels(regionToRead, 0, 0, false);
+		screenCapture.Apply();
 
 		// Makes a sprite of the screenshot and places it in PhotoDisplayArea in ItemPolaroidObject
-		Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
-		GameObject photoDisplayAreaObject = itemPolaroid.transform.GetChild(1).GetChild(0).GetChild(0).GetChild(1).gameObject;
-		Image photoDisplayArea = photoDisplayAreaObject.GetComponent<Image>();
-
-		//photoDisplayArea.sprite = photoSprite;
+		Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0, 0, screenCapture.width, screenCapture.height), new Vector2(0, 0), 50);
+		Image photoDisplayArea = itemPolaroid.transform.GetChild(1).GetChild(0).GetChild(0).GetChild(1).gameObject.GetComponent<Image>();
+		photoDisplayArea.sprite = photoSprite;
 
 		// Sets PhotoFrameBG (Blank canvas) in ItemPolaroidObject to true
 		// the coroutine below needs to be located AFTER the picture is being taken!
@@ -142,7 +138,6 @@ public class PhotoCapture:NetworkBehaviour {
 
 		Quaternion randomRotation = Random.rotation;
 		// Spawn Polaroid
-
 		SpawnPolaroidServerRpc(randomPosition, randomRotation, spriteData);
 
 	}
