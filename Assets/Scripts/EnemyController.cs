@@ -7,7 +7,7 @@ public class EnemyController:MonoBehaviour {
 	[SerializeField] private float damageDistance = 3f;
 	[SerializeField] private float teleportDistanceMultiplier = 3f;
 
-	private static float scareDistance;
+	public static float scareDistance;
 	private static Transform[] scarePoints;
 
 	private static NavMeshAgent enemyAIAgent;
