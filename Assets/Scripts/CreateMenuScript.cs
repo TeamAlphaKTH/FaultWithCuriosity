@@ -34,11 +34,14 @@ public class CreateButtonScript : NetworkBehaviour {
 		//Parse the port text into a ushort 
 		try {
 			port = ushort.Parse(portnumberInput.text);
+			if (port < 0 || port > 65535) {
+				port = 7777;
+				portnumberInput.text = localIp + ":" + port;
+			}
 		} catch (FormatException) {
 			Debug.Log("Portnumber cannot contain any letters");
 			return;
 		}
-		portnumberInput.text = localIp + ":" + port;
 
 		//Logic for when port is correct
 		if (!wrongFormat) {
@@ -48,10 +51,12 @@ public class CreateButtonScript : NetworkBehaviour {
 		wrongFormat = false;
 	}
 	private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1) {
-		if (arg0.isLoaded && arg0.name.Equals("Dungeon")) {
-			NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData(localIp, port);
-			NetworkManager.Singleton.StartHost();
-		}
+		NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData(localIp, port);
+		NetworkManager.Singleton.StartHost();
+		//if (arg0.isLoaded && arg0.name.Equals("Dungeon")) {
+		//	NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData(localIp, port);
+		//	NetworkManager.Singleton.StartHost();
+		//}
 		//To Return the player to the initial start menu
 		//else if(arg0.name.Equals("MainMenu")) {
 		//	GameObject.Find("CreateGameMenu").SetActive(false);

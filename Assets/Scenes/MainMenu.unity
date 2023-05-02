@@ -752,7 +752,6 @@ GameObject:
   - component: {fileID: 120203325}
   - component: {fileID: 120203324}
   - component: {fileID: 120203327}
-  - component: {fileID: 120203328}
   m_Layer: 0
   m_Name: CreateGameMenu
   m_TagString: Untagged
@@ -861,22 +860,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 715f7bff1ae471a4c86054f272a3489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &120203328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120203322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1079720095
-  AlwaysReplicateAsRoot: 0
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!1 &121752056
 GameObject:
   m_ObjectHideFlags: 0
@@ -6161,7 +6144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1897098461
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7222,7 +7205,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2088485874
 RectTransform:
   m_ObjectHideFlags: 0
