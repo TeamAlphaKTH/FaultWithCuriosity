@@ -12,7 +12,9 @@ public class CreateButtonScript : NetworkBehaviour {
 
 	[SerializeField] private TMP_InputField portnumberInput;
 	[SerializeField] private Button btn;
-	public bool wrongFormat = false;
+	private bool wrongFormat = false;
+	private string localIp;
+	private ushort port;
 
 	private void Start() {
 		btn.onClick.AddListener(() => {
@@ -21,26 +23,27 @@ public class CreateButtonScript : NetworkBehaviour {
 	}
 	public void OnButtonPress() {
 		//find local ips using the [port]
-		string localIp = GetLocalIpadress();
-		ushort port = 0;
+		localIp = GetLocalIpadress();
+		port = 0;
 		try {
 			port = ushort.Parse(portnumberInput.text);
 		} catch (FormatException) {
 			Debug.Log("Portnumber cannot contain any letters");
-			wrongFormat = true;
+			return;
 		}
 		portnumberInput.text = localIp + ":" + port;
-		Debug.Log("testing");
 
 		if (!wrongFormat) {
+			SceneManager.sceneLoaded += SceneManager_sceneLoaded;
 			SceneManager.LoadScene("Dungeon");
-			NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData(localIp, port, localIp);
-			NetworkManager.Singleton.StartHost();
-			wrongFormat = false;
 		}
-
-
+		wrongFormat = false;
 	}
+	private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1) {
+		NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData(localIp, port, localIp);
+		NetworkManager.Singleton.StartHost();
+	}
+
 	public static string GetLocalIpadress() {
 		IPHostEntry ips = Dns.GetHostEntry(Dns.GetHostName());
 		foreach (var ip in ips.AddressList) {
