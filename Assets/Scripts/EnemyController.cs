@@ -7,7 +7,7 @@ public class EnemyController:MonoBehaviour {
 	[SerializeField] private float damageDistance = 3f;
 	[SerializeField] private float teleportDistanceMultiplier = 3f;
 
-	private static float scareDistance;
+	public static float scareDistance;
 	private static Transform[] scarePoints;
 
 	private static NavMeshAgent enemyAIAgent;
@@ -32,6 +32,13 @@ public class EnemyController:MonoBehaviour {
 		int paranoiaDistance = 101 - (int)Math.Floor(currentParanoia);
 
 		distanceToPlayer = Vector3.Distance(player.position, transform.position);
+
+		// Enemy needs to have collider for camera scare / either this or constant collider which can phase trough defined layers
+		if(distanceToPlayer <= scareDistance + 1f) {
+			this.GetComponent<Collider>().enabled = true;
+		} else {
+			this.GetComponent<Collider>().enabled = false;
+		}
 
 		//If the player is further than the paranoiaDistance, move the AI closer.
 		if(distanceToPlayer * 3 > paranoiaDistance) {

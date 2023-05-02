@@ -19,7 +19,7 @@ public class PhotoCapture:MonoBehaviour {
 	[SerializeField] private GameObject GUI;
 
 	[Header("Enemy Object")]
-	[SerializeField] private GameObject itemEnemy;
+	[SerializeField] private GameObject objectEnemy;
 
 	[Header("Polaroid GameObject")]
 	[SerializeField] private GameObject itemPolaroid;
@@ -30,11 +30,31 @@ public class PhotoCapture:MonoBehaviour {
 	private GameObject currentItemPolaroid;
 	private GameObject currentPhotoFrame;
 
+	// Gamble polaroid
+	private bool raycastEnemy = false;
+	private RaycastHit enemyHit;
+	private float sphereRadius = 2f;
+	private bool gamble;
+	// default layer
+	public LayerMask enemyLayer;
+
+	// might use
+	private void Start() {
+	}
+
 	void Update() {
+
+		// Raycast to see if player is looking at a Enemy - enemy must have collider
+		raycastEnemy = Physics.SphereCast(transform.position, sphereRadius, transform.forward, out enemyHit, EnemyController.scareDistance, enemyLayer);
 
 		if(Input.GetKeyDown(FirstPersonController.useCameraButton) && canUseCamera && !viewingPhoto && charges > 0) {
 			cameraFlash.SetActive(true);
-			GambleRandom();
+			if(raycastEnemy) {
+				GambleRandom();
+				if(!gamble) {
+					EnemyController.ScareTeleport(transform.position);
+				}
+			}
 			StartCoroutine(CapturePhoto());
 			UseCamera();
 		}
@@ -58,7 +78,6 @@ public class PhotoCapture:MonoBehaviour {
 	private IEnumerator CameraFlashEffect() {
 		yield return new WaitForSeconds(flashTime);
 		cameraFlash.SetActive(false);
-		itemEnemy.SetActive(true);
 	}
 
 	/// <summary>
@@ -91,7 +110,9 @@ public class PhotoCapture:MonoBehaviour {
 		SpawnItemPolaroid();
 
 		//Scare the enemy away
-		EnemyController.ScareTeleport(transform.position);
+		if(gamble) {
+			EnemyController.ScareTeleport(transform.position);
+		}
 	}
 
 	/// <summary>
@@ -110,6 +131,24 @@ public class PhotoCapture:MonoBehaviour {
 		// Destroy the visable body of the ItemPolaroid
 		GameObject currentItemPolaroidBody = currentItemPolaroid.transform.GetChild(0).gameObject;
 		Destroy(currentItemPolaroidBody);
+
+		// Polaroid Gamble affect
+		gamble = itemPolaroid.transform.GetChild(2).gameObject.activeSelf;
+		Debug.Log("Polaroid Gamble: " + gamble);
+
+		if(gamble) {
+			if(Flashlight.currentParanoia >= 90) {
+				Flashlight.currentParanoia = 99;
+			} else {
+				Flashlight.currentParanoia += 10;
+			}
+		} else {
+			if(Flashlight.currentParanoia <= 10) {
+				Flashlight.currentParanoia = 0;
+			} else {
+				Flashlight.currentParanoia -= 10;
+			}
+		}
 	}
 
 	/// <summary>
@@ -148,10 +187,10 @@ public class PhotoCapture:MonoBehaviour {
 		charges--;
 	}
 
+	// 1 
 	private void GambleRandom() {
-		bool gamble = Random.Range(0, 2) == 1 ? false : true;
-		Debug.Log(gamble);
+		gamble = Random.Range(0, 2) == 1 ? true : false;
+		Debug.Log("Gamble: " + gamble);
 		itemPolaroid.transform.GetChild(2).gameObject.SetActive(gamble);
-		itemEnemy.SetActive(gamble);
 	}
 }

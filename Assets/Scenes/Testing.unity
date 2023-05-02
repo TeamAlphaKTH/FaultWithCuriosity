@@ -857,6 +857,29 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1658567079213968394, guid: a443af775508b414f92ef08e01f2846b, type: 3}
   m_PrefabInstance: {fileID: 7564161847793419286}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &575528300
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575528299}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &600542569
 GameObject:
   m_ObjectHideFlags: 0
@@ -2524,6 +2547,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1658567079213968394, guid: a443af775508b414f92ef08e01f2846b, type: 3}
+      propertyPath: m_Layer
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658567079213968394, guid: a443af775508b414f92ef08e01f2846b, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1737263795567834580, guid: a443af775508b414f92ef08e01f2846b, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -2571,7 +2602,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1658567079213968394, guid: a443af775508b414f92ef08e01f2846b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 575528300}
   m_SourcePrefab: {fileID: 100100000, guid: a443af775508b414f92ef08e01f2846b, type: 3}
 --- !u!1001 &7857653165097562777
 PrefabInstance:
@@ -2589,6 +2623,14 @@ PrefabInstance:
       propertyPath: itemEnemy
       value: 
       objectReference: {fileID: 575528299}
+    - target: {fileID: 549884428125322399, guid: b30b71d7a9fe69047a6731dc71eb2398, type: 3}
+      propertyPath: objectEnemy
+      value: 
+      objectReference: {fileID: 575528299}
+    - target: {fileID: 549884428125322399, guid: b30b71d7a9fe69047a6731dc71eb2398, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 536870912
+      objectReference: {fileID: 0}
     - target: {fileID: 2114133169800093613, guid: b30b71d7a9fe69047a6731dc71eb2398, type: 3}
       propertyPath: batteryText
       value: 
