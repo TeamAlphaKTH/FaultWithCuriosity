@@ -20,11 +20,14 @@ public class CreateButtonScript : NetworkBehaviour {
 		btn.onClick.AddListener(() => {
 			OnButtonPress();
 		});
+		SceneManager.sceneLoaded += SceneManager_sceneLoaded;
 	}
 	public void OnButtonPress() {
 		//find local ips using the [port]
 		localIp = GetLocalIpadress();
 		port = 0;
+
+		//Parse the port text into a ushort 
 		try {
 			port = ushort.Parse(portnumberInput.text);
 		} catch (FormatException) {
@@ -33,8 +36,9 @@ public class CreateButtonScript : NetworkBehaviour {
 		}
 		portnumberInput.text = localIp + ":" + port;
 
+		//Logic for when port is correct
 		if (!wrongFormat) {
-			SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+			//Load the scene, the EventHandler will start hosting
 			SceneManager.LoadScene("Dungeon");
 		}
 		wrongFormat = false;
