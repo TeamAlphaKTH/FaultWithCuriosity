@@ -25,9 +25,9 @@ public class PauseMenu:NetworkBehaviour {
 			} else
 				Stop();
 		}
-
 	}
 
+	// Stops time if host else only pause for client 
 	public void Stop() {
 		PauseMenuCanvas.SetActive(true);
 		if(IsHost) {
@@ -36,10 +36,10 @@ public class PauseMenu:NetworkBehaviour {
 			pausedClient = true;
 		} else {
 			pausedClient = true;
-			Debug.Log(pausedClient);
 		}
 		Cursor.lockState = CursorLockMode.Confined;
 	}
+	// Plays time and puts pausemenu to false else only unpause client 
 	public void Play() {
 		PauseMenuCanvas.SetActive(false);
 		if(IsHost) {
@@ -48,7 +48,6 @@ public class PauseMenu:NetworkBehaviour {
 			pausedClient = false;
 		} else {
 			pausedClient = false;
-			Debug.Log(pausedClient);
 		}
 		if(!Inventory.inventoryOpen) {
 			Cursor.lockState = CursorLockMode.Locked;
@@ -58,14 +57,15 @@ public class PauseMenu:NetworkBehaviour {
 		SceneManager.LoadScene("MainMenu");
 	}
 
+	// Sends to all clients 
 	[ServerRpc]
 	public void pauseServerRpc(bool state) {
 		pauseClientRpc(state);
 	}
 
+	// Changes states at client on demand from server 
 	[ClientRpc]
 	public void pauseClientRpc(bool state) {
 		paused = state;
 	}
 }
-
