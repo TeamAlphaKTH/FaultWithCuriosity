@@ -23,7 +23,6 @@ public class Key:NetworkBehaviour, IInteractable {
 		Inventory.keyIds.Add(id);
 		NetworkObjectReference key = gameObject;
 		RemoveKeyServerRpc(key);
-		Destroy(gameObject);
 	}
 
 	public void OnStartHover() {

@@ -15,7 +15,6 @@ public class Pill:NetworkBehaviour, IInteractable {
 		Inventory.drugNr++;
 		NetworkObjectReference drug = gameObject;
 		RemoveKeyServerRpc(drug);
-		Destroy(gameObject);
 	}
 
 	public void OnStartHover() {
