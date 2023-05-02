@@ -28,9 +28,9 @@ public class IpPortInputScript:NetworkBehaviour {
             } else if(portNumber < 0) {
                 portNumber = 7777;
             }
-            SceneManager.LoadScene("Dungeon");
-            NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData(ipAddress, portNumber);
+            NetworkManager.Singleton.GetComponentInChildren<UnityTransport>().SetConnectionData(ipAddress, portNumber);
             NetworkManager.Singleton.StartClient();
+            SceneManager.LoadScene("Dungeon");
         }
     }
 }
