@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 1179917758390297228}
   - component: {fileID: 944410776071859794}
   - component: {fileID: 2129462145115719042}
-  m_Layer: 0
+  - component: {fileID: 7557721787104134981}
+  m_Layer: 29
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,3 +122,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageMultiplier: 0.1
   damageDistance: 3
+  teleportDistanceMultiplier: 3
+--- !u!136 &7557721787104134981
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658567079213968394}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
