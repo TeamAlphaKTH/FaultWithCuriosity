@@ -1,13 +1,15 @@
 using TMPro;
+using Unity.Netcode;
+using Unity.Netcode.Transports.UTP;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class IpPortInputScript : MonoBehaviour {
+public class IpPortInputScript : NetworkBehaviour {
 	[SerializeField] private TMP_InputField ipAndPort;
 	[SerializeField] private Button joinButton;
 	string inputText;
 
-	public int portNumber;
+	public ushort portNumber;
 	public string ipAddress;
 
 	void Start() {
@@ -19,14 +21,14 @@ public class IpPortInputScript : MonoBehaviour {
 		string[] stringParts = inputText.Split(":");
 		if (stringParts.Length == 2) {
 			ipAddress = stringParts[0].Trim();
-			int.TryParse(stringParts[1].Trim(), out portNumber);
+			ushort.TryParse(stringParts[1].Trim(), out portNumber);
 			if (portNumber > 65535) {
-				portNumber = 65535;
-			} else if (portNumber < 49152) {
-				portNumber = 49152;
+				portNumber = 7777;
+			} else if (portNumber < 0) {
+				portNumber = 7777;
 			}
-			//NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData(localIp, port);
-			//NetworkManager.Singleton.StartClient();
+			NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData(ipAddress, portNumber);
+			NetworkManager.Singleton.StartClient();
 		}
 	}
 }

@@ -2,26 +2,40 @@ using System;
 using System.Net;
 using System.Net.Sockets;
 using TMPro;
+using Unity.Netcode;
+using Unity.Netcode.Transports.UTP;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class CreateButtonScript : MonoBehaviour {
+public class CreateButtonScript : NetworkBehaviour {
 
 	[SerializeField] private TMP_InputField portnumberInput;
+	[SerializeField] private Button btn;
 	public bool wrongFormat = false;
+
+	private void Start() {
+		btn.onClick.AddListener(() => {
+			OnButtonPress();
+		});
+	}
 	public void OnButtonPress() {
 		//find local ips using the [port]
 		string localIp = GetLocalIpadress();
-		ushort port;
+		ushort port = 0;
 		try {
 			port = ushort.Parse(portnumberInput.text);
 		} catch (FormatException) {
 			Debug.Log("Portnumber cannot contain any letters");
 			wrongFormat = true;
 		}
+		portnumberInput.text = localIp + ":" + port;
+		Debug.Log("testing");
 
 		if (!wrongFormat) {
-			//NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData(localIp, port);
-			//NetworkManager.Singleton.StartHost();
+			SceneManager.LoadScene("Dungeon");
+			NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData(localIp, port);
+			NetworkManager.Singleton.StartHost();
 			wrongFormat = false;
 		}
 
