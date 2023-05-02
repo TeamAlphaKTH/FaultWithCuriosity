@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,6 +21,7 @@ public class Inventory:MonoBehaviour {
 	[Header("Inventory values")]
 	public static int drugNr;
 	public static int batteryNr;
+	public static List<int> keyIds = new();
 
 	private void Start() {
 		//Initializes sliders
