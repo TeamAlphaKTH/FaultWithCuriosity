@@ -115,7 +115,6 @@ public class FirstPersonController:NetworkBehaviour {
 			return;
 		}
 		characterController = GetComponent<CharacterController>();
-
 		staminaSlider = GameObject.Find("Stamina Slider").GetComponent<Slider>();
 		standingCenter = characterController.center;
 		standingHeight = characterController.height;

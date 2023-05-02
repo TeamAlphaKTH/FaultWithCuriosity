@@ -28,13 +28,13 @@ public class PauseMenu:NetworkBehaviour {
 	public void Stop() {
 		PauseMenuCanvas.SetActive(true);
 		Time.timeScale = 0f;
-		pauseServerRpc(true);
+		//pauseServerRpc(true);
 		Cursor.lockState = CursorLockMode.None;
 	}
 	public void Play() {
 		PauseMenuCanvas.SetActive(false);
 		Time.timeScale = 1f;
-		pauseServerRpc(false);
+		//pauseServerRpc(false);
 		Cursor.lockState = CursorLockMode.Locked;
 	}
 	public void MainMenuButton() {
@@ -45,13 +45,6 @@ public class PauseMenu:NetworkBehaviour {
 		Application.Quit();
 		Debug.Log("Player Has Quit The Game");
 	}
-	[ServerRpc]
-	public void pauseServerRpc(bool state) {
-		pauseClientRpc(state);
-	}
-	[ClientRpc]
-	public void pauseClientRpc(bool state) {
-		paused = state;
-	}
+
 }
 

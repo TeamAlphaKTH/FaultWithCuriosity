@@ -1,8 +1,9 @@
 using System.Collections;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PhotoCapture:MonoBehaviour {
+public class PhotoCapture:NetworkBehaviour {
 	[Header("Camera Item Parameters")]
 	[SerializeField] public static float charges = 3;
 	public static bool canUseCamera = true;
@@ -26,9 +27,15 @@ public class PhotoCapture:MonoBehaviour {
 	private bool itemObject = false;
 	private GameObject currentItemPolaroid;
 	private GameObject currentPhotoFrame;
-
+	public override void OnNetworkSpawn() {
+		if(!IsOwner)
+			return;
+		GUI = GameObject.Find("ItemUI");
+		base.OnNetworkSpawn();
+	}
 	void Update() {
-
+		if(!IsOwner)
+			return;
 		if(Input.GetKeyDown(FirstPersonController.useCameraButton) && canUseCamera && !viewingPhoto && charges > 0) {
 			cameraFlash.SetActive(true);
 			StartCoroutine(CapturePhoto());
@@ -114,7 +121,9 @@ public class PhotoCapture:MonoBehaviour {
 		// Set viewingPhoto to false so that player can move
 		viewingPhoto = false;
 		currentPhotoFrame.SetActive(false);
-		Destroy(currentItemPolaroid);
+		NetworkObjectReference polaroid = currentItemPolaroid.GetComponent<NetworkObject>();
+		DeletePolaroidServerRpc(polaroid);
+		//Destroy(currentItemPolaroid);
 		GUI.SetActive(true);
 	}
 
@@ -131,7 +140,8 @@ public class PhotoCapture:MonoBehaviour {
 
 		Quaternion randomRotation = Random.rotation;
 		// Spawn Polaroid
-		GameObject newPolaroid = Instantiate(itemPolaroid, randomPosition, randomRotation);
+
+		SpawnPolaroidServerRpc(randomPosition, randomRotation);
 
 	}
 
@@ -142,4 +152,15 @@ public class PhotoCapture:MonoBehaviour {
 	private void UseCamera() {
 		charges--;
 	}
+	[ServerRpc]
+	private void SpawnPolaroidServerRpc(Vector3 pos, Quaternion rot) {
+		GameObject newPolaroid = Instantiate(itemPolaroid, pos, rot);
+		newPolaroid.GetComponent<NetworkObject>().Spawn();
+	}
+	[ServerRpc]
+	private void DeletePolaroidServerRpc(NetworkObjectReference polaroid) {
+		NetworkObject polaroid1 = polaroid;
+		polaroid1.Despawn();
+	}
+
 }
