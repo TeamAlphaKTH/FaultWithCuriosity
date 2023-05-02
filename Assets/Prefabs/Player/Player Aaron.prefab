@@ -1210,7 +1210,7 @@ Transform:
   - {fileID: 3400683780383106019}
   - {fileID: 7618862434350273014}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4256443570720659492
 MonoBehaviour:
@@ -3388,7 +3388,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5908237021158961320}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &6917776427550108655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3416,7 +3416,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d620e072109c17498171a6d2df393e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rechargeCameraButton: 325
   cameraFlash: {fileID: 2340202770603413214}
   flashTime: 0.2
   GUI: {fileID: 0}

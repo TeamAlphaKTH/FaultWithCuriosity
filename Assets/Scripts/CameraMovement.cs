@@ -29,7 +29,7 @@ public class CameraMovement:NetworkBehaviour {
 	void Update() {
 		if(!IsOwner)
 			return;
-		if(CanRotate) {
+		if(CanRotate && !PauseMenu.pausedClient) {
 			//x-axis controls up and down rotation, y-axis controls left and right rotation.
 			yRotation += Input.GetAxis("Mouse X") * Time.deltaTime * sensitivity;
 			xRotation -= Input.GetAxis("Mouse Y") * Time.deltaTime * sensitivity;
