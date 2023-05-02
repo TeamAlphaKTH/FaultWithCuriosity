@@ -12,6 +12,7 @@ public class CreateButtonScript : NetworkBehaviour {
 
 	[SerializeField] private TMP_InputField portnumberInput;
 	[SerializeField] private Button btn;
+
 	private bool wrongFormat = false;
 	private string localIp;
 	private ushort port;
@@ -44,8 +45,16 @@ public class CreateButtonScript : NetworkBehaviour {
 		wrongFormat = false;
 	}
 	private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1) {
-		NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData(localIp, port, localIp);
-		NetworkManager.Singleton.StartHost();
+		if (arg0.isLoaded && arg0.name.Equals("Dungeon")) {
+			NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData(localIp, port);
+			NetworkManager.Singleton.StartHost();
+		}
+		//To Return the player to the initial start menu
+		//else if(arg0.name.Equals("MainMenu")) {
+		//	GameObject.Find("CreateGameMenu").SetActive(false);
+		//	GameObject.Find("Join Game Menu").SetActive(false);
+		//	GameObject.Find("Main Menu").SetActive(true);
+		//}
 	}
 
 	public static string GetLocalIpadress() {

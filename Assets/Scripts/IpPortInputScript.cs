@@ -8,10 +8,10 @@ using UnityEngine.UI;
 public class IpPortInputScript : NetworkBehaviour {
 	[SerializeField] private TMP_InputField ipAndPort;
 	[SerializeField] private Button joinButton;
-	string inputText;
 
-	public ushort portNumber;
-	public string ipAddress;
+	private string inputText;
+	private ushort portNumber;
+	private string ipAddress;
 
 	void Start() {
 		joinButton.onClick.AddListener(OnSubmitInfo);
@@ -29,6 +29,10 @@ public class IpPortInputScript : NetworkBehaviour {
 			} else if (portNumber < 0) {
 				portNumber = 7777;
 			}
+			SceneManager.LoadScene("Dungeon");
+		} else if (stringParts.Length == 1 && stringParts[0].Contains(".")) {
+			ipAddress = stringParts[0].Trim();
+			portNumber = 7777;
 			SceneManager.LoadScene("Dungeon");
 		}
 	}

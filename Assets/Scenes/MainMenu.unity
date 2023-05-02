@@ -766,13 +766,14 @@ GameObject:
   - component: {fileID: 120203325}
   - component: {fileID: 120203324}
   - component: {fileID: 120203327}
+  - component: {fileID: 120203328}
   m_Layer: 0
   m_Name: CreateGameMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &120203323
 RectTransform:
   m_ObjectHideFlags: 0
@@ -876,6 +877,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portnumberInput: {fileID: 1962159325}
   btn: {fileID: 53430065}
+--- !u!114 &120203328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120203322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1079720095
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &121752056
 GameObject:
   m_ObjectHideFlags: 0
@@ -3089,7 +3106,6 @@ GameObject:
   m_Component:
   - component: {fileID: 891971538}
   - component: {fileID: 891971539}
-  - component: {fileID: 891971540}
   m_Layer: 0
   m_Name: Main Menu
   m_TagString: Untagged
@@ -3130,22 +3146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc0fb047255a9942a346b182ba74407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &891971540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 891971537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 613924757
-  AlwaysReplicateAsRoot: 0
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!1 &987675178
 GameObject:
   m_ObjectHideFlags: 0
@@ -6177,7 +6177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1897098461
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6724,7 +6724,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enter port number (49152-65535)
+  m_text: Enter port number (0-65535)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7231,6 +7231,7 @@ GameObject:
   - component: {fileID: 2088485876}
   - component: {fileID: 2088485875}
   - component: {fileID: 2088485879}
+  - component: {fileID: 2088485880}
   m_Layer: 0
   m_Name: Join Game Menu
   m_TagString: Untagged
@@ -7340,8 +7341,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ipAndPort: {fileID: 121752059}
   joinButton: {fileID: 835892201}
-  portNumber: 0
-  ipAddress: 
+--- !u!114 &2088485880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088485873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 742562442
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &2095077914
 GameObject:
   m_ObjectHideFlags: 0
