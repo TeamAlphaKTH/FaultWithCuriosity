@@ -10,14 +10,17 @@ using UnityEngine.UI;
 
 public class CreateButtonScript : NetworkBehaviour {
 
-	[SerializeField] private TMP_InputField portnumberInput;
-	[SerializeField] private Button btn;
+	private TMP_InputField portnumberInput;
+	private Button btn;
 
 	private bool wrongFormat = false;
 	private string localIp;
 	private ushort port;
 
 	private void Start() {
+		portnumberInput = GameObject.Find("/Main Menu/CreateGameMenu").GetComponentInChildren<TMP_InputField>();
+		btn = GameObject.Find("/Main Menu/CreateGameMenu").GetComponentInChildren<Button>();
+
 		btn.onClick.AddListener(() => {
 			OnButtonPress();
 		});

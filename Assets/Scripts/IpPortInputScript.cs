@@ -6,14 +6,17 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class IpPortInputScript : NetworkBehaviour {
-	[SerializeField] private TMP_InputField ipAndPort;
-	[SerializeField] private Button joinButton;
+	private TMP_InputField ipAndPort;
+	private Button joinButton;
 
 	private string inputText;
 	private ushort portNumber;
 	private string ipAddress;
 
 	void Start() {
+		ipAndPort = GameObject.Find("/Main Menu/Join Game Menu").GetComponentInChildren<TMP_InputField>();
+		joinButton = GameObject.Find("/Main Menu/Join Game Menu").GetComponentInChildren<Button>();
+
 		joinButton.onClick.AddListener(OnSubmitInfo);
 		SceneManager.sceneLoaded += SceneManager_sceneLoaded;
 	}

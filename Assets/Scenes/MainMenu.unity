@@ -581,8 +581,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 715f7bff1ae471a4c86054f272a3489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portnumberInput: {fileID: 1962159325}
-  btn: {fileID: 53430065}
 --- !u!114 &53430065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,19 +624,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 53430066}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11500000, guid: 715f7bff1ae471a4c86054f272a3489c, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &53430066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -773,7 +759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &120203323
 RectTransform:
   m_ObjectHideFlags: 0
@@ -875,8 +861,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 715f7bff1ae471a4c86054f272a3489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portnumberInput: {fileID: 1962159325}
-  btn: {fileID: 53430065}
 --- !u!114 &120203328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7238,7 +7222,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2088485874
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7339,8 +7323,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8bb1ee767388064e826b17d2fa82bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ipAndPort: {fileID: 121752059}
-  joinButton: {fileID: 835892201}
 --- !u!114 &2088485880
 MonoBehaviour:
   m_ObjectHideFlags: 0
