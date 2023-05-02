@@ -28,13 +28,9 @@ public class Door:NetworkBehaviour, IInteractable {
 		if(!animator.GetBool("OpenDoor")) {
 			OpenDoorServerRpc(true);
 			CloseDoorServerRpc(false);
-			//animator.SetBool("OpenDoor", true);
-			//animator.SetBool("CloseDoor", false);
 		} else {
 			OpenDoorServerRpc(false);
 			CloseDoorServerRpc(true);
-			animator.SetBool("OpenDoor", false);
-			animator.SetBool("CloseDoor", true);
 		}
 	}
 
