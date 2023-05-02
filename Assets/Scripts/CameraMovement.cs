@@ -1,6 +1,7 @@
+using Unity.Netcode;
 using UnityEngine;
 
-public class CameraMovement:MonoBehaviour {
+public class CameraMovement:NetworkBehaviour {
 	public static bool CanRotate { get; set; } = true;
 	private float xRotation;
 	private float yRotation;
@@ -26,6 +27,8 @@ public class CameraMovement:MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
+		if(!IsOwner)
+			return;
 		if(CanRotate) {
 			//x-axis controls up and down rotation, y-axis controls left and right rotation.
 			yRotation += Input.GetAxis("Mouse X") * Time.deltaTime * sensitivity;
