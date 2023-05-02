@@ -18,6 +18,9 @@ public class PhotoCapture:MonoBehaviour {
 	[Header("GUI")]
 	[SerializeField] private GameObject GUI;
 
+	[Header("Enemy Object")]
+	[SerializeField] private GameObject objectEnemy;
+
 	[Header("Polaroid GameObject")]
 	[SerializeField] private GameObject itemPolaroid;
 
@@ -27,10 +30,35 @@ public class PhotoCapture:MonoBehaviour {
 	private GameObject currentItemPolaroid;
 	private GameObject currentPhotoFrame;
 
+	// Gamble polaroid
+	[Header("Gamble Parameters")]
+	[SerializeField] private float gambleAffect = 10f;
+	[SerializeField] private float maxGambleParanoia = 95f;
+	[SerializeField] private float sphereRadius = 2f;
+	private bool raycastEnemy = false;
+	private RaycastHit enemyHit;
+	private bool gamble;
+	// default layer
+	public LayerMask enemyLayer;
+
+	// set ItemPolaroid Bool child to false - guarantee that the bool is false in start
+	private void Start() {
+		itemPolaroid.transform.GetChild(2).gameObject.SetActive(false);
+	}
+
 	void Update() {
 
 		if(Input.GetKeyDown(FirstPersonController.useCameraButton) && canUseCamera && !viewingPhoto && charges > 0) {
+			// Raycast to see if player is looking at a Enemy - enemy must have collider
+			raycastEnemy = Physics.SphereCast(transform.position, sphereRadius, transform.forward, out enemyHit, EnemyController.scareDistance, enemyLayer);
+
 			cameraFlash.SetActive(true);
+			if(raycastEnemy && enemyHit.collider.gameObject.CompareTag("Enemy")) {
+				GambleRandom();
+				if(!gamble) {
+					EnemyController.ScareTeleport(transform.position);
+				}
+			}
 			StartCoroutine(CapturePhoto());
 			UseCamera();
 		}
@@ -86,7 +114,9 @@ public class PhotoCapture:MonoBehaviour {
 		SpawnItemPolaroid();
 
 		//Scare the enemy away
-		EnemyController.ScareTeleport(transform.position);
+		if(gamble) {
+			EnemyController.ScareTeleport(transform.position);
+		}
 	}
 
 	/// <summary>
@@ -105,6 +135,24 @@ public class PhotoCapture:MonoBehaviour {
 		// Destroy the visable body of the ItemPolaroid
 		GameObject currentItemPolaroidBody = currentItemPolaroid.transform.GetChild(0).gameObject;
 		Destroy(currentItemPolaroidBody);
+
+		// Polaroid Gamble affect
+		gamble = itemPolaroid.transform.GetChild(2).gameObject.activeSelf;
+
+		// Apply Polaroid Gamble affect
+		if(gamble) {
+			if(Flashlight.currentParanoia >= maxGambleParanoia - gambleAffect && Flashlight.currentParanoia < maxGambleParanoia) {
+				Flashlight.currentParanoia = maxGambleParanoia;
+			} else if(Flashlight.currentParanoia < maxGambleParanoia) {
+				Flashlight.currentParanoia += gambleAffect;
+			}
+		} else {
+			if(Flashlight.currentParanoia <= gambleAffect) {
+				Flashlight.currentParanoia = 0f;
+			} else {
+				Flashlight.currentParanoia -= gambleAffect;
+			}
+		}
 	}
 
 	/// <summary>
@@ -141,5 +189,14 @@ public class PhotoCapture:MonoBehaviour {
 	/// </summary>
 	private void UseCamera() {
 		charges--;
+	}
+
+	/// <summary>
+	/// Method for randomizing the polaroid haunted affect, 1 is true and 0 is false
+	/// </summary>
+	private void GambleRandom() {
+		gamble = Random.Range(0, 2) == 1 ? true : false;
+		Debug.Log(gamble);
+		itemPolaroid.transform.GetChild(2).gameObject.SetActive(gamble);
 	}
 }
