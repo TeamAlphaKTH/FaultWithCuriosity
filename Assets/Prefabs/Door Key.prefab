@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: edd07a02a53e40047a4d8de01aef7186, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.44930863
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: edd07a02a53e40047a4d8de01aef7186, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: edd07a02a53e40047a4d8de01aef7186, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.5113894
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: edd07a02a53e40047a4d8de01aef7186, type: 3}
       propertyPath: m_LocalRotation.w
@@ -100,6 +100,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: edd07a02a53e40047a4d8de01aef7186, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6594715153695041526}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: edd07a02a53e40047a4d8de01aef7186, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4365326694400518814}
   m_SourcePrefab: {fileID: 100100000, guid: edd07a02a53e40047a4d8de01aef7186, type: 3}
 --- !u!1 &1589456568767477748 stripped
 GameObject:
@@ -189,3 +192,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7113ad8f124c9674cb7a94704e0dd841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
+--- !u!114 &4365326694400518814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589456568767477748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
