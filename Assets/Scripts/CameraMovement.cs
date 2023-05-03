@@ -52,6 +52,15 @@ public class CameraMovement:NetworkBehaviour {
 	}
 
 	/// <summary>
+	/// Draws Gizmos in the Scene view
+	/// </summary>
+	private void OnDrawGizmos() {
+		//Shows the interaction range and size in the scene view for debug
+		Gizmos.color = Color.red;
+		Gizmos.DrawSphere(transform.position + transform.forward * interactionRange, rayRadius);
+	}
+
+	/// <summary>
 	/// Throws a Spherecast with the <see cref="interactionRange"/> and <see cref="rayRadius"/>
 	/// using the <see cref="IInteractable"/> interface.
 	/// </summary>
