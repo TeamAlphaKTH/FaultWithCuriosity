@@ -1,9 +1,10 @@
 using TMPro;
+using Unity.Netcode;
 using UnityEngine;
 
-public class ButtonController:MonoBehaviour, IInteractable {
+public class ButtonController:NetworkBehaviour, IInteractable {
 	public float MaxRange { get { return maxRange; } }
-	private const float maxRange = 1f;
+	private const float maxRange = 2f;
 	private TextMeshProUGUI uiText;
 	private Animator animator;
 
@@ -22,9 +23,9 @@ public class ButtonController:MonoBehaviour, IInteractable {
 	void Update() {
 		//Update the animations
 		if(clicked) {
-			animator.SetBool("Clicked", true);
+			AnimateButtonServerRpc(true);
 		} else if(animator.GetBool("Clicked")) {
-			animator.SetBool("Clicked", false);
+			AnimateButtonServerRpc(false);
 		}
 	}
 
@@ -35,14 +36,14 @@ public class ButtonController:MonoBehaviour, IInteractable {
 	public void OnInteract() {
 		//Update the state depending on the clicked state
 		if(!clicked) {
-			clicked = true;
+			UpdateButtonServerRpc(true);
 			if(clickOnce) {
 				OnEndHover();
 			} else {
 				OnStartHover();
 			}
 		} else if(!clickOnce) {
-			clicked = false;
+			UpdateButtonServerRpc(false);
 			OnStartHover();
 		}
 	}
@@ -54,5 +55,25 @@ public class ButtonController:MonoBehaviour, IInteractable {
 		} else if(clicked && !clickOnce) {
 			uiText.text = "Press " + CameraMovement.interactKey + " reset button";
 		}
+	}
+
+	[ServerRpc(RequireOwnership = false)]
+	private void AnimateButtonServerRpc(bool state) {
+		AnimateButtonClientRpc(state);
+	}
+
+	[ServerRpc(RequireOwnership = false)]
+	private void UpdateButtonServerRpc(bool state) {
+		UpdateButtonClientRpc(state);
+	}
+
+	[ClientRpc]
+	private void AnimateButtonClientRpc(bool state) {
+		animator.SetBool("Clicked", state);
+	}
+
+	[ClientRpc]
+	private void UpdateButtonClientRpc(bool state) {
+		clicked = state;
 	}
 }
