@@ -67,24 +67,24 @@ public class Flashlight:NetworkBehaviour {
 
 	private void FlashlightControl() {
 		// Toggle flashlight on/off with key press
-		if(!PauseMenu.paused)
-			if(Input.GetKeyDown(flashlightKey)) {
-				if(flashlightActive) {
-					ChangeLightIntensityServerRpc(0);
-					flashlightActive = false;
-				} else {
-					ChangeLightIntensityServerRpc(maxIntensity);
-					flashlightActive = true;
-				}
-			}
-
-		{
-
-			if(!isFlickering && batteryLevel > 10) {
-				CancelInvoke("Flicker");
+		if(PauseMenu.paused || PauseMenu.pausedClient) {
+			return;
+		}
+		if(Input.GetKeyDown(flashlightKey)) {
+			if(flashlightActive) {
+				ChangeLightIntensityServerRpc(0);
+				flashlightActive = false;
+			} else {
 				ChangeLightIntensityServerRpc(maxIntensity);
+				flashlightActive = true;
 			}
 		}
+
+		if(!isFlickering && batteryLevel > 10) {
+			CancelInvoke("Flicker");
+			ChangeLightIntensityServerRpc(maxIntensity);
+		}
+
 		if(batteryLevel <= 100 && batteryLevel > 50) {
 			batteryBlock3.enabled = true;
 			batteryBlock2.enabled = true;
