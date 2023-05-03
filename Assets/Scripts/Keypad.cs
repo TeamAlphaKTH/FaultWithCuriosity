@@ -1,8 +1,5 @@
-using System.Data;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Keypad:MonoBehaviour {
 	public static TMP_Text answer;
@@ -30,6 +27,7 @@ public class Keypad:MonoBehaviour {
 			canOpenDoor = true;
 			answer.text = "Correct";
 			RemoveKeypadUI();
+			Door.itemText.text = "Press " + CameraMovement.interactKey + " to use door";
 		} else {
 			answer.text = "Incorrect";
 		}
@@ -48,6 +46,7 @@ public class Keypad:MonoBehaviour {
 		Cursor.lockState = CursorLockMode.Confined;
 		CameraMovement.CanRotate = false;
 		keypad.SetActive(true);
+		Door.itemText.text = "";
 	}
 
 	public static void RemoveKeypadUI() {

@@ -3,11 +3,11 @@ using Unity.Netcode;
 using UnityEngine;
 
 public class Door:NetworkBehaviour, IInteractable {
-	[SerializeField] private bool locked = false;
+	[SerializeField] private bool keyLockDoor = false;
 	[SerializeField] private int keyId;
 	[SerializeField] private bool codeLockDoor = false;
 
-	private TextMeshProUGUI itemText;
+	public static TextMeshProUGUI itemText;
 	private GameObject itemUI;
 	private Animator animator;
 
@@ -21,18 +21,21 @@ public class Door:NetworkBehaviour, IInteractable {
 	}
 
 	public void OnInteract() {
-		if(locked) {
+		if(keyLockDoor) {
 			Debug.Log("koo");
 			if(Inventory.keyIds.Contains(keyId)) {
 				UnlockDoorServerRpc();
 				OnStartHover();
-			} else if(codeLockDoor) {
-				Keypad.UseKeypad();
-				if(Keypad.canOpenDoor) {
-					UnlockDoorServerRpc();
-					OnStartHover();
-					Debug.Log("Debugga inne i if satsen - Bög");
-				}
+			}
+			return;
+		} else if(codeLockDoor) {
+			Keypad.UseKeypad();
+			if(Keypad.canOpenDoor) {
+				Keypad.RemoveKeypadUI();
+				codeLockDoor = false;
+				OnStartHover();
+				OpenDoorServerRpc(true);
+				CloseDoorServerRpc(false);
 			}
 			return;
 		}
@@ -47,16 +50,16 @@ public class Door:NetworkBehaviour, IInteractable {
 	}
 
 	public void OnStartHover() {
-		if(locked) {
-			if(Inventory.keyIds.Contains(keyId)) {
-				itemText.text = "Press " + CameraMovement.interactKey + " to unlock the door";
-			} else {
-				itemText.text = "The door is locked";
-			}
+		if(keyLockDoor && Inventory.keyIds.Contains(keyId)) {
+			itemText.text = "Press " + CameraMovement.interactKey + " to unlock the door";
+		} else if(codeLockDoor) {
+			itemText.text = "Press " + CameraMovement.interactKey + " to enter the code";
 		} else {
 			itemText.text = "Press " + CameraMovement.interactKey + " to use door";
 		}
 	}
+
+
 	private void Start() {
 		itemUI = GameObject.Find("ItemUI");
 		itemText = itemUI.GetComponentInChildren<TextMeshProUGUI>();
@@ -92,6 +95,6 @@ public class Door:NetworkBehaviour, IInteractable {
 	}
 	[ClientRpc]
 	private void UnlockDoorClientRpc() {
-		locked = false;
+		keyLockDoor = false;
 	}
 }
