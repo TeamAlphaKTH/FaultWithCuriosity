@@ -5,6 +5,7 @@ using UnityEngine;
 public class Door:NetworkBehaviour, IInteractable {
 	[SerializeField] private bool locked = false;
 	[SerializeField] private int keyId;
+	[SerializeField] private bool codeLockDoor = false;
 
 	private TextMeshProUGUI itemText;
 	private GameObject itemUI;
@@ -24,6 +25,8 @@ public class Door:NetworkBehaviour, IInteractable {
 			if(Inventory.keyIds.Contains(keyId)) {
 				UnlockDoorServerRpc();
 				OnStartHover();
+			} else if(codeLockDoor) {
+				Keypad.UseKeypad();
 			}
 			return;
 		}
