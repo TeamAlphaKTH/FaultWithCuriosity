@@ -6,6 +6,7 @@ public class Door:NetworkBehaviour, IInteractable {
 	[SerializeField] private bool keyLockDoor = false;
 	[SerializeField] private int keyId;
 	[SerializeField] private bool codeLockDoor = false;
+	[SerializeField] public bool canOpenDoor = false;
 
 	public static TextMeshProUGUI itemText;
 	private GameObject itemUI;
@@ -22,7 +23,6 @@ public class Door:NetworkBehaviour, IInteractable {
 
 	public void OnInteract() {
 		if(keyLockDoor) {
-			Debug.Log("koo");
 			if(Inventory.keyIds.Contains(keyId)) {
 				UnlockDoorServerRpc();
 				OnStartHover();
@@ -30,7 +30,7 @@ public class Door:NetworkBehaviour, IInteractable {
 			return;
 		} else if(codeLockDoor) {
 			Keypad.UseKeypad();
-			if(Keypad.canOpenDoor) {
+			if(canOpenDoor) {
 				Keypad.RemoveKeypadUI();
 				codeLockDoor = false;
 				OnStartHover();

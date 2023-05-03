@@ -3,13 +3,15 @@ using UnityEngine;
 
 public class Keypad:MonoBehaviour {
 	public static TMP_Text answer;
-	public static bool canOpenDoor = false;
 	public static GameObject codeLockUI;
 	public static GameObject keypad;
+
+	public Door instanceDoor;
 
 	void Start() {
 		codeLockUI = GameObject.Find("CodeLockUI").GetComponentInChildren<Canvas>().gameObject;
 		keypad = codeLockUI.transform.GetChild(0).gameObject;
+		instanceDoor = GameObject.Find("Key Id").GetComponentInChildren<Door>();
 	}
 
 	/// <summary>
@@ -22,9 +24,9 @@ public class Keypad:MonoBehaviour {
 		}
 	}
 
-	public static void CheckCode() {
+	public void CheckCode() {
 		if(answer.text.Equals(Door.code)) {
-			canOpenDoor = true;
+			instanceDoor.canOpenDoor = true;
 			answer.text = "Correct";
 			RemoveKeypadUI();
 			Door.itemText.text = "Press " + CameraMovement.interactKey + " to use door";
