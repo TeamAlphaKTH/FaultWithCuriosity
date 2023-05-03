@@ -3,7 +3,7 @@ using Unity.Netcode;
 using UnityEngine;
 
 public class Door:NetworkBehaviour, IInteractable {
-	[SerializeField] private bool locked = false;
+	[SerializeField] public bool locked = false;
 	[SerializeField] private int keyId;
 
 	private TextMeshProUGUI itemText;
