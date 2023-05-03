@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 [System.Serializable]
@@ -7,7 +8,7 @@ internal class Inputs {
 	public bool enabled;
 }
 
-public class PuzzleInputController:MonoBehaviour {
+public class PuzzleInputController:NetworkBehaviour {
 	[SerializeField] private List<Inputs> inputs = new();
 	[SerializeField] private GameObject door;
 
@@ -30,6 +31,16 @@ public class PuzzleInputController:MonoBehaviour {
 		}
 
 		//Unlock the defined door if everything is correct
+		UnlockDoorServerRpc();
+	}
+
+	[ServerRpc(RequireOwnership = false)]
+	private void UnlockDoorServerRpc() {
+		UnlockDoorClientRpc();
+	}
+
+	[ClientRpc]
+	private void UnlockDoorClientRpc() {
 		door.GetComponent<Door>().locked = false;
 	}
 }
