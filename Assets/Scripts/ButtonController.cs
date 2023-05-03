@@ -18,6 +18,8 @@ public class ButtonController:MonoBehaviour, IInteractable {
 	void Update() {
 		if(clicked) {
 			animator.SetBool("Clicked", true);
+		} else if(animator.GetBool("Clicked")) {
+			animator.SetBool("Clicked", false);
 		}
 	}
 
@@ -29,6 +31,9 @@ public class ButtonController:MonoBehaviour, IInteractable {
 		if(!clicked) {
 			clicked = true;
 			OnEndHover();
+		} else {
+			clicked = false;
+			OnStartHover();
 		}
 	}
 
