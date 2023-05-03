@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PhotoCapture:NetworkBehaviour {
 	[Header("Camera Item Parameters")]
-	[SerializeField] public static float charges = 3;
+	public static float charges = 3;
 	public static bool canUseCamera = true;
 
 	[Header("Flash Effect")]
@@ -78,17 +78,18 @@ public class PhotoCapture:NetworkBehaviour {
 		screenCapture.ReadPixels(regionToRead, 0, 0, false);
 		screenCapture.Apply();
 
-		// Makes a sprite of the screenshot and places it in PhotoDisplayArea in ItemPolaroidObject
+		// Makes a sprite of the screenshot
 		Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0, 0, screenCapture.width, screenCapture.height), new Vector2(0, 0), 50);
-		Image photoDisplayArea = itemPolaroid.transform.GetChild(1).GetChild(0).GetChild(0).GetChild(1).gameObject.GetComponent<Image>();
-		photoDisplayArea.sprite = photoSprite;
+		// Encodes the sprite to a byte array to send to server.
+		byte[] pictureBytes = photoSprite.texture.EncodeToJPG();
 
 		// Sets PhotoFrameBG (Blank canvas) in ItemPolaroidObject to true
 		// the coroutine below needs to be located AFTER the picture is being taken!
 		StartCoroutine(CameraFlashEffect());
 		GUI.SetActive(true);
-		Debug.Log(photoSprite.texture.EncodeToPNG().Length.ToString());
-		SpawnItemPolaroid(photoSprite.texture.EncodeToPNG());
+
+		//Spawn the polaroid with the picture
+		SpawnItemPolaroid(pictureBytes);
 
 		//Scare the enemy away
 		EnemyController.ScareTeleport(transform.position);
@@ -128,7 +129,7 @@ public class PhotoCapture:NetworkBehaviour {
 	/// <summary>
 	/// Spawns the item polaroid in a random location around infront of the player.
 	/// </summary>
-	private void SpawnItemPolaroid(byte[] spriteData) {
+	private void SpawnItemPolaroid(byte[] pictureBytes) {
 		// Random position and rotation
 		Vector3 randomPosition = new(
 			Random.Range(FirstPersonController.characterController.transform.position.x, FirstPersonController.characterController.transform.position.x + 0.5f),
@@ -138,8 +139,7 @@ public class PhotoCapture:NetworkBehaviour {
 
 		Quaternion randomRotation = Random.rotation;
 		// Spawn Polaroid
-		SpawnPolaroidServerRpc(randomPosition, randomRotation, spriteData);
-
+		SpawnPolaroidServerRpc(randomPosition, randomRotation, pictureBytes);
 	}
 
 	/// <summary>
@@ -149,19 +149,42 @@ public class PhotoCapture:NetworkBehaviour {
 	private void UseCamera() {
 		charges--;
 	}
-	[ServerRpc]
-	private void SpawnPolaroidServerRpc(Vector3 pos, Quaternion rot, byte[] spriteBytes) {
-		Texture2D texture = new(2, 2);
-		texture.LoadImage(spriteBytes);
-		Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
 
+	/// <summary>
+	/// SpawnPolaroid is spawning the polaroid picture on the server with the correct screenshot.
+	/// </summary>
+	/// <param name="pos">pos is a position vector close to the player where the polaroid spawns</param>
+	/// <param name="rot">rot is a random rotation</param>
+	/// <param name="pictureBytes">pictureBytes is the screenshot encrypted as a jpg byte array</param>
+	[ServerRpc]
+	private void SpawnPolaroidServerRpc(Vector3 pos, Quaternion rot, byte[] pictureBytes) {
 		GameObject newPolaroid = Instantiate(itemPolaroid, pos, rot);
-		newPolaroid.transform.GetChild(1).GetChild(0).GetChild(0).GetChild(1).gameObject.GetComponent<Image>().sprite = sprite;
 		newPolaroid.GetComponent<NetworkObject>().Spawn();
+		NetworkObjectReference newPol = newPolaroid;
+		ShowPictureClientRpc(newPol, pictureBytes);
 	}
+
+	/// <summary>
+	/// DeletePolaroid is despawning a polaroid from the server.
+	/// </summary>
+	/// <param name="polaroid">polaroid is a reference to the current polaroid that is supposed to be despawned</param>
 	[ServerRpc]
 	private void DeletePolaroidServerRpc(NetworkObjectReference polaroid) {
 		NetworkObject polaroid1 = polaroid;
 		polaroid1.Despawn();
+	}
+
+	/// <summary>
+	/// ShowPicture updates the picture of the polaroid for all clients on the server
+	/// </summary>
+	/// <param name="polaroid">polaroid refers to the newly spawned polaroid item</param>
+	/// <param name="pictureBytes">pictureBytes is the screenshot encrypted as a jpg byte array</param>
+	[ClientRpc]
+	private void ShowPictureClientRpc(NetworkObjectReference polaroid, byte[] pictureBytes) {
+		Texture2D pictureTexture = new(2, 2);
+		pictureTexture.LoadImage(pictureBytes);
+		Sprite pictureSprite = Sprite.Create(pictureTexture, new Rect(0, 0, pictureTexture.width, pictureTexture.height), new Vector2(0, 0), 50);
+		NetworkObject newPolaroid = polaroid;
+		newPolaroid.transform.GetChild(1).GetChild(0).GetChild(0).GetChild(1).gameObject.GetComponent<Image>().sprite = pictureSprite;
 	}
 }
