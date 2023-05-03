@@ -22,11 +22,17 @@ public class Door:NetworkBehaviour, IInteractable {
 
 	public void OnInteract() {
 		if(locked) {
+			Debug.Log("koo");
 			if(Inventory.keyIds.Contains(keyId)) {
 				UnlockDoorServerRpc();
 				OnStartHover();
 			} else if(codeLockDoor) {
 				Keypad.UseKeypad();
+				if(Keypad.canOpenDoor) {
+					UnlockDoorServerRpc();
+					OnStartHover();
+					Debug.Log("Debugga inne i if satsen - Bög");
+				}
 			}
 			return;
 		}
@@ -56,6 +62,7 @@ public class Door:NetworkBehaviour, IInteractable {
 		itemText = itemUI.GetComponentInChildren<TextMeshProUGUI>();
 		animator = GetComponentInParent<Animator>();
 		code = GenerateCode();
+		Debug.Log(code);
 	}
 
 	private string GenerateCode() {

@@ -1,3 +1,4 @@
+using System.Data;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -25,7 +26,7 @@ public class Keypad:MonoBehaviour {
 	}
 
 	public static void CheckCode() {
-		if(answer.text == Door.code) {
+		if(answer.text.Equals(Door.code)) {
 			canOpenDoor = true;
 			answer.text = "Correct";
 			RemoveKeypadUI();
@@ -39,7 +40,7 @@ public class Keypad:MonoBehaviour {
 		answer = GameObject.Find("Input Text").GetComponentInChildren<TMP_Text>();
 	}
 
-	public void Delete() {
+	public static void Delete() {
 		answer.text = "";
 	}
 
@@ -50,6 +51,7 @@ public class Keypad:MonoBehaviour {
 	}
 
 	public static void RemoveKeypadUI() {
+		Delete();
 		keypad.SetActive(false);
 		Cursor.lockState = CursorLockMode.Locked;
 		CameraMovement.CanRotate = true;
