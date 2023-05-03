@@ -70,7 +70,7 @@ public class PauseMenu:NetworkBehaviour {
 			NetworkManager.Singleton.DisconnectClient(OwnerClientId);
 			NetworkManager.Singleton.Shutdown();
 		} else {
-			clientQuitServerRpc(OwnerClientId);
+			leaveServerRpc(NetworkManager.Singleton.LocalClientId);
 		}
 		SceneManager.LoadScene("MainMenu");
 	}
@@ -81,12 +81,13 @@ public class PauseMenu:NetworkBehaviour {
 		pauseClientRpc(state);
 	}
 
-	[ServerRpc]
-	public void clientQuitServerRpc(ulong clientId) {
-		leaveClientRpc(clientId);
+	[ServerRpc(RequireOwnership = false)]
+	public void leaveServerRpc(ulong clientId) {
+		NetworkManager.ConnectedClients[clientId].PlayerObject.Despawn();
+		//leaveClientRpc(clientId);
 	}
 
-	// Changes states at client on demand from server 
+	// Changes states at client on demand to server 
 	[ClientRpc]
 	public void pauseClientRpc(bool state) {
 		paused = state;
@@ -99,6 +100,9 @@ public class PauseMenu:NetworkBehaviour {
 
 	[ClientRpc]
 	public void leaveClientRpc(ulong clientId) {
-		NetworkManager.Singleton.DisconnectClient(clientId);
+		if(OwnerClientId == clientId) {
+			NetworkManager.Singleton.DisconnectClient(clientId);
+			NetworkManager.Singleton.Shutdown();
+		}
 	}
 }
