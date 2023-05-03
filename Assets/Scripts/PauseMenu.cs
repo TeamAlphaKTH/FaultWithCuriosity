@@ -66,9 +66,11 @@ public class PauseMenu:NetworkBehaviour {
 		pausedClient = false;
 		paused = false;
 		PauseMenuCanvas.SetActive(false);
-		NetworkManager.Singleton.DisconnectClient(OwnerClientId);
 		if(IsHost) {
+			NetworkManager.Singleton.DisconnectClient(OwnerClientId);
 			NetworkManager.Singleton.Shutdown();
+		} else {
+			clientQuitServerRpc(OwnerClientId);
 		}
 		SceneManager.LoadScene("MainMenu");
 	}
@@ -77,6 +79,11 @@ public class PauseMenu:NetworkBehaviour {
 	[ServerRpc]
 	public void pauseServerRpc(bool state) {
 		pauseClientRpc(state);
+	}
+
+	[ServerRpc]
+	public void clientQuitServerRpc(ulong clientId) {
+		leaveClientRpc(clientId);
 	}
 
 	// Changes states at client on demand from server 
@@ -88,5 +95,10 @@ public class PauseMenu:NetworkBehaviour {
 		} else {
 			Time.timeScale = 0f;
 		}
+	}
+
+	[ClientRpc]
+	public void leaveClientRpc(ulong clientId) {
+		NetworkManager.Singleton.DisconnectClient(clientId);
 	}
 }
