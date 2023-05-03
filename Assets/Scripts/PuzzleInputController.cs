@@ -20,27 +20,36 @@ public class PuzzleInputController:NetworkBehaviour {
 	// Update is called once per frame
 	void Update() {
 		foreach(Inputs input in inputs) {
+			bool lockState = door.GetComponent<Door>().locked;
+
 			//Get if the input is currently clicked/enabled
 			bool clicked = input.inputObject.GetComponentInChildren<ButtonController>().clicked;
 			//Get if that input object should be clicked/enabled
 			bool enabled = input.enabled;
-			//Stop looping through if one is false
+
+			//Check if an input is wrong
 			if((!clicked && enabled) || (clicked && !enabled)) {
+
+				//Lock the door if it's not already locked
+				if(!lockState)
+					ChangeDoorLockStateServerRpc(true);
+
+				//Stop checking for the others
 				return;
 			}
 		}
 
 		//Unlock the defined door if everything is correct
-		UnlockDoorServerRpc();
+		ChangeDoorLockStateServerRpc(false);
 	}
 
 	[ServerRpc(RequireOwnership = false)]
-	private void UnlockDoorServerRpc() {
-		UnlockDoorClientRpc();
+	private void ChangeDoorLockStateServerRpc(bool state) {
+		ChangeDoorLockStateClientRpc(state);
 	}
 
 	[ClientRpc]
-	private void UnlockDoorClientRpc() {
-		door.GetComponent<Door>().locked = false;
+	private void ChangeDoorLockStateClientRpc(bool state) {
+		door.GetComponent<Door>().locked = state;
 	}
 }
