@@ -8,7 +8,7 @@ public class ButtonController:NetworkBehaviour, IInteractable {
 	private TextMeshProUGUI uiText;
 	private Animator animator;
 
-	private bool clicked = false;
+	public bool clicked = false;
 	/// <summary>
 	/// Make the button only clickable once. It can not be reset.
 	/// </summary>
