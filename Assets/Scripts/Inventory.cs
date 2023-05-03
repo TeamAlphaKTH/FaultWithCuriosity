@@ -21,6 +21,7 @@ public class Inventory:MonoBehaviour {
 	[Header("Inventory values")]
 	public static int drugNr;
 	public static int batteryNr;
+	public static bool inventoryOpen = false;
 	public static List<int> keyIds = new();
 
 	private void Start() {
@@ -40,10 +41,11 @@ public class Inventory:MonoBehaviour {
 		cameraSlider.value = PhotoCapture.charges;
 
 		//Toggles inventory on and off, this also toggles cameramovement action camera and the cursor.
-		if(Input.GetKeyDown(FirstPersonController.openInventory) && !PauseMenu.paused) {
+		if(Input.GetKeyDown(FirstPersonController.openInventory) && !PauseMenu.paused && !PauseMenu.pausedClient) {
 			switch(inventory.activeSelf) {
 				case true:
 				inventory.SetActive(false);
+				inventoryOpen = false;
 				Cursor.lockState = CursorLockMode.Locked;
 				CameraMovement.CanRotate = true;
 				PhotoCapture.canUseCamera = true;
@@ -51,7 +53,9 @@ public class Inventory:MonoBehaviour {
 
 				case false:
 				inventory.SetActive(true);
+				inventoryOpen = true;
 				Cursor.lockState = CursorLockMode.Confined;
+				Cursor.visible = true;
 				CameraMovement.CanRotate = false;
 				PhotoCapture.canUseCamera = false;
 				break;

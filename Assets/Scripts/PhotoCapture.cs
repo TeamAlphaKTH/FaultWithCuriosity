@@ -47,6 +47,9 @@ public class PhotoCapture:MonoBehaviour {
 	}
 
 	void Update() {
+		if(PauseMenu.paused || PauseMenu.pausedClient) {
+			return;
+		}
 
 		if(Input.GetKeyDown(FirstPersonController.useCameraButton) && canUseCamera && !viewingPhoto && charges > 0) {
 			// Raycast to see if player is looking at a Enemy - enemy must have collider
