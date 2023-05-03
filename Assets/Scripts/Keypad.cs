@@ -11,7 +11,7 @@ public class Keypad:MonoBehaviour {
 	void Start() {
 		codeLockUI = GameObject.Find("CodeLockUI").GetComponentInChildren<Canvas>().gameObject;
 		keypad = codeLockUI.transform.GetChild(0).gameObject;
-		instanceDoor = GameObject.Find("Key Id").GetComponentInChildren<Door>();
+		instanceDoor = GameObject.Find("Door Model").GetComponentInChildren<Door>();
 	}
 
 	/// <summary>
