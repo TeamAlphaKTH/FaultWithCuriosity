@@ -147,7 +147,7 @@ public class FirstPersonController:NetworkBehaviour {
 		if(!IsOwner) {
 			return;
 		}
-		if(CanMove) {
+		if(CanMove && !PauseMenu.pausedClient) {
 			HandleInput();
 			HandleJump();
 			HandleCrouch();
