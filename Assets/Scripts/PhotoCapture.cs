@@ -20,7 +20,7 @@ public class PhotoCapture:NetworkBehaviour {
 	[SerializeField] private GameObject GUI;
 
 	[Header("Enemy Object")]
-	[SerializeField] private GameObject objectEnemy;
+	//[SerializeField] private GameObject objectEnemy;
 
 	[Header("Polaroid GameObject")]
 	[SerializeField] private GameObject itemPolaroid;
@@ -83,11 +83,6 @@ public class PhotoCapture:NetworkBehaviour {
 		}
 
 	}
-	/// <summary>
-	/// Increases light intensity on object - CameraFlash
-	/// </summary>
-	/// <returns></returns>
-
 	/// <summary>
 	/// Captures the photo.
 	/// </summary>
