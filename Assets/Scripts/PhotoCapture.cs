@@ -35,6 +35,10 @@ public class PhotoCapture:NetworkBehaviour {
 	void Update() {
 		if(!IsOwner)
 			return;
+		if(PauseMenu.paused || PauseMenu.pausedClient) {
+			return;
+		}
+
 		if(Input.GetKeyDown(FirstPersonController.useCameraButton) && canUseCamera && !viewingPhoto && charges > 0) {
 			cameraFlash.SetActive(true);
 			StartCoroutine(CapturePhoto());
