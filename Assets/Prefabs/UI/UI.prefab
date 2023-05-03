@@ -238,6 +238,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2763659782717997137}
     m_Modifications:
+    - target: {fileID: 2432071051343027847, guid: 93f36700704b47e4b9729133ce63c028, type: 3}
+      propertyPath: PausedMenu
+      value: 
+      objectReference: {fileID: 6757726981181367092}
+    - target: {fileID: 2432071051343027847, guid: 93f36700704b47e4b9729133ce63c028, type: 3}
+      propertyPath: OptionsMenu
+      value: 
+      objectReference: {fileID: 4138043684421991066}
+    - target: {fileID: 4193693071510083482, guid: 93f36700704b47e4b9729133ce63c028, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4770469001822628538, guid: 93f36700704b47e4b9729133ce63c028, type: 3}
       propertyPath: m_Name
       value: Pause Menu UI
@@ -301,11 +313,45 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7570886729782228898, guid: 93f36700704b47e4b9729133ce63c028, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6158964993318688639}
   m_SourcePrefab: {fileID: 100100000, guid: 93f36700704b47e4b9729133ce63c028, type: 3}
 --- !u!4 &456288652275681875 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7039030968424627965, guid: 93f36700704b47e4b9729133ce63c028, type: 3}
+  m_PrefabInstance: {fileID: 7492504629813671086}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1075102597840372492 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7570886729782228898, guid: 93f36700704b47e4b9729133ce63c028, type: 3}
+  m_PrefabInstance: {fileID: 7492504629813671086}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6158964993318688639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075102597840372492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &4138043684421991066 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6816182149092609588, guid: 93f36700704b47e4b9729133ce63c028, type: 3}
+  m_PrefabInstance: {fileID: 7492504629813671086}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6757726981181367092 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4193693071510083482, guid: 93f36700704b47e4b9729133ce63c028, type: 3}
   m_PrefabInstance: {fileID: 7492504629813671086}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8762095016782706701 stripped

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -581,8 +581,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 715f7bff1ae471a4c86054f272a3489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portnumberInput: {fileID: 1962159325}
-  wrongFormat: 0
 --- !u!114 &53430065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1036,7 +1034,6 @@ GameObject:
   - component: {fileID: 127799467}
   - component: {fileID: 127799470}
   - component: {fileID: 127799469}
-  - component: {fileID: 127799468}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -1064,20 +1061,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &127799468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 127799466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 715f7bff1ae471a4c86054f272a3489c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  portnumberInput: {fileID: 0}
-  wrongFormat: 0
 --- !u!114 &127799469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1829,7 +1812,6 @@ GameObject:
   - component: {fileID: 318492796}
   - component: {fileID: 318492799}
   - component: {fileID: 318492798}
-  - component: {fileID: 318492797}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -1857,20 +1839,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &318492797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 318492795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 715f7bff1ae471a4c86054f272a3489c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  portnumberInput: {fileID: 0}
-  wrongFormat: 0
 --- !u!114 &318492798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1921,6 +1889,7 @@ GameObject:
   - component: {fileID: 367400593}
   - component: {fileID: 367400592}
   - component: {fileID: 367400591}
+  - component: {fileID: 367400594}
   m_Layer: 0
   m_Name: SinglePlayer Button
   m_TagString: Untagged
@@ -1992,19 +1961,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 367400592}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 891971539}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &367400592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2043,6 +2000,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367400589}
   m_CullTransparentMesh: 1
+--- !u!114 &367400594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367400589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a9aaaba999c4b2db59543d20bba2a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &392267022
 GameObject:
   m_ObjectHideFlags: 0
@@ -2972,6 +2941,7 @@ GameObject:
   - component: {fileID: 835892203}
   - component: {fileID: 835892202}
   - component: {fileID: 835892201}
+  - component: {fileID: 835892205}
   m_Layer: 0
   m_Name: Join Button
   m_TagString: Untagged
@@ -3082,6 +3052,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 835892198}
   m_CullTransparentMesh: 1
+--- !u!114 &835892205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835892198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8bb1ee767388064e826b17d2fa82bfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portNumber: 0
+  ipAddress: 
 --- !u!1 &891971537
 GameObject:
   m_ObjectHideFlags: 0
@@ -3092,6 +3076,7 @@ GameObject:
   m_Component:
   - component: {fileID: 891971538}
   - component: {fileID: 891971539}
+  - component: {fileID: 891971540}
   m_Layer: 0
   m_Name: Main Menu
   m_TagString: Untagged
@@ -3132,6 +3117,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc0fb047255a9942a346b182ba74407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &891971540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891971537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 613924757
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &987675178
 GameObject:
   m_ObjectHideFlags: 0
@@ -3211,7 +3212,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enter IP address and port number
+  m_text: Enter IP address and port (0-65535)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6710,7 +6711,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enter port number (49152-65535)
+  m_text: Enter port number (0-65535)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7216,7 +7217,7 @@ GameObject:
   - component: {fileID: 2088485877}
   - component: {fileID: 2088485876}
   - component: {fileID: 2088485875}
-  - component: {fileID: 2088485878}
+  - component: {fileID: 2088485880}
   m_Layer: 0
   m_Name: Join Game Menu
   m_TagString: Untagged
@@ -7312,7 +7313,7 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &2088485878
+--- !u!114 &2088485880
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7321,13 +7322,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2088485873}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8bb1ee767388064e826b17d2fa82bfc, type: 3}
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ipAndPort: {fileID: 121752059}
-  joinButton: {fileID: 835892201}
-  portNumber: 0
-  ipAddress: 
+  GlobalObjectIdHash: 742562442
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &2095077914
 GameObject:
   m_ObjectHideFlags: 0

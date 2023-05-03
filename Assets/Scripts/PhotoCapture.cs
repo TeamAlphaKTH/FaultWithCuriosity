@@ -1,8 +1,9 @@
 using System.Collections;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PhotoCapture:MonoBehaviour {
+public class PhotoCapture:NetworkBehaviour {
 	[Header("Camera Item Parameters")]
 	[SerializeField] public static float charges = 3;
 	public static bool canUseCamera = true;
@@ -19,7 +20,7 @@ public class PhotoCapture:MonoBehaviour {
 	[SerializeField] private GameObject GUI;
 
 	[Header("Enemy Object")]
-	[SerializeField] private GameObject objectEnemy;
+	//[SerializeField] private GameObject objectEnemy;
 
 	[Header("Polaroid GameObject")]
 	[SerializeField] private GameObject itemPolaroid;
@@ -42,11 +43,18 @@ public class PhotoCapture:MonoBehaviour {
 	public LayerMask enemyLayer;
 
 	// set ItemPolaroid Bool child to false - guarantee that the bool is false in start
-	private void Start() {
+	public override void OnNetworkSpawn() {
+		if(!IsOwner)
+			return;
+		GUI = GameObject.Find("ItemUI");
+		base.OnNetworkSpawn();
 		itemPolaroid.transform.GetChild(2).gameObject.SetActive(false);
 	}
 
 	void Update() {
+		if(!IsOwner || PauseMenu.paused || PauseMenu.pausedClient) {
+			return;
+		}
 
 		if(Input.GetKeyDown(FirstPersonController.useCameraButton) && canUseCamera && !viewingPhoto && charges > 0) {
 			// Raycast to see if player is looking at a Enemy - enemy must have collider
@@ -76,15 +84,6 @@ public class PhotoCapture:MonoBehaviour {
 
 	}
 	/// <summary>
-	/// Increases light intensity on object - CameraFlash
-	/// </summary>
-	/// <returns></returns>
-	private IEnumerator CameraFlashEffect() {
-		yield return new WaitForSeconds(flashTime);
-		cameraFlash.SetActive(false);
-	}
-
-	/// <summary>
 	/// Captures the photo.
 	/// </summary>
 	/// <returns></returns>
@@ -95,23 +94,26 @@ public class PhotoCapture:MonoBehaviour {
 		yield return new WaitForEndOfFrame();
 
 		// Takes a screenshot of the screen
-		Rect regionToRead = new(0, 0, Screen.width, Screen.height);
-		Texture2D newTexture = new(Screen.width, Screen.height, TextureFormat.RGB24, false);
-		newTexture.ReadPixels(regionToRead, 0, 0, false);
-		newTexture.Apply();
-		screenCapture = newTexture;
+		Rect regionToRead = new((Screen.width - Screen.height) / 2, 0, Screen.height, Screen.height);
+		Texture2D screenCapture = new(1024, 1024, TextureFormat.RGB24, false);
+		screenCapture.ReadPixels(regionToRead, 0, 0, false);
+		screenCapture.Apply();
 
-		// Makes a sprite of the screenshot and places it in PhotoDisplayArea in ItemPolaroidObject
-		Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
-		GameObject photoDisplayAreaObject = itemPolaroid.transform.GetChild(1).GetChild(0).GetChild(0).GetChild(1).gameObject;
-		Image photoDisplayArea = photoDisplayAreaObject.GetComponent<Image>();
-		photoDisplayArea.sprite = photoSprite;
+		// Makes a sprite of the screenshot
+		Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0, 0, screenCapture.width, screenCapture.height), new Vector2(0, 0), 50);
+		// Encodes the sprite to a byte array to send to server.
+		byte[] pictureBytes = photoSprite.texture.EncodeToJPG();
 
 		// Sets PhotoFrameBG (Blank canvas) in ItemPolaroidObject to true
 		// the coroutine below needs to be located AFTER the picture is being taken!
 		StartCoroutine(CameraFlashEffect());
 		GUI.SetActive(true);
-		SpawnItemPolaroid();
+
+		//Spawn the polaroid with the picture
+		SpawnItemPolaroid(pictureBytes);
+
+		//Scare the enemy away
+		EnemyController.ScareTeleport(transform.position);
 
 		//Scare the enemy away
 		if(gamble) {
@@ -162,14 +164,15 @@ public class PhotoCapture:MonoBehaviour {
 		// Set viewingPhoto to false so that player can move
 		viewingPhoto = false;
 		currentPhotoFrame.SetActive(false);
-		Destroy(currentItemPolaroid);
+		NetworkObjectReference polaroid = currentItemPolaroid.GetComponent<NetworkObject>();
+		DeletePolaroidServerRpc(polaroid);
 		GUI.SetActive(true);
 	}
 
 	/// <summary>
 	/// Spawns the item polaroid in a random location around infront of the player.
 	/// </summary>
-	private void SpawnItemPolaroid() {
+	private void SpawnItemPolaroid(byte[] pictureBytes) {
 		// Random position and rotation
 		Vector3 randomPosition = new(
 			Random.Range(FirstPersonController.characterController.transform.position.x, FirstPersonController.characterController.transform.position.x + 0.5f),
@@ -179,8 +182,7 @@ public class PhotoCapture:MonoBehaviour {
 
 		Quaternion randomRotation = Random.rotation;
 		// Spawn Polaroid
-		GameObject newPolaroid = Instantiate(itemPolaroid, randomPosition, randomRotation);
-
+		SpawnPolaroidServerRpc(randomPosition, randomRotation, pictureBytes);
 	}
 
 	/// <summary>
@@ -198,5 +200,51 @@ public class PhotoCapture:MonoBehaviour {
 		gamble = Random.Range(0, 2) == 1 ? true : false;
 		Debug.Log(gamble);
 		itemPolaroid.transform.GetChild(2).gameObject.SetActive(gamble);
+	}
+
+	/// Increases light intensity on object - CameraFlash
+	/// </summary>
+	/// <returns></returns>
+	private IEnumerator CameraFlashEffect() {
+		yield return new WaitForSeconds(flashTime);
+		cameraFlash.SetActive(false);
+	}
+
+	/// <summary>
+	/// SpawnPolaroid is spawning the polaroid picture on the server with the correct screenshot.
+	/// </summary>
+	/// <param name="pos">pos is a position vector close to the player where the polaroid spawns</param>
+	/// <param name="rot">rot is a random rotation</param>
+	/// <param name="pictureBytes">pictureBytes is the screenshot encrypted as a jpg byte array</param>
+	[ServerRpc]
+	private void SpawnPolaroidServerRpc(Vector3 pos, Quaternion rot, byte[] pictureBytes) {
+		GameObject newPolaroid = Instantiate(itemPolaroid, pos, rot);
+		newPolaroid.GetComponent<NetworkObject>().Spawn();
+		NetworkObjectReference newPol = newPolaroid;
+		ShowPictureClientRpc(newPol, pictureBytes);
+	}
+
+	/// <summary>
+	/// DeletePolaroid is despawning a polaroid from the server.
+	/// </summary>
+	/// <param name="polaroid">polaroid is a reference to the current polaroid that is supposed to be despawned</param>
+	[ServerRpc]
+	private void DeletePolaroidServerRpc(NetworkObjectReference polaroid) {
+		NetworkObject polaroid1 = polaroid;
+		polaroid1.Despawn();
+	}
+
+	/// <summary>
+	/// ShowPicture updates the picture of the polaroid for all clients on the server
+	/// </summary>
+	/// <param name="polaroid">polaroid refers to the newly spawned polaroid item</param>
+	/// <param name="pictureBytes">pictureBytes is the screenshot encrypted as a jpg byte array</param>
+	[ClientRpc]
+	private void ShowPictureClientRpc(NetworkObjectReference polaroid, byte[] pictureBytes) {
+		Texture2D pictureTexture = new(2, 2);
+		pictureTexture.LoadImage(pictureBytes);
+		Sprite pictureSprite = Sprite.Create(pictureTexture, new Rect(0, 0, pictureTexture.width, pictureTexture.height), new Vector2(0, 0), 50);
+		NetworkObject newPolaroid = polaroid;
+		newPolaroid.transform.GetChild(1).GetChild(0).GetChild(0).GetChild(1).gameObject.GetComponent<Image>().sprite = pictureSprite;
 	}
 }
