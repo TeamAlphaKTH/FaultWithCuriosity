@@ -183,7 +183,6 @@ public class PhotoCapture:MonoBehaviour {
 		Quaternion randomRotation = Random.rotation;
 		// Spawn Polaroid
 		GameObject newPolaroid = Instantiate(itemPolaroid, randomPosition, randomRotation);
-
 	}
 
 	/// <summary>
