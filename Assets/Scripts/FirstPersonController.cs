@@ -124,12 +124,12 @@ public class FirstPersonController:NetworkBehaviour {
 		standingCenter = characterController.center;
 		standingHeight = characterController.height;
 		Initialize();
-		//SpawnEnemy();
+		SpawnEnemyServerRpc();
 		base.OnNetworkSpawn();
 	}
 
 	private void Start() {
-		SpawnEnemy();
+		//SpawnEnemy();
 	}
 
 	/// <summary>
@@ -152,11 +152,11 @@ public class FirstPersonController:NetworkBehaviour {
 		currentStamina = maxStamina;
 		staminaSlider.value = maxStamina;
 	}
-
-	void SpawnEnemy() {
+	[ServerRpc]
+	private void SpawnEnemyServerRpc() {
 		Transform[] enemySpawn = enemySpawnPoints.GetComponentsInChildren<Transform>();
 		GameObject enemy = Instantiate(enemyGhostPrefab, enemySpawn[1].position, Quaternion.identity);
-		//enemy.GetComponent<NetworkObject>().Spawn();
+		enemy.GetComponent<NetworkObject>().SpawnAsPlayerObject(OwnerClientId);
 
 		// Connect enemy to player - may not work
 		EnemyController.player = this.transform;
