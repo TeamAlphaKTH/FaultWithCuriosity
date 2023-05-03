@@ -10,16 +10,16 @@ public class PauseMenu:NetworkBehaviour {
 	[SerializeField] private GameObject PausedMenu;
 	// Start is called before the first frame update
 	void Start() {
+		PauseMenuCanvas.SetActive(false);
 		Time.timeScale = 1.0f;
 	}
 
 	// Update is called once per frame
 	void Update() {
-		if(!Inventory.inventoryOpen) {
-			if(paused || pausedClient)
-				Stop();
-			else
-				Play();
+		if(paused || pausedClient) {
+			Stop();
+		} else {
+			Play();
 		}
 		if(Input.GetKeyDown(KeyCode.P)) {
 			if(paused || pausedClient) {
@@ -58,12 +58,12 @@ public class PauseMenu:NetworkBehaviour {
 		if(!Inventory.inventoryOpen) {
 			Cursor.lockState = CursorLockMode.Locked;
 		}
-		Debug.Log(OptionsMenu.activeSelf);
 		if(OptionsMenu.activeSelf) {
 			OptionsMenu.SetActive(false);
 		}
 	}
 	public void MainMenuButton() {
+		PauseMenuCanvas.SetActive(false);
 		SceneManager.LoadScene("MainMenu");
 	}
 
