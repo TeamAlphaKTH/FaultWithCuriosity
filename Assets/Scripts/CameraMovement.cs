@@ -11,6 +11,7 @@ public class CameraMovement:NetworkBehaviour {
 	// Interaction variables
 	private Camera mainCamera;
 	[SerializeField] private float interactionRange = 5f;
+	[SerializeField] private float rayRadius = 0.15f;
 	private IInteractable currentTarget;
 
 	[SerializeField] public static KeyCode interactKey = KeyCode.E;
@@ -50,13 +51,15 @@ public class CameraMovement:NetworkBehaviour {
 		}
 	}
 
-
+	/// <summary>
+	/// Throws a Spherecast with the <see cref="interactionRange"/> and <see cref="rayRadius"/>
+	/// using the <see cref="IInteractable"/> interface.
+	/// </summary>
 	private void RaycastForInteractable() {
 		RaycastHit hitTarget;
+		Vector3 start = transform.position;
 
-		Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-
-		if(Physics.Raycast(ray, out hitTarget, interactionRange)) {
+		if(Physics.CapsuleCast(start, start, rayRadius, transform.forward, out hitTarget, interactionRange)) {
 			IInteractable interactable = hitTarget.collider.GetComponent<IInteractable>();
 
 			if(interactable != null) {
