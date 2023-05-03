@@ -17,19 +17,13 @@ public class EnemyController:NetworkBehaviour {
 	private static float distanceToPlayer;
 	private float currentParanoia;
 
-	public override void OnNetworkSpawn() {
-
+	// Start is called before the first frame update
+	void Start() {
 		enemyAIAgent = gameObject.GetComponent<NavMeshAgent>();
 		scareDistance = damageDistance * teleportDistanceMultiplier;
 		scarePoints = scarePointsObject.GetComponentsInChildren<Transform>();
 		// Must specify for coop
 		//player = GameObject.Find("Player Aaron(Clone)").GetComponent<Transform>();
-	}
-
-
-	// Start is called before the first frame update
-	void Start() {
-
 	}
 
 	// Update is called once per frame

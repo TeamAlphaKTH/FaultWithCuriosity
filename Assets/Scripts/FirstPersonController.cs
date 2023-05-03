@@ -124,8 +124,12 @@ public class FirstPersonController:NetworkBehaviour {
 		standingCenter = characterController.center;
 		standingHeight = characterController.height;
 		Initialize();
-		SpawnEnemy();
+		//SpawnEnemy();
 		base.OnNetworkSpawn();
+	}
+
+	private void Start() {
+		SpawnEnemy();
 	}
 
 	/// <summary>
@@ -151,7 +155,10 @@ public class FirstPersonController:NetworkBehaviour {
 
 	void SpawnEnemy() {
 		Transform[] enemySpawn = enemySpawnPoints.GetComponentsInChildren<Transform>();
-		Instantiate(enemyGhostPrefab, enemySpawn[1].position, Quaternion.identity);
+		GameObject enemy = Instantiate(enemyGhostPrefab, enemySpawn[1].position, Quaternion.identity);
+		//enemy.GetComponent<NetworkObject>().Spawn();
+
+		// Connect enemy to player - may not work
 		EnemyController.player = this.transform;
 	}
 
