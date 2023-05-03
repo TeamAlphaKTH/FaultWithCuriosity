@@ -67,7 +67,9 @@ public class PauseMenu:NetworkBehaviour {
 		paused = false;
 		PauseMenuCanvas.SetActive(false);
 		NetworkManager.Singleton.DisconnectClient(OwnerClientId);
-		NetworkManager.Singleton.Shutdown();
+		if(IsHost) {
+			NetworkManager.Singleton.Shutdown();
+		}
 		SceneManager.LoadScene("MainMenu");
 	}
 
