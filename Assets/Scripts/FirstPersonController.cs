@@ -156,7 +156,7 @@ public class FirstPersonController:NetworkBehaviour {
 	private void SpawnEnemyServerRpc() {
 		Transform[] enemySpawn = enemySpawnPoints.GetComponentsInChildren<Transform>();
 		GameObject enemy = Instantiate(enemyGhostPrefab, enemySpawn[1].position, Quaternion.identity);
-		enemy.GetComponent<NetworkObject>().SpawnAsPlayerObject(OwnerClientId);
+		enemy.GetComponent<NetworkObject>().SpawnWithOwnership(OwnerClientId);
 
 		// Connect enemy to player - may not work
 		EnemyController.player = this.transform;

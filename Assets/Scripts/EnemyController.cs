@@ -12,22 +12,28 @@ public class EnemyController:NetworkBehaviour {
 	public static float scareDistance;
 	private static Transform[] scarePoints;
 
-	private static NavMeshAgent enemyAIAgent;
+	[SerializeField] private static NavMeshAgent enemyAIAgent;
 	public static Transform player;
 	private static float distanceToPlayer;
 	private float currentParanoia;
 
 	// Start is called before the first frame update
 	void Start() {
+		if(!IsOwner)
+			return;
 		enemyAIAgent = gameObject.GetComponent<NavMeshAgent>();
 		scareDistance = damageDistance * teleportDistanceMultiplier;
 		scarePoints = scarePointsObject.GetComponentsInChildren<Transform>();
 		// Must specify for coop
-		//player = GameObject.Find("Player Aaron(Clone)").GetComponent<Transform>();
+		player = NetworkManager.LocalClient.PlayerObject.transform;
+		Debug.Log(player.name);
+		Debug.Log(NetworkManager.LocalClientId);
 	}
 
 	// Update is called once per frame
 	void Update() {
+		if(!IsOwner)
+			return;
 		currentParanoia = Flashlight.currentParanoia;
 
 		//Get the current paranoia 10s for distance
