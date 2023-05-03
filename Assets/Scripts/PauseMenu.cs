@@ -6,6 +6,8 @@ public class PauseMenu:NetworkBehaviour {
 	public static bool paused = false;
 	public static bool pausedClient = false;
 	[SerializeField] private GameObject PauseMenuCanvas;
+	[SerializeField] private GameObject OptionsMenu;
+	[SerializeField] private GameObject PausedMenu;
 	// Start is called before the first frame update
 	void Start() {
 		Time.timeScale = 1.0f;
@@ -30,6 +32,11 @@ public class PauseMenu:NetworkBehaviour {
 	// Stops time if host else only pause for client 
 	public void Stop() {
 		PauseMenuCanvas.SetActive(true);
+		if(OptionsMenu.activeSelf) {
+			PausedMenu.SetActive(false);
+		} else {
+			PausedMenu.SetActive(true);
+		}
 		if(IsHost) {
 			pauseServerRpc(true);
 			pausedClient = true;
@@ -41,6 +48,7 @@ public class PauseMenu:NetworkBehaviour {
 	// Plays time and puts pausemenu to false else only unpause client 
 	public void Play() {
 		PauseMenuCanvas.SetActive(false);
+		PausedMenu.SetActive(false);
 		if(IsHost) {
 			pauseServerRpc(false);
 			pausedClient = false;
@@ -49,6 +57,10 @@ public class PauseMenu:NetworkBehaviour {
 		}
 		if(!Inventory.inventoryOpen) {
 			Cursor.lockState = CursorLockMode.Locked;
+		}
+		Debug.Log(OptionsMenu.activeSelf);
+		if(OptionsMenu.activeSelf) {
+			OptionsMenu.SetActive(false);
 		}
 	}
 	public void MainMenuButton() {

@@ -67,10 +67,10 @@ public class Flashlight:NetworkBehaviour {
 
 	private void FlashlightControl() {
 		// Toggle flashlight on/off with key press
-		if(PauseMenu.paused || PauseMenu.pausedClient) {
+		if(PauseMenu.paused) {
 			return;
 		}
-		if(Input.GetKeyDown(flashlightKey)) {
+		if(Input.GetKeyDown(flashlightKey) && !PauseMenu.pausedClient) {
 			if(flashlightActive) {
 				ChangeLightIntensityServerRpc(0);
 				flashlightActive = false;
