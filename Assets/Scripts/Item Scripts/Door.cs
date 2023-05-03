@@ -1,7 +1,11 @@
 using TMPro;
+using Unity.Netcode;
 using UnityEngine;
 
-public class Door:MonoBehaviour, IInteractable {
+public class Door:NetworkBehaviour, IInteractable {
+	[SerializeField] private bool locked = false;
+	[SerializeField] private int keyId;
+
 	private TextMeshProUGUI itemText;
 	private GameObject itemUI;
 	private Animator animator;
@@ -10,24 +14,39 @@ public class Door:MonoBehaviour, IInteractable {
 
 	public float MaxRange { get { return maxRange; } }
 	private const float maxRange = 100f;
+
 	public void OnEndHover() {
 		itemText.text = "";
 	}
 
 	public void OnInteract() {
-		Keypad.UseKeypad();
-		if(!animator.GetBool("OpenDoor") && Keypad.canOpenDoor) {
-			animator.SetBool("OpenDoor", true);
-			animator.SetBool("CloseDoor", false);
+		if(locked) {
+			if(Inventory.keyIds.Contains(keyId)) {
+				UnlockDoorServerRpc();
+				OnStartHover();
+			}
+			return;
+		}
+
+		if(!animator.GetBool("OpenDoor")) {
+			OpenDoorServerRpc(true);
+			CloseDoorServerRpc(false);
 		} else {
-			animator.SetBool("OpenDoor", false);
-			animator.SetBool("CloseDoor", true);
+			OpenDoorServerRpc(false);
+			CloseDoorServerRpc(true);
 		}
 	}
 
 	public void OnStartHover() {
-		itemText.text = "Press " + CameraMovement.interactKey + " to use door";
-		Debug.Log(code);
+		if(locked) {
+			if(Inventory.keyIds.Contains(keyId)) {
+				itemText.text = "Press " + CameraMovement.interactKey + " to unlock the door";
+			} else {
+				itemText.text = "The door is locked";
+			}
+		} else {
+			itemText.text = "Press " + CameraMovement.interactKey + " to use door";
+		}
 	}
 	private void Start() {
 		itemUI = GameObject.Find("ItemUI");
@@ -40,5 +59,29 @@ public class Door:MonoBehaviour, IInteractable {
 		int randomNumber = Random.Range(0, 10000);
 		string code = randomNumber.ToString("D4");
 		return code;
+	}
+	[ServerRpc(RequireOwnership = false)]
+	private void OpenDoorServerRpc(bool state) {
+		OpenDoorClientRpc(state);
+	}
+	[ServerRpc(RequireOwnership = false)]
+	private void CloseDoorServerRpc(bool state) {
+		CloseDoorClientRpc(state);
+	}
+	[ServerRpc(RequireOwnership = false)]
+	private void UnlockDoorServerRpc() {
+		UnlockDoorClientRpc();
+	}
+	[ClientRpc]
+	private void OpenDoorClientRpc(bool state) {
+		animator.SetBool("OpenDoor", state);
+	}
+	[ClientRpc]
+	private void CloseDoorClientRpc(bool state) {
+		animator.SetBool("CloseDoor", state);
+	}
+	[ClientRpc]
+	private void UnlockDoorClientRpc() {
+		locked = false;
 	}
 }
