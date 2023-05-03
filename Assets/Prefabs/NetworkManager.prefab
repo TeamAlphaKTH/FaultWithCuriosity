@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8013939876601506356
 MonoBehaviour:
@@ -73,7 +73,7 @@ MonoBehaviour:
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
     - Override: 0
-      Prefab: {fileID: 1658567079213968394, guid: a443af775508b414f92ef08e01f2846b, type: 3}
+      Prefab: {fileID: 8681303806250907813, guid: cdc0b54091800994aa7022a82edd917b, type: 3}
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ProtocolType: 0
   m_MaxPacketQueueSize: 128
-  m_MaxPayloadSize: 6144
+  m_MaxPayloadSize: 50000
   m_HeartbeatTimeoutMS: 500
   m_ConnectTimeoutMS: 1000
   m_MaxConnectAttempts: 60
