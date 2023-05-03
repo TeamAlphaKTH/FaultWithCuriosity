@@ -830,6 +830,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door Key
       objectReference: {fileID: 0}
+    - target: {fileID: 1589456568767477748, guid: 26b8b80b33ec7a6498aced9efb15c7d5, type: 3}
+      propertyPath: m_TagString
+      value: Key
+      objectReference: {fileID: 0}
     - target: {fileID: 2109148073136205134, guid: 26b8b80b33ec7a6498aced9efb15c7d5, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1500,9 +1504,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f480663d65389142bc841528b04760a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locked: 0
+  keyLockDoor: 0
   keyId: 0
-  codeLockDoor: 1
+  codeLockDoor: 0
+  canOpenDoor: 0
 --- !u!1 &847775017
 GameObject:
   m_ObjectHideFlags: 0

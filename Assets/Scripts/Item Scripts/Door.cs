@@ -54,8 +54,10 @@ public class Door:NetworkBehaviour, IInteractable {
 			itemText.text = "Press " + CameraMovement.interactKey + " to unlock the door";
 		} else if(codeLockDoor) {
 			itemText.text = "Press " + CameraMovement.interactKey + " to enter the code";
+		} else if(CompareTag("Key")) {
+			itemText.text = "Press " + CameraMovement.interactKey + " to pick up key";
 		} else {
-			itemText.text = "Press " + CameraMovement.interactKey + " to use door";
+			itemText.text = "Press " + CameraMovement.interactKey + " to open door";
 		}
 	}
 
