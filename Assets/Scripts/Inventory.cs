@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -80,7 +81,7 @@ public class Inventory:MonoBehaviour {
 		drugNr = int.Parse(drugText.text);
 		if(drugNr > 0) {
 			drugNr--;
-			Instantiate(pills, FirstPersonController.characterController.transform.position + new Vector3(0, 1, 0.2f), Quaternion.identity);
+			SpawnPillServerRpc();
 		}
 	}
 	/// <summary>
@@ -109,7 +110,16 @@ public class Inventory:MonoBehaviour {
 		batteryNr = int.Parse(batteryText.text);
 		if(batteryNr > 0) {
 			batteryNr--;
-			Instantiate(battery, FirstPersonController.characterController.transform.position + new Vector3(0, 1, 0.2f), Quaternion.identity);
+			SpawnBatteryServerRpc();
 		}
+	}
+
+	[ServerRpc(RequireOwnership = false)]
+	private void SpawnPillServerRpc() {
+		Instantiate(pills, FirstPersonController.characterController.transform.position + new Vector3(0, 1, 0.2f), Quaternion.identity).GetComponent<NetworkObject>().Spawn();
+	}
+	[ServerRpc(RequireOwnership = false)]
+	private void SpawnBatteryServerRpc() {
+		Instantiate(battery, FirstPersonController.characterController.transform.position + new Vector3(0, 1, 0.2f), Quaternion.identity).GetComponent<NetworkObject>().Spawn();
 	}
 }
