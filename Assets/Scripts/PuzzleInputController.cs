@@ -3,53 +3,61 @@ using Unity.Netcode;
 using UnityEngine;
 
 [System.Serializable]
-internal class Inputs {
-    public GameObject inputObject;
-    public bool enabled;
+internal class Inputs
+{
+	public GameObject inputObject;
+	public bool enabled;
 }
 
-public class PuzzleInputController:NetworkBehaviour {
-    [SerializeField] private List<Inputs> inputs = new();
-    [SerializeField] private GameObject door;
+public class PuzzleInputController : NetworkBehaviour
+{
+	[SerializeField] private List<Inputs> inputs = new();
+	[SerializeField] private GameObject door;
 
-    // Start is called before the first frame update
-    void Start() {
+	// Start is called before the first frame update
+	void Start()
+	{
 
-    }
+	}
 
-    // Update is called once per frame
-    void Update() {
-        foreach(Inputs input in inputs) {
-            bool lockState = door.GetComponent<Door>().locked;
+	// Update is called once per frame
+	void Update()
+	{
+		foreach (Inputs input in inputs)
+		{
+			bool lockState = door.GetComponent<Door>().locked;
 
-            //Get if the input is currently clicked/enabled
-            bool clicked = input.inputObject.GetComponentInChildren<ButtonController>().clicked;
-            //Get if that input object should be clicked/enabled
-            bool enabled = input.enabled;
+			//Get if the input is currently clicked/enabled
+			bool clicked = input.inputObject.GetComponentInChildren<ButtonController>().clicked;
+			//Get if that input object should be clicked/enabled
+			bool enabled = input.enabled;
 
-            //Check if an input is wrong
-            if((!clicked && enabled) || (clicked && !enabled)) {
+			//Check if an input is wrong
+			if ((!clicked && enabled) || (clicked && !enabled))
+			{
 
-                //Lock the door if it's not already locked
-                if(!lockState)
-                    ChangeDoorLockStateServerRpc(true);
+				//Lock the door if it's not already locked
+				if (!lockState)
+					ChangeDoorLockStateServerRpc(true);
 
-                //Stop checking for the others
-                return;
-            }
-        }
+				//Stop checking for the others
+				return;
+			}
+		}
 
-        //Unlock the defined door if everything is correct
-        ChangeDoorLockStateServerRpc(false);
-    }
+		//Unlock the defined door if everything is correct
+		ChangeDoorLockStateServerRpc(false);
+	}
 
-    [ServerRpc(RequireOwnership = false)]
-    private void ChangeDoorLockStateServerRpc(bool state) {
-        ChangeDoorLockStateClientRpc(state);
-    }
+	[ServerRpc(RequireOwnership = false)]
+	private void ChangeDoorLockStateServerRpc(bool state)
+	{
+		ChangeDoorLockStateClientRpc(state);
+	}
 
-    [ClientRpc]
-    private void ChangeDoorLockStateClientRpc(bool state) {
-        door.GetComponent<Door>().locked = state;
-    }
+	[ClientRpc]
+	private void ChangeDoorLockStateClientRpc(bool state)
+	{
+		door.GetComponent<Door>().locked = state;
+	}
 }
