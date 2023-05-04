@@ -12,7 +12,6 @@ public class SetButtons:MonoBehaviour {
 		keypadScript1 = transform.parent.parent.parent.GetChild(0).GetComponentInChildren<keypadScript>();
 		door = keypadScript1.door;
 		buttons = GetComponentsInChildren<Button>();
-		buttons[0].onClick.AddListener(() => Debug.Log("nucklicadupå1"));
 		answer = transform.parent.GetChild(0).GetComponentInChildren<TMP_Text>();
 		buttons[0].onClick.AddListener(() => InputNumber(0));
 		buttons[1].onClick.AddListener(() => InputNumber(1));
@@ -28,13 +27,10 @@ public class SetButtons:MonoBehaviour {
 		buttons[11].onClick.AddListener(() => Delete());
 	}
 	public void Enter() {
-		Debug.Log(door.code);
-		if(answer.text.Equals(door.code)) {
+		if(answer.text.Equals(door.code.Value.ToString())) {
 			answer.text = "";
 			door.SetBoolServerRpc();
-			answer.text = "Correct";
 			keypadScript1.RemoveKeypadUI();
-			//Door.itemText.text = "Press " + CameraMovement.interactKey + " to use door";
 		} else {
 			answer.text = "Incorrect";
 		}
@@ -44,7 +40,6 @@ public class SetButtons:MonoBehaviour {
 			answer.text += number.ToString();
 		}
 	}
-
 	public void Delete() {
 		answer.text = "";
 	}

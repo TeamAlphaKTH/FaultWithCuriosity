@@ -10,13 +10,12 @@ public class Door:NetworkBehaviour, IInteractable {
 	[Header("CodeLock")]
 	[SerializeField] public bool codeLockDoor = false;
 
-	NetworkVariable<int> code1 = new(1);
+	public NetworkVariable<int> code = new(1);
 
 	public static TextMeshProUGUI itemText;
 	private GameObject itemUI;
 	private Animator animator;
 
-	public string code;
 
 	public float MaxRange { get { return maxRange; } }
 	private const float maxRange = 100f;
@@ -59,22 +58,8 @@ public class Door:NetworkBehaviour, IInteractable {
 		itemUI = GameObject.Find("ItemUI");
 		itemText = itemUI.GetComponentInChildren<TextMeshProUGUI>();
 		animator = GetComponentInParent<Animator>();
-		//GenerateCode();
-	}
+		code.Value = int.Parse(Random.Range(0, 10000).ToString("D4"));
 
-	private void Update() {
-		if(code.Equals("") && IsHost)
-			GenerateCode();
-		else if(code1.Value != 1)
-			code = code1.Value.ToString();
-	}
-
-
-
-	private void GenerateCode() {
-		int randomNumber = Random.Range(0, 10000);
-		string code = randomNumber.ToString("D4");
-		SetCodeServerRpc(code);
 	}
 
 	[ServerRpc(RequireOwnership = false)]
@@ -94,12 +79,7 @@ public class Door:NetworkBehaviour, IInteractable {
 		codeLockDoor = false;
 		SetBoolClientRpc();
 	}
-	[ServerRpc(RequireOwnership = false)]
-	private void SetCodeServerRpc(string code) {
-		this.code = code;
-		code1.Value = int.Parse(code);
-		SetCodeClientRpc(code);
-	}
+
 	[ClientRpc]
 	private void OpenDoorClientRpc(bool state) {
 		animator.SetBool("OpenDoor", state);
@@ -116,8 +96,5 @@ public class Door:NetworkBehaviour, IInteractable {
 	public void SetBoolClientRpc() {
 		codeLockDoor = false;
 	}
-	[ClientRpc]
-	private void SetCodeClientRpc(string code) {
-		this.code = code;
-	}
+
 }

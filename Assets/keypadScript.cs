@@ -17,12 +17,11 @@ public class keypadScript:MonoBehaviour, IInteractable {
 
 	public void OnInteract() {
 		UseKeypad();
-		//door.codeLockDoor = false;
+		Debug.Log(door.code.Value);
 	}
 
 	public void OnStartHover() {
 		itemText.text = "Press " + CameraMovement.interactKey + " to use keypad";
-		Debug.Log(door.code);
 	}
 	// Start is called before the first frame update
 	void Start() {
@@ -34,10 +33,10 @@ public class keypadScript:MonoBehaviour, IInteractable {
 		door.codeLockDoor = true;
 
 	}
-
-	// Update is called once per frame
-	void Update() {
-
+	private void Update() {
+		if(Input.GetKeyDown(KeyCode.E) && keypad.activeSelf) {
+			RemoveKeypadUI();
+		}
 	}
 	private void UseKeypad() {
 		ShowKeypadUI();
@@ -45,6 +44,7 @@ public class keypadScript:MonoBehaviour, IInteractable {
 	}
 
 	private void ShowKeypadUI() {
+		FirstPersonController.CanMove = false;
 		Cursor.lockState = CursorLockMode.Confined;
 		CameraMovement.CanRotate = false;
 		keypad.SetActive(true);
@@ -52,6 +52,7 @@ public class keypadScript:MonoBehaviour, IInteractable {
 	}
 
 	public void RemoveKeypadUI() {
+		FirstPersonController.CanMove = true;
 		keypad.SetActive(false);
 		Cursor.lockState = CursorLockMode.Locked;
 		CameraMovement.CanRotate = true;
