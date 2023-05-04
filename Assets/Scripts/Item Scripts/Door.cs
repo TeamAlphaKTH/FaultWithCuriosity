@@ -6,9 +6,16 @@ public class Door:NetworkBehaviour, IInteractable {
 	[SerializeField] public bool locked = false;
 	[SerializeField] private int keyId;
 
-	private TextMeshProUGUI itemText;
+	[Header("CodeLock")]
+	[SerializeField] public bool codeLockDoor = false;
+
+	public NetworkVariable<int> code = new(1);
+
+	public static TextMeshProUGUI itemText;
 	private GameObject itemUI;
 	private Animator animator;
+
+
 	public float MaxRange { get { return maxRange; } }
 	private const float maxRange = 100f;
 
@@ -23,7 +30,8 @@ public class Door:NetworkBehaviour, IInteractable {
 				OnStartHover();
 			}
 			return;
-		}
+		} else if(codeLockDoor)
+			return;
 
 		if(!animator.GetBool("OpenDoor")) {
 			OpenDoorServerRpc(true);
@@ -35,21 +43,24 @@ public class Door:NetworkBehaviour, IInteractable {
 	}
 
 	public void OnStartHover() {
-		if(locked) {
-			if(Inventory.keyIds.Contains(keyId)) {
-				itemText.text = "Press " + CameraMovement.interactKey + " to unlock the door";
-			} else {
-				itemText.text = "The door is locked";
-			}
+		if(locked && Inventory.keyIds.Contains(keyId)) {
+			itemText.text = "Press " + CameraMovement.interactKey + " to unlock the door";
+		} else if(codeLockDoor || locked) {
+			itemText.text = "Door is locked";
 		} else {
 			itemText.text = "Press " + CameraMovement.interactKey + " to use door";
 		}
 	}
+
+
 	private void Start() {
 		itemUI = GameObject.Find("ItemUI");
 		itemText = itemUI.GetComponentInChildren<TextMeshProUGUI>();
 		animator = GetComponentInParent<Animator>();
+		code.Value = int.Parse(Random.Range(0, 10000).ToString("D4"));
+
 	}
+
 	[ServerRpc(RequireOwnership = false)]
 	private void OpenDoorServerRpc(bool state) {
 		OpenDoorClientRpc(state);
@@ -62,6 +73,12 @@ public class Door:NetworkBehaviour, IInteractable {
 	private void UnlockDoorServerRpc() {
 		UnlockDoorClientRpc();
 	}
+	[ServerRpc(RequireOwnership = false)]
+	public void SetBoolServerRpc() {
+		codeLockDoor = false;
+		SetBoolClientRpc();
+	}
+
 	[ClientRpc]
 	private void OpenDoorClientRpc(bool state) {
 		animator.SetBool("OpenDoor", state);
@@ -74,4 +91,9 @@ public class Door:NetworkBehaviour, IInteractable {
 	private void UnlockDoorClientRpc() {
 		locked = false;
 	}
+	[ClientRpc]
+	public void SetBoolClientRpc() {
+		codeLockDoor = false;
+	}
+
 }
