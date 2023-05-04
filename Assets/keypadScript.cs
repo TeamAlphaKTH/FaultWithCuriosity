@@ -40,6 +40,7 @@ public class keypadScript:MonoBehaviour, IInteractable {
 	}
 	private void UseKeypad() {
 		ShowKeypadUI();
+		itemText.text = door.code.Value.ToString();
 		answer = codeLockUI.transform.GetChild(0).GetChild(0).GetComponentInChildren<TMP_Text>();
 	}
 

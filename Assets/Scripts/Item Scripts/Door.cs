@@ -24,7 +24,7 @@ public class Door:NetworkBehaviour, IInteractable {
 	}
 
 	public void OnInteract() {
-		if(keyLockDoor) {
+		if(locked) {
 			if(Inventory.keyIds.Contains(keyId)) {
 				UnlockDoorServerRpc();
 				OnStartHover();
@@ -43,7 +43,7 @@ public class Door:NetworkBehaviour, IInteractable {
 	}
 
 	public void OnStartHover() {
-		if(keyLockDoor && Inventory.keyIds.Contains(keyId)) {
+		if(locked && Inventory.keyIds.Contains(keyId)) {
 			itemText.text = "Press " + CameraMovement.interactKey + " to unlock the door";
 		} else if(codeLockDoor) {
 			itemText.text = "Door is locked";
@@ -89,7 +89,7 @@ public class Door:NetworkBehaviour, IInteractable {
 	}
 	[ClientRpc]
 	private void UnlockDoorClientRpc() {
-		keyLockDoor = false;
+		locked = false;
 	}
 	[ClientRpc]
 	public void SetBoolClientRpc() {
