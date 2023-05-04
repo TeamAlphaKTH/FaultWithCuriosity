@@ -5,14 +5,14 @@ using UnityEngine;
 public class Door:NetworkBehaviour, IInteractable {
 	[SerializeField] private bool keyLockDoor = false;
 	[SerializeField] private int keyId;
-	[SerializeField] private bool codeLockDoor = false;
-	[SerializeField] public bool canOpenDoor = false;
+	[SerializeField] public bool codeLockDoor = false;
+	//[SerializeField] public bool canOpenDoor = false;
 
 	public static TextMeshProUGUI itemText;
 	private GameObject itemUI;
 	private Animator animator;
 
-	public static string code;
+	public string code;
 
 	public float MaxRange { get { return maxRange; } }
 	private const float maxRange = 100f;
@@ -28,7 +28,9 @@ public class Door:NetworkBehaviour, IInteractable {
 				OnStartHover();
 			}
 			return;
-		} else if(codeLockDoor) {
+		} else if(codeLockDoor)
+			return;
+		/* else if(codeLockDoor) {
 			Keypad.UseKeypad();
 			if(canOpenDoor) {
 				Keypad.RemoveKeypadUI();
@@ -38,7 +40,7 @@ public class Door:NetworkBehaviour, IInteractable {
 				CloseDoorServerRpc(false);
 			}
 			return;
-		}
+		}*/
 
 		if(!animator.GetBool("OpenDoor")) {
 			OpenDoorServerRpc(true);
@@ -53,7 +55,7 @@ public class Door:NetworkBehaviour, IInteractable {
 		if(keyLockDoor && Inventory.keyIds.Contains(keyId)) {
 			itemText.text = "Press " + CameraMovement.interactKey + " to unlock the door";
 		} else if(codeLockDoor) {
-			itemText.text = "Press " + CameraMovement.interactKey + " to enter the code";
+			itemText.text = "Door is locked";
 		} else {
 			itemText.text = "Press " + CameraMovement.interactKey + " to use door";
 		}
@@ -65,7 +67,6 @@ public class Door:NetworkBehaviour, IInteractable {
 		itemText = itemUI.GetComponentInChildren<TextMeshProUGUI>();
 		animator = GetComponentInParent<Animator>();
 		code = GenerateCode();
-		Debug.Log(code);
 	}
 
 	private string GenerateCode() {
@@ -73,6 +74,7 @@ public class Door:NetworkBehaviour, IInteractable {
 		string code = randomNumber.ToString("D4");
 		return code;
 	}
+
 	[ServerRpc(RequireOwnership = false)]
 	private void OpenDoorServerRpc(bool state) {
 		OpenDoorClientRpc(state);

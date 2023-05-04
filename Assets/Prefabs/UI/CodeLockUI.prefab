@@ -604,19 +604,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2567837189979879387}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 884777782303162557}
-        m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
-        m_MethodName: InputNumber
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &1564288395922069542
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,6 +633,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2777780890227475972}
   - {fileID: 179305740283636134}
   - {fileID: 438729775746607100}
   - {fileID: 1575295479305335150}
@@ -654,7 +643,6 @@ RectTransform:
   - {fileID: 1256697242339407364}
   - {fileID: 1626003326729590363}
   - {fileID: 5028224025339373658}
-  - {fileID: 2777780890227475972}
   - {fileID: 4244974738667523198}
   - {fileID: 6965214281360790350}
   m_Father: {fileID: 529786590333392315}
@@ -786,19 +774,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3333204451650020061}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 884777782303162557}
-        m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
-        m_MethodName: InputNumber
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &1882147235491004122
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,19 +896,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4391106565394464932}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 884777782303162557}
-        m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
-        m_MethodName: InputNumber
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 9
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &2766556187979019850
 GameObject:
   m_ObjectHideFlags: 0
@@ -1054,19 +1018,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7196205482514842766}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 884777782303162557}
-        m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
-        m_MethodName: InputNumber
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &3030626391176172538
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,19 +1140,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8015168471679018663}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 884777782303162557}
-        m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
-        m_MethodName: CheckCode
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &3532507252049251083
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,19 +1262,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8444070254640344740}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 884777782303162557}
-        m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
-        m_MethodName: InputNumber
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 6
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &4282452885675670234
 GameObject:
   m_ObjectHideFlags: 0
@@ -1347,7 +1275,6 @@ GameObject:
   - component: {fileID: 3931873990489863390}
   - component: {fileID: 6622624670453005214}
   - component: {fileID: 4825494030972507159}
-  - component: {fileID: 884777782303162557}
   m_Layer: 5
   m_Name: CodeLockUI
   m_TagString: Untagged
@@ -1369,7 +1296,7 @@ RectTransform:
   m_Children:
   - {fileID: 529786590333392315}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1439,18 +1366,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &884777782303162557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4282452885675670234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eb38366019ba8e4d9d59e3c6b508d4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4296173865451634247
 GameObject:
   m_ObjectHideFlags: 0
@@ -2056,19 +1971,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1436644741087393579}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 884777782303162557}
-        m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
-        m_MethodName: InputNumber
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &5052500221657787798
 GameObject:
   m_ObjectHideFlags: 0
@@ -2325,19 +2228,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7221435880211196252}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 884777782303162557}
-        m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
-        m_MethodName: InputNumber
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 8
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &5305801697451817037
 GameObject:
   m_ObjectHideFlags: 0
@@ -3134,19 +3025,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4459860989042758848}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 884777782303162557}
-        m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
-        m_MethodName: InputNumber
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 7
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &7947454575690427471
 GameObject:
   m_ObjectHideFlags: 0
@@ -3403,19 +3282,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1580443501324567049}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 884777782303162557}
-        m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
-        m_MethodName: InputNumber
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &8938661094622819675
 GameObject:
   m_ObjectHideFlags: 0
@@ -3537,19 +3404,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1518054142212067891}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 884777782303162557}
-        m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
-        m_MethodName: InputNumber
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &8958214228579536986
 GameObject:
   m_ObjectHideFlags: 0
@@ -3671,16 +3526,4 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8574150223191694081}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 884777782303162557}
-        m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
-        m_MethodName: Delete
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
