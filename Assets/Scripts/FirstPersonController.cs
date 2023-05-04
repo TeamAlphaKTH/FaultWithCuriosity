@@ -124,12 +124,13 @@ public class FirstPersonController:NetworkBehaviour {
 		standingCenter = characterController.center;
 		standingHeight = characterController.height;
 		Initialize();
-		SpawnEnemyServerRpc();
 		base.OnNetworkSpawn();
 	}
 
 	private void Start() {
-		//SpawnEnemy();
+		if(IsOwner) {
+			SpawnEnemy();
+		}
 	}
 
 	/// <summary>
@@ -152,14 +153,11 @@ public class FirstPersonController:NetworkBehaviour {
 		currentStamina = maxStamina;
 		staminaSlider.value = maxStamina;
 	}
-	[ServerRpc]
-	private void SpawnEnemyServerRpc() {
-		Transform[] enemySpawn = enemySpawnPoints.GetComponentsInChildren<Transform>();
-		GameObject enemy = Instantiate(enemyGhostPrefab, enemySpawn[1].position, Quaternion.identity);
-		enemy.GetComponent<NetworkObject>().SpawnWithOwnership(OwnerClientId);
 
-		// Connect enemy to player - may not work
-		EnemyController.player = this.transform;
+	private void SpawnEnemy() {
+		Transform[] enemySpawn = enemySpawnPoints.GetComponentsInChildren<Transform>();
+		GameObject Enemy = Instantiate(enemyGhostPrefab, enemySpawn[1].position, Quaternion.identity);
+		EnemyController.player = NetworkManager.LocalClient.PlayerObject.transform;
 	}
 
 	// Update is called once per frame

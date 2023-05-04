@@ -1,9 +1,8 @@
 using System;
-using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController:NetworkBehaviour {
+public class EnemyController:MonoBehaviour {
 	[SerializeField] private float damageMultiplier = 0.1f;
 	[SerializeField] private float damageDistance = 3f;
 	[SerializeField] private float teleportDistanceMultiplier = 3f;
@@ -11,29 +10,21 @@ public class EnemyController:NetworkBehaviour {
 
 	public static float scareDistance;
 	private static Transform[] scarePoints;
-
-	[SerializeField] private static NavMeshAgent enemyAIAgent;
+	private static NavMeshAgent enemyAIAgent;
 	public static Transform player;
 	private static float distanceToPlayer;
 	private float currentParanoia;
 
 	// Start is called before the first frame update
 	void Start() {
-		if(!IsOwner)
-			return;
 		enemyAIAgent = gameObject.GetComponent<NavMeshAgent>();
 		scareDistance = damageDistance * teleportDistanceMultiplier;
 		scarePoints = scarePointsObject.GetComponentsInChildren<Transform>();
-		// Must specify for coop
-		player = NetworkManager.LocalClient.PlayerObject.transform;
-		Debug.Log(player.name);
-		Debug.Log(NetworkManager.LocalClientId);
 	}
 
 	// Update is called once per frame
 	void Update() {
-		if(!IsOwner)
-			return;
+
 		currentParanoia = Flashlight.currentParanoia;
 
 		//Get the current paranoia 10s for distance
@@ -44,6 +35,7 @@ public class EnemyController:NetworkBehaviour {
 		//If the player is further than the paranoiaDistance, move the AI closer.
 		if(distanceToPlayer * 3 > paranoiaDistance) {
 			enemyAIAgent.SetDestination(player.position);
+			//enemyAIAgent.destination = player.position;
 			enemyAIAgent.stoppingDistance = paranoiaDistance;
 		} else {
 			DealDamage();
