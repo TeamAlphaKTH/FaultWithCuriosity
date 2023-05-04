@@ -35,7 +35,7 @@ public class CameraMovement:NetworkBehaviour {
 			yRotation += Input.GetAxis("Mouse X") * Time.deltaTime * sensitivity;
 			xRotation -= Input.GetAxis("Mouse Y") * Time.deltaTime * sensitivity;
 
-			xRotation = Mathf.Clamp(xRotation, -90, 90);
+			xRotation = Mathf.Clamp(xRotation, -75, 80);
 			transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
 
 			//Rotates the body sideways.
