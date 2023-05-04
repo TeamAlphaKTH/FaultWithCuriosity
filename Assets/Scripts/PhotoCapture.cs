@@ -35,12 +35,10 @@ public class PhotoCapture:NetworkBehaviour {
 	[Header("Gamble Parameters")]
 	[SerializeField] private float gambleAffect = 10f;
 	[SerializeField] private float maxGambleParanoia = 95f;
-	[SerializeField] private float sphereRadius = 2f;
+	[SerializeField] private float sphereRadius = 3f;
 	private bool raycastEnemy = false;
 	private RaycastHit enemyHit;
 	private bool gamble;
-	// default layer
-	public LayerMask enemyLayer;
 
 	// set ItemPolaroid Bool child to false - guarantee that the bool is false in start
 	public override void OnNetworkSpawn() {
@@ -58,7 +56,7 @@ public class PhotoCapture:NetworkBehaviour {
 
 		if(Input.GetKeyDown(FirstPersonController.useCameraButton) && canUseCamera && !viewingPhoto && charges > 0) {
 			// Raycast to see if player is looking at a Enemy - enemy must have collider
-			raycastEnemy = Physics.SphereCast(transform.position, sphereRadius, transform.forward, out enemyHit, EnemyController.scareDistance, enemyLayer);
+			raycastEnemy = Physics.SphereCast(transform.position, sphereRadius, transform.forward, out enemyHit, EnemyController.scareDistance);
 
 			cameraFlash.SetActive(true);
 			if(raycastEnemy && enemyHit.collider.gameObject.CompareTag("Enemy")) {
@@ -113,7 +111,7 @@ public class PhotoCapture:NetworkBehaviour {
 		SpawnItemPolaroid(pictureBytes);
 
 		//Scare the enemy away
-		EnemyController.ScareTeleport(transform.position);
+		//EnemyController.ScareTeleport(transform.position);
 
 		//Scare the enemy away
 		if(gamble) {
@@ -140,6 +138,7 @@ public class PhotoCapture:NetworkBehaviour {
 
 		// Polaroid Gamble affect
 		gamble = itemPolaroid.transform.GetChild(2).gameObject.activeSelf;
+		Debug.Log("Affect: " + gamble);
 
 		// Apply Polaroid Gamble affect
 		if(gamble) {
