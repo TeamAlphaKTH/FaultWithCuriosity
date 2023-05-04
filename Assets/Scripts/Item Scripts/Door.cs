@@ -45,7 +45,7 @@ public class Door:NetworkBehaviour, IInteractable {
 	public void OnStartHover() {
 		if(locked && Inventory.keyIds.Contains(keyId)) {
 			itemText.text = "Press " + CameraMovement.interactKey + " to unlock the door";
-		} else if(codeLockDoor) {
+		} else if(codeLockDoor || locked) {
 			itemText.text = "Door is locked";
 		} else {
 			itemText.text = "Press " + CameraMovement.interactKey + " to use door";
