@@ -53,3 +53,4 @@ public class PuzzleInputController:NetworkBehaviour {
 		door.GetComponent<Door>().locked = state;
 	}
 }
+
