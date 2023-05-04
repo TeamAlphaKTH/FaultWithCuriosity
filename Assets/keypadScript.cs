@@ -34,7 +34,7 @@ public class keypadScript:MonoBehaviour, IInteractable {
 
 	}
 	private void Update() {
-		if(Input.GetKeyDown(KeyCode.E) && keypad.activeSelf) {
+		if(Input.GetKeyDown(KeyCode.Escape) && keypad.activeSelf) {
 			RemoveKeypadUI();
 		}
 	}
