@@ -70,7 +70,7 @@ public class Flashlight:NetworkBehaviour {
 		if(PauseMenu.paused) {
 			return;
 		}
-		if(Input.GetKeyDown(flashlightKey) && !PauseMenu.pausedClient) {
+		if(Input.GetKeyDown(flashlightKey) && !PauseMenu.pausedClient && batteryLevel > 0) {
 			if(flashlightActive) {
 				ChangeLightIntensityServerRpc(0);
 				flashlightActive = false;
@@ -110,7 +110,7 @@ public class Flashlight:NetworkBehaviour {
 		if(flashlightActive && batteryLevel >= 0) {
 			batteryLevel -= batterySpeed * Time.deltaTime;
 
-			if(batteryLevel < 10) {
+			if(batteryLevel < 15 && batteryLevel > 0) {
 				if(!isFlickering) {
 					isFlickering = true;
 					InvokeRepeating("Flicker", flickerDelay, flickerDuration);
@@ -141,7 +141,7 @@ public class Flashlight:NetworkBehaviour {
 	}
 
 	private void Flicker() {
-		float randomIntensity = Random.Range(0, maxIntensity * 0.8f);
+		float randomIntensity = Random.Range(maxIntensity * 0.1f, maxIntensity * 1.1f);
 		ChangeLightIntensityServerRpc(randomIntensity);
 	}
 
