@@ -8,7 +8,7 @@ public class ButtonController:NetworkBehaviour, IInteractable {
 	private TextMeshProUGUI uiText;
 	private Animator animator;
 
-	private bool clicked = false;
+	public bool clicked = false;
 	/// <summary>
 	/// Make the button only clickable once. It can not be reset.
 	/// </summary>
@@ -51,7 +51,7 @@ public class ButtonController:NetworkBehaviour, IInteractable {
 	public void OnStartHover() {
 		//Change text depending on the clicked state
 		if(!clicked) {
-			uiText.text = "Press " + CameraMovement.interactKey + " use button";
+			uiText.text = "Press " + CameraMovement.interactKey + " to interact";
 		} else if(clicked && !clickOnce) {
 			uiText.text = "Press " + CameraMovement.interactKey + " reset button";
 		}
@@ -77,3 +77,4 @@ public class ButtonController:NetworkBehaviour, IInteractable {
 		clicked = state;
 	}
 }
+
