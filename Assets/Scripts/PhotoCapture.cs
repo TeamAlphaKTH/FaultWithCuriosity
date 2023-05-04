@@ -111,9 +111,6 @@ public class PhotoCapture:NetworkBehaviour {
 		SpawnItemPolaroid(pictureBytes);
 
 		//Scare the enemy away
-		//EnemyController.ScareTeleport(transform.position);
-
-		//Scare the enemy away
 		if(gamble) {
 			EnemyController.ScareTeleport(transform.position);
 		}
