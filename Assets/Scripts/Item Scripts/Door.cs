@@ -3,8 +3,7 @@ using Unity.Netcode;
 using UnityEngine;
 
 public class Door:NetworkBehaviour, IInteractable {
-	[Header("KeyLock")]
-	[SerializeField] private bool keyLockDoor = false;
+	[SerializeField] public bool locked = false;
 	[SerializeField] private int keyId;
 
 	[Header("CodeLock")]

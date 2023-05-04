@@ -67,24 +67,24 @@ public class Flashlight:NetworkBehaviour {
 
 	private void FlashlightControl() {
 		// Toggle flashlight on/off with key press
-		if(!PauseMenu.paused)
-			if(Input.GetKeyDown(flashlightKey)) {
-				if(flashlightActive) {
-					ChangeLightIntensityServerRpc(0);
-					flashlightActive = false;
-				} else {
-					ChangeLightIntensityServerRpc(maxIntensity);
-					flashlightActive = true;
-				}
-			}
-
-		{
-
-			if(!isFlickering && batteryLevel > 10) {
-				CancelInvoke("Flicker");
+		if(PauseMenu.paused) {
+			return;
+		}
+		if(Input.GetKeyDown(flashlightKey) && !PauseMenu.pausedClient && batteryLevel > 0) {
+			if(flashlightActive) {
+				ChangeLightIntensityServerRpc(0);
+				flashlightActive = false;
+			} else {
 				ChangeLightIntensityServerRpc(maxIntensity);
+				flashlightActive = true;
 			}
 		}
+
+		if(!isFlickering && batteryLevel > 10) {
+			CancelInvoke("Flicker");
+			ChangeLightIntensityServerRpc(maxIntensity);
+		}
+
 		if(batteryLevel <= 100 && batteryLevel > 50) {
 			batteryBlock3.enabled = true;
 			batteryBlock2.enabled = true;
@@ -110,7 +110,7 @@ public class Flashlight:NetworkBehaviour {
 		if(flashlightActive && batteryLevel >= 0) {
 			batteryLevel -= batterySpeed * Time.deltaTime;
 
-			if(batteryLevel < 10) {
+			if(batteryLevel < 15 && batteryLevel > 0) {
 				if(!isFlickering) {
 					isFlickering = true;
 					InvokeRepeating("Flicker", flickerDelay, flickerDuration);
@@ -141,7 +141,7 @@ public class Flashlight:NetworkBehaviour {
 	}
 
 	private void Flicker() {
-		float randomIntensity = Random.Range(0, maxIntensity * 0.8f);
+		float randomIntensity = Random.Range(maxIntensity * 0.1f, maxIntensity * 1.1f);
 		ChangeLightIntensityServerRpc(randomIntensity);
 	}
 
