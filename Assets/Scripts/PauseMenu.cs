@@ -58,7 +58,6 @@ public class PauseMenu:NetworkBehaviour {
 		if(!Inventory.inventoryOpen) {
 			Cursor.lockState = CursorLockMode.Locked;
 		}
-		Debug.Log(OptionsMenu.activeSelf);
 		if(OptionsMenu.activeSelf) {
 			OptionsMenu.SetActive(false);
 		}
