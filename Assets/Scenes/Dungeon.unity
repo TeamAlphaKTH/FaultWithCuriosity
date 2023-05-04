@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2229363}
   m_LocalRotation: {x: -0, y: 0.029971268, z: -0, w: 0.99955076}
-  m_LocalPosition: {x: 68.733, y: -23.842134, z: 33.952}
+  m_LocalPosition: {x: 70.527, y: -2.568, z: 35.375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -485,7 +485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 041de761d85d3f744ba662cd0929d05a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.56
+      value: 3.82
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 041de761d85d3f744ba662cd0929d05a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -522,6 +522,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 041de761d85d3f744ba662cd0929d05a, type: 3}
       propertyPath: m_Name
       value: Maze
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: 041de761d85d3f744ba662cd0929d05a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: 041de761d85d3f744ba662cd0929d05a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 14.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: 041de761d85d3f744ba662cd0929d05a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.27
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -648,7 +660,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091856899}
   m_LocalRotation: {x: 0, y: -0.69994384, z: 0, w: 0.7141979}
-  m_LocalPosition: {x: -92.109, y: -8.87, z: 12.569}
+  m_LocalPosition: {x: -90.294, y: 12.442, z: 13.708}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1101,7 +1113,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1707300747}
   m_LocalRotation: {x: 0, y: 0.17852749, z: 0, w: 0.983935}
-  m_LocalPosition: {x: 69.96, y: -21.47, z: 65.864}
+  m_LocalPosition: {x: 71.516, y: -0.116, z: 67.228}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1166,6 +1178,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: NetworkManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8013939876601506356, guid: 8f296d39375d3224e864793043b541ab, type: 3}
+      propertyPath: NetworkConfig.PlayerPrefab
+      value: 
+      objectReference: {fileID: 1657810595280077101, guid: b30b71d7a9fe69047a6731dc71eb2398, type: 3}
+    - target: {fileID: 8013939876601506356, guid: 8f296d39375d3224e864793043b541ab, type: 3}
+      propertyPath: NetworkConfig.NetworkPrefabs.Array.data[0].Prefab
+      value: 
+      objectReference: {fileID: 1657810595280077101, guid: b30b71d7a9fe69047a6731dc71eb2398, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
