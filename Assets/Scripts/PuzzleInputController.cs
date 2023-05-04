@@ -3,28 +3,23 @@ using Unity.Netcode;
 using UnityEngine;
 
 [System.Serializable]
-internal class Inputs
-{
+internal class Inputs {
 	public GameObject inputObject;
 	public bool enabled;
 }
 
-public class PuzzleInputController : NetworkBehaviour
-{
+public class PuzzleInputController:NetworkBehaviour {
 	[SerializeField] private List<Inputs> inputs = new();
 	[SerializeField] private GameObject door;
 
 	// Start is called before the first frame update
-	void Start()
-	{
+	void Start() {
 
 	}
 
 	// Update is called once per frame
-	void Update()
-	{
-		foreach (Inputs input in inputs)
-		{
+	void Update() {
+		foreach(Inputs input in inputs) {
 			bool lockState = door.GetComponent<Door>().locked;
 
 			//Get if the input is currently clicked/enabled
@@ -33,11 +28,10 @@ public class PuzzleInputController : NetworkBehaviour
 			bool enabled = input.enabled;
 
 			//Check if an input is wrong
-			if ((!clicked && enabled) || (clicked && !enabled))
-			{
+			if((!clicked && enabled) || (clicked && !enabled)) {
 
 				//Lock the door if it's not already locked
-				if (!lockState)
+				if(!lockState)
 					ChangeDoorLockStateServerRpc(true);
 
 				//Stop checking for the others
@@ -50,14 +44,13 @@ public class PuzzleInputController : NetworkBehaviour
 	}
 
 	[ServerRpc(RequireOwnership = false)]
-	private void ChangeDoorLockStateServerRpc(bool state)
-	{
+	private void ChangeDoorLockStateServerRpc(bool state) {
 		ChangeDoorLockStateClientRpc(state);
 	}
 
 	[ClientRpc]
-	private void ChangeDoorLockStateClientRpc(bool state)
-	{
+	private void ChangeDoorLockStateClientRpc(bool state) {
 		door.GetComponent<Door>().locked = state;
 	}
 }
+

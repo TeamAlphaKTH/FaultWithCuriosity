@@ -2,8 +2,7 @@ using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
-public class ButtonController : NetworkBehaviour, IInteractable
-{
+public class ButtonController:NetworkBehaviour, IInteractable {
 	public float MaxRange { get { return maxRange; } }
 	private const float maxRange = 2f;
 	private TextMeshProUGUI uiText;
@@ -16,86 +15,66 @@ public class ButtonController : NetworkBehaviour, IInteractable
 	[SerializeField] bool clickOnce = false;
 
 	// Start is called before the first frame update
-	void Start()
-	{
+	void Start() {
 		uiText = GameObject.Find("ItemUI").GetComponentInChildren<TextMeshProUGUI>();
 		animator = GetComponent<Animator>();
 	}
 
-	void Update()
-	{
+	void Update() {
 		//Update the animations
-		if (clicked)
-		{
+		if(clicked) {
 			AnimateButtonServerRpc(true);
-		}
-		else if (animator.GetBool("Clicked"))
-		{
+		} else if(animator.GetBool("Clicked")) {
 			AnimateButtonServerRpc(false);
 		}
 	}
 
-	public void OnEndHover()
-	{
+	public void OnEndHover() {
 		uiText.text = "";
 	}
 
-	public void OnInteract()
-	{
+	public void OnInteract() {
 		//Update the state depending on the clicked state
-		if (!clicked)
-		{
+		if(!clicked) {
 			UpdateButtonServerRpc(true);
-			if (clickOnce)
-			{
+			if(clickOnce) {
 				OnEndHover();
-			}
-			else
-			{
+			} else {
 				OnStartHover();
 			}
-		}
-		else if (!clickOnce)
-		{
+		} else if(!clickOnce) {
 			UpdateButtonServerRpc(false);
 			OnStartHover();
 		}
 	}
 
-	public void OnStartHover()
-	{
+	public void OnStartHover() {
 		//Change text depending on the clicked state
-		if (!clicked)
-		{
+		if(!clicked) {
 			uiText.text = "Press " + CameraMovement.interactKey + " to interact";
-		}
-		else if (clicked && !clickOnce)
-		{
+		} else if(clicked && !clickOnce) {
 			uiText.text = "Press " + CameraMovement.interactKey + " reset button";
 		}
 	}
 
 	[ServerRpc(RequireOwnership = false)]
-	private void AnimateButtonServerRpc(bool state)
-	{
+	private void AnimateButtonServerRpc(bool state) {
 		AnimateButtonClientRpc(state);
 	}
 
 	[ServerRpc(RequireOwnership = false)]
-	private void UpdateButtonServerRpc(bool state)
-	{
+	private void UpdateButtonServerRpc(bool state) {
 		UpdateButtonClientRpc(state);
 	}
 
 	[ClientRpc]
-	private void AnimateButtonClientRpc(bool state)
-	{
+	private void AnimateButtonClientRpc(bool state) {
 		animator.SetBool("Clicked", state);
 	}
 
 	[ClientRpc]
-	private void UpdateButtonClientRpc(bool state)
-	{
+	private void UpdateButtonClientRpc(bool state) {
 		clicked = state;
 	}
 }
+
