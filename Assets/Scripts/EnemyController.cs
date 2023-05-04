@@ -6,26 +6,25 @@ public class EnemyController:MonoBehaviour {
 	[SerializeField] private float damageMultiplier = 0.1f;
 	[SerializeField] private float damageDistance = 3f;
 	[SerializeField] private float teleportDistanceMultiplier = 3f;
+	[SerializeField] private GameObject scarePointsObject;
 
 	public static float scareDistance;
 	private static Transform[] scarePoints;
-
 	private static NavMeshAgent enemyAIAgent;
-	private Transform player;
+	public static Transform player;
 	private static float distanceToPlayer;
 	private float currentParanoia;
 
 	// Start is called before the first frame update
 	void Start() {
-		player = GameObject.Find("Player Aaron").GetComponent<Transform>();
 		enemyAIAgent = gameObject.GetComponent<NavMeshAgent>();
-
 		scareDistance = damageDistance * teleportDistanceMultiplier;
-		scarePoints = GameObject.Find("Enemy Scare Points").GetComponentsInChildren<Transform>();
+		scarePoints = scarePointsObject.GetComponentsInChildren<Transform>();
 	}
 
 	// Update is called once per frame
 	void Update() {
+
 		currentParanoia = Flashlight.currentParanoia;
 
 		//Get the current paranoia 10s for distance
@@ -36,6 +35,7 @@ public class EnemyController:MonoBehaviour {
 		//If the player is further than the paranoiaDistance, move the AI closer.
 		if(distanceToPlayer * 3 > paranoiaDistance) {
 			enemyAIAgent.SetDestination(player.position);
+			//enemyAIAgent.destination = player.position;
 			enemyAIAgent.stoppingDistance = paranoiaDistance;
 		} else {
 			DealDamage();
