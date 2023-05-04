@@ -3388,7 +3388,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5908237021158961320}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &6917776427550108655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3416,11 +3416,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d620e072109c17498171a6d2df393e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rechargeCameraButton: 325
   cameraFlash: {fileID: 2340202770603413214}
   flashTime: 0.2
   GUI: {fileID: 0}
+  objectEnemy: {fileID: 0}
   itemPolaroid: {fileID: 8681303806250907813, guid: cdc0b54091800994aa7022a82edd917b, type: 3}
+  gambleAffect: 10
+  maxGambleParanoia: 95
+  sphereRadius: 2
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &6013710358182810699
 GameObject:
   m_ObjectHideFlags: 0

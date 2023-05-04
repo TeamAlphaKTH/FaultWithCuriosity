@@ -31,7 +31,7 @@ public class SetButtons:MonoBehaviour {
 		Debug.Log(door.code);
 		if(answer.text.Equals(door.code)) {
 			answer.text = "";
-			door.codeLockDoor = false;
+			door.SetBoolServerRpc();
 			answer.text = "Correct";
 			keypadScript1.RemoveKeypadUI();
 			//Door.itemText.text = "Press " + CameraMovement.interactKey + " to use door";

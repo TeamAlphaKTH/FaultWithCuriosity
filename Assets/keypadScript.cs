@@ -37,7 +37,7 @@ public class keypadScript:MonoBehaviour, IInteractable {
 
 	// Update is called once per frame
 	void Update() {
-		if(tester) { Enter(); }
+
 	}
 	private void UseKeypad() {
 		ShowKeypadUI();
@@ -56,27 +56,4 @@ public class keypadScript:MonoBehaviour, IInteractable {
 		Cursor.lockState = CursorLockMode.Locked;
 		CameraMovement.CanRotate = true;
 	}
-
-	public void InputNumber(int number) {
-		if(answer.text.Length < 4) {
-			answer.text += number.ToString();
-		}
-	}
-
-	public void Enter() {
-		tester = false;
-		if(answer.text.Equals(door.code)) {
-			answer.text = "";
-			door.codeLockDoor = false;
-			answer.text = "Correct";
-			RemoveKeypadUI();
-			Door.itemText.text = "Press " + CameraMovement.interactKey + " to use door";
-		} else {
-			answer.text = "Incorrect";
-		}
-	}
-	public static void Delete() {
-		//answer.text = "";
-	}
-
 }
