@@ -9,6 +9,10 @@ public class FirstPersonController:NetworkBehaviour {
 	public static bool CanMove { get; set; } = true;
 	private bool IsRunning => Input.GetKey(runKey) && canRun;
 
+	[Header("Enemy")]
+	[SerializeField] private GameObject enemyGhostPrefab;
+	[SerializeField] private GameObject enemySpawnPoints;
+
 	[Header("Movement Parameters")]
 	[SerializeField] private float walkSpeed = 3.0f;
 	[SerializeField] private float runSpeed = 6.0f;
@@ -123,7 +127,15 @@ public class FirstPersonController:NetworkBehaviour {
 		base.OnNetworkSpawn();
 	}
 
-	// Start is called before the first frame update
+	private void Start() {
+		if(IsOwner) {
+			SpawnEnemy();
+		}
+	}
+
+	/// <summary>
+	/// 
+	/// </summary>
 	void Initialize() {
 		if(!IsOwner) {
 			return;
@@ -140,6 +152,12 @@ public class FirstPersonController:NetworkBehaviour {
 
 		currentStamina = maxStamina;
 		staminaSlider.value = maxStamina;
+	}
+
+	private void SpawnEnemy() {
+		Transform[] enemySpawn = enemySpawnPoints.GetComponentsInChildren<Transform>();
+		GameObject Enemy = Instantiate(enemyGhostPrefab, enemySpawn[1].position, Quaternion.identity);
+		EnemyController.player = NetworkManager.LocalClient.PlayerObject.transform;
 	}
 
 	// Update is called once per frame

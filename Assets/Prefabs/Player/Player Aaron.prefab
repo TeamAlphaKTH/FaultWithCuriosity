@@ -1290,6 +1290,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c548bd506491e6b41939c8e469eba5bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyGhostPrefab: {fileID: 1658567079213968394, guid: a443af775508b414f92ef08e01f2846b, type: 3}
+  enemySpawnPoints: {fileID: 6404843973516372202, guid: 1392ec8f04897394b906a3b1f8691a24, type: 3}
   walkSpeed: 2.5
   runSpeed: 5
   climbSpeed: 0.85
@@ -2643,9 +2645,6 @@ MonoBehaviour:
   gambleAffect: 10
   maxGambleParanoia: 95
   sphereRadius: 2
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &4615527879205124100
 GameObject:
   m_ObjectHideFlags: 0
