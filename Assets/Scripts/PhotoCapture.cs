@@ -100,7 +100,8 @@ public class PhotoCapture:NetworkBehaviour {
 		// Makes a sprite of the screenshot
 		Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0, 0, screenCapture.width, screenCapture.height), new Vector2(0, 0), 50);
 		// Encodes the sprite to a byte array to send to server.
-		byte[] pictureBytes = photoSprite.texture.EncodeToJPG();
+		byte[] pictureBytes = new byte[2];
+		//photoSprite.texture.EncodeToJPG();
 
 		// Sets PhotoFrameBG (Blank canvas) in ItemPolaroidObject to true
 		// the coroutine below needs to be located AFTER the picture is being taken!
