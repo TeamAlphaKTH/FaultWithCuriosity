@@ -46,16 +46,19 @@ public class keypadScript:MonoBehaviour, IInteractable {
 
 	private void ShowKeypadUI() {
 		FirstPersonController.CanMove = false;
-		Cursor.lockState = CursorLockMode.Confined;
 		CameraMovement.CanRotate = false;
+		Cursor.lockState = CursorLockMode.Confined;
+		Cursor.visible = true;
 		keypad.SetActive(true);
 		Door.itemText.text = "";
 	}
 
 	public void RemoveKeypadUI() {
 		FirstPersonController.CanMove = true;
+		CameraMovement.CanRotate = true;
+		Cursor.visible = false;
 		keypad.SetActive(false);
 		Cursor.lockState = CursorLockMode.Locked;
-		CameraMovement.CanRotate = true;
+
 	}
 }
