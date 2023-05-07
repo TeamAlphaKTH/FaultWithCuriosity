@@ -98,9 +98,10 @@ public class PhotoCapture:NetworkBehaviour {
 		screenCapture.Apply();
 
 		// Makes a sprite of the screenshot
-		Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0, 0, screenCapture.width, screenCapture.height), new Vector2(0, 0), 50);
-		// Encodes the sprite to a byte array to send to server.
-		byte[] pictureBytes = photoSprite.texture.EncodeToJPG();
+		Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0, 0, screenCapture.width, screenCapture.height), new Vector2(0, 0), 50f);
+		// Encodes the sprite to a byte array to send to server. -
+		// Inside EncodeToJPG determines quality - 10 works - 12 is max before overflow
+		byte[] pictureBytes = photoSprite.texture.EncodeToJPG(10);
 
 		// Sets PhotoFrameBG (Blank canvas) in ItemPolaroidObject to true
 		// the coroutine below needs to be located AFTER the picture is being taken!
@@ -134,7 +135,7 @@ public class PhotoCapture:NetworkBehaviour {
 		Destroy(currentItemPolaroidBody);
 
 		// Polaroid Gamble affect
-		gamble = itemPolaroid.transform.GetChild(2).gameObject.activeSelf;
+		gamble = currentItemPolaroid.transform.GetChild(2).gameObject.activeSelf;
 		Debug.Log("Affect: " + gamble);
 
 		// Apply Polaroid Gamble affect
