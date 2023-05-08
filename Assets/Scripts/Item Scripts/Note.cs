@@ -20,7 +20,11 @@ public class Note:MonoBehaviour, IInteractable {
 	public void OnInteract() {
 		itemText.text = "";
 		// Set the code text to the code of the door
-		codeText.text = "CODE: \n " + door.code.Value;
+		if(transform.parent.parent != null) {
+			codeText.text = "CODE: \n " + door.code.Value;
+		} else {
+			codeText.text = null;
+		}
 
 		// Activate the note UI and disable movement and camera. 
 		isOn = !isOn;
@@ -38,7 +42,9 @@ public class Note:MonoBehaviour, IInteractable {
 	// Start is called before the first frame update
 	void Start() {
 		// Get door component.
-		door = transform.parent.parent.GetChild(1).GetChild(0).GetComponent<Door>();
+		if(transform.parent.parent != null) {
+			door = transform.parent.parent.GetChild(1).GetChild(0).GetComponent<Door>();
+		}
 
 		itemUI = GameObject.Find("ItemUI");
 		itemText = itemUI.GetComponentInChildren<TextMeshProUGUI>();

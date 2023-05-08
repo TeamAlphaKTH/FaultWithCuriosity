@@ -170,7 +170,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6921678490650405535}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.63, z: 0.527}
+  m_LocalPosition: {x: 0, y: -2.522, z: 0}
   m_LocalScale: {x: 0.34335002, y: 0.0014854, z: 0.481565}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -288,6 +288,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteUI: {fileID: 0}
+  door: {fileID: 0}
+  keypadScript: {fileID: 0}
 --- !u!1 &7187880834561288790
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,7 +321,7 @@ Transform:
   - {fileID: 1826187038940589083}
   - {fileID: 6240356453805990181}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8053714166771228707
 GameObject:
