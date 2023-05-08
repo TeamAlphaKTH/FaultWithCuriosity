@@ -44,7 +44,6 @@ public class Note:MonoBehaviour, IInteractable {
 		// Get door component.
 		if(transform.parent.parent.CompareTag("CodeLock")) {
 			door = transform.parent.parent.GetChild(1).GetChild(0).GetComponent<Door>();
-			Debug.Log("HERE");
 		}
 
 		itemUI = GameObject.Find("ItemUI");
