@@ -55,9 +55,6 @@ public class PauseMenu:NetworkBehaviour {
 		} else {
 			pausedClient = false;
 		}
-		if(!Inventory.inventoryOpen) {
-			Cursor.lockState = CursorLockMode.Locked;
-		}
 		if(OptionsMenu.activeSelf) {
 			OptionsMenu.SetActive(false);
 		}

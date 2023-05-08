@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2434111383301664595
 MeshFilter:
@@ -123,6 +123,7 @@ MonoBehaviour:
   damageMultiplier: 0.1
   damageDistance: 3
   teleportDistanceMultiplier: 3
+  scarePointsObject: {fileID: 6404843973516372202, guid: 1392ec8f04897394b906a3b1f8691a24, type: 3}
 --- !u!136 &7557721787104134981
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -136,7 +137,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 268435456
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0

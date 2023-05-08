@@ -16,11 +16,7 @@ public class PhotoCapture:NetworkBehaviour {
 	public static bool viewingPhoto = false;
 
 	// All text GUI needs to be in this parent object
-	[Header("GUI")]
-	[SerializeField] private GameObject GUI;
-
-	[Header("Enemy Object")]
-	//[SerializeField] private GameObject objectEnemy;
+	private GameObject GUI;
 
 	[Header("Polaroid GameObject")]
 	[SerializeField] private GameObject itemPolaroid;
@@ -35,12 +31,13 @@ public class PhotoCapture:NetworkBehaviour {
 	[Header("Gamble Parameters")]
 	[SerializeField] private float gambleAffect = 10f;
 	[SerializeField] private float maxGambleParanoia = 95f;
-	[SerializeField] private float sphereRadius = 2f;
+	[SerializeField] private float sphereRadius = 3f;
+	private Flashlight flashlight;
+	private bool spherecastEnemy = false;
 	private bool raycastEnemy = false;
 	private RaycastHit enemyHit;
-	private bool gamble;
-	// default layer
-	public LayerMask enemyLayer;
+	private RaycastHit enemyHitRay;
+	private bool gamble = false;
 
 	// set ItemPolaroid Bool child to false - guarantee that the bool is false in start
 	public override void OnNetworkSpawn() {
@@ -49,6 +46,7 @@ public class PhotoCapture:NetworkBehaviour {
 		GUI = GameObject.Find("ItemUI");
 		base.OnNetworkSpawn();
 		itemPolaroid.transform.GetChild(2).gameObject.SetActive(false);
+		flashlight = transform.parent.GetComponent<Flashlight>();
 	}
 
 	void Update() {
@@ -58,10 +56,10 @@ public class PhotoCapture:NetworkBehaviour {
 
 		if(Input.GetKeyDown(FirstPersonController.useCameraButton) && canUseCamera && !viewingPhoto && charges > 0) {
 			// Raycast to see if player is looking at a Enemy - enemy must have collider
-			raycastEnemy = Physics.SphereCast(transform.position, sphereRadius, transform.forward, out enemyHit, EnemyController.scareDistance, enemyLayer);
-
+			spherecastEnemy = Physics.SphereCast(transform.position, sphereRadius, transform.forward, out enemyHit, EnemyController.scareDistance);
+			raycastEnemy = Physics.Raycast(transform.position, transform.forward, out enemyHitRay, EnemyController.scareDistance);
 			cameraFlash.SetActive(true);
-			if(raycastEnemy && enemyHit.collider.gameObject.CompareTag("Enemy")) {
+			if((spherecastEnemy && enemyHit.collider.gameObject.CompareTag("Enemy")) || (raycastEnemy && enemyHitRay.collider.gameObject.CompareTag("Enemy"))) {
 				GambleRandom();
 				if(!gamble) {
 					EnemyController.ScareTeleport(transform.position);
@@ -71,7 +69,7 @@ public class PhotoCapture:NetworkBehaviour {
 			UseCamera();
 		}
 		// Raycast to see if player is looking at a Polaroid
-		itemObject = Physics.Raycast(transform.position, transform.forward, out hitObject, 6f);
+		itemObject = Physics.Raycast(transform.position, transform.forward, out hitObject, 5f);
 		if(!viewingPhoto && Input.GetKeyDown(CameraMovement.interactKey) && itemObject && hitObject.collider.gameObject.CompareTag("Polaroid")) {
 			currentItemPolaroid = hitObject.collider.gameObject.transform.parent.gameObject;
 			ShowPhoto();
@@ -83,6 +81,7 @@ public class PhotoCapture:NetworkBehaviour {
 		}
 
 	}
+
 	/// <summary>
 	/// Captures the photo.
 	/// </summary>
@@ -99,10 +98,11 @@ public class PhotoCapture:NetworkBehaviour {
 		screenCapture.ReadPixels(regionToRead, 0, 0, false);
 		screenCapture.Apply();
 
-		// Makes a sprite of the screenshot
-		Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0, 0, screenCapture.width, screenCapture.height), new Vector2(0, 0), 50);
 		// Encodes the sprite to a byte array to send to server.
-		byte[] pictureBytes = photoSprite.texture.EncodeToJPG();
+		// Inside EncodeToJPG determines quality - 10 works
+		byte[] pictureBytes = screenCapture.EncodeToJPG(10);
+		Object.Destroy(screenCapture);
+
 
 		// Sets PhotoFrameBG (Blank canvas) in ItemPolaroidObject to true
 		// the coroutine below needs to be located AFTER the picture is being taken!
@@ -113,11 +113,9 @@ public class PhotoCapture:NetworkBehaviour {
 		SpawnItemPolaroid(pictureBytes);
 
 		//Scare the enemy away
-		EnemyController.ScareTeleport(transform.position);
-
-		//Scare the enemy away
 		if(gamble) {
 			EnemyController.ScareTeleport(transform.position);
+			gamble = false;
 		}
 	}
 
@@ -134,15 +132,15 @@ public class PhotoCapture:NetworkBehaviour {
 		currentPhotoFrame = currentItemPolaroid.transform.GetChild(1).GetChild(0).gameObject;
 		currentPhotoFrame.SetActive(true);
 
+		// Polaroid Gamble affect
+		bool gambled = currentItemPolaroid.transform.GetChild(2).gameObject.activeSelf;
+
 		// Destroy the visable body of the ItemPolaroid
 		GameObject currentItemPolaroidBody = currentItemPolaroid.transform.GetChild(0).gameObject;
 		Destroy(currentItemPolaroidBody);
 
-		// Polaroid Gamble affect
-		gamble = itemPolaroid.transform.GetChild(2).gameObject.activeSelf;
-
 		// Apply Polaroid Gamble affect
-		if(gamble) {
+		if(gambled) {
 			if(Flashlight.currentParanoia >= maxGambleParanoia - gambleAffect && Flashlight.currentParanoia < maxGambleParanoia) {
 				Flashlight.currentParanoia = maxGambleParanoia;
 			} else if(Flashlight.currentParanoia < maxGambleParanoia) {
@@ -164,6 +162,7 @@ public class PhotoCapture:NetworkBehaviour {
 		// Set viewingPhoto to false so that player can move
 		viewingPhoto = false;
 		currentPhotoFrame.SetActive(false);
+		currentItemPolaroid.transform.GetChild(1).gameObject.SetActive(false);
 		NetworkObjectReference polaroid = currentItemPolaroid.GetComponent<NetworkObject>();
 		DeletePolaroidServerRpc(polaroid);
 		GUI.SetActive(true);
@@ -182,7 +181,7 @@ public class PhotoCapture:NetworkBehaviour {
 
 		Quaternion randomRotation = Random.rotation;
 		// Spawn Polaroid
-		SpawnPolaroidServerRpc(randomPosition, randomRotation, pictureBytes);
+		SpawnPolaroidServerRpc(randomPosition, randomRotation, pictureBytes, gamble);
 	}
 
 	/// <summary>
@@ -198,8 +197,6 @@ public class PhotoCapture:NetworkBehaviour {
 	/// </summary>
 	private void GambleRandom() {
 		gamble = Random.Range(0, 2) == 1 ? true : false;
-		Debug.Log(gamble);
-		itemPolaroid.transform.GetChild(2).gameObject.SetActive(gamble);
 	}
 
 	/// Increases light intensity on object - CameraFlash
@@ -217,11 +214,11 @@ public class PhotoCapture:NetworkBehaviour {
 	/// <param name="rot">rot is a random rotation</param>
 	/// <param name="pictureBytes">pictureBytes is the screenshot encrypted as a jpg byte array</param>
 	[ServerRpc]
-	private void SpawnPolaroidServerRpc(Vector3 pos, Quaternion rot, byte[] pictureBytes) {
+	private void SpawnPolaroidServerRpc(Vector3 pos, Quaternion rot, byte[] pictureBytes, bool gambled) {
 		GameObject newPolaroid = Instantiate(itemPolaroid, pos, rot);
 		newPolaroid.GetComponent<NetworkObject>().Spawn();
 		NetworkObjectReference newPol = newPolaroid;
-		ShowPictureClientRpc(newPol, pictureBytes);
+		ShowPictureClientRpc(newPol, pictureBytes, gambled);
 	}
 
 	/// <summary>
@@ -240,11 +237,12 @@ public class PhotoCapture:NetworkBehaviour {
 	/// <param name="polaroid">polaroid refers to the newly spawned polaroid item</param>
 	/// <param name="pictureBytes">pictureBytes is the screenshot encrypted as a jpg byte array</param>
 	[ClientRpc]
-	private void ShowPictureClientRpc(NetworkObjectReference polaroid, byte[] pictureBytes) {
+	private void ShowPictureClientRpc(NetworkObjectReference polaroid, byte[] pictureBytes, bool gambled) {
 		Texture2D pictureTexture = new(2, 2);
 		pictureTexture.LoadImage(pictureBytes);
 		Sprite pictureSprite = Sprite.Create(pictureTexture, new Rect(0, 0, pictureTexture.width, pictureTexture.height), new Vector2(0, 0), 50);
 		NetworkObject newPolaroid = polaroid;
 		newPolaroid.transform.GetChild(1).GetChild(0).GetChild(0).GetChild(1).gameObject.GetComponent<Image>().sprite = pictureSprite;
+		newPolaroid.transform.GetChild(2).gameObject.SetActive(gambled);
 	}
 }

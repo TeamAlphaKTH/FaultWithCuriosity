@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8013939876601506356
 MonoBehaviour:
@@ -50,10 +50,10 @@ MonoBehaviour:
   NetworkConfig:
     ProtocolVersion: 0
     NetworkTransport: {fileID: 6925436967484906194}
-    PlayerPrefab: {fileID: 2341564776458746402, guid: b30b71d7a9fe69047a6731dc71eb2398, type: 3}
+    PlayerPrefab: {fileID: 1657810595280077101, guid: b30b71d7a9fe69047a6731dc71eb2398, type: 3}
     NetworkPrefabs:
     - Override: 0
-      Prefab: {fileID: 2341564776458746402, guid: b30b71d7a9fe69047a6731dc71eb2398, type: 3}
+      Prefab: {fileID: 1657810595280077101, guid: b30b71d7a9fe69047a6731dc71eb2398, type: 3}
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
@@ -69,6 +69,26 @@ MonoBehaviour:
       OverridingTargetPrefab: {fileID: 0}
     - Override: 0
       Prefab: {fileID: 6287680974656882406, guid: 5fd0671786363a94da2ab6b5c5a6532e, type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 9157180047647902080, guid: ff86caffaebf98e428e8e309a570fc08, type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 6529088961788061851, guid: e390a18655dfb8f41ace8e4b77d2d80b, type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 7430523650509092159, guid: 8127ba60dbc2f8d4589a989cf825fc9e, type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 1589456568767477748, guid: 26b8b80b33ec7a6498aced9efb15c7d5, type: 3}
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
@@ -106,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ProtocolType: 0
   m_MaxPacketQueueSize: 128
-  m_MaxPayloadSize: 50000
+  m_MaxPayloadSize: 65000
   m_HeartbeatTimeoutMS: 500
   m_ConnectTimeoutMS: 1000
   m_MaxConnectAttempts: 60
