@@ -141,16 +141,16 @@ public class PhotoCapture:NetworkBehaviour {
 
 		// Apply Polaroid Gamble affect
 		if(gambled) {
-			if(Flashlight.currentParanoia >= maxGambleParanoia - gambleAffect && Flashlight.currentParanoia < maxGambleParanoia) {
-				Flashlight.currentParanoia = maxGambleParanoia;
-			} else if(Flashlight.currentParanoia < maxGambleParanoia) {
-				Flashlight.currentParanoia += gambleAffect;
+			if(flashlight.currentParanoia >= maxGambleParanoia - gambleAffect && flashlight.currentParanoia < maxGambleParanoia) {
+				flashlight.currentParanoia = maxGambleParanoia;
+			} else if(flashlight.currentParanoia < maxGambleParanoia) {
+				flashlight.currentParanoia += gambleAffect;
 			}
 		} else {
-			if(Flashlight.currentParanoia <= gambleAffect) {
-				Flashlight.currentParanoia = 0f;
+			if(flashlight.currentParanoia <= gambleAffect) {
+				flashlight.currentParanoia = 0f;
 			} else {
-				Flashlight.currentParanoia -= gambleAffect;
+				flashlight.currentParanoia -= gambleAffect;
 			}
 		}
 	}
