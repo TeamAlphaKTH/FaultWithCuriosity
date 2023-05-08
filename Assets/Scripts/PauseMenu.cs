@@ -63,28 +63,35 @@ public class PauseMenu:NetworkBehaviour {
 		pausedClient = false;
 		paused = false;
 		PauseMenuCanvas.SetActive(false);
+		SceneManager.LoadScene(0);
 		if(IsHost) {
+			//Host has access to server and therfore wont need to disconnect using a RPC-server request to server
 			NetworkManager.Singleton.DisconnectClient(OwnerClientId);
 			NetworkManager.Singleton.Shutdown();
 		} else {
-			leaveServerRpc(NetworkManager.Singleton.LocalClientId);
+			var clientIdToDisconnect = NetworkManager.Singleton.LocalClientId;
+			leaveServerRpc(clientIdToDisconnect);
+			//leaveServerRpc sends to server and as such the 
 		}
-		SceneManager.LoadScene("MainMenu");
+		Cursor.lockState = CursorLockMode.Confined;
+		Cursor.visible = true;
+		Destroy(NetworkManager.Singleton.gameObject);
 	}
 
-	// Sends to all clients 
+	// Sends to Server 
 	[ServerRpc]
 	public void pauseServerRpc(bool state) {
 		pauseClientRpc(state);
 	}
 
-	[ServerRpc(RequireOwnership = false)]
+	//any client should be able to do this Server RPC
+	[ServerRpc(RequireOwnership = false, Delivery = RpcDelivery.Reliable)]
 	public void leaveServerRpc(ulong clientId) {
-		NetworkManager.ConnectedClients[clientId].PlayerObject.Despawn();
-		//leaveClientRpc(clientId);
+		NetworkManager.Singleton.DisconnectClient(clientId);
+		leaveClientRpc(clientId);
 	}
 
-	// Changes states at client on demand to server 
+	// Changes states at client on demand from the server 
 	[ClientRpc]
 	public void pauseClientRpc(bool state) {
 		paused = state;
@@ -94,11 +101,10 @@ public class PauseMenu:NetworkBehaviour {
 			Time.timeScale = 0f;
 		}
 	}
-
-	[ClientRpc]
+	//Send to all connected clients
+	[ClientRpc(Delivery = RpcDelivery.Reliable)]
 	public void leaveClientRpc(ulong clientId) {
-		if(OwnerClientId == clientId) {
-			NetworkManager.Singleton.DisconnectClient(clientId);
+		if(NetworkManager.LocalClientId == clientId) {
 			NetworkManager.Singleton.Shutdown();
 		}
 	}
