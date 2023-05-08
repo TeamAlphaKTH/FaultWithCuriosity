@@ -9,6 +9,8 @@ public class ButtonController:NetworkBehaviour, IInteractable {
     private Animator animator;
     [SerializeField] public AudioSource leverSound;
     private float soundDelay = 0.1f;
+    private float soundBackDelay = 0.04f;
+
 
     public bool clicked = false;
     /// <summary>
@@ -49,7 +51,7 @@ public class ButtonController:NetworkBehaviour, IInteractable {
         } else if(!clickOnce) {
             UpdateButtonServerRpc(false);
             OnStartHover();
-            leverSound.PlayDelayed(soundDelay);
+            leverSound.PlayDelayed(soundBackDelay);
         }
     }
 
