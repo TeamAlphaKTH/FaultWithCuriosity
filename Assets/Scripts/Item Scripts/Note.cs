@@ -20,7 +20,7 @@ public class Note:MonoBehaviour, IInteractable {
 	public void OnInteract() {
 		itemText.text = "";
 		// Set the code text to the code of the door
-		if(transform.parent.parent.name.Equals("CodeLock")) {
+		if(transform.parent.parent.CompareTag("CodeLock")) {
 			codeText.text = "CODE: \n " + door.code.Value;
 		} else {
 			codeText.text = noteUI.GetComponentInChildren<TMP_Text>().text;
@@ -42,8 +42,9 @@ public class Note:MonoBehaviour, IInteractable {
 	// Start is called before the first frame update
 	void Start() {
 		// Get door component.
-		if(transform.parent.parent.name.Equals("CodeLock")) {
+		if(transform.parent.parent.CompareTag("CodeLock")) {
 			door = transform.parent.parent.GetChild(1).GetChild(0).GetComponent<Door>();
+			Debug.Log("HERE");
 		}
 
 		itemUI = GameObject.Find("ItemUI");
