@@ -16,8 +16,7 @@ public class PhotoCapture:NetworkBehaviour {
 	public static bool viewingPhoto = false;
 
 	// All text GUI needs to be in this parent object
-	[Header("GUI")]
-	[SerializeField] private GameObject GUI;
+	private GameObject GUI;
 
 	[Header("Polaroid GameObject")]
 	[SerializeField] private GameObject itemPolaroid;
@@ -36,6 +35,7 @@ public class PhotoCapture:NetworkBehaviour {
 	private bool raycastEnemy = false;
 	private RaycastHit enemyHit;
 	private bool gamble;
+	[SerializeField] private LayerMask enemyLayer;
 
 	// set ItemPolaroid Bool child to false - guarantee that the bool is false in start
 	public override void OnNetworkSpawn() {
@@ -53,7 +53,7 @@ public class PhotoCapture:NetworkBehaviour {
 
 		if(Input.GetKeyDown(FirstPersonController.useCameraButton) && canUseCamera && !viewingPhoto && charges > 0) {
 			// Raycast to see if player is looking at a Enemy - enemy must have collider
-			raycastEnemy = Physics.SphereCast(transform.position, sphereRadius, transform.forward, out enemyHit, EnemyController.scareDistance);
+			raycastEnemy = Physics.SphereCast(transform.position, sphereRadius, transform.forward, out enemyHit, EnemyController.scareDistance, enemyLayer);
 
 			cameraFlash.SetActive(true);
 			if(raycastEnemy && enemyHit.collider.gameObject.CompareTag("Enemy")) {
