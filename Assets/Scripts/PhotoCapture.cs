@@ -134,7 +134,6 @@ public class PhotoCapture:NetworkBehaviour {
 
 		// Polaroid Gamble affect
 		bool gambled = currentItemPolaroid.transform.GetChild(2).gameObject.activeSelf;
-		Debug.Log("Affect: " + gambled);
 
 		// Destroy the visable body of the ItemPolaroid
 		GameObject currentItemPolaroidBody = currentItemPolaroid.transform.GetChild(0).gameObject;
