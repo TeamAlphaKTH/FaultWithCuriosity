@@ -24,6 +24,7 @@ public class healPlayer:MonoBehaviour, IInteractable {
 			user.HealServerRpc();
 			user.IsDeadServerRpc(false);
 			Inventory.drugNr--;
+			OnEndHover();
 		}
 	}
 
