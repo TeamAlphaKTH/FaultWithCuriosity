@@ -31,11 +31,12 @@ public class PhotoCapture:NetworkBehaviour {
 	[Header("Gamble Parameters")]
 	[SerializeField] private float gambleAffect = 10f;
 	[SerializeField] private float maxGambleParanoia = 95f;
-	[SerializeField] private float sphereRadius = 5f;
+	[SerializeField] private float sphereRadius = 3f;
+	private bool spherecastEnemy = false;
 	private bool raycastEnemy = false;
 	private RaycastHit enemyHit;
+	private RaycastHit enemyHitRay;
 	private bool gamble;
-	[SerializeField] private LayerMask enemyLayer;
 
 	// set ItemPolaroid Bool child to false - guarantee that the bool is false in start
 	public override void OnNetworkSpawn() {
@@ -53,10 +54,10 @@ public class PhotoCapture:NetworkBehaviour {
 
 		if(Input.GetKeyDown(FirstPersonController.useCameraButton) && canUseCamera && !viewingPhoto && charges > 0) {
 			// Raycast to see if player is looking at a Enemy - enemy must have collider
-			raycastEnemy = Physics.SphereCast(transform.position, sphereRadius, transform.forward, out enemyHit, EnemyController.scareDistance, enemyLayer);
-
+			spherecastEnemy = Physics.SphereCast(transform.position, sphereRadius, transform.forward, out enemyHit, EnemyController.scareDistance);
+			raycastEnemy = Physics.Raycast(transform.position, transform.forward, out enemyHitRay, EnemyController.scareDistance);
 			cameraFlash.SetActive(true);
-			if(raycastEnemy && enemyHit.collider.gameObject.CompareTag("Enemy")) {
+			if((spherecastEnemy && enemyHit.collider.gameObject.CompareTag("Enemy")) || (raycastEnemy && enemyHitRay.collider.gameObject.CompareTag("Enemy"))) {
 				GambleRandom();
 				if(!gamble) {
 					EnemyController.ScareTeleport(transform.position);
@@ -66,7 +67,7 @@ public class PhotoCapture:NetworkBehaviour {
 			UseCamera();
 		}
 		// Raycast to see if player is looking at a Polaroid
-		itemObject = Physics.Raycast(transform.position, transform.forward, out hitObject, 6f);
+		itemObject = Physics.Raycast(transform.position, transform.forward, out hitObject, 5f);
 		if(!viewingPhoto && Input.GetKeyDown(CameraMovement.interactKey) && itemObject && hitObject.collider.gameObject.CompareTag("Polaroid")) {
 			currentItemPolaroid = hitObject.collider.gameObject.transform.parent.gameObject;
 			ShowPhoto();
@@ -113,6 +114,7 @@ public class PhotoCapture:NetworkBehaviour {
 		if(gamble) {
 			EnemyController.ScareTeleport(transform.position);
 			itemPolaroid.transform.GetChild(2).gameObject.SetActive(false);
+			gamble = false;
 		}
 	}
 
