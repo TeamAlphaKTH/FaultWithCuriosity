@@ -36,6 +36,7 @@ public class PhotoCapture:NetworkBehaviour {
 	[SerializeField] private float gambleAffect = 10f;
 	[SerializeField] private float maxGambleParanoia = 95f;
 	[SerializeField] private float sphereRadius = 3f;
+	private Flashlight Flashlight;
 	private bool raycastEnemy = false;
 	private RaycastHit enemyHit;
 	private bool gamble;
@@ -47,6 +48,7 @@ public class PhotoCapture:NetworkBehaviour {
 		GUI = GameObject.Find("ItemUI");
 		base.OnNetworkSpawn();
 		itemPolaroid.transform.GetChild(2).gameObject.SetActive(false);
+		Flashlight = transform.parent.GetComponent<Flashlight>();
 	}
 
 	void Update() {

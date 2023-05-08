@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Inventory:MonoBehaviour {
+public class Inventory:NetworkBehaviour {
 
 	[Header("Inventory GameObjects")]
 	[SerializeField] private GameObject inventory;
@@ -23,15 +24,27 @@ public class Inventory:MonoBehaviour {
 	public static int batteryNr;
 	public static bool inventoryOpen = false;
 	public static List<int> keyIds = new();
+	private Flashlight Flashlight;
 
 	private void Start() {
 		//Initializes sliders
-		flashlightSlider.value = Flashlight.batteryLevel;
+		//flashlightSlider.value = Flashlight.batteryLevel;
 		cameraSlider.value = PhotoCapture.charges;
+
 	}
 
 	// Update is called once per frame
 	void Update() {
+		if(Flashlight == null && NetworkManager.LocalClient != null)
+			Flashlight = NetworkManager.LocalClient.PlayerObject.GetComponent<Flashlight>();
+		else if(Flashlight == null)
+			return;
+
+		if(Flashlight.isDead) {
+			inventory.SetActive(false);
+			inventoryOpen = false;
+			Cursor.lockState = CursorLockMode.Locked;
+		}
 		//Keeps number of pills and batteries in the inventory up to date.
 		drugText.text = drugNr.ToString();
 		batteryText.text = batteryNr.ToString();
@@ -41,7 +54,7 @@ public class Inventory:MonoBehaviour {
 		cameraSlider.value = PhotoCapture.charges;
 
 		//Toggles inventory on and off, this also toggles cameramovement action camera and the cursor.
-		if(Input.GetKeyDown(FirstPersonController.openInventory) && !PauseMenu.paused && !PauseMenu.pausedClient) {
+		if(Input.GetKeyDown(FirstPersonController.openInventory) && !PauseMenu.paused && !PauseMenu.pausedClient && !Flashlight.isDead) {
 			switch(inventory.activeSelf) {
 				case true:
 				inventory.SetActive(false);

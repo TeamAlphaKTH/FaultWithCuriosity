@@ -1254,6 +1254,7 @@ GameObject:
   - component: {fileID: 9200381620581726161}
   - component: {fileID: 3367909868617867146}
   - component: {fileID: 3252865203615464817}
+  - component: {fileID: 7811090298150324963}
   m_Layer: 0
   m_Name: Player Aaron
   m_TagString: Untagged
@@ -1424,6 +1425,18 @@ MonoBehaviour:
   ScaleThreshold: 0.01
   InLocalSpace: 0
   Interpolate: 1
+--- !u!114 &7811090298150324963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657810595280077101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c89037b41ec9c7479923ff57a25e9e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1682774350412161667
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,8 +19,8 @@ public class Flashlight:NetworkBehaviour {
 	[SerializeField] private Image batteryBlock3;
 
 	private bool flashlightActive = true;
-	private bool canUseFlashlight = true;
-	public static float batteryLevel = 100;
+	public bool canUseFlashlight = true;
+	public float batteryLevel = 100;
 	private float maxIntensity;
 	private float flickerDuration = 0.5f;
 	private float flickerDelay = 0.1f;
@@ -28,9 +28,9 @@ public class Flashlight:NetworkBehaviour {
 
 	[Header("Paranoia parameters")]
 	[SerializeField] private float paranoiaIncrements = 1.5f;
-	[SerializeField] public static float currentParanoia;
+	[SerializeField] public float currentParanoia;
 	[SerializeField] private Slider paranoiaSlider;
-
+	[SerializeField] public bool isDead = false;
 	public override void OnNetworkSpawn() {
 		if(!IsOwner) { return; }
 
@@ -59,6 +59,16 @@ public class Flashlight:NetworkBehaviour {
 
 	void Update() {
 		if(!IsOwner) { return; }
+
+		if(isDead) {
+			FirstPersonController.CanMove = false;
+			CameraMovement.CanRotate = false;
+			canUseFlashlight = false;
+		} else {
+			FirstPersonController.CanMove = true;
+			CameraMovement.CanRotate = true;
+			canUseFlashlight = true;
+		}
 
 		if(canUseFlashlight) {
 			FlashlightControl();
@@ -133,7 +143,8 @@ public class Flashlight:NetworkBehaviour {
 		}
 
 		if(currentParanoia >= 100) {
-			Debug.Log("Dead");
+			IsDeadServerRpc(true);
+			//Debug.Log("Dead");
 		}
 
 		batteryText.SetText(batteryLevel.ToString("F0"));
@@ -153,4 +164,22 @@ public class Flashlight:NetworkBehaviour {
 	public void ChangeLightIntensityServerRpc(float newIntensity) {
 		ChangeIntensityClientRpc(newIntensity);
 	}
+
+	[ServerRpc(RequireOwnership = false)]
+	public void IsDeadServerRpc(bool state) {
+		IsDeadClientRpc(state);
+	}
+	[ClientRpc]
+	public void IsDeadClientRpc(bool state) {
+		isDead = state;
+	}
+	[ServerRpc(RequireOwnership = false)]
+	public void HealServerRpc() {
+		HealClientRpc();
+	}
+	[ClientRpc]
+	public void HealClientRpc() {
+		currentParanoia = 80;
+	}
+
 }
