@@ -30,10 +30,10 @@ public class healPlayer:MonoBehaviour, IInteractable {
 	public void OnStartHover() {
 		if(user.isDead && Inventory.drugNr > 0) {
 			itemText.text = "Press " + CameraMovement.interactKey + " to revive";
-			OnEndHover();
+			OnStartHover();
 		} else if(user.isDead) {
 			itemText.text = "Get a pill to revive";
-			OnEndHover();
+			OnStartHover();
 		}
 	}
 
