@@ -35,26 +35,20 @@ public class Flashlight:NetworkBehaviour {
 	[SerializeField] private float timer = 30.0f;
 	private float timeElapsed = 0;
 	public override void OnNetworkSpawn() {
-		if(!IsOwner) { return; }
-
+		if(!IsOwner) {
+			return;
+		}
 		cam = GetComponentInChildren<Camera>().gameObject;
-
 		flashlightLight = cam.GetComponentInChildren<Light>();
-
-
 		this.batteryText = GameObject.Find("Battery Percentage").GetComponent<TextMeshProUGUI>();
 		this.batteryBlock1 = GameObject.Find("Percentage1").GetComponent<Image>();
 		this.batteryBlock2 = GameObject.Find("Percentage2").GetComponent<Image>();
 		this.batteryBlock3 = GameObject.Find("Percentage3").GetComponent<Image>();
 		this.paranoiaSlider = GameObject.Find("Paranoia Slider").GetComponent<Slider>();
-
 		this.batteryText.SetText("100%");
 		currentParanoia = 0;
 		this.maxIntensity = flashlightLight.intensity;
-
-
 		this.paranoiaSlider.value = 0f;
-
 	}
 
 	void Start() {
