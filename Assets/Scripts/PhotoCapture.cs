@@ -19,9 +19,6 @@ public class PhotoCapture:NetworkBehaviour {
 	[Header("GUI")]
 	[SerializeField] private GameObject GUI;
 
-	[Header("Enemy Object")]
-	//[SerializeField] private GameObject objectEnemy;
-
 	[Header("Polaroid GameObject")]
 	[SerializeField] private GameObject itemPolaroid;
 
@@ -35,7 +32,7 @@ public class PhotoCapture:NetworkBehaviour {
 	[Header("Gamble Parameters")]
 	[SerializeField] private float gambleAffect = 10f;
 	[SerializeField] private float maxGambleParanoia = 95f;
-	[SerializeField] private float sphereRadius = 3f;
+	[SerializeField] private float sphereRadius = 5f;
 	private bool raycastEnemy = false;
 	private RaycastHit enemyHit;
 	private bool gamble;
@@ -81,6 +78,7 @@ public class PhotoCapture:NetworkBehaviour {
 		}
 
 	}
+
 	/// <summary>
 	/// Captures the photo.
 	/// </summary>
@@ -97,11 +95,11 @@ public class PhotoCapture:NetworkBehaviour {
 		screenCapture.ReadPixels(regionToRead, 0, 0, false);
 		screenCapture.Apply();
 
-		// Makes a sprite of the screenshot
-		Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0, 0, screenCapture.width, screenCapture.height), new Vector2(0, 0), 50f);
-		// Encodes the sprite to a byte array to send to server. -
-		// Inside EncodeToJPG determines quality - 10 works - 12 is max before overflow
-		byte[] pictureBytes = photoSprite.texture.EncodeToJPG(10);
+		// Encodes the sprite to a byte array to send to server.
+		// Inside EncodeToJPG determines quality - 10 works
+		byte[] pictureBytes = screenCapture.EncodeToJPG(10);
+		Object.Destroy(screenCapture);
+
 
 		// Sets PhotoFrameBG (Blank canvas) in ItemPolaroidObject to true
 		// the coroutine below needs to be located AFTER the picture is being taken!
@@ -114,6 +112,7 @@ public class PhotoCapture:NetworkBehaviour {
 		//Scare the enemy away
 		if(gamble) {
 			EnemyController.ScareTeleport(transform.position);
+			itemPolaroid.transform.GetChild(2).gameObject.SetActive(false);
 		}
 	}
 

@@ -1178,6 +1178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NetworkManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6925436967484906194, guid: 8f296d39375d3224e864793043b541ab, type: 3}
+      propertyPath: m_MaxPayloadSize
+      value: 65000
+      objectReference: {fileID: 0}
     - target: {fileID: 8013939876601506356, guid: 8f296d39375d3224e864793043b541ab, type: 3}
       propertyPath: NetworkConfig.PlayerPrefab
       value: 
