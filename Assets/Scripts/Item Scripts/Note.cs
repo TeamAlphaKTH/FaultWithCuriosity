@@ -19,10 +19,14 @@ public class Note:MonoBehaviour, IInteractable {
 
 	public void OnInteract() {
 		itemText.text = "";
+		// Set the code text to the code of the door
 		codeText.text = "CODE: \n " + door.code.Value;
+
+		// Activate the note UI and disable movement and camera. 
 		isOn = !isOn;
 		noteUI.SetActive(true);
 		CameraMovement.CanRotate = false;
+		FirstPersonController.CanMove = false;
 		PhotoCapture.canUseCamera = false;
 	}
 
@@ -33,6 +37,7 @@ public class Note:MonoBehaviour, IInteractable {
 
 	// Start is called before the first frame update
 	void Start() {
+		// Get door component.
 		door = transform.parent.parent.GetChild(1).GetChild(0).GetComponent<Door>();
 
 		itemUI = GameObject.Find("ItemUI");
@@ -44,10 +49,11 @@ public class Note:MonoBehaviour, IInteractable {
 	}
 	void Update() {
 		if(isOn && Input.GetKeyDown(KeyCode.Escape)) {
+			// If the note is on and the player presses escape, disable the note UI and enable movement and camera.
 			noteUI.SetActive(false);
 			CameraMovement.CanRotate = true;
 			PhotoCapture.canUseCamera = true;
-			Cursor.lockState = CursorLockMode.Locked;
+			FirstPersonController.CanMove = true;
 			isOn = false;
 			OnStartHover();
 		}
