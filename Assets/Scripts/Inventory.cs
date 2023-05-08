@@ -28,9 +28,7 @@ public class Inventory:NetworkBehaviour {
 
 	private void Start() {
 		//Initializes sliders
-		//flashlightSlider.value = Flashlight.batteryLevel;
 		cameraSlider.value = PhotoCapture.charges;
-
 	}
 
 	// Update is called once per frame
