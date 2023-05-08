@@ -32,11 +32,12 @@ public class PhotoCapture:NetworkBehaviour {
 	[SerializeField] private float gambleAffect = 10f;
 	[SerializeField] private float maxGambleParanoia = 95f;
 	[SerializeField] private float sphereRadius = 3f;
+	private Flashlight flashlight;
 	private bool spherecastEnemy = false;
 	private bool raycastEnemy = false;
 	private RaycastHit enemyHit;
 	private RaycastHit enemyHitRay;
-	private bool gamble;
+	private bool gamble = false;
 
 	// set ItemPolaroid Bool child to false - guarantee that the bool is false in start
 	public override void OnNetworkSpawn() {
@@ -45,6 +46,7 @@ public class PhotoCapture:NetworkBehaviour {
 		GUI = GameObject.Find("ItemUI");
 		base.OnNetworkSpawn();
 		itemPolaroid.transform.GetChild(2).gameObject.SetActive(false);
+		flashlight = transform.parent.GetComponent<Flashlight>();
 	}
 
 	void Update() {
@@ -113,7 +115,6 @@ public class PhotoCapture:NetworkBehaviour {
 		//Scare the enemy away
 		if(gamble) {
 			EnemyController.ScareTeleport(transform.position);
-			itemPolaroid.transform.GetChild(2).gameObject.SetActive(false);
 			gamble = false;
 		}
 	}
@@ -131,16 +132,16 @@ public class PhotoCapture:NetworkBehaviour {
 		currentPhotoFrame = currentItemPolaroid.transform.GetChild(1).GetChild(0).gameObject;
 		currentPhotoFrame.SetActive(true);
 
+		// Polaroid Gamble affect
+		bool gambled = currentItemPolaroid.transform.GetChild(2).gameObject.activeSelf;
+		Debug.Log("Affect: " + gambled);
+
 		// Destroy the visable body of the ItemPolaroid
 		GameObject currentItemPolaroidBody = currentItemPolaroid.transform.GetChild(0).gameObject;
 		Destroy(currentItemPolaroidBody);
 
-		// Polaroid Gamble affect
-		gamble = currentItemPolaroid.transform.GetChild(2).gameObject.activeSelf;
-		Debug.Log("Affect: " + gamble);
-
 		// Apply Polaroid Gamble affect
-		if(gamble) {
+		if(gambled) {
 			if(Flashlight.currentParanoia >= maxGambleParanoia - gambleAffect && Flashlight.currentParanoia < maxGambleParanoia) {
 				Flashlight.currentParanoia = maxGambleParanoia;
 			} else if(Flashlight.currentParanoia < maxGambleParanoia) {
@@ -162,6 +163,7 @@ public class PhotoCapture:NetworkBehaviour {
 		// Set viewingPhoto to false so that player can move
 		viewingPhoto = false;
 		currentPhotoFrame.SetActive(false);
+		currentItemPolaroid.transform.GetChild(1).gameObject.SetActive(false);
 		NetworkObjectReference polaroid = currentItemPolaroid.GetComponent<NetworkObject>();
 		DeletePolaroidServerRpc(polaroid);
 		GUI.SetActive(true);
@@ -180,7 +182,7 @@ public class PhotoCapture:NetworkBehaviour {
 
 		Quaternion randomRotation = Random.rotation;
 		// Spawn Polaroid
-		SpawnPolaroidServerRpc(randomPosition, randomRotation, pictureBytes);
+		SpawnPolaroidServerRpc(randomPosition, randomRotation, pictureBytes, gamble);
 	}
 
 	/// <summary>
@@ -196,8 +198,6 @@ public class PhotoCapture:NetworkBehaviour {
 	/// </summary>
 	private void GambleRandom() {
 		gamble = Random.Range(0, 2) == 1 ? true : false;
-		Debug.Log(gamble);
-		itemPolaroid.transform.GetChild(2).gameObject.SetActive(gamble);
 	}
 
 	/// Increases light intensity on object - CameraFlash
@@ -215,11 +215,11 @@ public class PhotoCapture:NetworkBehaviour {
 	/// <param name="rot">rot is a random rotation</param>
 	/// <param name="pictureBytes">pictureBytes is the screenshot encrypted as a jpg byte array</param>
 	[ServerRpc]
-	private void SpawnPolaroidServerRpc(Vector3 pos, Quaternion rot, byte[] pictureBytes) {
+	private void SpawnPolaroidServerRpc(Vector3 pos, Quaternion rot, byte[] pictureBytes, bool gambled) {
 		GameObject newPolaroid = Instantiate(itemPolaroid, pos, rot);
 		newPolaroid.GetComponent<NetworkObject>().Spawn();
 		NetworkObjectReference newPol = newPolaroid;
-		ShowPictureClientRpc(newPol, pictureBytes);
+		ShowPictureClientRpc(newPol, pictureBytes, gambled);
 	}
 
 	/// <summary>
@@ -238,11 +238,12 @@ public class PhotoCapture:NetworkBehaviour {
 	/// <param name="polaroid">polaroid refers to the newly spawned polaroid item</param>
 	/// <param name="pictureBytes">pictureBytes is the screenshot encrypted as a jpg byte array</param>
 	[ClientRpc]
-	private void ShowPictureClientRpc(NetworkObjectReference polaroid, byte[] pictureBytes) {
+	private void ShowPictureClientRpc(NetworkObjectReference polaroid, byte[] pictureBytes, bool gambled) {
 		Texture2D pictureTexture = new(2, 2);
 		pictureTexture.LoadImage(pictureBytes);
 		Sprite pictureSprite = Sprite.Create(pictureTexture, new Rect(0, 0, pictureTexture.width, pictureTexture.height), new Vector2(0, 0), 50);
 		NetworkObject newPolaroid = polaroid;
 		newPolaroid.transform.GetChild(1).GetChild(0).GetChild(0).GetChild(1).gameObject.GetComponent<Image>().sprite = pictureSprite;
+		newPolaroid.transform.GetChild(2).gameObject.SetActive(gambled);
 	}
 }
