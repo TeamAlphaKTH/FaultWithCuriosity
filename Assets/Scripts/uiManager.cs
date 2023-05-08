@@ -31,7 +31,7 @@ public class uiManager : NetworkBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (Flashlight.currentParanoia >= 100 && !isDowned)
+		if (Flashlight.currentParanoia >= 100 && !isDowned && !isGameOver)
 		{
 			FirstPersonController.CanMove = false;
 			isDowned = true;
