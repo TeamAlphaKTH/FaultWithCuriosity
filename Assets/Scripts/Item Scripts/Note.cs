@@ -23,7 +23,7 @@ public class Note:MonoBehaviour, IInteractable {
 		if(transform.parent.parent != null) {
 			codeText.text = "CODE: \n " + door.code.Value;
 		} else {
-			codeText.text = null;
+			codeText.text = noteUI.GetComponentInChildren<TMP_Text>().text;
 		}
 
 		// Activate the note UI and disable movement and camera. 
