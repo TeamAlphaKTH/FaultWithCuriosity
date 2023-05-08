@@ -11,13 +11,13 @@ public class keypadScript:MonoBehaviour, IInteractable {
 	public bool tester = false;
 	public float MaxRange { get { return maxRange; } }
 	private const float maxRange = 100f;
+
 	public void OnEndHover() {
 		itemText.text = "";
 	}
 
 	public void OnInteract() {
 		UseKeypad();
-		Debug.Log(door.code.Value);
 	}
 
 	public void OnStartHover() {
@@ -40,7 +40,6 @@ public class keypadScript:MonoBehaviour, IInteractable {
 	}
 	private void UseKeypad() {
 		ShowKeypadUI();
-		itemText.text = door.code.Value.ToString();
 		answer = codeLockUI.transform.GetChild(0).GetChild(0).GetComponentInChildren<TMP_Text>();
 	}
 
