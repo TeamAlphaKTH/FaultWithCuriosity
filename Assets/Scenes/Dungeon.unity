@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 0
+  m_AmbientIntensity: 2.02
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.4528302, g: 0.38189963, b: 0.34389463, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -162,6 +162,72 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 9096330717226512772, guid: 14b0f22ea27021444aed1b71680f5565, type: 3}
   m_PrefabInstance: {fileID: 1663065274}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &136068394
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2750477929319447963}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 31.331
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 13.569
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -14.343
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.24076404
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0042204806
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.97034746
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.020993128
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -2.451
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -152.128
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+      propertyPath: m_Name
+      value: Winning Ladder (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+--- !u!4 &136068395 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+  m_PrefabInstance: {fileID: 136068394}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &167612203
 PrefabInstance:
@@ -1344,36 +1410,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7388260360337552571, guid: 5017c3086b227f146b7aa029c32eccd5, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7388260360337552571, guid: 5017c3086b227f146b7aa029c32eccd5, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7388260360337552571, guid: 5017c3086b227f146b7aa029c32eccd5, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7388260360337552571, guid: 5017c3086b227f146b7aa029c32eccd5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.076
-      objectReference: {fileID: 0}
-    - target: {fileID: 7388260360337552571, guid: 5017c3086b227f146b7aa029c32eccd5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7388260360337552571, guid: 5017c3086b227f146b7aa029c32eccd5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.89
-      objectReference: {fileID: 0}
     - target: {fileID: 7991620721908844788, guid: 5017c3086b227f146b7aa029c32eccd5, type: 3}
       propertyPath: m_Name
       value: Winning Ladder
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5489173868551120187, guid: 5017c3086b227f146b7aa029c32eccd5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 136068395}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5017c3086b227f146b7aa029c32eccd5, type: 3}
+--- !u!4 &2750477929319447963 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5489173868551120187, guid: 5017c3086b227f146b7aa029c32eccd5, type: 3}
+  m_PrefabInstance: {fileID: 2750477929319447962}
+  m_PrefabAsset: {fileID: 0}
