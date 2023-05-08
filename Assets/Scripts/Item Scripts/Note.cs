@@ -7,13 +7,17 @@ public class Note:MonoBehaviour, IInteractable {
 
     private TextMeshProUGUI itemText;
     private GameObject itemUI;
+    [SerializeField] private GameObject noteUI;
+    [SerializeField] private Canvas canvas;
+    private bool isOn = false;
 
     public void OnEndHover() {
         itemText.text = "";
     }
 
     public void OnInteract() {
-
+        isOn = !isOn;
+        noteUI.SetActive(true);
     }
 
     public void OnStartHover() {
@@ -24,5 +28,12 @@ public class Note:MonoBehaviour, IInteractable {
     void Start() {
         itemUI = GameObject.Find("ItemUI");
         itemText = itemUI.GetComponentInChildren<TextMeshProUGUI>();
+
+        canvas = transform.parent.GetChild(1).GetComponentInChildren<Canvas>();
+    }
+    void Update() {
+        if(isOn && Input.GetKeyDown(KeyCode.Escape)) {
+            noteUI.SetActive(false);
+        }
     }
 }
