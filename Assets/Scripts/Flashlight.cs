@@ -31,6 +31,9 @@ public class Flashlight:NetworkBehaviour {
 	[SerializeField] public float currentParanoia;
 	[SerializeField] private Slider paranoiaSlider;
 	[SerializeField] public bool isDead = false;
+
+	[SerializeField] private float timer = 30.0f;
+	private float timeElapsed = 0;
 	public override void OnNetworkSpawn() {
 		if(!IsOwner) { return; }
 
@@ -51,6 +54,7 @@ public class Flashlight:NetworkBehaviour {
 
 
 		this.paranoiaSlider.value = 0f;
+
 	}
 
 	void Start() {
@@ -61,10 +65,16 @@ public class Flashlight:NetworkBehaviour {
 		if(!IsOwner) { return; }
 
 		if(isDead) {
+			timeElapsed += Time.deltaTime;
+			if(timeElapsed >= timer) {
+				GameOverServerRpc();
+			}
+			EnemyController.ScareTeleport(transform.position);
 			FirstPersonController.CanMove = false;
 			CameraMovement.CanRotate = false;
 			canUseFlashlight = false;
 		} else {
+			timeElapsed = 0;
 			FirstPersonController.CanMove = true;
 			CameraMovement.CanRotate = true;
 			canUseFlashlight = true;
@@ -144,7 +154,6 @@ public class Flashlight:NetworkBehaviour {
 
 		if(currentParanoia >= 100) {
 			IsDeadServerRpc(true);
-			//Debug.Log("Dead");
 		}
 
 		batteryText.SetText(batteryLevel.ToString("F0"));
@@ -169,6 +178,11 @@ public class Flashlight:NetworkBehaviour {
 	public void IsDeadServerRpc(bool state) {
 		IsDeadClientRpc(state);
 	}
+
+	[ServerRpc(RequireOwnership = false)]
+	private void GameOverServerRpc() {
+		GameOverClientRpc();
+	}
 	[ClientRpc]
 	public void IsDeadClientRpc(bool state) {
 		isDead = state;
@@ -179,7 +193,10 @@ public class Flashlight:NetworkBehaviour {
 	}
 	[ClientRpc]
 	public void HealClientRpc() {
-		currentParanoia = 80;
+		currentParanoia = 60;
 	}
-
+	[ClientRpc]
+	private void GameOverClientRpc() {
+		NetworkManager.SceneManager.LoadScene("MainMenu", UnityEngine.SceneManagement.LoadSceneMode.Single);
+	}
 }
