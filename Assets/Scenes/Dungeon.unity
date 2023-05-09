@@ -1739,6 +1739,34 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 1122278792
       objectReference: {fileID: 0}
+    - target: {fileID: 6664021369075570775, guid: f68e8c0723be5874eb76722cef3918a4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664021369075570775, guid: f68e8c0723be5874eb76722cef3918a4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664021369075570775, guid: f68e8c0723be5874eb76722cef3918a4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 9200381620581726161, guid: b30b71d7a9fe69047a6731dc71eb2398, type: 3}
+    - target: {fileID: 6664021369075570775, guid: f68e8c0723be5874eb76722cef3918a4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664021369075570775, guid: f68e8c0723be5874eb76722cef3918a4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: HealSelf
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664021369075570775, guid: f68e8c0723be5874eb76722cef3918a4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Flashlight, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664021369075570775, guid: f68e8c0723be5874eb76722cef3918a4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

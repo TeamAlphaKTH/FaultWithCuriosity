@@ -12,24 +12,24 @@ public class HealPlayer:MonoBehaviour, IInteractable {
 	}
 
 	public void OnInteract() {
-		if(flashlight.isDead) {
-			CameraMovement.CanRotate = true;
-			FirstPersonController.CanMove = true;
-			PhotoCapture.canUseCamera = true;
-			Inventory.canOpenInventory = true;
-			itemText.text = "";
+		if(flashlight.isDead && Inventory.drugNr > 0) {
 			flashlight.SetDeadServerRpc(false);
-			flashlight.HealClientRpc();
+			flashlight.HealServerRpc();
+			Inventory.drugNr--;
+			OnEndHover();
 		}
+
 	}
 
 	public void OnStartHover() {
-		if(flashlight.isDead) {
+		if(flashlight.isDead && Inventory.drugNr > 0) {
 			itemText.text = "Press " + CameraMovement.interactKey + " to revive";
+		} else if(flashlight.isDead) {
+			itemText.text = "Get pills to revive";
 		} else {
 			itemText.text = "";
-			OnStartHover();
 		}
+
 	}
 
 	private void Start() {

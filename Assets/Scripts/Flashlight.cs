@@ -33,7 +33,7 @@ public class Flashlight:NetworkBehaviour {
 
 	[Header("Paranoia parameters")]
 	[SerializeField] private float paranoiaIncrements = 1.5f;
-	[SerializeField] public static float currentParanoia;
+	[SerializeField] public float currentParanoia;
 	[SerializeField] private Slider paranoiaSlider;
 
 	public override void OnNetworkSpawn() {
@@ -80,7 +80,13 @@ public class Flashlight:NetworkBehaviour {
 			if(currentTime >= timer) {
 				GameOverServerRpc();
 			}
-		} else { currentTime = 0; }
+		} else {
+			currentTime = 0;
+			if(itemText.text.Equals("You are DEAD!!"))
+				itemText.text = "";
+		}
+
+
 	}
 
 	private void FlashlightControl() {
@@ -163,9 +169,22 @@ public class Flashlight:NetworkBehaviour {
 		ChangeLightIntensityServerRpc(randomIntensity);
 	}
 
+	public void HealSelf() {
+		Flashlight dis = NetworkManager.LocalClient.PlayerObject.GetComponent<Flashlight>();
+		dis.currentParanoia = dis.currentParanoia <= 20 ? 0 : dis.currentParanoia -= 20;
+	}
+
+	[ServerRpc(RequireOwnership = false)]
+	public void HealServerRpc() {
+		HealClientRpc();
+	}
 	[ClientRpc]
 	public void HealClientRpc() {
 		currentParanoia = 60;
+		CameraMovement.CanRotate = true;
+		FirstPersonController.CanMove = true;
+		PhotoCapture.canUseCamera = true;
+		Inventory.canOpenInventory = true;
 	}
 	[ClientRpc]
 	private void ChangeIntensityClientRpc(float newIntensity) {

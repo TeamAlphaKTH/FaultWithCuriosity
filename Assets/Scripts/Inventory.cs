@@ -78,7 +78,7 @@ public class Inventory:MonoBehaviour {
 		drugNr = int.Parse(drugText.text);
 		if(drugNr > 0) {
 			drugNr--;
-			Flashlight.currentParanoia = Flashlight.currentParanoia <= 20 ? 0 : Flashlight.currentParanoia -= 20;
+			//	Flashlight.currentParanoia = Flashlight.currentParanoia <= 20 ? 0 : Flashlight.currentParanoia -= 20;
 		}
 	}
 	/// <summary>
