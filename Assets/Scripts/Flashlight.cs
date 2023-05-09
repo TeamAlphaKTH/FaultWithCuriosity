@@ -162,6 +162,9 @@ public class Flashlight:NetworkBehaviour {
 		float randomIntensity = Random.Range(maxIntensity * 0.1f, maxIntensity * 1.1f);
 		ChangeLightIntensityServerRpc(randomIntensity);
 	}
+	public void Heal() {
+		currentParanoia = 60;
+	}
 
 	[ClientRpc]
 	private void ChangeIntensityClientRpc(float newIntensity) {

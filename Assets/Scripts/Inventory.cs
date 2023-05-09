@@ -35,6 +35,11 @@ public class Inventory:MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
+		if(inventoryOpen && !canOpenInventory) {
+			inventory.SetActive(false);
+			inventoryOpen = false;
+			Cursor.lockState = CursorLockMode.Locked;
+		}
 		//Keeps number of pills and batteries in the inventory up to date.
 		drugText.text = drugNr.ToString();
 		batteryText.text = batteryNr.ToString();
