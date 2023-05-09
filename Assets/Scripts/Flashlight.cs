@@ -7,6 +7,10 @@ public class Flashlight:NetworkBehaviour {
 	[Header("Networking")]
 	private GameObject cam;
 
+	[Header("UIText")]
+	private TextMeshProUGUI itemText;
+	private GameObject itemUI;
+
 	[Header("Flashlight Parameters")]
 	[SerializeField] private Light flashlightLight;
 	[SerializeField] private KeyCode flashlightKey = KeyCode.F;
@@ -49,6 +53,8 @@ public class Flashlight:NetworkBehaviour {
 		currentParanoia = 0;
 		this.maxIntensity = flashlightLight.intensity;
 		this.paranoiaSlider.value = 0f;
+		itemUI = GameObject.Find("ItemUI");
+		itemText = itemUI.GetComponentInChildren<TextMeshProUGUI>();
 	}
 
 	void Start() {
@@ -67,7 +73,9 @@ public class Flashlight:NetworkBehaviour {
 			FirstPersonController.CanMove = false;
 			CameraMovement.CanRotate = false;
 			canUseFlashlight = false;
+			itemText.text = "You are dead!!";
 		} else {
+			itemText.text = "";
 			timeElapsed = 0;
 			FirstPersonController.CanMove = true;
 			if(!Inventory.inventoryOpen) {
