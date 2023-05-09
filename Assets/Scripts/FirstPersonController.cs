@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class FirstPersonController:NetworkBehaviour {
@@ -349,7 +350,6 @@ public class FirstPersonController:NetworkBehaviour {
 
 			//Handles movement on "Ladder"
 			if(Input.GetAxis("Vertical") > 0) {
-				Debug.Log(Input.GetAxis("Vertical"));
 				moveDirection = (transform.TransformDirection(Vector3.up) * climbSpeed);
 				characterController.Move(moveDirection * Time.deltaTime);
 			} else if(Input.GetAxis("Vertical") < 0) {
@@ -445,5 +445,18 @@ public class FirstPersonController:NetworkBehaviour {
 			CanMove = true;
 			gravity = oldGravity;
 		}
+	}
+
+	private void OnTriggerEnter(Collider winningHitbox) {
+		if(winningHitbox.CompareTag("Win"))
+			winServerRpc();
+	}
+	[ServerRpc(RequireOwnership = false)]
+	private void winServerRpc() {
+		winClientRpc();
+	}
+	[ClientRpc]
+	private void winClientRpc() {
+		NetworkManager.SceneManager.LoadScene("Credits", LoadSceneMode.Single);
 	}
 }

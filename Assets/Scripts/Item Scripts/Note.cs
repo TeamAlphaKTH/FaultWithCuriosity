@@ -13,6 +13,9 @@ public class Note:MonoBehaviour, IInteractable {
 	public Door door;
 	public keypadScript keypadScript;
 
+	// Change this to false if you want to use a note without a code lock.
+	[SerializeField] private bool isCodeLock = true;
+
 	public void OnEndHover() {
 		itemText.text = "";
 	}
@@ -20,7 +23,11 @@ public class Note:MonoBehaviour, IInteractable {
 	public void OnInteract() {
 		itemText.text = "";
 		// Set the code text to the code of the door
-		codeText.text = "CODE: \n " + door.code.Value;
+		if(isCodeLock) {
+			codeText.text = "CODE: \n " + door.code.Value;
+		} else {
+			codeText.text = noteUI.GetComponentInChildren<TMP_Text>().text;
+		}
 
 		// Activate the note UI and disable movement and camera. 
 		isOn = !isOn;
@@ -38,14 +45,15 @@ public class Note:MonoBehaviour, IInteractable {
 	// Start is called before the first frame update
 	void Start() {
 		// Get door component.
-		door = transform.parent.parent.GetChild(1).GetChild(0).GetComponent<Door>();
+		if(isCodeLock) {
+			door = transform.parent.parent.GetChild(1).GetChild(0).GetComponent<Door>();
+		}
 
 		itemUI = GameObject.Find("ItemUI");
 		itemText = itemUI.GetComponentInChildren<TextMeshProUGUI>();
 
 		noteUI = transform.parent.GetChild(1).GetComponent<Canvas>().gameObject;
 		codeText = noteUI.GetComponentInChildren<TMP_Text>();
-
 	}
 	void Update() {
 		if(isOn && Input.GetKeyDown(KeyCode.Escape)) {
