@@ -11,6 +11,8 @@ public class Flashlight:NetworkBehaviour {
 	private GameObject itemUI;
 	[SerializeField] private float timer = 30f;
 	private float currentTime = 0;
+	[SerializeField] private string endText = "You fainted due to high paranoia levels!!";
+	[SerializeField] private float reviveHP = 40;
 
 	[Header("Flashlight Parameters")]
 	[SerializeField] private Light flashlightLight;
@@ -75,7 +77,7 @@ public class Flashlight:NetworkBehaviour {
 			FirstPersonController.CanMove = false;
 			PhotoCapture.canUseCamera = false;
 			Inventory.canOpenInventory = false;
-			itemText.text = "You are DEAD!!";
+			itemText.text = endText;
 			currentTime += Time.deltaTime;
 			EnemyController.ScareTeleport(transform.position);
 			if(currentTime >= timer) {
@@ -83,7 +85,7 @@ public class Flashlight:NetworkBehaviour {
 			}
 		} else {
 			currentTime = 0;
-			if(itemText.text.Equals("You are DEAD!!"))
+			if(itemText.text.Equals(endText))
 				itemText.text = "";
 		}
 
@@ -181,7 +183,7 @@ public class Flashlight:NetworkBehaviour {
 	}
 	[ClientRpc]
 	public void HealClientRpc() {
-		currentParanoia = 60;
+		currentParanoia = 100 - reviveHP;
 		CameraMovement.CanRotate = true;
 		FirstPersonController.CanMove = true;
 		PhotoCapture.canUseCamera = true;
