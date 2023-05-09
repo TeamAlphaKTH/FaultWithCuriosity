@@ -6,6 +6,11 @@ using UnityEngine.UI;
 public class Flashlight:NetworkBehaviour {
 	[Header("Networking")]
 	private GameObject cam;
+	[SerializeField] public bool isDead;
+	private TextMeshProUGUI itemText;
+	private GameObject itemUI;
+	[SerializeField] private float timer = 30f;
+	private float currentTime = 0;
 
 	[Header("Flashlight Parameters")]
 	[SerializeField] private Light flashlightLight;
@@ -55,6 +60,8 @@ public class Flashlight:NetworkBehaviour {
 
 	void Start() {
 		if(!IsOwner) { return; }
+		itemUI = GameObject.Find("ItemUI");
+		itemText = itemUI.GetComponentInChildren<TextMeshProUGUI>();
 	}
 
 	void Update() {
@@ -63,6 +70,17 @@ public class Flashlight:NetworkBehaviour {
 		if(canUseFlashlight) {
 			FlashlightControl();
 		}
+		if(isDead) {
+			CameraMovement.CanRotate = false;
+			FirstPersonController.CanMove = false;
+			PhotoCapture.canUseCamera = false;
+			Inventory.canOpenInventory = false;
+			itemText.text = "You are DEAD!!";
+			currentTime += Time.deltaTime;
+			if(currentTime >= timer) {
+				GameOverServerRpc();
+			}
+		} else { currentTime = 0; }
 	}
 
 	private void FlashlightControl() {
@@ -133,7 +151,7 @@ public class Flashlight:NetworkBehaviour {
 		}
 
 		if(currentParanoia >= 100) {
-			Debug.Log("Dead");
+			SetDeadServerRpc(true);
 		}
 
 		batteryText.SetText(batteryLevel.ToString("F0"));
@@ -152,5 +170,21 @@ public class Flashlight:NetworkBehaviour {
 	[ServerRpc]
 	public void ChangeLightIntensityServerRpc(float newIntensity) {
 		ChangeIntensityClientRpc(newIntensity);
+	}
+	[ServerRpc(RequireOwnership = false)]
+	public void SetDeadServerRpc(bool state) {
+		SetDeadClientRpc(state);
+	}
+	[ClientRpc]
+	public void SetDeadClientRpc(bool state) {
+		isDead = state;
+	}
+	[ServerRpc(RequireOwnership = false)]
+	public void GameOverServerRpc() {
+		GameOverClientRpc();
+	}
+	[ClientRpc]
+	public void GameOverClientRpc() {
+		NetworkManager.SceneManager.LoadScene("MainMenu", UnityEngine.SceneManagement.LoadSceneMode.Single);
 	}
 }

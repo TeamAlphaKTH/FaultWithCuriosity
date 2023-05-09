@@ -25,6 +25,7 @@ public class Inventory:MonoBehaviour {
 	public static bool inventoryOpen = false;
 	public static List<int> keyIds = new();
 
+	public static bool canOpenInventory = true;
 	private void Start() {
 		//Initializes sliders
 		flashlightSlider.value = Flashlight.batteryLevel;
@@ -43,7 +44,7 @@ public class Inventory:MonoBehaviour {
 		cameraSlider.value = PhotoCapture.charges;
 
 		//Toggles inventory on and off, this also toggles cameramovement action camera and the cursor.
-		if(Input.GetKeyDown(FirstPersonController.openInventory) && !PauseMenu.paused && !PauseMenu.pausedClient) {
+		if(Input.GetKeyDown(FirstPersonController.openInventory) && !PauseMenu.paused && !PauseMenu.pausedClient && canOpenInventory) {
 			switch(inventory.activeSelf) {
 				case true:
 				inventory.SetActive(false);
