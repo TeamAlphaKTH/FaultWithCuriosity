@@ -1,8 +1,7 @@
 using TMPro;
-using Unity.Netcode;
 using UnityEngine;
 
-public class HealPlayer:NetworkBehaviour, IInteractable {
+public class HealPlayer:MonoBehaviour, IInteractable {
 	private TextMeshProUGUI itemText;
 	private GameObject itemUI;
 	private Flashlight flashlight;
@@ -20,7 +19,7 @@ public class HealPlayer:NetworkBehaviour, IInteractable {
 			Inventory.canOpenInventory = true;
 			itemText.text = "";
 			flashlight.SetDeadServerRpc(false);
-			flashlight.Heal();
+			flashlight.HealClientRpc();
 		}
 	}
 
@@ -36,6 +35,6 @@ public class HealPlayer:NetworkBehaviour, IInteractable {
 	private void Start() {
 		itemUI = GameObject.Find("ItemUI");
 		itemText = itemUI.GetComponentInChildren<TextMeshProUGUI>();
-		flashlight = NetworkManager.LocalClient.PlayerObject.GetComponent<Flashlight>();
+		flashlight = GetComponent<Flashlight>();
 	}
 }
