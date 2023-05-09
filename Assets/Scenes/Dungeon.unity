@@ -543,7 +543,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 169188426730344709, guid: cdb0bf31d6801d14c91c5ab393b06461, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 169188426730344709, guid: cdb0bf31d6801d14c91c5ab393b06461, type: 3}
       propertyPath: m_LocalPosition.x
@@ -769,6 +769,71 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 041de761d85d3f744ba662cd0929d05a, type: 3}
+--- !u!1001 &892765088
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8838721792285138901, guid: 43af071bec562b642a28a806bc7c20dd, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2530091667
+      objectReference: {fileID: 0}
+    - target: {fileID: 2642369068206752935, guid: 43af071bec562b642a28a806bc7c20dd, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2642369068206752935, guid: 43af071bec562b642a28a806bc7c20dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.3887706
+      objectReference: {fileID: 0}
+    - target: {fileID: 2642369068206752935, guid: 43af071bec562b642a28a806bc7c20dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.20063782
+      objectReference: {fileID: 0}
+    - target: {fileID: 2642369068206752935, guid: 43af071bec562b642a28a806bc7c20dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.837042
+      objectReference: {fileID: 0}
+    - target: {fileID: 2642369068206752935, guid: 43af071bec562b642a28a806bc7c20dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2642369068206752935, guid: 43af071bec562b642a28a806bc7c20dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2642369068206752935, guid: 43af071bec562b642a28a806bc7c20dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2642369068206752935, guid: 43af071bec562b642a28a806bc7c20dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2642369068206752935, guid: 43af071bec562b642a28a806bc7c20dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2642369068206752935, guid: 43af071bec562b642a28a806bc7c20dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2642369068206752935, guid: 43af071bec562b642a28a806bc7c20dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8089285298227710101, guid: 43af071bec562b642a28a806bc7c20dd, type: 3}
+      propertyPath: m_Name
+      value: Pills
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 43af071bec562b642a28a806bc7c20dd, type: 3}
 --- !u!4 &893997617 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9096330717226512772, guid: 14b0f22ea27021444aed1b71680f5565, type: 3}
@@ -1375,7 +1440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5021016635839243343, guid: 00267a28b70a99140a8a6b27c37c9e4f, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5021016635839243343, guid: 00267a28b70a99140a8a6b27c37c9e4f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1555,6 +1620,41 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f296d39375d3224e864793043b541ab, type: 3}
+--- !u!1 &2054425282 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8904517933998072924, guid: f68e8c0723be5874eb76722cef3918a4, type: 3}
+  m_PrefabInstance: {fileID: 662994948974466356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2054425288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054425282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2868483010
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &2054425289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054425282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1500fbf1a8def6409ef9b1945e27e5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pills: {fileID: 8089285298227710101, guid: 43af071bec562b642a28a806bc7c20dd, type: 3}
+  batteries: {fileID: 6279387176689119369, guid: d2f80818a0aa4f54e93d10c70f4ce8b0, type: 3}
 --- !u!1001 &662994948974466356
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1642,7 +1742,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8904517933998072924, guid: f68e8c0723be5874eb76722cef3918a4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2054425289}
+    - targetCorrespondingSourceObject: {fileID: 8904517933998072924, guid: f68e8c0723be5874eb76722cef3918a4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2054425288}
   m_SourcePrefab: {fileID: 100100000, guid: f68e8c0723be5874eb76722cef3918a4, type: 3}
 --- !u!1001 &2750477929319447962
 PrefabInstance:
