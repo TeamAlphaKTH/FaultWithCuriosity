@@ -43,6 +43,13 @@ public class Door:NetworkBehaviour, IInteractable {
 	}
 
 	public void OnStartHover() {
+		// used for the hidden room in puzzle 6
+		if(keyId == 999) {
+			if(!locked) {
+				itemText.text = "Press " + CameraMovement.interactKey + " to use door";
+			}
+			return;
+		}
 		if(locked && Inventory.keyIds.Contains(keyId)) {
 			itemText.text = "Press " + CameraMovement.interactKey + " to unlock the door";
 		} else if(codeLockDoor || locked) {
