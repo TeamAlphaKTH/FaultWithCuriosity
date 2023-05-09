@@ -93,7 +93,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 20a9f88781215f045990a4c5c0084ec8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -383,7 +383,7 @@ Transform:
   - {fileID: 878827035409960206}
   - {fileID: 7388260360337552571}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &123644698172464634
 PrefabInstance:
@@ -437,6 +437,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7d8944326f2f664baa9ab28a4ac37c3, type: 2}
     - target: {fileID: 919132149155446097, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
       propertyPath: m_Name
       value: North Ladder
@@ -581,6 +585,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7d8944326f2f664baa9ab28a4ac37c3, type: 2}
     - target: {fileID: 919132149155446097, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
       propertyPath: m_Name
       value: Winning Ladder
@@ -647,6 +655,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7d8944326f2f664baa9ab28a4ac37c3, type: 2}
     - target: {fileID: 919132149155446097, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
       propertyPath: m_Name
       value: Winning Ladder
@@ -713,6 +725,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7d8944326f2f664baa9ab28a4ac37c3, type: 2}
     - target: {fileID: 919132149155446097, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
       propertyPath: m_Name
       value: Winning Ladder
@@ -779,6 +795,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7d8944326f2f664baa9ab28a4ac37c3, type: 2}
     - target: {fileID: 919132149155446097, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
       propertyPath: m_Name
       value: Winning Ladder
@@ -845,6 +865,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.146
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7d8944326f2f664baa9ab28a4ac37c3, type: 2}
     - target: {fileID: 919132149155446097, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
       propertyPath: m_Name
       value: Winning Ladder
@@ -911,6 +935,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.11
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7d8944326f2f664baa9ab28a4ac37c3, type: 2}
     - target: {fileID: 919132149155446097, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
       propertyPath: m_Name
       value: Winning Ladder (2)
@@ -977,6 +1005,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7d8944326f2f664baa9ab28a4ac37c3, type: 2}
     - target: {fileID: 919132149155446097, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
       propertyPath: m_Name
       value: Winning Ladder
@@ -1043,6 +1075,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.157
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7d8944326f2f664baa9ab28a4ac37c3, type: 2}
     - target: {fileID: 919132149155446097, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
       propertyPath: m_Name
       value: Winning Ladder
@@ -1109,6 +1145,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.157
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7d8944326f2f664baa9ab28a4ac37c3, type: 2}
     - target: {fileID: 919132149155446097, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
       propertyPath: m_Name
       value: Winning Ladder
@@ -1175,6 +1215,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7d8944326f2f664baa9ab28a4ac37c3, type: 2}
     - target: {fileID: 919132149155446097, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
       propertyPath: m_Name
       value: Winning Ladder
@@ -1241,6 +1285,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7d8944326f2f664baa9ab28a4ac37c3, type: 2}
     - target: {fileID: 919132149155446097, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
       propertyPath: m_Name
       value: Winning Ladder
@@ -1307,6 +1355,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.11
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7d8944326f2f664baa9ab28a4ac37c3, type: 2}
     - target: {fileID: 919132149155446097, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
       propertyPath: m_Name
       value: Winning Ladder (1)
