@@ -10,7 +10,6 @@ public class Inventory:NetworkBehaviour {
 	[SerializeField] private GameObject inventory;
 	[SerializeField] private GameObject battery;
 	[SerializeField] private GameObject pills;
-	[SerializeField] private GameObject player;
 
 	[Header("Inventory texts")]
 	[SerializeField] private TextMeshProUGUI batteryText;
@@ -30,12 +29,16 @@ public class Inventory:NetworkBehaviour {
 	private void Start() {
 		//Initializes sliders
 		cameraSlider.value = PhotoCapture.charges;
-		Flashlight = player.GetComponent<Flashlight>();
 	}
 
 	// Update is called once per frame
 	void Update() {
-
+		if(!IsOwner)
+			return;
+		if(Flashlight == null && NetworkManager.LocalClient.PlayerObject.gameObject.GetComponent<Flashlight>() != null) {
+			Flashlight = NetworkManager.LocalClient.PlayerObject.gameObject.GetComponent<Flashlight>();
+		} else if(Flashlight == null)
+			return;
 		if(Flashlight.isDead) {
 			inventory.SetActive(false);
 			inventoryOpen = false;
@@ -114,7 +117,6 @@ public class Inventory:NetworkBehaviour {
 	}
 	//DropBattery spawns in the prefab "battery" at the players position and decrements the number of batteries seen in the inventory by 1.
 	public void DropBattery() {
-		Debug.Log("isrunning");
 		batteryNr = int.Parse(batteryText.text);
 		if(batteryNr > 0) {
 			batteryNr--;
