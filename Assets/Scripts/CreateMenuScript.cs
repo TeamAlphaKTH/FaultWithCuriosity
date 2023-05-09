@@ -10,14 +10,14 @@ using UnityEngine.UI;
 
 public class CreateButtonScript:NetworkBehaviour {
 
-	private TMP_InputField portnumberInput;
+	private TMP_InputField portInput;
 	private Button btn;
 	private bool wrongFormat = false;
 	private string localIp;
 	private ushort port;
 
 	private void Start() {
-		portnumberInput = GameObject.Find("/Main Menu/CreateGameMenu").GetComponentInChildren<TMP_InputField>();
+		portInput = GameObject.Find("/Main Menu/CreateGameMenu").GetComponentInChildren<TMP_InputField>();
 		btn = GameObject.Find("/Main Menu/CreateGameMenu").GetComponentInChildren<Button>();
 		btn.onClick.AddListener(() => {
 			OnButtonPress();
@@ -26,20 +26,21 @@ public class CreateButtonScript:NetworkBehaviour {
 	public void OnButtonPress() {
 		//Find local ips using the [port]
 		localIp = GetLocalIpadress();
-		port = 0;
+		port = 7777;
 
 		//Parse the port text into a ushort 
-		try {
-			port = ushort.Parse(portnumberInput.text);
-			if(port < 0 || port > 65535) {
-				port = 7777;
-				portnumberInput.text = localIp + ":" + port;
+		if(portInput.text != "") {
+			try {
+				port = ushort.Parse(portInput.text);
+				if(port < 0 || port > 65535) {
+					port = 7777;
+				}
+			} catch(FormatException) {
+				Debug.Log("Portnumber format error. Default to 7777");
+				return;
 			}
-		} catch(FormatException) {
-			Debug.Log("Portnumber cannot contain any letters");
-			return;
 		}
-		portnumberInput.text = localIp + ":" + port;
+		portInput.text = localIp + ":" + port;
 
 		//Logic for when port is correct
 		if(!wrongFormat) {
