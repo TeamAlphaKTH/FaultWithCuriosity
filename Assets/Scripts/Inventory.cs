@@ -107,7 +107,6 @@ public class Inventory:MonoBehaviour {
 	}
 	//DropBattery spawns in the prefab "battery" at the players position and decrements the number of batteries seen in the inventory by 1.
 	public void DropBattery() {
-		Debug.Log("isrunning");
 		batteryNr = int.Parse(batteryText.text);
 		if(batteryNr > 0) {
 			batteryNr--;
