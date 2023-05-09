@@ -25,7 +25,7 @@ public class EnemyController:MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 
-		currentParanoia = Flashlight.currentParanoia;
+		currentParanoia = player.gameObject.GetComponent<Flashlight>().currentParanoia;
 
 		//Get the current paranoia 10s for distance
 		int paranoiaDistance = 101 - (int)Math.Floor(currentParanoia);
@@ -47,7 +47,7 @@ public class EnemyController:MonoBehaviour {
 	/// </summary>
 	private void DealDamage() {
 		if(distanceToPlayer < damageDistance && currentParanoia < 100) {
-			Flashlight.currentParanoia += (damageDistance - distanceToPlayer) * damageMultiplier;
+			player.gameObject.GetComponent<Flashlight>().currentParanoia += (damageDistance - distanceToPlayer) * damageMultiplier;
 		}
 	}
 

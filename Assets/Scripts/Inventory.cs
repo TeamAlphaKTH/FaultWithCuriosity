@@ -9,6 +9,7 @@ public class Inventory:MonoBehaviour {
 	[SerializeField] private GameObject inventory;
 	[SerializeField] private GameObject battery;
 	[SerializeField] private GameObject pills;
+	[SerializeField] private Spawner spawner;
 
 	[Header("Inventory texts")]
 	[SerializeField] private TextMeshProUGUI batteryText;
@@ -24,14 +25,21 @@ public class Inventory:MonoBehaviour {
 	public static bool inventoryOpen = false;
 	public static List<int> keyIds = new();
 
+	public static bool canOpenInventory = true;
 	private void Start() {
 		//Initializes sliders
 		flashlightSlider.value = Flashlight.batteryLevel;
 		cameraSlider.value = PhotoCapture.charges;
+		spawner = GetComponent<Spawner>();
 	}
 
 	// Update is called once per frame
 	void Update() {
+		if(inventoryOpen && !canOpenInventory) {
+			inventory.SetActive(false);
+			inventoryOpen = false;
+			Cursor.lockState = CursorLockMode.Locked;
+		}
 		//Keeps number of pills and batteries in the inventory up to date.
 		drugText.text = drugNr.ToString();
 		batteryText.text = batteryNr.ToString();
@@ -41,7 +49,7 @@ public class Inventory:MonoBehaviour {
 		cameraSlider.value = PhotoCapture.charges;
 
 		//Toggles inventory on and off, this also toggles cameramovement action camera and the cursor.
-		if(Input.GetKeyDown(FirstPersonController.openInventory) && !PauseMenu.paused && !PauseMenu.pausedClient) {
+		if(Input.GetKeyDown(FirstPersonController.openInventory) && !PauseMenu.paused && !PauseMenu.pausedClient && canOpenInventory) {
 			switch(inventory.activeSelf) {
 				case true:
 				inventory.SetActive(false);
@@ -70,7 +78,6 @@ public class Inventory:MonoBehaviour {
 		drugNr = int.Parse(drugText.text);
 		if(drugNr > 0) {
 			drugNr--;
-			Flashlight.currentParanoia = Flashlight.currentParanoia <= 20 ? 0 : Flashlight.currentParanoia -= 20;
 		}
 	}
 	/// <summary>
@@ -80,7 +87,7 @@ public class Inventory:MonoBehaviour {
 		drugNr = int.Parse(drugText.text);
 		if(drugNr > 0) {
 			drugNr--;
-			Instantiate(pills, FirstPersonController.characterController.transform.position + new Vector3(0, 1, 0.2f), Quaternion.identity);
+			spawner.SpawnPillServerRpc(FirstPersonController.characterController.transform.position + new Vector3(0, 1, 0.2f));
 		}
 	}
 	/// <summary>
@@ -105,11 +112,10 @@ public class Inventory:MonoBehaviour {
 	}
 	//DropBattery spawns in the prefab "battery" at the players position and decrements the number of batteries seen in the inventory by 1.
 	public void DropBattery() {
-		Debug.Log("isrunning");
 		batteryNr = int.Parse(batteryText.text);
 		if(batteryNr > 0) {
 			batteryNr--;
-			Instantiate(battery, FirstPersonController.characterController.transform.position + new Vector3(0, 1, 0.2f), Quaternion.identity);
+			spawner.SpawnBatteryServerRpc(FirstPersonController.characterController.transform.position + new Vector3(0, 1, 0.2f));
 		}
 	}
 }

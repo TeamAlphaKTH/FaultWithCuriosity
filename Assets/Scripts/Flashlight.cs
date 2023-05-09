@@ -6,6 +6,13 @@ using UnityEngine.UI;
 public class Flashlight:NetworkBehaviour {
 	[Header("Networking")]
 	private GameObject cam;
+	[SerializeField] public bool isDead;
+	private TextMeshProUGUI itemText;
+	private GameObject itemUI;
+	[SerializeField] private float timer = 30f;
+	private float currentTime = 0;
+	[SerializeField] private string endText = "You fainted due to high paranoia levels!!";
+	[SerializeField] private float reviveHP = 40;
 
 	[Header("Flashlight Parameters")]
 	[SerializeField] private Light flashlightLight;
@@ -28,7 +35,7 @@ public class Flashlight:NetworkBehaviour {
 
 	[Header("Paranoia parameters")]
 	[SerializeField] private float paranoiaIncrements = 1.5f;
-	[SerializeField] public static float currentParanoia;
+	[SerializeField] public float currentParanoia;
 	[SerializeField] private Slider paranoiaSlider;
 
 	public override void OnNetworkSpawn() {
@@ -55,6 +62,8 @@ public class Flashlight:NetworkBehaviour {
 
 	void Start() {
 		if(!IsOwner) { return; }
+		itemUI = GameObject.Find("ItemUI");
+		itemText = itemUI.GetComponentInChildren<TextMeshProUGUI>();
 	}
 
 	void Update() {
@@ -63,6 +72,24 @@ public class Flashlight:NetworkBehaviour {
 		if(canUseFlashlight) {
 			FlashlightControl();
 		}
+		if(isDead) {
+			CameraMovement.CanRotate = false;
+			FirstPersonController.CanMove = false;
+			PhotoCapture.canUseCamera = false;
+			Inventory.canOpenInventory = false;
+			itemText.text = endText;
+			currentTime += Time.deltaTime;
+			EnemyController.ScareTeleport(transform.position);
+			if(currentTime >= timer) {
+				GameOverServerRpc();
+			}
+		} else {
+			currentTime = 0;
+			if(itemText.text.Equals(endText))
+				itemText.text = "";
+		}
+
+
 	}
 
 	private void FlashlightControl() {
@@ -133,7 +160,7 @@ public class Flashlight:NetworkBehaviour {
 		}
 
 		if(currentParanoia >= 100) {
-			Debug.Log("Dead");
+			SetDeadServerRpc(true);
 		}
 
 		batteryText.SetText(batteryLevel.ToString("F0"));
@@ -145,6 +172,23 @@ public class Flashlight:NetworkBehaviour {
 		ChangeLightIntensityServerRpc(randomIntensity);
 	}
 
+	public void HealSelf() {
+		Flashlight dis = NetworkManager.LocalClient.PlayerObject.GetComponent<Flashlight>();
+		dis.currentParanoia = dis.currentParanoia <= 20 ? 0 : dis.currentParanoia -= 20;
+	}
+
+	[ServerRpc(RequireOwnership = false)]
+	public void HealServerRpc() {
+		HealClientRpc();
+	}
+	[ClientRpc]
+	public void HealClientRpc() {
+		currentParanoia = 100 - reviveHP;
+		CameraMovement.CanRotate = true;
+		FirstPersonController.CanMove = true;
+		PhotoCapture.canUseCamera = true;
+		Inventory.canOpenInventory = true;
+	}
 	[ClientRpc]
 	private void ChangeIntensityClientRpc(float newIntensity) {
 		flashlightLight.intensity = newIntensity;
@@ -152,5 +196,21 @@ public class Flashlight:NetworkBehaviour {
 	[ServerRpc]
 	public void ChangeLightIntensityServerRpc(float newIntensity) {
 		ChangeIntensityClientRpc(newIntensity);
+	}
+	[ServerRpc(RequireOwnership = false)]
+	public void SetDeadServerRpc(bool state) {
+		SetDeadClientRpc(state);
+	}
+	[ClientRpc]
+	public void SetDeadClientRpc(bool state) {
+		isDead = state;
+	}
+	[ServerRpc(RequireOwnership = false)]
+	public void GameOverServerRpc() {
+		GameOverClientRpc();
+	}
+	[ClientRpc]
+	public void GameOverClientRpc() {
+		NetworkManager.SceneManager.LoadScene("MainMenu", UnityEngine.SceneManagement.LoadSceneMode.Single);
 	}
 }
