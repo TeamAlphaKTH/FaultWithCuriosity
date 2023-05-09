@@ -18,7 +18,7 @@ public class PuzzleInputController:NetworkBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update() {
+	private void FixedUpdate() {
 		foreach(Inputs input in inputs) {
 			bool lockState = door.GetComponent<Door>().locked;
 
