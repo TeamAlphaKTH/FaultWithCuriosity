@@ -77,6 +77,7 @@ public class Flashlight:NetworkBehaviour {
 			Inventory.canOpenInventory = false;
 			itemText.text = "You are DEAD!!";
 			currentTime += Time.deltaTime;
+			EnemyController.ScareTeleport(transform.position);
 			if(currentTime >= timer) {
 				GameOverServerRpc();
 			}
