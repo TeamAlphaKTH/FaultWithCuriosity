@@ -171,9 +171,10 @@ GameObject:
   - component: {fileID: 63507468}
   - component: {fileID: 63507467}
   - component: {fileID: 63507466}
+  - component: {fileID: 63507471}
   m_Layer: 0
   m_Name: P5 Sound Trigger
-  m_TagString: Untagged
+  m_TagString: AudioTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,6 +279,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &63507471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63507465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1353353557
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!4 &115174602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9096330717226512772, guid: 14b0f22ea27021444aed1b71680f5565, type: 3}
@@ -761,6 +778,18 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 3357976552
       objectReference: {fileID: 0}
+    - target: {fileID: 6447909836120512328, guid: cdb0bf31d6801d14c91c5ab393b06461, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447909836120512328, guid: cdb0bf31d6801d14c91c5ab393b06461, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447909836120512328, guid: cdb0bf31d6801d14c91c5ab393b06461, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 6801428807506217030, guid: cdb0bf31d6801d14c91c5ab393b06461, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2887692914
@@ -932,9 +961,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 17
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -951,8 +980,8 @@ AudioSource:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
-      value: 0
+      time: 0.2195816
+      value: 0.002960205
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -967,7 +996,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1015,7 +1044,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974029950}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.38, y: -2.0014284, z: -0.19142857}
+  m_LocalPosition: {x: 0.38, y: 0.82, z: -1.27}
   m_LocalScale: {x: 0.14285713, y: 0.14285713, z: 0.14285713}
   m_ConstrainProportionsScale: 0
   m_Children: []
