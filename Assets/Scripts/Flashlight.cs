@@ -70,8 +70,10 @@ public class Flashlight:NetworkBehaviour {
 		} else {
 			timeElapsed = 0;
 			FirstPersonController.CanMove = true;
-			CameraMovement.CanRotate = true;
-			canUseFlashlight = true;
+			if(!Inventory.inventoryOpen) {
+				CameraMovement.CanRotate = true;
+				canUseFlashlight = true;
+			}
 		}
 
 		if(canUseFlashlight) {

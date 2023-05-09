@@ -4,12 +4,13 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Inventory:NetworkBehaviour {
+public class Inventory:MonoBehaviour {
 
 	[Header("Inventory GameObjects")]
 	[SerializeField] private GameObject inventory;
 	[SerializeField] private GameObject battery;
 	[SerializeField] private GameObject pills;
+	[SerializeField] private GameObject player;
 
 	[Header("Inventory texts")]
 	[SerializeField] private TextMeshProUGUI batteryText;
@@ -29,14 +30,11 @@ public class Inventory:NetworkBehaviour {
 	private void Start() {
 		//Initializes sliders
 		cameraSlider.value = PhotoCapture.charges;
+		Flashlight = player.GetComponent<Flashlight>();
 	}
 
 	// Update is called once per frame
 	void Update() {
-		if(Flashlight == null && NetworkManager.LocalClient != null)
-			Flashlight = NetworkManager.LocalClient.PlayerObject.GetComponent<Flashlight>();
-		else if(Flashlight == null)
-			return;
 
 		if(Flashlight.isDead) {
 			inventory.SetActive(false);
