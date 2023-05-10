@@ -139,9 +139,6 @@ public class FirstPersonController:NetworkBehaviour {
 		crouchingCenter = standingCenter * crouchMultiplier;
 		crouchJump = standingJump * crouchMultiplier;
 
-		defaultYPos = playerCamera.transform.localPosition.y;
-		defaultZPos = playerCamera.transform.localPosition.z;
-
 		currentStamina = maxStamina;
 		staminaSlider.value = maxStamina;
 	}
@@ -219,13 +216,6 @@ public class FirstPersonController:NetworkBehaviour {
 			yield return null;
 		}
 
-		// Calculates the new camera position 
-		Vector3 halfHeightDifference = new(0, standingHeight - targetHeight, 0);
-		Vector3 newCameraPosition = initialCameraPosition - halfHeightDifference;
-
-		// Moves the camera down
-		playerCamera.transform.localPosition = newCameraPosition;
-
 		// Ensure correct moved charachter collider
 		characterController.height = targetHeight;
 		characterController.center = targetCenter;
@@ -243,6 +233,7 @@ public class FirstPersonController:NetworkBehaviour {
 	private void HandleInput() {
 		// If the player is running, the walk speed is set to the run speed, otherwise it is set to the walk speed.
 		float baseSpeed = IsRunning && !IsSliding ? runSpeed : walkSpeed;
+		float speed = baseSpeed;
 
 		float horizontalInput = Input.GetAxisRaw("Horizontal");
 		float verticalInput = Input.GetAxisRaw("Vertical");
