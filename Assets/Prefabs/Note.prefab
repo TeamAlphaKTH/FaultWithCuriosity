@@ -274,7 +274,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &7409690114107146788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,6 +290,7 @@ MonoBehaviour:
   noteUI: {fileID: 0}
   door: {fileID: 0}
   keypadScript: {fileID: 0}
+  isCodeLock: 1
 --- !u!1 &7187880834561288790
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,7 +322,7 @@ Transform:
   - {fileID: 1826187038940589083}
   - {fileID: 6240356453805990181}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8053714166771228707
 GameObject:
