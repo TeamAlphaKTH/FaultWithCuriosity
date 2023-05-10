@@ -45,6 +45,13 @@ public class CreateButtonScript:NetworkBehaviour {
 		//Logic for when port is correct
 		if(!wrongFormat) {
 			//Load the scene, the EventHandler will start hosting
+			CameraMovement.CanRotate = true;
+			FirstPersonController.CanMove = true;
+			PhotoCapture.canUseCamera = true;
+			Inventory.canOpenInventory = true;
+			Inventory.drugNr = 0;
+			Inventory.batteryNr = 0;
+			Flashlight.batteryLevel = 100;
 			SceneManager.sceneLoaded += SceneManager_sceneLoaded;
 			SceneManager.LoadScene("Dungeon");
 		}
