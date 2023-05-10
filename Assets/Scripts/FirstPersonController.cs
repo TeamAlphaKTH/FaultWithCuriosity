@@ -378,6 +378,7 @@ public class FirstPersonController:NetworkBehaviour {
 				moveDirection = (transform.TransformDirection(Vector3.left) * climbSpeed);
 				characterController.Move(moveDirection * Time.deltaTime);
 			}
+			HandleStamina();
 		}
 	}
 
