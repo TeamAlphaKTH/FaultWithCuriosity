@@ -151,6 +151,7 @@ public class Flashlight:NetworkBehaviour {
 		} else {
 			batteryLevel = Mathf.Max(batteryLevel, 0);
 			isFlickering = false;
+			CancelInvoke("Flicker");
 			ChangeLightIntensityServerRpc(0);
 			flashlightActive = false;
 		}
