@@ -18,6 +18,13 @@ public class SinglePlayerBtn:NetworkBehaviour {
 	}
 
 	public void OnButtonPress() {
+		CameraMovement.CanRotate = true;
+		FirstPersonController.CanMove = true;
+		PhotoCapture.canUseCamera = true;
+		Inventory.canOpenInventory = true;
+		Inventory.drugNr = 0;
+		Inventory.batteryNr = 0;
+		Flashlight.batteryLevel = 100;
 		SceneManager.sceneLoaded += SceneManager_sceneLoaded;
 		SceneManager.LoadScene("Dungeon");
 	}

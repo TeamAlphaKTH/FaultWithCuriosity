@@ -35,6 +35,13 @@ public class IpPortInputScript:NetworkBehaviour {
 
 	private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1) {
 		if(arg0.name.Equals("Dungeon")) {
+			CameraMovement.CanRotate = true;
+			FirstPersonController.CanMove = true;
+			PhotoCapture.canUseCamera = true;
+			Inventory.canOpenInventory = true;
+			Inventory.drugNr = 0;
+			Inventory.batteryNr = 0;
+			Flashlight.batteryLevel = 100;
 			SceneManager.sceneLoaded -= SceneManager_sceneLoaded;
 			NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData(ipAddress, portNumber);
 			NetworkManager.Singleton.StartClient();

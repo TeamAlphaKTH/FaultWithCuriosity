@@ -97,7 +97,7 @@ public class Flashlight:NetworkBehaviour {
 		if(PauseMenu.paused) {
 			return;
 		}
-		if(Input.GetKeyDown(flashlightKey) && !PauseMenu.pausedClient && batteryLevel > 0) {
+		if(Input.GetKeyDown(flashlightKey) && !PauseMenu.pausedClient && batteryLevel > 0 && !isDead) {
 			if(flashlightActive) {
 				ChangeLightIntensityServerRpc(0);
 				flashlightActive = false;
@@ -151,6 +151,7 @@ public class Flashlight:NetworkBehaviour {
 		} else {
 			batteryLevel = Mathf.Max(batteryLevel, 0);
 			isFlickering = false;
+			CancelInvoke("Flicker");
 			ChangeLightIntensityServerRpc(0);
 			flashlightActive = false;
 		}
@@ -211,6 +212,8 @@ public class Flashlight:NetworkBehaviour {
 	}
 	[ClientRpc]
 	public void GameOverClientRpc() {
-		NetworkManager.SceneManager.LoadScene("MainMenu", UnityEngine.SceneManagement.LoadSceneMode.Single);
+		Destroy(GameObject.Find("Enemy(Clone)"));
+		NetworkManager.SceneManager.LoadScene("GameOver", UnityEngine.SceneManagement.LoadSceneMode.Single);
+		NetworkManager.Singleton.DisconnectClient(NetworkManager.LocalClient.ClientId);
 	}
 }

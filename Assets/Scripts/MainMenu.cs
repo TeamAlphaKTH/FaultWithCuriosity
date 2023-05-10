@@ -9,4 +9,9 @@ public class MainMenu:MonoBehaviour {
 		Application.Quit();
 		Debug.Log("Player Has Quit The Game");
 	}
+
+	private void Start() {
+		Cursor.lockState = CursorLockMode.Confined;
+		Cursor.visible = true;
+	}
 }
