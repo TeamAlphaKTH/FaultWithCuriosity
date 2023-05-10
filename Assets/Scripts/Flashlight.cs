@@ -212,6 +212,8 @@ public class Flashlight:NetworkBehaviour {
 	}
 	[ClientRpc]
 	public void GameOverClientRpc() {
-		NetworkManager.SceneManager.LoadScene("MainMenu", UnityEngine.SceneManagement.LoadSceneMode.Single);
+		Destroy(GameObject.Find("Enemy(Clone)"));
+		NetworkManager.SceneManager.LoadScene("GameOver", UnityEngine.SceneManagement.LoadSceneMode.Single);
+		NetworkManager.Singleton.DisconnectClient(NetworkManager.LocalClient.ClientId);
 	}
 }
