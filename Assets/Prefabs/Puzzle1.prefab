@@ -893,7 +893,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2669994954907080575}
   m_Layer: 0
-  m_Name: Puzzle#1room
+  m_Name: Puzzle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -922,10 +922,10 @@ Transform:
   - {fileID: 8546131295750314356}
   - {fileID: 8940899100639304593}
   - {fileID: 3880129834913377813}
-  - {fileID: 3668697741934744372}
   - {fileID: 784361082705868122}
   - {fileID: 984885447972390911}
   - {fileID: 7753410591315092380}
+  - {fileID: 3668697741934744372}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1319,6 +1319,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7809751407034903663, guid: 56a9c618c1c3f1e4d9bcc3ad602d48b7, type: 3}
       propertyPath: inputs.Array.data[1].enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7809751407034903663, guid: 56a9c618c1c3f1e4d9bcc3ad602d48b7, type: 3}
+      propertyPath: inputs.Array.data[2].enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7809751407034903663, guid: 56a9c618c1c3f1e4d9bcc3ad602d48b7, type: 3}
+      propertyPath: inputs.Array.data[3].enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7809751407034903663, guid: 56a9c618c1c3f1e4d9bcc3ad602d48b7, type: 3}
@@ -1831,7 +1839,7 @@ PrefabInstance:
       propertyPath: m_text
       value: Where did I put my key? I thought the Celler Main Door was open but
         its locked and the key is missing... These lever have some connection to
-        the number 9.
+        the number 10.
       objectReference: {fileID: 0}
     - target: {fileID: 5583231872413221682, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
       propertyPath: m_fontSize
