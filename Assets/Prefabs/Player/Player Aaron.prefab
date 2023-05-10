@@ -65,24 +65,16 @@ MonoBehaviour:
   canRun: 1
   canCrouch: 1
   willSlideOnSlope: 1
-  canUseHeadBob: 1
   gravity: 35
   jumpForce: 6
   standingJump: 8
   crouchJump: 4
   playerCamera: {fileID: 6054467157714187857}
-  headbobPlayerCamera: {fileID: 4718382400441528685}
   crouchMultiplier: 0.6
   crouchHeight: 0
   standingHeight: 0
   crouchingCenter: {x: 0, y: 0, z: 0}
   standingCenter: {x: 0, y: 0, z: 0}
-  walkBobSpeed: 5
-  walkBobAmount: 0.03
-  runBobSpeed: 7
-  runBobAmount: 0.06
-  crouchBobSpeed: 3
-  crouchBobAmount: 0.02
   maxStamina: 100
   staminaRegenIncrements: 0.6
   staminaUseDecrements: 4
@@ -152,8 +144,6 @@ MonoBehaviour:
   flashlightKey: 102
   batteryText: {fileID: 0}
   batterySpeed: 0.3
-  incrementBattery: 15
-  rechargeBattery: 98
   batteryBlock1: {fileID: 0}
   batteryBlock2: {fileID: 0}
   batteryBlock3: {fileID: 0}
