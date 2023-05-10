@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class InputScript : MonoBehaviour {
+public class InputScript:MonoBehaviour {
 	[SerializeField] private TMP_InputField input;
 
 	[Header("Portnumber")]
@@ -15,10 +15,10 @@ public class InputScript : MonoBehaviour {
 
 	private void UpdatePortNumber(string value) {
 		int newPortNumber;
-		if (int.TryParse(value, out newPortNumber)) {
-			if (newPortNumber > 65535) {
+		if(int.TryParse(value, out newPortNumber)) {
+			if(newPortNumber > 65535) {
 				portNumber = 7777;
-			} else if (newPortNumber < 49152) {
+			} else if(newPortNumber < 49152) {
 				portNumber = 7777;
 			} else {
 				portNumber = newPortNumber;
