@@ -31,6 +31,8 @@ public class PauseMenu:NetworkBehaviour {
 
 	// Stops time if host else only pause for client 
 	public void Stop() {
+		Cursor.lockState = CursorLockMode.Confined;
+		Cursor.visible = true;
 		PauseMenuCanvas.SetActive(true);
 		if(OptionsMenu.activeSelf) {
 			PausedMenu.SetActive(false);
@@ -43,10 +45,10 @@ public class PauseMenu:NetworkBehaviour {
 		} else {
 			pausedClient = true;
 		}
-		Cursor.lockState = CursorLockMode.Confined;
 	}
 	// Plays time and puts pausemenu to false else only unpause client 
 	public void Play() {
+		Cursor.visible = false;
 		PauseMenuCanvas.SetActive(false);
 		PausedMenu.SetActive(false);
 		if(IsHost) {
@@ -58,7 +60,6 @@ public class PauseMenu:NetworkBehaviour {
 		if(OptionsMenu.activeSelf) {
 			OptionsMenu.SetActive(false);
 		}
-		Cursor.visible = false;
 	}
 	public void MainMenuButton() {
 		pausedClient = false;
