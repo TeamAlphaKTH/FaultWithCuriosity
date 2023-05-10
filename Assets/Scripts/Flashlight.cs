@@ -3,7 +3,8 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Flashlight:NetworkBehaviour {
+public class Flashlight : NetworkBehaviour
+{
 	[Header("Networking")]
 	private GameObject cam;
 	[SerializeField] public bool isDead;
@@ -38,8 +39,9 @@ public class Flashlight:NetworkBehaviour {
 	[SerializeField] public float currentParanoia;
 	[SerializeField] private Slider paranoiaSlider;
 
-	public override void OnNetworkSpawn() {
-		if(!IsOwner) { return; }
+	public override void OnNetworkSpawn()
+	{
+		if (!IsOwner) { return; }
 
 		cam = GetComponentInChildren<Camera>().gameObject;
 
@@ -60,19 +62,23 @@ public class Flashlight:NetworkBehaviour {
 		this.paranoiaSlider.value = 0f;
 	}
 
-	void Start() {
-		if(!IsOwner) { return; }
+	void Start()
+	{
+		if (!IsOwner) { return; }
 		itemUI = GameObject.Find("ItemUI");
 		itemText = itemUI.GetComponentInChildren<TextMeshProUGUI>();
 	}
 
-	void Update() {
-		if(!IsOwner) { return; }
+	void Update()
+	{
+		if (!IsOwner) { return; }
 
-		if(canUseFlashlight) {
+		if (canUseFlashlight)
+		{
 			FlashlightControl();
 		}
-		if(isDead) {
+		if (isDead)
+		{
 			CameraMovement.CanRotate = false;
 			FirstPersonController.CanMove = false;
 			PhotoCapture.canUseCamera = false;
@@ -80,86 +86,113 @@ public class Flashlight:NetworkBehaviour {
 			itemText.text = endText;
 			currentTime += Time.deltaTime;
 			EnemyController.ScareTeleport(transform.position);
-			if(currentTime >= timer) {
+			if (currentTime >= timer)
+			{
 				GameOverServerRpc();
 			}
-		} else {
+		}
+		else
+		{
 			currentTime = 0;
-			if(itemText.text.Equals(endText))
+			if (itemText.text.Equals(endText))
 				itemText.text = "";
 		}
 
 
 	}
 
-	private void FlashlightControl() {
+	private void FlashlightControl()
+	{
 		// Toggle flashlight on/off with key press
-		if(PauseMenu.paused) {
+		if (PauseMenu.paused)
+		{
 			return;
 		}
-		if(Input.GetKeyDown(flashlightKey) && !PauseMenu.pausedClient && batteryLevel > 0) {
-			if(flashlightActive) {
+		if (Input.GetKeyDown(flashlightKey) && !PauseMenu.pausedClient && batteryLevel > 0)
+		{
+			if (flashlightActive)
+			{
 				ChangeLightIntensityServerRpc(0);
 				flashlightActive = false;
-			} else {
+			}
+			else
+			{
 				ChangeLightIntensityServerRpc(maxIntensity);
 				flashlightActive = true;
 			}
 		}
 
-		if(!isFlickering && batteryLevel > 10) {
+		if (!isFlickering && batteryLevel > 10)
+		{
 			CancelInvoke("Flicker");
 			ChangeLightIntensityServerRpc(maxIntensity);
 		}
 
-		if(batteryLevel <= 100 && batteryLevel > 50) {
+		if (batteryLevel <= 100 && batteryLevel > 50)
+		{
 			batteryBlock3.enabled = true;
 			batteryBlock2.enabled = true;
 			batteryBlock1.enabled = true;
 			batteryBlock3.color = new Color32(0, 255, 19, 120);
 			batteryBlock2.color = new Color32(0, 255, 19, 120);
 			batteryBlock1.color = new Color32(0, 255, 19, 120);
-		} else if(batteryLevel <= 50 && batteryLevel >= 10) {
+		}
+		else if (batteryLevel <= 50 && batteryLevel >= 10)
+		{
 			batteryBlock3.enabled = false;
 			batteryBlock2.enabled = true;
 			batteryBlock1.enabled = true;
 			batteryBlock2.color = new Color32(255, 241, 0, 120);
 			batteryBlock1.color = new Color32(255, 241, 0, 120);
-		} else if(batteryLevel < 10 && batteryLevel > 0) {
+		}
+		else if (batteryLevel < 10 && batteryLevel > 0)
+		{
 			batteryBlock2.enabled = false;
 			batteryBlock1.enabled = true;
 			batteryBlock1.color = new Color32(255, 32, 0, 120);
-		} else if(batteryLevel <= 0) {
+		}
+		else if (batteryLevel <= 0)
+		{
 			batteryBlock1.enabled = false;
 		}
 
 		// Handle battery level and flickering
-		if(flashlightActive && batteryLevel >= 0) {
+		if (flashlightActive && batteryLevel >= 0)
+		{
 			batteryLevel -= batterySpeed * Time.deltaTime;
 
-			if(batteryLevel < 15 && batteryLevel > 0) {
-				if(!isFlickering) {
+			if (batteryLevel < 15 && batteryLevel > 0)
+			{
+				if (!isFlickering)
+				{
 					isFlickering = true;
 					InvokeRepeating("Flicker", flickerDelay, flickerDuration);
 				}
-			} else {
-				if(isFlickering) {
+			}
+			else
+			{
+				if (isFlickering)
+				{
 					isFlickering = false;
 					CancelInvoke("Flicker");
 				}
 			}
-		} else {
+		}
+		else
+		{
 			batteryLevel = Mathf.Max(batteryLevel, 0);
 			isFlickering = false;
 			ChangeLightIntensityServerRpc(0);
 			flashlightActive = false;
 		}
 
-		if(!flashlightActive && currentParanoia < 100) {
+		if (!flashlightActive && currentParanoia < 100)
+		{
 			currentParanoia += paranoiaIncrements * Time.deltaTime;
 		}
 
-		if(currentParanoia >= 100) {
+		if (currentParanoia >= 100)
+		{
 			SetDeadServerRpc(true);
 		}
 
@@ -167,22 +200,26 @@ public class Flashlight:NetworkBehaviour {
 		paranoiaSlider.value = currentParanoia;
 	}
 
-	private void Flicker() {
+	private void Flicker()
+	{
 		float randomIntensity = Random.Range(maxIntensity * 0.1f, maxIntensity * 1.1f);
 		ChangeLightIntensityServerRpc(randomIntensity);
 	}
 
-	public void HealSelf() {
+	public void HealSelf()
+	{
 		Flashlight dis = NetworkManager.LocalClient.PlayerObject.GetComponent<Flashlight>();
 		dis.currentParanoia = dis.currentParanoia <= 20 ? 0 : dis.currentParanoia -= 20;
 	}
 
 	[ServerRpc(RequireOwnership = false)]
-	public void HealServerRpc() {
+	public void HealServerRpc()
+	{
 		HealClientRpc();
 	}
 	[ClientRpc]
-	public void HealClientRpc() {
+	public void HealClientRpc()
+	{
 		currentParanoia = 100 - reviveHP;
 		CameraMovement.CanRotate = true;
 		FirstPersonController.CanMove = true;
@@ -190,27 +227,35 @@ public class Flashlight:NetworkBehaviour {
 		Inventory.canOpenInventory = true;
 	}
 	[ClientRpc]
-	private void ChangeIntensityClientRpc(float newIntensity) {
+	private void ChangeIntensityClientRpc(float newIntensity)
+	{
 		flashlightLight.intensity = newIntensity;
 	}
 	[ServerRpc]
-	public void ChangeLightIntensityServerRpc(float newIntensity) {
+	public void ChangeLightIntensityServerRpc(float newIntensity)
+	{
 		ChangeIntensityClientRpc(newIntensity);
 	}
 	[ServerRpc(RequireOwnership = false)]
-	public void SetDeadServerRpc(bool state) {
+	public void SetDeadServerRpc(bool state)
+	{
 		SetDeadClientRpc(state);
 	}
 	[ClientRpc]
-	public void SetDeadClientRpc(bool state) {
+	public void SetDeadClientRpc(bool state)
+	{
 		isDead = state;
 	}
 	[ServerRpc(RequireOwnership = false)]
-	public void GameOverServerRpc() {
+	public void GameOverServerRpc()
+	{
 		GameOverClientRpc();
 	}
 	[ClientRpc]
-	public void GameOverClientRpc() {
-		NetworkManager.SceneManager.LoadScene("MainMenu", UnityEngine.SceneManagement.LoadSceneMode.Single);
+	public void GameOverClientRpc()
+	{
+		Destroy(GameObject.Find("Enemy(Clone)"));
+		NetworkManager.SceneManager.LoadScene("GameOver", UnityEngine.SceneManagement.LoadSceneMode.Single);
+		NetworkManager.Singleton.DisconnectClient(NetworkManager.LocalClient.ClientId);
 	}
 }
