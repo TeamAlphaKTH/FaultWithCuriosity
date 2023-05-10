@@ -1374,6 +1374,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDead: 0
   timer: 30
+  endText: You fainted due to high paranoia levels!!
+  reviveHP: 40
   flashlightLight: {fileID: 1484227382415119219}
   flashlightKey: 102
   batteryText: {fileID: 0}
@@ -1384,6 +1386,7 @@ MonoBehaviour:
   batteryBlock2: {fileID: 0}
   batteryBlock3: {fileID: 0}
   paranoiaIncrements: 1.5
+  currentParanoia: 0
   paranoiaSlider: {fileID: 0}
 --- !u!114 &3367909868617867146
 MonoBehaviour:
@@ -2602,7 +2605,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4507873564824112211}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &599086595796469819
 MonoBehaviour:
   m_ObjectHideFlags: 0
