@@ -97,7 +97,7 @@ public class Flashlight:NetworkBehaviour {
 		if(PauseMenu.paused) {
 			return;
 		}
-		if(Input.GetKeyDown(flashlightKey) && !PauseMenu.pausedClient && batteryLevel > 0) {
+		if(Input.GetKeyDown(flashlightKey) && !PauseMenu.pausedClient && batteryLevel > 0 && !isDead) {
 			if(flashlightActive) {
 				ChangeLightIntensityServerRpc(0);
 				flashlightActive = false;
