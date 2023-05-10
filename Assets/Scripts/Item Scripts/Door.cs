@@ -68,7 +68,7 @@ public class Door:NetworkBehaviour, IInteractable {
 	}
 	public override void OnNetworkSpawn() {
 		if(IsHost)
-			code.Value = int.Parse(Random.Range(0, 10000).ToString("D4"));
+			code.Value = int.Parse(Random.Range(1000, 10000).ToString("D4"));
 		base.OnNetworkSpawn();
 	}
 
