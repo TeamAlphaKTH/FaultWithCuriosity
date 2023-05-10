@@ -9,6 +9,11 @@ public class uiManager : NetworkBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Q))
 		{
+			if (GameObject.Find("NetworkManager") != null)
+			{
+				NetworkManager.Singleton.Shutdown();
+				Destroy(GameObject.Find("NetworkManager"));
+			}
 			SceneManager.LoadScene(0);
 		}
 	}
