@@ -1,5 +1,6 @@
 using TMPro;
 using Unity.Netcode;
+using Unity.Netcode.Transports.UTP;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -77,11 +78,15 @@ public class Flashlight:NetworkBehaviour {
 			FirstPersonController.CanMove = false;
 			PhotoCapture.canUseCamera = false;
 			Inventory.canOpenInventory = false;
-			itemText.text = endText;
-			currentTime += Time.deltaTime;
-			EnemyController.ScareTeleport(transform.position);
-			if(currentTime >= timer) {
+			if (NetworkManager.Singleton.GetComponent<UnityTransport>().ConnectionData.Address.Equals("127.0.0.1")) {
 				GameOverServerRpc();
+			} else {
+				itemText.text = endText;
+				currentTime += Time.deltaTime;
+				EnemyController.ScareTeleport(transform.position);
+				if(currentTime >= timer) {
+					GameOverServerRpc();
+				}
 			}
 		} else {
 			currentTime = 0;
