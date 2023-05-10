@@ -256,7 +256,7 @@ public class FirstPersonController:NetworkBehaviour {
 	/// Makes the camera move up and down when moving to simulate head bobbing. The camera moves at different speeds depending on if the player is crouching, walking or running.
 	/// </summary>
 	private void HandleHeadBob() {
-		if(!characterController.isGrounded || !canHeadBop) {
+		if(!characterController.isGrounded) {
 			return;
 		}
 		if(Mathf.Abs(moveDirection.x) > 0.1f || Mathf.Abs(moveDirection.z) > 0.1f) {
