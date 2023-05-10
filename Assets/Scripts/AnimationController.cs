@@ -5,6 +5,7 @@ public class AnimationController:MonoBehaviour {
 	[SerializeField] private float movement = 0f;
 	[SerializeField] private bool jump = false;
 	[SerializeField] private bool climb = false;
+	[SerializeField] private bool crouch = false;
 	[SerializeField] private bool afk = false;
 	[SerializeField] private bool dead = false;
 
@@ -17,6 +18,7 @@ public class AnimationController:MonoBehaviour {
 	void FixedUpdate() {
 		animator.SetFloat("Movement", movement);
 		animator.SetBool("Jump", jump);
+		animator.SetBool("Crouch", crouch);
 		animator.SetBool("Climb", climb);
 		animator.SetBool("AFK", afk);
 		animator.SetBool("Dead", dead);
