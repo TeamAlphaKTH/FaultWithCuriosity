@@ -90,6 +90,11 @@ public class FirstPersonController:NetworkBehaviour {
 	[SerializeField] public static KeyCode useCameraButton = KeyCode.Mouse1;
 	[SerializeField] public static KeyCode openInventory = KeyCode.Tab;
 
+	[Header("Audio")]
+	[SerializeField] private AudioClip[] walkClips;
+	[SerializeField] private AudioSource myAudioSource;
+	private int pickSound;
+
 	// Slope sliding parameters
 	private Vector3 hitPointNormal;
 	private bool IsSliding {
@@ -327,6 +332,15 @@ public class FirstPersonController:NetworkBehaviour {
 
 		// Move the character
 		characterController.Move(moveDirection * Time.deltaTime);
+
+		// sound for walking
+		if(characterController.isGrounded && moveDirection.x != 0 && moveDirection.z != 0) {
+			pickSound = UnityEngine.Random.Range(0, walkClips.Length + 1);
+			if(!myAudioSource.isPlaying) {
+				myAudioSource.clip = walkClips[pickSound];
+				myAudioSource.Play();
+			}
+		}
 	}
 
 	/// <summary>
