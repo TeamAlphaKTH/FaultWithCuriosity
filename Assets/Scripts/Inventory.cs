@@ -3,7 +3,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Inventory:MonoBehaviour {
+public class Inventory : MonoBehaviour
+{
 
 	[Header("Inventory GameObjects")]
 	[SerializeField] private GameObject inventory;
@@ -26,7 +27,8 @@ public class Inventory:MonoBehaviour {
 	public static List<int> keyIds = new();
 
 	public static bool canOpenInventory = true;
-	private void Start() {
+	private void Start()
+	{
 		//Initializes sliders
 		flashlightSlider.value = Flashlight.batteryLevel;
 		cameraSlider.value = PhotoCapture.charges;
@@ -34,8 +36,10 @@ public class Inventory:MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update() {
-		if(inventoryOpen && !canOpenInventory) {
+	void Update()
+	{
+		if (inventoryOpen && !canOpenInventory)
+		{
 			inventory.SetActive(false);
 			inventoryOpen = false;
 			Cursor.lockState = CursorLockMode.Locked;
@@ -49,24 +53,26 @@ public class Inventory:MonoBehaviour {
 		cameraSlider.value = PhotoCapture.charges;
 
 		//Toggles inventory on and off, this also toggles cameramovement action camera and the cursor.
-		if(Input.GetKeyDown(FirstPersonController.openInventory) && !PauseMenu.paused && !PauseMenu.pausedClient && canOpenInventory) {
-			switch(inventory.activeSelf) {
+		if (Input.GetKeyDown(FirstPersonController.openInventory) && !PauseMenu.paused && !PauseMenu.pausedClient && canOpenInventory)
+		{
+			switch (inventory.activeSelf)
+			{
 				case true:
-				inventory.SetActive(false);
-				inventoryOpen = false;
-				Cursor.lockState = CursorLockMode.Locked;
-				CameraMovement.CanRotate = true;
-				PhotoCapture.canUseCamera = true;
-				break;
+					inventory.SetActive(false);
+					inventoryOpen = false;
+					Cursor.lockState = CursorLockMode.Locked;
+					CameraMovement.CanRotate = true;
+					PhotoCapture.canUseCamera = true;
+					break;
 
 				case false:
-				inventory.SetActive(true);
-				inventoryOpen = true;
-				Cursor.lockState = CursorLockMode.Confined;
-				Cursor.visible = true;
-				CameraMovement.CanRotate = false;
-				PhotoCapture.canUseCamera = false;
-				break;
+					inventory.SetActive(true);
+					inventoryOpen = true;
+					Cursor.lockState = CursorLockMode.Confined;
+					Cursor.visible = true;
+					CameraMovement.CanRotate = false;
+					PhotoCapture.canUseCamera = false;
+					break;
 			}
 		}
 	}
@@ -74,18 +80,22 @@ public class Inventory:MonoBehaviour {
 	/// <summary>
 	/// UseDrugs decrements the number of pills seen in the inventory by 1 and removes paranoia from the player.
 	/// </summary>
-	public void UseDrugs() {
+	public void UseDrugs()
+	{
 		drugNr = int.Parse(drugText.text);
-		if(drugNr > 0) {
+		if (drugNr > 0)
+		{
 			drugNr--;
 		}
 	}
 	/// <summary>
 	/// DropDrugs spawns in the prefab "pills" at the players position and decrements the number of pills seen in the inventory by 1.
 	/// </summary>
-	public void DropDrugs() {
+	public void DropDrugs()
+	{
 		drugNr = int.Parse(drugText.text);
-		if(drugNr > 0) {
+		if (drugNr > 0)
+		{
 			drugNr--;
 			spawner.SpawnPillServerRpc(FirstPersonController.characterController.transform.position + new Vector3(0, 1, 0.2f));
 		}
@@ -93,9 +103,11 @@ public class Inventory:MonoBehaviour {
 	/// <summary>
 	/// RechargeCamera decrements the number of batteries seen in inventory by 1 and adds 1 to the camera charges.
 	/// </summary>
-	public void RechargeCamera() {
+	public void RechargeCamera()
+	{
 		batteryNr = int.Parse(batteryText.text);
-		if(batteryNr > 0 && cameraSlider.value < 3) {
+		if (batteryNr > 0 && cameraSlider.value < 3)
+		{
 			batteryNr--;
 			PhotoCapture.charges++;
 		}
@@ -103,17 +115,21 @@ public class Inventory:MonoBehaviour {
 	/// <summary>
 	/// RechargeFlashlight decrements the number of batteries seen in inventory by 1 and adds to the Flashlights batterylevel.
 	/// </summary>
-	public void RechargeFlashlight() {
+	public void RechargeFlashlight()
+	{
 		batteryNr = int.Parse(batteryText.text);
-		if(batteryNr > 0 && Flashlight.batteryLevel != 100) {
+		if (batteryNr > 0 && Flashlight.batteryLevel != 100)
+		{
 			batteryNr--;
 			Flashlight.batteryLevel = Flashlight.batteryLevel >= 80 ? 100 : Flashlight.batteryLevel += 20;
 		}
 	}
 	//DropBattery spawns in the prefab "battery" at the players position and decrements the number of batteries seen in the inventory by 1.
-	public void DropBattery() {
+	public void DropBattery()
+	{
 		batteryNr = int.Parse(batteryText.text);
-		if(batteryNr > 0) {
+		if (batteryNr > 0)
+		{
 			batteryNr--;
 			spawner.SpawnBatteryServerRpc(FirstPersonController.characterController.transform.position + new Vector3(0, 1, 0.2f));
 		}
