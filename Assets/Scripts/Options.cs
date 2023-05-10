@@ -8,7 +8,7 @@ public class Options:MonoBehaviour {
 
 	private void Start() {
 		headBobText = transform.GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>();
-		if(FirstPersonController.canHeadBop) {
+		if(FirstPersonController.canHeadBob) {
 			headBobText.text = on;
 		} else
 			headBobText.text = off;
@@ -16,10 +16,10 @@ public class Options:MonoBehaviour {
 	}
 	public void ToggleHeadBop() {
 		if(headBobText.text.Equals(on)) {
-			FirstPersonController.canHeadBop = false;
+			FirstPersonController.canHeadBob = false;
 			headBobText.text = off;
 		} else {
-			FirstPersonController.canHeadBop = true;
+			FirstPersonController.canHeadBob = true;
 			headBobText.text = on;
 		}
 	}
