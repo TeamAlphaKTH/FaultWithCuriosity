@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 86dc09c15f57f7142bcc999d21674a8f, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 86dc09c15f57f7142bcc999d21674a8f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.474002
+      value: -12.310154
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 86dc09c15f57f7142bcc999d21674a8f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 86dc09c15f57f7142bcc999d21674a8f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19.141146
+      value: 14.437393
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 86dc09c15f57f7142bcc999d21674a8f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 86dc09c15f57f7142bcc999d21674a8f, type: 3}
       propertyPath: m_Name
-      value: Rockingchair Variant
+      value: Rockingchair
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -62,15 +62,15 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 86dc09c15f57f7142bcc999d21674a8f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8683570269778329989}
+      addedObject: {fileID: 1934412649876525266}
   m_SourcePrefab: {fileID: 100100000, guid: 86dc09c15f57f7142bcc999d21674a8f, type: 3}
 --- !u!1 &6345270060408426902 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 86dc09c15f57f7142bcc999d21674a8f, type: 3}
   m_PrefabInstance: {fileID: 6111248705856072903}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &8683570269778329989
-BoxCollider:
+--- !u!64 &1934412649876525266
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -87,6 +87,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.007081281, y: 0.008334818, z: 0.009949282}
-  m_Center: {x: 0, y: -0.0006227022, z: 0.005991034}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 859547441998785137, guid: 86dc09c15f57f7142bcc999d21674a8f, type: 3}
