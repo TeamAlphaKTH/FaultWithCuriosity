@@ -1254,9 +1254,10 @@ GameObject:
   - component: {fileID: 9200381620581726161}
   - component: {fileID: 3367909868617867146}
   - component: {fileID: 3252865203615464817}
+  - component: {fileID: 4239124380974575355}
   m_Layer: 28
   m_Name: Player Aaron
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1305,8 +1306,8 @@ MonoBehaviour:
   canCrouch: 1
   willSlideOnSlope: 1
   canUseHeadBob: 1
-  gravity: 40
-  jumpForce: 7.8
+  gravity: 35
+  jumpForce: 6
   standingJump: 8
   crouchJump: 4
   playerCamera: {fileID: 6054467157714187857}
@@ -1371,6 +1372,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68beb2ffe0675ba43b123a2827cc9202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDead: 0
+  timer: 30
   flashlightLight: {fileID: 1484227382415119219}
   flashlightKey: 102
   batteryText: {fileID: 0}
@@ -1424,6 +1427,18 @@ MonoBehaviour:
   ScaleThreshold: 0.01
   InLocalSpace: 0
   Interpolate: 1
+--- !u!114 &4239124380974575355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657810595280077101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fef8d8e48fbef4449f95dac2a7039d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1682774350412161667
 GameObject:
   m_ObjectHideFlags: 0
