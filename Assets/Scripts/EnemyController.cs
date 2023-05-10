@@ -48,7 +48,7 @@ public class EnemyController:MonoBehaviour {
 	}
 
 	private void FixedUpdate() {
-		soundEvent = UnityEngine.Random.Range(0, 2000);
+		soundEvent = UnityEngine.Random.Range(0, 1000);
 		if(soundEvent == 15) {
 			if(!enemyAudioSource.isPlaying) {
 				pickSound = UnityEngine.Random.Range(0, enemyClips.Length);
