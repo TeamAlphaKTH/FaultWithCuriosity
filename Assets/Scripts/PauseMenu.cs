@@ -58,6 +58,7 @@ public class PauseMenu:NetworkBehaviour {
 		if(OptionsMenu.activeSelf) {
 			OptionsMenu.SetActive(false);
 		}
+		Cursor.visible = false;
 	}
 	public void MainMenuButton() {
 		pausedClient = false;
