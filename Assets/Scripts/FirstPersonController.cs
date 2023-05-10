@@ -45,6 +45,7 @@ public class FirstPersonController:NetworkBehaviour {
 	[SerializeField] public Transform playerCamera;
 	[SerializeField] private Camera headbobPlayerCamera;
 	Vector3 initialCameraPosition;
+	public static bool canHeadBob { get; set; } = true;
 
 	[Header("Crouching Parameters")]
 	[SerializeField] private float crouchMultiplier = 0.6f;
