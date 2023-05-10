@@ -335,7 +335,7 @@ public class FirstPersonController:NetworkBehaviour {
 
 		// sound for walking
 		if(characterController.isGrounded && moveDirection.x != 0 && moveDirection.z != 0) {
-			pickSound = UnityEngine.Random.Range(0, walkClips.Length + 1);
+			pickSound = UnityEngine.Random.Range(0, walkClips.Length);
 			if(!myAudioSource.isPlaying) {
 				myAudioSource.clip = walkClips[pickSound];
 				myAudioSource.Play();
