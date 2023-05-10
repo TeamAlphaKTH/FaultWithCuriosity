@@ -425,37 +425,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!1 &3060042434285946427
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6091860979219115033}
-  m_Layer: 0
-  m_Name: ItemsAfterPuzzleRoom
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6091860979219115033
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3060042434285946427}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.236603, y: -0.85658073, z: -8.097315}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2669994954907080575}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3353301086753568382
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,7 +917,6 @@ Transform:
   - {fileID: 7964916290608083540}
   - {fileID: 9159030920861520724}
   - {fileID: 556988527190198079}
-  - {fileID: 6091860979219115033}
   - {fileID: 1434357246001239082}
   - {fileID: 3007506600848757967}
   - {fileID: 8546131295750314356}
@@ -1269,7 +1237,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6594715153695041526, guid: 26b8b80b33ec7a6498aced9efb15c7d5, type: 3}
       propertyPath: id
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1335,7 +1303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2231548392171041731, guid: 56a9c618c1c3f1e4d9bcc3ad602d48b7, type: 3}
       propertyPath: m_Name
-      value: LeverPuzzle
+      value: LeverPuzzle1
       objectReference: {fileID: 0}
     - target: {fileID: 5188550569243281681, guid: 56a9c618c1c3f1e4d9bcc3ad602d48b7, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -1344,7 +1312,7 @@ PrefabInstance:
     - target: {fileID: 7809751407034903663, guid: 56a9c618c1c3f1e4d9bcc3ad602d48b7, type: 3}
       propertyPath: door
       value: 
-      objectReference: {fileID: 5253126112548778966}
+      objectReference: {fileID: 517705906638349262}
     - target: {fileID: 7809751407034903663, guid: 56a9c618c1c3f1e4d9bcc3ad602d48b7, type: 3}
       propertyPath: inputs.Array.data[0].enabled
       value: 1
@@ -1435,6 +1403,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4583357385760530246, guid: 5fd0671786363a94da2ab6b5c5a6532e, type: 3}
+      propertyPath: locked
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6287680974656882406, guid: 5fd0671786363a94da2ab6b5c5a6532e, type: 3}
       propertyPath: m_Name
       value: Door East
@@ -1444,14 +1416,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fd0671786363a94da2ab6b5c5a6532e, type: 3}
+--- !u!1 &517705906638349262 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1768731660228450046, guid: 5fd0671786363a94da2ab6b5c5a6532e, type: 3}
+  m_PrefabInstance: {fileID: 2280104359279441200}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &799211096941852304 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1491765250904507296, guid: 5fd0671786363a94da2ab6b5c5a6532e, type: 3}
-  m_PrefabInstance: {fileID: 2280104359279441200}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5253126112548778966 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6287680974656882406, guid: 5fd0671786363a94da2ab6b5c5a6532e, type: 3}
   m_PrefabInstance: {fileID: 2280104359279441200}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2506215113029375325
@@ -1540,8 +1512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5583231872413221682, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
       propertyPath: m_text
-      value: These walls hide something. I feel that I could just "pass through"
-        some.
+      value: Key for main cell door
       objectReference: {fileID: 0}
     - target: {fileID: 5583231872413221682, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
       propertyPath: m_fontSize
@@ -1561,7 +1532,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7187880834561288790, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
       propertyPath: m_Name
-      value: WallNote (1)
+      value: KeyNote
       objectReference: {fileID: 0}
     - target: {fileID: 7409690114107146788, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
       propertyPath: noteUI
@@ -1716,7 +1687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2109148073136205134, guid: 26b8b80b33ec7a6498aced9efb15c7d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.370466
+      value: -6.8
       objectReference: {fileID: 0}
     - target: {fileID: 2109148073136205134, guid: 26b8b80b33ec7a6498aced9efb15c7d5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1757,6 +1728,10 @@ PrefabInstance:
     - target: {fileID: 4365326694400518814, guid: 26b8b80b33ec7a6498aced9efb15c7d5, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 951099334
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594715153695041526, guid: 26b8b80b33ec7a6498aced9efb15c7d5, type: 3}
+      propertyPath: id
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1854,9 +1829,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5583231872413221682, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
       propertyPath: m_text
-      value: Where is my key? I thought the Celler Main Door was open but its locked
-        and the key is missing. The maintenance people said the lever should be related
-        to number 9 somehow...
+      value: Where did I put my key? I thought the Celler Main Door was open but
+        its locked and the key is missing... These lever have some connection to
+        the number 9.
       objectReference: {fileID: 0}
     - target: {fileID: 5583231872413221682, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
       propertyPath: m_fontSize
@@ -1956,6 +1931,14 @@ PrefabInstance:
     - target: {fileID: 1491765250904507296, guid: 5fd0671786363a94da2ab6b5c5a6532e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583357385760530246, guid: 5fd0671786363a94da2ab6b5c5a6532e, type: 3}
+      propertyPath: keyId
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583357385760530246, guid: 5fd0671786363a94da2ab6b5c5a6532e, type: 3}
+      propertyPath: locked
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6287680974656882406, guid: 5fd0671786363a94da2ab6b5c5a6532e, type: 3}
       propertyPath: m_Name
