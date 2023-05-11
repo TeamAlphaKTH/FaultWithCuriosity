@@ -210,7 +210,7 @@ public class FirstPersonController:NetworkBehaviour {
 		// Above while loop for hold crouch 
 		isCrouching = !isCrouching;
 
-		animator.SetBool("Crouch", isCrouching);
+		CrouchServerRpc(isCrouching);
 
 		// Changes the characters hitbox / collider
 		while(timeElapsed < timeToCrouch) {
@@ -280,7 +280,7 @@ public class FirstPersonController:NetworkBehaviour {
 		moveDirection = (transform.TransformDirection(Vector3.forward) * currentSpeed.x) + (transform.TransformDirection(Vector3.right) * currentSpeed.y);
 		moveDirection.y = moveDirectionY;
 
-		animator.SetFloat("Movement", currentSpeed.magnitude);
+		MovementServerRpc(currentSpeed.magnitude);
 	}
 
 	/// <summary>
@@ -324,7 +324,7 @@ public class FirstPersonController:NetworkBehaviour {
 
 			if(!characterController.isGrounded) {
 				CanMove = false;
-				animator.SetBool("Climb", true);
+				ClimbServerRpc(true);
 			} else {
 				CanMove = true;
 			}
@@ -425,7 +425,7 @@ public class FirstPersonController:NetworkBehaviour {
 			//Activates normal movement and gravity
 			CanMove = true;
 			gravity = oldGravity;
-			animator.SetBool("Climb", false);
+			ClimbServerRpc(false);
 		}
 	}
 
@@ -441,4 +441,35 @@ public class FirstPersonController:NetworkBehaviour {
 	private void winClientRpc() {
 		NetworkManager.SceneManager.LoadScene("Credits", LoadSceneMode.Single);
 	}
+
+	[ServerRpc]
+	private void MovementServerRpc(float speed) {
+		MovementClientRpc(speed);
+	}
+
+	[ClientRpc]
+	private void MovementClientRpc(float speed) {
+		animator.SetFloat("Movement", speed);
+	}
+
+	[ServerRpc]
+	private void CrouchServerRpc(bool crouch) {
+		CrouchClientRpc(crouch);
+	}
+
+	[ClientRpc]
+	private void CrouchClientRpc(bool crouch) {
+		animator.SetBool("Crouch", crouch);
+	}
+
+	[ServerRpc]
+	private void ClimbServerRpc(bool climb) {
+		ClimbClientRpc(climb);
+	}
+
+	[ClientRpc]
+	private void ClimbClientRpc(bool climb) {
+		animator.SetBool("Climb", climb);
+	}
+
 }
