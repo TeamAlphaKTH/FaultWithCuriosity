@@ -20,8 +20,6 @@ public class Flashlight:NetworkBehaviour {
 	[SerializeField] private KeyCode flashlightKey = KeyCode.F;
 	[SerializeField] private TMP_Text batteryText;
 	[SerializeField] private float batterySpeed = 10f;
-	[SerializeField] private float incrementBattery = 15f;
-	[SerializeField] private KeyCode rechargeBattery = KeyCode.B;
 	[SerializeField] private Image batteryBlock1;
 	[SerializeField] private Image batteryBlock2;
 	[SerializeField] private Image batteryBlock3;
@@ -38,6 +36,9 @@ public class Flashlight:NetworkBehaviour {
 	[SerializeField] private float paranoiaIncrements = 1.5f;
 	[SerializeField] public float currentParanoia;
 	[SerializeField] private Slider paranoiaSlider;
+
+	[Header("Animations")]
+	[SerializeField] private Animator animator;
 
 	public override void OnNetworkSpawn() {
 		if(!IsOwner) { return; }
@@ -189,6 +190,7 @@ public class Flashlight:NetworkBehaviour {
 	}
 	[ClientRpc]
 	public void HealClientRpc() {
+		animator.SetBool("Dead", false);
 		currentParanoia = 100 - reviveHP;
 		CameraMovement.CanRotate = true;
 		FirstPersonController.CanMove = true;
@@ -210,6 +212,7 @@ public class Flashlight:NetworkBehaviour {
 	[ClientRpc]
 	public void SetDeadClientRpc(bool state) {
 		isDead = state;
+		animator.SetBool("Dead", true);
 	}
 	[ServerRpc(RequireOwnership = false)]
 	public void GameOverServerRpc() {
