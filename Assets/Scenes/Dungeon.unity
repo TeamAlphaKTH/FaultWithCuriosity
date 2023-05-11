@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 3
+  m_AmbientIntensity: 0
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.4528302, g: 0.38189963, b: 0.34389463, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -6202,6 +6202,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 3819913981
       objectReference: {fileID: 0}
+    - target: {fileID: 183531117350763196, guid: c1341ea2e9dd9bc42a5c721e309f26bd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 38f0f1d9cb1d6184bbbf192b3618d9eb, type: 2}
     - target: {fileID: 319444869887359936, guid: c1341ea2e9dd9bc42a5c721e309f26bd, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 1933918388
@@ -6214,6 +6218,14 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 3600472489
       objectReference: {fileID: 0}
+    - target: {fileID: 1460794056808366246, guid: c1341ea2e9dd9bc42a5c721e309f26bd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 38f0f1d9cb1d6184bbbf192b3618d9eb, type: 2}
+    - target: {fileID: 1692909168972617864, guid: c1341ea2e9dd9bc42a5c721e309f26bd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 38f0f1d9cb1d6184bbbf192b3618d9eb, type: 2}
     - target: {fileID: 2034351491881947416, guid: c1341ea2e9dd9bc42a5c721e309f26bd, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -6266,10 +6278,22 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 83618710
       objectReference: {fileID: 0}
+    - target: {fileID: 2756394885844281190, guid: c1341ea2e9dd9bc42a5c721e309f26bd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 38f0f1d9cb1d6184bbbf192b3618d9eb, type: 2}
+    - target: {fileID: 2885021864372676695, guid: c1341ea2e9dd9bc42a5c721e309f26bd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 38f0f1d9cb1d6184bbbf192b3618d9eb, type: 2}
     - target: {fileID: 3430816999543270270, guid: c1341ea2e9dd9bc42a5c721e309f26bd, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2782902471
       objectReference: {fileID: 0}
+    - target: {fileID: 3499533321924476893, guid: c1341ea2e9dd9bc42a5c721e309f26bd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 38f0f1d9cb1d6184bbbf192b3618d9eb, type: 2}
     - target: {fileID: 3921372579676806144, guid: c1341ea2e9dd9bc42a5c721e309f26bd, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 3689223578
@@ -6282,6 +6306,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1010045998}
+    - target: {fileID: 4902234381219167433, guid: c1341ea2e9dd9bc42a5c721e309f26bd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 38f0f1d9cb1d6184bbbf192b3618d9eb, type: 2}
     - target: {fileID: 5937286475188893371, guid: c1341ea2e9dd9bc42a5c721e309f26bd, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -6294,6 +6322,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1010045998}
+    - target: {fileID: 7807675452172071174, guid: c1341ea2e9dd9bc42a5c721e309f26bd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 38f0f1d9cb1d6184bbbf192b3618d9eb, type: 2}
     - target: {fileID: 8967021356854315616, guid: c1341ea2e9dd9bc42a5c721e309f26bd, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2312930984
