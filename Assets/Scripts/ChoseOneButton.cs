@@ -4,7 +4,7 @@ using UnityEngine;
 public class ChoseOneButton:NetworkBehaviour {
 	[SerializeField] private PuzzleInputController controller;
 
-	[SerializeField] private NetworkVariable<int> randomNumber = new(0);
+	[SerializeField] public NetworkVariable<int> randomNumber = new(0);
 	private int numOfInputs;
 	// Start is called before the first frame update
 	public override void OnNetworkSpawn() {
