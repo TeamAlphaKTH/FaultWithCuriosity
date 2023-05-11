@@ -48,7 +48,12 @@ public class PauseMenu:NetworkBehaviour {
 	}
 	// Plays time and puts pausemenu to false else only unpause client 
 	public void Play() {
-		Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Confined;
+		if(!Inventory.inventoryOpen && !keypadScript.keypadOn) {
+			Cursor.lockState = CursorLockMode.Locked;
+			Cursor.visible = false;
+		}
+
 		PauseMenuCanvas.SetActive(false);
 		PausedMenu.SetActive(false);
 		if(IsHost) {
