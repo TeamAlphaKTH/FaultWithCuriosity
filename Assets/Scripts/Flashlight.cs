@@ -19,7 +19,7 @@ public class Flashlight:NetworkBehaviour {
 	[SerializeField] private Light flashlightLight;
 	[SerializeField] private KeyCode flashlightKey = KeyCode.F;
 	[SerializeField] private TMP_Text batteryText;
-	[SerializeField] private float batterySpeed = 0.15f;
+	[SerializeField] private float batterySpeed = 0.2f;
 	[SerializeField] private Image batteryBlock1;
 	[SerializeField] private Image batteryBlock2;
 	[SerializeField] private Image batteryBlock3;
