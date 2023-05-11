@@ -118,9 +118,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5583231872413221682, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
       propertyPath: m_text
-      value: 'CODE:
+      value: 'Code
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583231872413221682, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+      propertyPath: m_fontSize
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583231872413221682, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3580283e769fa9944844e47d72609a11, type: 2}
+    - target: {fileID: 5583231872413221682, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583231872413221682, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583231872413221682, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583231872413221682, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583231872413221682, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6375418042706040061, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
       propertyPath: m_CollisionDetection
@@ -253,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74fef95216f258a43a0d947948e74a1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 129761467041030507}
+  door: {fileID: 0}
   answer: {fileID: 0}
   codeLockUI: {fileID: 0}
   keypad: {fileID: 0}
@@ -332,17 +360,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff86caffaebf98e428e8e309a570fc08, type: 3}
---- !u!114 &129761467041030507 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6877805107948473003, guid: ff86caffaebf98e428e8e309a570fc08, type: 3}
-  m_PrefabInstance: {fileID: 6827419736811334592}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f480663d65389142bc841528b04760a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &9141782668908864508 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2333424211739265084, guid: ff86caffaebf98e428e8e309a570fc08, type: 3}
