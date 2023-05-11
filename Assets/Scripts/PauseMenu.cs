@@ -21,7 +21,7 @@ public class PauseMenu:MonoBehaviour {
 		} else {
 			Play();
 		}
-		if(Input.GetKeyDown(KeyCode.P)) {
+		if(Input.GetKeyDown(KeyCode.Escape)) {
 			if(paused || pausedClient) {
 				Play();
 			} else
