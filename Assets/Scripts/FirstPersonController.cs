@@ -72,7 +72,6 @@ public class FirstPersonController:NetworkBehaviour {
 	[Header("Controls")]
 	[SerializeField] private KeyCode jumpKey = KeyCode.Space;
 	[SerializeField] private KeyCode runKey = KeyCode.LeftShift;
-	[SerializeField] private KeyCode holdCrouchKey = KeyCode.LeftControl;
 	[SerializeField] private KeyCode toggleCrouchKey = KeyCode.C;
 	[SerializeField] public static KeyCode useCameraButton = KeyCode.Mouse1;
 	[SerializeField] public static KeyCode openInventory = KeyCode.Tab;
@@ -187,7 +186,7 @@ public class FirstPersonController:NetworkBehaviour {
 	private void HandleCrouch() {
 		if(canCrouch) {
 			// Both toggle coruch and hold crouch with || Input.GetKeyUp(crouchKey)  
-			if(Input.GetKeyDown(holdCrouchKey) || Input.GetKeyUp(holdCrouchKey) || Input.GetKeyDown(toggleCrouchKey) && !duringCrouchAnimation && characterController.isGrounded) {
+			if(Input.GetKeyDown(toggleCrouchKey) && !duringCrouchAnimation && characterController.isGrounded) {
 				StartCoroutine(CrouchStand());
 			}
 		}
