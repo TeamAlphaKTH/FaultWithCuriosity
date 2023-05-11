@@ -210,6 +210,8 @@ public class FirstPersonController:NetworkBehaviour {
 		// Above while loop for hold crouch 
 		isCrouching = !isCrouching;
 
+		animator.SetBool("Crouch", isCrouching);
+
 		// Changes the characters hitbox / collider
 		while(timeElapsed < timeToCrouch) {
 			characterController.height = Mathf.Lerp(currentHeight, targetHeight, timeElapsed / timeToCrouch);
