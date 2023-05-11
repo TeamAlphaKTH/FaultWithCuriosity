@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311924, g: 0.38073963, b: 0.3587269, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -653,10 +653,25 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &99433910 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8064355499520753591, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
+  m_PrefabInstance: {fileID: 645232575}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &101503439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2545237249732771044, guid: cdb0bf31d6801d14c91c5ab393b06461, type: 3}
+  m_PrefabInstance: {fileID: 850190717}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &115174602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9096330717226512772, guid: 14b0f22ea27021444aed1b71680f5565, type: 3}
   m_PrefabInstance: {fileID: 1663065274}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &123569239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3418233311887987442, guid: 00267a28b70a99140a8a6b27c37c9e4f, type: 3}
+  m_PrefabInstance: {fileID: 1750365034}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &136068394
 PrefabInstance:
@@ -1025,6 +1040,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1176307857437010790, guid: 8a7e97c21eecbfa4a84fe3c7cdaf5b1f, type: 3}
+--- !u!1 &280230124 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3730983148789965761, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
+  m_PrefabInstance: {fileID: 645232575}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &285278109
 Mesh:
   m_ObjectHideFlags: 0
@@ -1190,6 +1210,16 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &298834005 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1122598695830181642, guid: 87a43264dec9c9543819adb712661f11, type: 3}
+  m_PrefabInstance: {fileID: 1983729807}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &309996809 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9027927875542896438, guid: 87a43264dec9c9543819adb712661f11, type: 3}
+  m_PrefabInstance: {fileID: 1983729807}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &383834810
 Mesh:
   m_ObjectHideFlags: 0
@@ -1355,6 +1385,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &409292233 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 515030054714901266, guid: 6004ca227adbeb644a55257663ae3fb6, type: 3}
+  m_PrefabInstance: {fileID: 422185269}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &422185269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1371,6 +1406,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2163249021
       objectReference: {fileID: 0}
+    - target: {fileID: 635536588876926775, guid: 6004ca227adbeb644a55257663ae3fb6, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 1785247527}
     - target: {fileID: 904050898833980441, guid: 6004ca227adbeb644a55257663ae3fb6, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 1007686655
@@ -1431,6 +1470,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 368136879
       objectReference: {fileID: 0}
+    - target: {fileID: 5185105238994607573, guid: 6004ca227adbeb644a55257663ae3fb6, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 409292233}
     - target: {fileID: 5386409098618704723, guid: 6004ca227adbeb644a55257663ae3fb6, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 3360527264
@@ -2133,10 +2176,26 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1304369605}
+    - target: {fileID: 1207065363141856543, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 1123591344}
     - target: {fileID: 1398989477969696224, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 2069514684}
+    - target: {fileID: 1414634610157794175, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 1211115769}
+    - target: {fileID: 1647066866338580180, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 280230124}
+    - target: {fileID: 1771163479067879526, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 864728258}
     - target: {fileID: 2381038007060945691, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -2149,6 +2208,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 1299033349
       objectReference: {fileID: 0}
+    - target: {fileID: 2641420373946816334, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 1078051754}
     - target: {fileID: 2651305032355500817, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -2161,10 +2224,18 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 4264910539
       objectReference: {fileID: 0}
+    - target: {fileID: 3104500062400363756, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 99433910}
     - target: {fileID: 3134867017419530725, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1686224487}
+    - target: {fileID: 3309456024562814460, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 664143078}
     - target: {fileID: 3547522030381658969, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -2362,6 +2433,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
+--- !u!1 &664143078 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8120036785233740711, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
+  m_PrefabInstance: {fileID: 645232575}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &701525042
 Mesh:
   m_ObjectHideFlags: 0
@@ -2898,6 +2974,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 673048376
       objectReference: {fileID: 0}
+    - target: {fileID: 8157904365622383227, guid: cdb0bf31d6801d14c91c5ab393b06461, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 101503439}
     - target: {fileID: 8319593108833336677, guid: cdb0bf31d6801d14c91c5ab393b06461, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2063922900
@@ -3100,6 +3180,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d291c01b3696e74c90ce46c0818145f, type: 3}
+--- !u!1 &864728258 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4537883832612003854, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
+  m_PrefabInstance: {fileID: 645232575}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &872812175
 Mesh:
   m_ObjectHideFlags: 0
@@ -3596,6 +3681,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 953753080
       objectReference: {fileID: 0}
+    - target: {fileID: 8487139780107641540, guid: 58a53b0ea75f72c44aae4230b58884a4, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 1106422083}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4053,6 +4142,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64d820b2018481840b2eefbbd855c43e, type: 3}
+--- !u!1 &1078051754 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7401207853096983050, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
+  m_PrefabInstance: {fileID: 645232575}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1091856899
 GameObject:
   m_ObjectHideFlags: 0
@@ -4087,6 +4181,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -88.845, z: 0}
+--- !u!1 &1106422083 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6428329054547249563, guid: 58a53b0ea75f72c44aae4230b58884a4, type: 3}
+  m_PrefabInstance: {fileID: 897247044}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1115264084
 Mesh:
   m_ObjectHideFlags: 0
@@ -4252,6 +4351,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1123591344 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7446590964275583486, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
+  m_PrefabInstance: {fileID: 645232575}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1136069032
 Mesh:
   m_ObjectHideFlags: 0
@@ -4417,6 +4521,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1140873459 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7881743026153041357, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
+  m_PrefabInstance: {fileID: 1952383325}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1165990032
 Mesh:
   m_ObjectHideFlags: 0
@@ -5077,6 +5186,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1211115769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2246453640145586972, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
+  m_PrefabInstance: {fileID: 645232575}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1223727269
 Mesh:
   m_ObjectHideFlags: 0
@@ -7465,6 +7579,11 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 7687549151498798433, guid: ed318ddd3fc7a7b4c8fa99c690ce3f19, type: 3}
   m_PrefabInstance: {fileID: 1610160825}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1614894329 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1612305251660690175, guid: 87a43264dec9c9543819adb712661f11, type: 3}
+  m_PrefabInstance: {fileID: 1983729807}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1621918702
 Mesh:
   m_ObjectHideFlags: 0
@@ -8598,6 +8717,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 1002943296
       objectReference: {fileID: 0}
+    - target: {fileID: 8709754667505326398, guid: 00267a28b70a99140a8a6b27c37c9e4f, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 123569239}
     - target: {fileID: 8749774899199932160, guid: 00267a28b70a99140a8a6b27c37c9e4f, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 260212495
@@ -8945,6 +9068,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1785247527 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2536019296585157788, guid: 6004ca227adbeb644a55257663ae3fb6, type: 3}
+  m_PrefabInstance: {fileID: 422185269}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1796605451
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9493,6 +9621,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 1189914243
       objectReference: {fileID: 0}
+    - target: {fileID: 817446572374148648, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 1140873459}
     - target: {fileID: 941979026081344727, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 468392335
@@ -9886,6 +10018,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4605480631440660553, guid: 87a43264dec9c9543819adb712661f11, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 1614894329}
+    - target: {fileID: 4651005826655399722, guid: 87a43264dec9c9543819adb712661f11, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 298834005}
     - target: {fileID: 5441352976904903806, guid: 87a43264dec9c9543819adb712661f11, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 1331904042
@@ -9926,6 +10066,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 192366640
       objectReference: {fileID: 0}
+    - target: {fileID: 8492444828591032442, guid: 87a43264dec9c9543819adb712661f11, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 309996809}
     - target: {fileID: 8712767880308117379, guid: 87a43264dec9c9543819adb712661f11, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 4182770905
