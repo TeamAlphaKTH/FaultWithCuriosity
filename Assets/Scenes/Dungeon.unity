@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 0
+  m_AmbientIntensity: 4.38
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.4528302, g: 0.38189963, b: 0.34389463, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4302,7 +4302,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh73454
+  m_Name: pb_Mesh-35740
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -4962,7 +4962,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh75276
+  m_Name: pb_Mesh-35756
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -5292,7 +5292,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh78646
+  m_Name: pb_Mesh-35788
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -6392,7 +6392,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh77628
+  m_Name: pb_Mesh-35852
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -7357,7 +7357,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh78304
+  m_Name: pb_Mesh-35804
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -7991,7 +7991,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh73924
+  m_Name: pb_Mesh-35772
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -9083,7 +9083,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh77946
+  m_Name: pb_Mesh-35820
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -9387,9 +9387,17 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2441663031
       objectReference: {fileID: 0}
-    - target: {fileID: 1096054857031087613, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: GlobalObjectIdHash
-      value: 347115070
+    - target: {fileID: 1121176870255051083, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.006
+      objectReference: {fileID: 0}
+    - target: {fileID: 1121176870255051083, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.895
+      objectReference: {fileID: 0}
+    - target: {fileID: 1121176870255051083, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.815
       objectReference: {fileID: 0}
     - target: {fileID: 1141669079532010315, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: m_RootOrder
@@ -9447,25 +9455,13 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 604100807
       objectReference: {fileID: 0}
-    - target: {fileID: 1991752152179423509, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: GlobalObjectIdHash
-      value: 3840903808
-      objectReference: {fileID: 0}
     - target: {fileID: 2611051079471311283, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 4194246685
       objectReference: {fileID: 0}
-    - target: {fileID: 2639992515985948322, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: GlobalObjectIdHash
-      value: 2455828472
-      objectReference: {fileID: 0}
     - target: {fileID: 2674687430208752060, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 4056520573
-      objectReference: {fileID: 0}
-    - target: {fileID: 2744467536210889868, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: GlobalObjectIdHash
-      value: 2325219112
       objectReference: {fileID: 0}
     - target: {fileID: 2775022746935910812, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -9507,9 +9503,9 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 1518428633
       objectReference: {fileID: 0}
-    - target: {fileID: 3830701247622562736, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
+    - target: {fileID: 3886813718212137859, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 3197088329
+      value: 3285226625
       objectReference: {fileID: 0}
     - target: {fileID: 3886813718212137859, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -9563,10 +9559,6 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 855683267
       objectReference: {fileID: 0}
-    - target: {fileID: 5695447299103491545, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: GlobalObjectIdHash
-      value: 864593968
-      objectReference: {fileID: 0}
     - target: {fileID: 5793322558327272787, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 1975916253
@@ -9583,13 +9575,21 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2812325196
       objectReference: {fileID: 0}
-    - target: {fileID: 6809454100124399819, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: GlobalObjectIdHash
-      value: 388537694
-      objectReference: {fileID: 0}
     - target: {fileID: 6881362085244627349, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2309677491
+      objectReference: {fileID: 0}
+    - target: {fileID: 6883377665908448145, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 6883377665908448145, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0395
+      objectReference: {fileID: 0}
+    - target: {fileID: 6883377665908448145, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.224
       objectReference: {fileID: 0}
     - target: {fileID: 6909525356886037873, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -9602,10 +9602,6 @@ PrefabInstance:
     - target: {fileID: 7140816453516393345, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 489944777
-      objectReference: {fileID: 0}
-    - target: {fileID: 7249827855178157702, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: GlobalObjectIdHash
-      value: 158469882
       objectReference: {fileID: 0}
     - target: {fileID: 7288934832167031314, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -9662,10 +9658,6 @@ PrefabInstance:
     - target: {fileID: 8763385236591230825, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 61204497
-      objectReference: {fileID: 0}
-    - target: {fileID: 8823447536511643318, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: GlobalObjectIdHash
-      value: 65930290
       objectReference: {fileID: 0}
     - target: {fileID: 8915037072264081906, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -10169,7 +10161,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh74468
+  m_Name: pb_Mesh-35836
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
