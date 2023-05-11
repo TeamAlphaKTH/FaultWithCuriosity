@@ -7,6 +7,7 @@ public class CameraMovement:NetworkBehaviour {
 	private float yRotation;
 	[SerializeField] private float sensitivity; //Make global for settings later
 	[SerializeField] private Transform person;
+	private Transform head;
 
 	// Interaction variables
 	private Camera mainCamera;
@@ -19,6 +20,7 @@ public class CameraMovement:NetworkBehaviour {
 
 	private void Awake() {
 		mainCamera = Camera.main;
+		head = transform.parent.gameObject.transform;
 	}
 
 	// Start is called before the first frame update
@@ -37,7 +39,9 @@ public class CameraMovement:NetworkBehaviour {
 			yRotation += Input.GetAxis("Mouse X") * Time.deltaTime * sensitivity;
 			xRotation -= Input.GetAxis("Mouse Y") * Time.deltaTime * sensitivity;
 
-			xRotation = Mathf.Clamp(xRotation, -75, 80);
+			float headRotation = head.rotation.eulerAngles.x;
+
+			xRotation = Mathf.Clamp(xRotation, headRotation - 50, headRotation + 60);
 			transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
 
 			//Rotates the body sideways.
