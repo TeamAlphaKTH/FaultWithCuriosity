@@ -46,7 +46,7 @@ public class PhotoCapture:NetworkBehaviour {
 		GUI = GameObject.Find("ItemUI");
 		base.OnNetworkSpawn();
 		itemPolaroid.transform.GetChild(2).gameObject.SetActive(false);
-		Flashlight = transform.parent.GetComponent<Flashlight>();
+		Flashlight = transform.GetComponentInParent<Flashlight>();
 	}
 
 	void Update() {
@@ -76,7 +76,7 @@ public class PhotoCapture:NetworkBehaviour {
 		}
 
 		// Close Photo
-		if(viewingPhoto && Input.GetKeyDown(FirstPersonController.useCameraButton)) {
+		if(viewingPhoto && Input.GetKeyDown(KeyCode.R)) {
 			RemovePhoto();
 		}
 

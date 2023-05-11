@@ -72,7 +72,6 @@ public class FirstPersonController:NetworkBehaviour {
 	[Header("Controls")]
 	[SerializeField] private KeyCode jumpKey = KeyCode.Space;
 	[SerializeField] private KeyCode runKey = KeyCode.LeftShift;
-	[SerializeField] private KeyCode holdCrouchKey = KeyCode.LeftControl;
 	[SerializeField] private KeyCode toggleCrouchKey = KeyCode.C;
 	[SerializeField] public static KeyCode useCameraButton = KeyCode.Mouse1;
 	[SerializeField] public static KeyCode openInventory = KeyCode.Tab;
@@ -81,6 +80,8 @@ public class FirstPersonController:NetworkBehaviour {
 	[SerializeField] private AudioClip[] walkClips;
 	[SerializeField] private AudioSource myAudioSource;
 	private int pickSound;
+	[SerializeField] private AudioClip[] breathingClips;
+	[SerializeField] private AudioSource breathingSource;
 
 	[Header("Animations")]
 	[SerializeField] private Animator animator;
@@ -187,7 +188,7 @@ public class FirstPersonController:NetworkBehaviour {
 	private void HandleCrouch() {
 		if(canCrouch) {
 			// Both toggle coruch and hold crouch with || Input.GetKeyUp(crouchKey)  
-			if(Input.GetKeyDown(holdCrouchKey) || Input.GetKeyUp(holdCrouchKey) || Input.GetKeyDown(toggleCrouchKey) && !duringCrouchAnimation && characterController.isGrounded) {
+			if(Input.GetKeyDown(toggleCrouchKey) && !duringCrouchAnimation && characterController.isGrounded) {
 				StartCoroutine(CrouchStand());
 			}
 		}
@@ -306,6 +307,17 @@ public class FirstPersonController:NetworkBehaviour {
 			if(!myAudioSource.isPlaying) {
 				myAudioSource.clip = walkClips[pickSound];
 				myAudioSource.Play();
+			}
+		}
+
+		// sound for breathing
+		if(!breathingSource.isPlaying) {
+			if(currentStamina < 80 && currentStamina > 30) {
+				breathingSource.clip = breathingClips[0];
+				breathingSource.Play();
+			} else if(currentStamina <= 30 && currentStamina >= 0) {
+				breathingSource.clip = breathingClips[1];
+				breathingSource.Play();
 			}
 		}
 	}
