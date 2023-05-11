@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9060,6 +9060,18 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2441663031
       objectReference: {fileID: 0}
+    - target: {fileID: 1121176870255051083, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.006
+      objectReference: {fileID: 0}
+    - target: {fileID: 1121176870255051083, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.895
+      objectReference: {fileID: 0}
+    - target: {fileID: 1121176870255051083, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.815
+      objectReference: {fileID: 0}
     - target: {fileID: 1141669079532010315, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -9235,6 +9247,18 @@ PrefabInstance:
     - target: {fileID: 6881362085244627349, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2309677491
+      objectReference: {fileID: 0}
+    - target: {fileID: 6883377665908448145, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 6883377665908448145, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0395
+      objectReference: {fileID: 0}
+    - target: {fileID: 6883377665908448145, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.224
       objectReference: {fileID: 0}
     - target: {fileID: 6909525356886037873, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
