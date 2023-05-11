@@ -15,6 +15,11 @@ public class EnemyController:MonoBehaviour {
 	private static float distanceToPlayer;
 	private float currentParanoia;
 
+	[SerializeField] private AudioSource enemyAudioSource;
+	[SerializeField] private AudioClip[] enemyClips;
+	private int pickSound;
+	private int soundEvent;
+
 	// Start is called before the first frame update
 	void Start() {
 		enemyAIAgent = gameObject.GetComponent<NavMeshAgent>();
@@ -39,6 +44,17 @@ public class EnemyController:MonoBehaviour {
 			enemyAIAgent.stoppingDistance = paranoiaDistance;
 		} else {
 			DealDamage();
+		}
+	}
+
+	private void FixedUpdate() {
+		soundEvent = UnityEngine.Random.Range(0, 1000);
+		if(soundEvent == 15) {
+			if(!enemyAudioSource.isPlaying) {
+				pickSound = UnityEngine.Random.Range(0, enemyClips.Length);
+				enemyAudioSource.clip = enemyClips[pickSound];
+				enemyAudioSource.Play();
+			}
 		}
 	}
 
