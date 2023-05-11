@@ -144,6 +144,7 @@ public class FirstPersonController:NetworkBehaviour {
 
 		currentStamina = maxStamina;
 		staminaSlider.value = maxStamina;
+
 	}
 
 	private void SpawnEnemy() {
@@ -301,7 +302,7 @@ public class FirstPersonController:NetworkBehaviour {
 
 		// sound for walking
 		if(characterController.isGrounded && moveDirection.x != 0 && moveDirection.z != 0) {
-			pickSound = UnityEngine.Random.Range(0, walkClips.Length + 1);
+			pickSound = UnityEngine.Random.Range(0, walkClips.Length);
 			if(!myAudioSource.isPlaying) {
 				myAudioSource.clip = walkClips[pickSound];
 				myAudioSource.Play();
@@ -344,6 +345,7 @@ public class FirstPersonController:NetworkBehaviour {
 				moveDirection = (transform.TransformDirection(Vector3.left) * climbSpeed);
 				characterController.Move(moveDirection * Time.deltaTime);
 			}
+			HandleStamina();
 		}
 	}
 
