@@ -80,6 +80,8 @@ public class FirstPersonController:NetworkBehaviour {
 	[SerializeField] private AudioClip[] walkClips;
 	[SerializeField] private AudioSource myAudioSource;
 	private int pickSound;
+	[SerializeField] private AudioClip[] breathingClips;
+	[SerializeField] private AudioSource breathingSource;
 
 	[Header("Animations")]
 	[SerializeField] private Animator animator;
@@ -305,6 +307,17 @@ public class FirstPersonController:NetworkBehaviour {
 			if(!myAudioSource.isPlaying) {
 				myAudioSource.clip = walkClips[pickSound];
 				myAudioSource.Play();
+			}
+		}
+
+		// sound for breathing
+		if(!breathingSource.isPlaying) {
+			if(currentStamina < 80 && currentStamina > 30) {
+				breathingSource.clip = breathingClips[0];
+				breathingSource.Play();
+			} else if(currentStamina <= 30 && currentStamina >= 0) {
+				breathingSource.clip = breathingClips[1];
+				breathingSource.Play();
 			}
 		}
 	}
