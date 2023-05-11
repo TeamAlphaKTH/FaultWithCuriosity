@@ -13,6 +13,10 @@ public class Note:MonoBehaviour, IInteractable {
 	public Door door;
 	public keypadScript keypadScript;
 
+	//Sound
+	[Header("Audio")]
+	[SerializeField] private AudioSource noteAudio;
+
 	// Change this to false if you want to use a note without a code lock.
 	[SerializeField] private bool isCodeLock = true;
 
@@ -31,6 +35,7 @@ public class Note:MonoBehaviour, IInteractable {
 
 		// Activate the note UI and disable movement and camera. 
 		isOn = !isOn;
+		noteAudio.Play();
 		noteUI.SetActive(true);
 		CameraMovement.CanRotate = false;
 		FirstPersonController.CanMove = false;
