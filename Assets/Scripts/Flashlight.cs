@@ -36,6 +36,9 @@ public class Flashlight:NetworkBehaviour {
 	[SerializeField] public float currentParanoia;
 	[SerializeField] private Slider paranoiaSlider;
 
+	[Header("Animations")]
+	[SerializeField] private Animator animator;
+
 	public override void OnNetworkSpawn() {
 		if(!IsOwner) { return; }
 
@@ -182,6 +185,7 @@ public class Flashlight:NetworkBehaviour {
 	}
 	[ClientRpc]
 	public void HealClientRpc() {
+		animator.SetBool("Dead", false);
 		currentParanoia = 100 - reviveHP;
 		CameraMovement.CanRotate = true;
 		FirstPersonController.CanMove = true;
@@ -203,6 +207,7 @@ public class Flashlight:NetworkBehaviour {
 	[ClientRpc]
 	public void SetDeadClientRpc(bool state) {
 		isDead = state;
+		animator.SetBool("Dead", true);
 	}
 	[ServerRpc(RequireOwnership = false)]
 	public void GameOverServerRpc() {

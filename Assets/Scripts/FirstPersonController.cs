@@ -324,6 +324,7 @@ public class FirstPersonController:NetworkBehaviour {
 
 			if(!characterController.isGrounded) {
 				CanMove = false;
+				animator.SetBool("Climb", true);
 			} else {
 				CanMove = true;
 			}
@@ -424,6 +425,7 @@ public class FirstPersonController:NetworkBehaviour {
 			//Activates normal movement and gravity
 			CanMove = true;
 			gravity = oldGravity;
+			animator.SetBool("Climb", false);
 		}
 	}
 
