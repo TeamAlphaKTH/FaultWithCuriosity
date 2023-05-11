@@ -52,6 +52,7 @@ public class CreateButtonScript:NetworkBehaviour {
 			Inventory.drugNr = 0;
 			Inventory.batteryNr = 0;
 			Flashlight.batteryLevel = 100;
+			PhotoCapture.charges = 3;
 			SceneManager.sceneLoaded += SceneManager_sceneLoaded;
 			SceneManager.LoadScene("Dungeon");
 		}
