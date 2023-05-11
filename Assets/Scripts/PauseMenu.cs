@@ -21,7 +21,7 @@ public class PauseMenu:NetworkBehaviour {
 		} else {
 			Play();
 		}
-		if(Input.GetKeyDown(KeyCode.P)) {
+		if(Input.GetKeyDown(KeyCode.Escape)) {
 			if(paused || pausedClient) {
 				Play();
 			} else
