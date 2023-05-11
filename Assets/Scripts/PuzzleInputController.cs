@@ -2,14 +2,14 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-[System.Serializable]
-internal class Inputs {
-	public GameObject inputObject;
-	public bool enabled;
-}
-
 public class PuzzleInputController:NetworkBehaviour {
-	[SerializeField] private List<Inputs> inputs = new();
+	[System.Serializable]
+	public class Inputs {
+		public GameObject inputObject;
+		public bool enabled;
+	}
+
+	[SerializeField] public List<Inputs> inputs = new();
 	[SerializeField] private GameObject door;
 
 	// Start is called before the first frame update
