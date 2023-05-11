@@ -4042,6 +4042,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2167213501060794772, guid: 56a9c618c1c3f1e4d9bcc3ad602d48b7, type: 3}
   m_PrefabInstance: {fileID: 2114296309823045140}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8157904365622383227 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7809751407034903663, guid: 56a9c618c1c3f1e4d9bcc3ad602d48b7, type: 3}
+  m_PrefabInstance: {fileID: 2114296309823045140}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4eb82384bd845544987a762f6168456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2234471801417690680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5331,7 +5342,7 @@ PrefabInstance:
       value: '
 
 
-        9 Binary'
+        [] Binary'
       objectReference: {fileID: 0}
     - target: {fileID: 6375418042706040061, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
       propertyPath: m_CollisionDetection
@@ -5352,7 +5363,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1592855096101489577, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2805745394946081307}
   m_SourcePrefab: {fileID: 100100000, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
 --- !u!4 &2810700189564466274 stripped
 Transform:
@@ -5364,6 +5378,27 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1592855096101489577, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
   m_PrefabInstance: {fileID: 7953326610254283427}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2805745394946081307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8666351941289412874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c3da1d2fd17774f9b1fc981400a0cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InputController: {fileID: 8157904365622383227}
+  useHexa: 0
+  usage: 'Put this script on the gameobject named "NoteUI"
+
+
+    To get the random
+    number
+
+    write "[]" where you want the number in your note text'
 --- !u!1001 &7964865758154016514
 PrefabInstance:
   m_ObjectHideFlags: 0
