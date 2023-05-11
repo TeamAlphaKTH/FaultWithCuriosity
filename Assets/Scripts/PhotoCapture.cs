@@ -20,6 +20,7 @@ public class PhotoCapture:NetworkBehaviour {
 
 	[Header("Polaroid GameObject")]
 	[SerializeField] private GameObject itemPolaroid;
+	[SerializeField] private int imageSize = 768;
 
 	// Code needed for finding specific polaroid
 	private RaycastHit hitObject;
@@ -93,8 +94,8 @@ public class PhotoCapture:NetworkBehaviour {
 		yield return new WaitForEndOfFrame();
 
 		// Takes a screenshot of the screen
-		Rect regionToRead = new((Screen.width - Screen.height) / 2, 0, Screen.height, Screen.height);
-		Texture2D screenCapture = new(1024, 1024, TextureFormat.RGB24, false);
+		Rect regionToRead = new((Screen.width - imageSize) / 2, (Screen.height - imageSize) / 2, imageSize, imageSize);
+		Texture2D screenCapture = new(imageSize, imageSize, TextureFormat.RGB24, false);
 		screenCapture.ReadPixels(regionToRead, 0, 0, false);
 		screenCapture.Apply();
 
