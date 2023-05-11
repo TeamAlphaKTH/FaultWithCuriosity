@@ -33,7 +33,6 @@ public class FirstPersonController:NetworkBehaviour {
 	[SerializeField] private bool canRun = true;
 	[SerializeField] private bool canCrouch = true;
 	[SerializeField] private bool willSlideOnSlope = true;
-	[SerializeField] private bool canUseHeadBob = true;
 
 	[Header("Jumping Parameters")]
 	[SerializeField] private float gravity = 40f;
@@ -43,9 +42,7 @@ public class FirstPersonController:NetworkBehaviour {
 
 	[Header("Camera Reference")]
 	[SerializeField] public Transform playerCamera;
-	[SerializeField] private Camera headbobPlayerCamera;
 	Vector3 initialCameraPosition;
-	public static bool canHeadBob { get; set; } = true;
 
 	[Header("Crouching Parameters")]
 	[SerializeField] private float crouchMultiplier = 0.6f;
@@ -59,17 +56,6 @@ public class FirstPersonController:NetworkBehaviour {
 	private float timeToCrouch = 0.25f;
 	private bool isCrouching;
 	private bool duringCrouchAnimation;
-
-	[Header("Head Bob Parameters")]
-	[SerializeField] private float walkBobSpeed = 10f;
-	[SerializeField] private float walkBobAmount = 0.1f;
-	[SerializeField] private float runBobSpeed = 111f;
-	[SerializeField] private float runBobAmount = 0.14f;
-	[SerializeField] private float crouchBobSpeed = 3f;
-	[SerializeField] private float crouchBobAmount = 0.05f;
-	private float defaultYPos = 0.2f;
-	private float defaultZPos;
-	private float timer = 0;
 
 	[Header("Stamina system parameters")]
 	[SerializeField] private float maxStamina = 100.0f;
@@ -95,6 +81,9 @@ public class FirstPersonController:NetworkBehaviour {
 	[SerializeField] private AudioClip[] walkClips;
 	[SerializeField] private AudioSource myAudioSource;
 	private int pickSound;
+
+	[Header("Animations")]
+	[SerializeField] private Animator animator;
 
 	// Slope sliding parameters
 	private Vector3 hitPointNormal;
@@ -153,17 +142,14 @@ public class FirstPersonController:NetworkBehaviour {
 		crouchingCenter = standingCenter * crouchMultiplier;
 		crouchJump = standingJump * crouchMultiplier;
 
-		headbobPlayerCamera = GetComponentInChildren<Camera>();
-		defaultYPos = playerCamera.transform.localPosition.y;
-		defaultZPos = playerCamera.transform.localPosition.z;
-
 		currentStamina = maxStamina;
 		staminaSlider.value = maxStamina;
+
 	}
 
 	private void SpawnEnemy() {
 		Transform[] enemySpawn = enemySpawnPoints.GetComponentsInChildren<Transform>();
-		GameObject Enemy = Instantiate(enemyGhostPrefab, enemySpawn[1].position, Quaternion.identity);
+		Instantiate(enemyGhostPrefab, enemySpawn[1].position, Quaternion.identity);
 		EnemyController.player = NetworkManager.LocalClient.PlayerObject.transform;
 	}
 
@@ -179,9 +165,6 @@ public class FirstPersonController:NetworkBehaviour {
 			ApplyFinalMovement();
 			if(useStamina) {
 				HandleStamina();
-				if(canUseHeadBob) {
-					HandleHeadBob();
-				}
 			}
 		}
 	}
@@ -228,6 +211,8 @@ public class FirstPersonController:NetworkBehaviour {
 		// Above while loop for hold crouch 
 		isCrouching = !isCrouching;
 
+		CrouchServerRpc(isCrouching);
+
 		// Changes the characters hitbox / collider
 		while(timeElapsed < timeToCrouch) {
 			characterController.height = Mathf.Lerp(currentHeight, targetHeight, timeElapsed / timeToCrouch);
@@ -237,32 +222,11 @@ public class FirstPersonController:NetworkBehaviour {
 			yield return null;
 		}
 
-		// Calculates the new camera position 
-		Vector3 halfHeightDifference = new(0, standingHeight - targetHeight, 0);
-		Vector3 newCameraPosition = initialCameraPosition - halfHeightDifference;
-
-		// Moves the camera down
-		playerCamera.transform.localPosition = newCameraPosition;
-
 		// Ensure correct moved charachter collider
 		characterController.height = targetHeight;
 		characterController.center = targetCenter;
 
 		duringCrouchAnimation = false;
-	}
-
-
-	/// <summary>
-	/// Makes the camera move up and down when moving to simulate head bobbing. The camera moves at different speeds depending on if the player is crouching, walking or running.
-	/// </summary>
-	private void HandleHeadBob() {
-		if(!characterController.isGrounded) {
-			return;
-		}
-		if(Mathf.Abs(moveDirection.x) > 0.1f || Mathf.Abs(moveDirection.z) > 0.1f) {
-			timer += Time.deltaTime * (isCrouching ? crouchBobSpeed : IsRunning ? runBobSpeed : walkBobSpeed);
-			playerCamera.transform.localPosition = new Vector3(playerCamera.transform.localPosition.x, (isCrouching ? crouchHeight : defaultYPos) + (-Mathf.Abs(Mathf.Sin(timer)) * (isCrouching ? crouchBobAmount : IsRunning ? runBobAmount : walkBobAmount)), defaultZPos);
-		}
 	}
 
 	/// <summary>
@@ -316,6 +280,8 @@ public class FirstPersonController:NetworkBehaviour {
 		// Calculates the movement direction of the character based on the current input vector and the orientation of the character in the world.
 		moveDirection = (transform.TransformDirection(Vector3.forward) * currentSpeed.x) + (transform.TransformDirection(Vector3.right) * currentSpeed.y);
 		moveDirection.y = moveDirectionY;
+
+		MovementServerRpc(currentSpeed.magnitude);
 	}
 
 	/// <summary>
@@ -359,6 +325,7 @@ public class FirstPersonController:NetworkBehaviour {
 
 			if(!characterController.isGrounded) {
 				CanMove = false;
+				ClimbServerRpc(true);
 			} else {
 				CanMove = true;
 			}
@@ -460,6 +427,7 @@ public class FirstPersonController:NetworkBehaviour {
 			//Activates normal movement and gravity
 			CanMove = true;
 			gravity = oldGravity;
+			ClimbServerRpc(false);
 		}
 	}
 
@@ -475,4 +443,35 @@ public class FirstPersonController:NetworkBehaviour {
 	private void winClientRpc() {
 		NetworkManager.SceneManager.LoadScene("Credits", LoadSceneMode.Single);
 	}
+
+	[ServerRpc]
+	private void MovementServerRpc(float speed) {
+		MovementClientRpc(speed);
+	}
+
+	[ClientRpc]
+	private void MovementClientRpc(float speed) {
+		animator.SetFloat("Movement", speed);
+	}
+
+	[ServerRpc]
+	private void CrouchServerRpc(bool crouch) {
+		CrouchClientRpc(crouch);
+	}
+
+	[ClientRpc]
+	private void CrouchClientRpc(bool crouch) {
+		animator.SetBool("Crouch", crouch);
+	}
+
+	[ServerRpc]
+	private void ClimbServerRpc(bool climb) {
+		ClimbClientRpc(climb);
+	}
+
+	[ClientRpc]
+	private void ClimbClientRpc(bool climb) {
+		animator.SetBool("Climb", climb);
+	}
+
 }
