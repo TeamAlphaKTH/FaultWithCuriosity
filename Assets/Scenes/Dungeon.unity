@@ -1082,6 +1082,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3730983148789965761, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
   m_PrefabInstance: {fileID: 645232575}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &281661097 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6979562717210331213, guid: cdb0bf31d6801d14c91c5ab393b06461, type: 3}
+  m_PrefabInstance: {fileID: 850190717}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &298834005 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1122598695830181642, guid: 87a43264dec9c9543819adb712661f11, type: 3}
@@ -4625,6 +4630,18 @@ PrefabInstance:
       propertyPath: door
       value: 
       objectReference: {fileID: 101503439}
+    - target: {fileID: 8157904365622383227, guid: cdb0bf31d6801d14c91c5ab393b06461, type: 3}
+      propertyPath: inputs.Array.data[0].inputObject
+      value: 
+      objectReference: {fileID: 925355252}
+    - target: {fileID: 8157904365622383227, guid: cdb0bf31d6801d14c91c5ab393b06461, type: 3}
+      propertyPath: inputs.Array.data[2].inputObject
+      value: 
+      objectReference: {fileID: 281661097}
+    - target: {fileID: 8157904365622383227, guid: cdb0bf31d6801d14c91c5ab393b06461, type: 3}
+      propertyPath: inputs.Array.data[3].inputObject
+      value: 
+      objectReference: {fileID: 1970139320}
     - target: {fileID: 8319593108833336677, guid: cdb0bf31d6801d14c91c5ab393b06461, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2063922900
@@ -5198,6 +5215,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &925355252 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 615163001822509882, guid: cdb0bf31d6801d14c91c5ab393b06461, type: 3}
+  m_PrefabInstance: {fileID: 850190717}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &926421649
 Mesh:
   m_ObjectHideFlags: 0
@@ -11330,6 +11352,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
+--- !u!1 &1970139320 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3712765310956882651, guid: cdb0bf31d6801d14c91c5ab393b06461, type: 3}
+  m_PrefabInstance: {fileID: 850190717}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1983729807
 PrefabInstance:
   m_ObjectHideFlags: 0
