@@ -46,7 +46,7 @@ public class PhotoCapture:NetworkBehaviour {
 		GUI = GameObject.Find("ItemUI");
 		base.OnNetworkSpawn();
 		itemPolaroid.transform.GetChild(2).gameObject.SetActive(false);
-		Flashlight = transform.parent.GetComponent<Flashlight>();
+		Flashlight = transform.GetComponentInParent<Flashlight>();
 	}
 
 	void Update() {
