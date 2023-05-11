@@ -8346,7 +8346,7 @@ Transform:
   - {fileID: 7448069072732188688}
   - {fileID: 1860544072865874182}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6230853851250871508
 GameObject:
@@ -11878,7 +11878,7 @@ PrefabInstance:
       value: 'Code
 
 
-        0x02b'
+        []'
       objectReference: {fileID: 0}
     - target: {fileID: 5583231872413221682, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
       propertyPath: m_fontSize
@@ -11920,8 +11920,37 @@ PrefabInstance:
     - {fileID: 6375418042706040061, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1592855096101489577, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8690863501131227284}
   m_SourcePrefab: {fileID: 100100000, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+--- !u!1 &273163393689648184 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1592855096101489577, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+  m_PrefabInstance: {fileID: 1571912321202010001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8690863501131227284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273163393689648184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c3da1d2fd17774f9b1fc981400a0cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InputController: {fileID: 1647066866338580180}
+  useHexa: 1
+  usage: 'Put this script on the gameobject named "NoteUI"
+
+
+    To get the random
+    number
+
+    write "[]" where you want the number in your note text'
 --- !u!4 &6669537934209483088 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5286795536408688321, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
@@ -12136,7 +12165,7 @@ PrefabInstance:
       value: 'Code
 
 
-        0xc71'
+        []'
       objectReference: {fileID: 0}
     - target: {fileID: 5583231872413221682, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
       propertyPath: m_fontSize
@@ -12182,8 +12211,37 @@ PrefabInstance:
     - {fileID: 6375418042706040061, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1592855096101489577, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5998218016076321856}
   m_SourcePrefab: {fileID: 100100000, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+--- !u!1 &836552592222314937 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1592855096101489577, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+  m_PrefabInstance: {fileID: 2127666476605975056}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5998218016076321856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836552592222314937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c3da1d2fd17774f9b1fc981400a0cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InputController: {fileID: 1207065363141856543}
+  useHexa: 1
+  usage: 'Put this script on the gameobject named "NoteUI"
+
+
+    To get the random
+    number
+
+    write "[]" where you want the number in your note text'
 --- !u!4 &6113783711161490641 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5286795536408688321, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
@@ -12751,7 +12809,7 @@ PrefabInstance:
       value: 'Code
 
 
-        0x160'
+        []'
       objectReference: {fileID: 0}
     - target: {fileID: 5583231872413221682, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
       propertyPath: m_fontSize
@@ -12793,8 +12851,37 @@ PrefabInstance:
     - {fileID: 6375418042706040061, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1592855096101489577, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 523165173883997769}
   m_SourcePrefab: {fileID: 100100000, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+--- !u!1 &4092360705588480436 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1592855096101489577, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+  m_PrefabInstance: {fileID: 3373206172744188445}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &523165173883997769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4092360705588480436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c3da1d2fd17774f9b1fc981400a0cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InputController: {fileID: 2641420373946816334}
+  useHexa: 1
+  usage: 'Put this script on the gameobject named "NoteUI"
+
+
+    To get the random
+    number
+
+    write "[]" where you want the number in your note text'
 --- !u!4 &7462026581709436124 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5286795536408688321, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
@@ -13119,7 +13206,7 @@ PrefabInstance:
       value: 'Code
 
 
-        0xf2b'
+        []'
       objectReference: {fileID: 0}
     - target: {fileID: 5583231872413221682, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
       propertyPath: m_fontSize
@@ -13161,8 +13248,37 @@ PrefabInstance:
     - {fileID: 6375418042706040061, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1592855096101489577, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3305410234842507407}
   m_SourcePrefab: {fileID: 100100000, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+--- !u!1 &3365054101367737681 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1592855096101489577, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+  m_PrefabInstance: {fileID: 4083049233516726008}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3305410234842507407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3365054101367737681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c3da1d2fd17774f9b1fc981400a0cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InputController: {fileID: 1771163479067879526}
+  useHexa: 1
+  usage: 'Put this script on the gameobject named "NoteUI"
+
+
+    To get the random
+    number
+
+    write "[]" where you want the number in your note text'
 --- !u!4 &8212207416191791161 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5286795536408688321, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
@@ -13229,7 +13345,7 @@ PrefabInstance:
       value: 'Code
 
 
-        0x3da'
+        []'
       objectReference: {fileID: 0}
     - target: {fileID: 5583231872413221682, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
       propertyPath: m_fontSize
@@ -13275,8 +13391,37 @@ PrefabInstance:
     - {fileID: 6375418042706040061, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1592855096101489577, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9064461407731732785}
   m_SourcePrefab: {fileID: 100100000, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+--- !u!1 &3129140021207710815 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1592855096101489577, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+  m_PrefabInstance: {fileID: 4428732783225468918}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9064461407731732785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3129140021207710815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c3da1d2fd17774f9b1fc981400a0cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InputController: {fileID: 3309456024562814460}
+  useHexa: 1
+  usage: 'Put this script on the gameobject named "NoteUI"
+
+
+    To get the random
+    number
+
+    write "[]" where you want the number in your note text'
 --- !u!4 &8370077930109616439 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5286795536408688321, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
@@ -14551,7 +14696,7 @@ PrefabInstance:
       value: 'Code
 
 
-        0x978'
+        []'
       objectReference: {fileID: 0}
     - target: {fileID: 5583231872413221682, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
       propertyPath: m_fontSize
@@ -14593,13 +14738,42 @@ PrefabInstance:
     - {fileID: 6375418042706040061, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1592855096101489577, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1714008057677681705}
   m_SourcePrefab: {fileID: 100100000, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
 --- !u!4 &1335030154235648000 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5286795536408688321, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
   m_PrefabInstance: {fileID: 6618182990518562497}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5603171834681419112 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1592855096101489577, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+  m_PrefabInstance: {fileID: 6618182990518562497}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1714008057677681705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5603171834681419112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c3da1d2fd17774f9b1fc981400a0cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InputController: {fileID: 3104500062400363756}
+  useHexa: 1
+  usage: 'Put this script on the gameobject named "NoteUI"
+
+
+    To get the random
+    number
+
+    write "[]" where you want the number in your note text'
 --- !u!1001 &7066187533375116603
 PrefabInstance:
   m_ObjectHideFlags: 0

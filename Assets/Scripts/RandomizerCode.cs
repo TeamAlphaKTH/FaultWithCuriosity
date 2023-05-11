@@ -63,9 +63,14 @@ public class RandomizerCode:NetworkBehaviour {
 			m_Text.text = n.ToString();
 		}
 	}
-	//This function creates the list of states that the inputs should react on:
-	//true for one
-	//false for zero
+	/// <summary>
+	/// This function creates the list of states that the inputs should react on.
+	/// basically, 0b0101 (5) -> [true, false, true, false] 
+	/// (using little endian, first index is the same as 2^0, 2^1, 2^2, 2^3)
+	/// </summary>
+	/// <param name="levers">amount of levers</param>
+	/// <param name="number">number in the range [1..2^levers)</param>
+	/// <returns>A bool-list for each bit represented as a bollean true/false</returns>
 	private bool[] CreateBoolList(int levers, int number) {
 
 		//number of inputs states
