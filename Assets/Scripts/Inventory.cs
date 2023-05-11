@@ -87,7 +87,7 @@ public class Inventory:MonoBehaviour {
 		drugNr = int.Parse(drugText.text);
 		if(drugNr > 0) {
 			drugNr--;
-			spawner.SpawnPillServerRpc(FirstPersonController.characterController.transform.position + new Vector3(0, 1, 0.2f));
+			Instantiate(pills, FirstPersonController.characterController.transform.position + new Vector3(0, 1, 0.2f), Quaternion.identity);
 		}
 	}
 	/// <summary>
@@ -115,7 +115,7 @@ public class Inventory:MonoBehaviour {
 		batteryNr = int.Parse(batteryText.text);
 		if(batteryNr > 0) {
 			batteryNr--;
-			spawner.SpawnBatteryServerRpc(FirstPersonController.characterController.transform.position + new Vector3(0, 1, 0.2f));
+			Instantiate(battery, FirstPersonController.characterController.transform.position + new Vector3(0, 1, 0.2f), Quaternion.identity);
 		}
 	}
 }

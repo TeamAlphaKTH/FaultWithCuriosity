@@ -24,7 +24,7 @@ public class Note:MonoBehaviour, IInteractable {
 		itemText.text = "";
 		// Set the code text to the code of the door
 		if(isCodeLock) {
-			codeText.text = "CODE: \n " + door.code.Value;
+			codeText.text = "CODE: \n " + door.code;
 		} else {
 			codeText.text = noteUI.GetComponentInChildren<TMP_Text>().text;
 		}

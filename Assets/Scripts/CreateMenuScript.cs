@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class CreateButtonScript:NetworkBehaviour {
+public class CreateButtonScript:MonoBehaviour {
 
 	private TMP_InputField portInput;
 	private Button btn;

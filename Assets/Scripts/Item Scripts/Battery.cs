@@ -2,7 +2,7 @@ using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
-public class Battery:NetworkBehaviour, IInteractable {
+public class Battery:MonoBehaviour, IInteractable {
 	private TextMeshProUGUI itemText;
 	private GameObject itemUI;
 	public float MaxRange { get { return maxRange; } }
@@ -13,8 +13,9 @@ public class Battery:NetworkBehaviour, IInteractable {
 
 	public void OnInteract() {
 		Inventory.batteryNr++;
-		NetworkObjectReference battery = gameObject;
-		RemoveBatteryServerRpc(battery);
+		//NetworkObjectReference battery = gameObject;
+		//RemoveBatteryServerRpc(battery);
+		Destroy(gameObject);
 	}
 
 	public void OnStartHover() {

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class FirstPersonController:NetworkBehaviour {
+public class FirstPersonController:MonoBehaviour {
 
 	public static bool CanMove { get; set; } = true;
 	private bool IsRunning => Input.GetKey(runKey) && canRun;
@@ -109,33 +109,21 @@ public class FirstPersonController:NetworkBehaviour {
 	private float oldGravity;
 
 	// Is called first
-	public override void OnNetworkSpawn() {
-		if(!IsOwner) {
-			GetComponentInChildren<Camera>().enabled = false;
-			return;
-		}
+
+	private void Start() {
 		characterController = GetComponent<CharacterController>();
 
 		staminaSlider = GameObject.Find("Stamina Slider").GetComponent<Slider>();
 		standingCenter = characterController.center;
 		standingHeight = characterController.height;
 		Initialize();
-		base.OnNetworkSpawn();
-	}
-
-	private void Start() {
-		if(IsOwner) {
-			SpawnEnemy();
-		}
 	}
 
 	/// <summary>
 	/// 
 	/// </summary>
 	void Initialize() {
-		if(!IsOwner) {
-			return;
-		}
+
 		// for crouching
 		initialCameraPosition = playerCamera.transform.localPosition;
 		crouchHeight = standingHeight * crouchMultiplier;
@@ -150,14 +138,12 @@ public class FirstPersonController:NetworkBehaviour {
 	private void SpawnEnemy() {
 		Transform[] enemySpawn = enemySpawnPoints.GetComponentsInChildren<Transform>();
 		Instantiate(enemyGhostPrefab, enemySpawn[1].position, Quaternion.identity);
-		EnemyController.player = NetworkManager.LocalClient.PlayerObject.transform;
+		EnemyController.player = transform;
 	}
 
 	// Update is called once per frame
 	void Update() {
-		if(!IsOwner) {
-			return;
-		}
+
 		if(CanMove && !PauseMenu.pausedClient) {
 			HandleInput();
 			HandleJump();
@@ -441,7 +427,7 @@ public class FirstPersonController:NetworkBehaviour {
 	}
 	[ClientRpc]
 	private void winClientRpc() {
-		NetworkManager.SceneManager.LoadScene("Credits", LoadSceneMode.Single);
+		SceneManager.LoadScene("Credits", LoadSceneMode.Single);
 	}
 
 	[ServerRpc]

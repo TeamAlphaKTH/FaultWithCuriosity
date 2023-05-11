@@ -2,7 +2,7 @@ using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
-public class Pill:NetworkBehaviour, IInteractable {
+public class Pill:MonoBehaviour, IInteractable {
 	private TextMeshProUGUI itemText;
 	private GameObject itemUI;
 	public float MaxRange { get { return maxRange; } }
@@ -13,8 +13,9 @@ public class Pill:NetworkBehaviour, IInteractable {
 
 	public void OnInteract() {
 		Inventory.drugNr++;
-		NetworkObjectReference drug = gameObject;
-		RemoveKeyServerRpc(drug);
+		//NetworkObjectReference drug = gameObject;
+		//RemoveKeyServerRpc(drug);
+		Destroy(gameObject);
 	}
 
 	public void OnStartHover() {

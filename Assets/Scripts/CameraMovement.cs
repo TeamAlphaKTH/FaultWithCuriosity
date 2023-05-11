@@ -1,7 +1,6 @@
-using Unity.Netcode;
 using UnityEngine;
 
-public class CameraMovement:NetworkBehaviour {
+public class CameraMovement:MonoBehaviour {
 	public static bool CanRotate { get; set; } = true;
 	private float xRotation;
 	private float yRotation;
@@ -30,8 +29,6 @@ public class CameraMovement:NetworkBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		if(!IsOwner)
-			return;
 		if(!mainCamera.GetComponent<AudioListener>().enabled)
 			mainCamera.GetComponent<AudioListener>().enabled = true;
 		if(CanRotate && !PauseMenu.pausedClient) {

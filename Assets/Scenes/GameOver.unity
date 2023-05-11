@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311924, g: 0.38073963, b: 0.3587269, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -280,7 +280,8 @@ PrefabInstance:
       value: GameOverScreen
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7092540313687892111, guid: 4f2b95cec6f9b4baebb44cfdb2c0217f, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 520994177432032884, guid: 4f2b95cec6f9b4baebb44cfdb2c0217f, type: 3}
       insertIndex: 0

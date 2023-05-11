@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SinglePlayerBtn:NetworkBehaviour {
+public class SinglePlayerBtn:MonoBehaviour {
 
 	private Button btn;
 	private string Ip = "127.0.0.1";

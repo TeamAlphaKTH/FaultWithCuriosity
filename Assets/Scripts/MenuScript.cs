@@ -2,7 +2,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MenuScript:NetworkBehaviour {
+public class MenuScript:MonoBehaviour {
 	[SerializeField] private Button hostButton;
 	[SerializeField] private Button connectButton;
 

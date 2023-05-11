@@ -2,9 +2,10 @@ using TMPro;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Flashlight:NetworkBehaviour {
+public class Flashlight:MonoBehaviour {
 	[Header("Networking")]
 	private GameObject cam;
 	[SerializeField] public bool isDead;
@@ -40,9 +41,7 @@ public class Flashlight:NetworkBehaviour {
 	[Header("Animations")]
 	[SerializeField] private Animator animator;
 
-	public override void OnNetworkSpawn() {
-		if(!IsOwner) { return; }
-
+	public void Start() {
 		cam = GetComponentInChildren<Camera>().gameObject;
 
 		flashlightLight = cam.GetComponentInChildren<Light>();
@@ -60,17 +59,13 @@ public class Flashlight:NetworkBehaviour {
 
 
 		this.paranoiaSlider.value = 0f;
-	}
-
-	void Start() {
-		if(!IsOwner) { return; }
 		itemUI = GameObject.Find("ItemUI");
 		itemText = itemUI.GetComponentInChildren<TextMeshProUGUI>();
 	}
 
-	void Update() {
-		if(!IsOwner) { return; }
 
+
+	void Update() {
 		if(canUseFlashlight) {
 			FlashlightControl();
 		}
@@ -79,7 +74,7 @@ public class Flashlight:NetworkBehaviour {
 			FirstPersonController.CanMove = false;
 			PhotoCapture.canUseCamera = false;
 			Inventory.canOpenInventory = false;
-			if (NetworkManager.Singleton.GetComponent<UnityTransport>().ConnectionData.Address.Equals("127.0.0.1")) {
+			if(NetworkManager.Singleton.GetComponent<UnityTransport>().ConnectionData.Address.Equals("127.0.0.1")) {
 				GameOverServerRpc();
 			} else {
 				itemText.text = endText;
@@ -167,7 +162,8 @@ public class Flashlight:NetworkBehaviour {
 		}
 
 		if(currentParanoia >= 100) {
-			SetDeadServerRpc(true);
+			//SetDeadServerRpc(true);
+			SceneManager.LoadScene("GameOver", UnityEngine.SceneManagement.LoadSceneMode.Single);
 		}
 
 		batteryText.SetText(batteryLevel.ToString("F0"));
@@ -180,7 +176,7 @@ public class Flashlight:NetworkBehaviour {
 	}
 
 	public void HealSelf() {
-		Flashlight dis = NetworkManager.LocalClient.PlayerObject.GetComponent<Flashlight>();
+		Flashlight dis = GetComponent<Flashlight>();
 		dis.currentParanoia = dis.currentParanoia <= 20 ? 0 : dis.currentParanoia -= 20;
 	}
 
@@ -221,7 +217,6 @@ public class Flashlight:NetworkBehaviour {
 	[ClientRpc]
 	public void GameOverClientRpc() {
 		Destroy(GameObject.Find("Enemy(Clone)"));
-		NetworkManager.SceneManager.LoadScene("GameOver", UnityEngine.SceneManagement.LoadSceneMode.Single);
-		NetworkManager.Singleton.DisconnectClient(NetworkManager.LocalClient.ClientId);
+
 	}
 }

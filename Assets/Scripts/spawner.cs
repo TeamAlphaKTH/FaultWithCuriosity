@@ -1,7 +1,7 @@
 using Unity.Netcode;
 using UnityEngine;
 
-public class Spawner:NetworkBehaviour {
+public class Spawner:MonoBehaviour {
 	[SerializeField] GameObject pills;
 	[SerializeField] GameObject batteries;
 	[ServerRpc(RequireOwnership = false)]

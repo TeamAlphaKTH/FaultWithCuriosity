@@ -2,7 +2,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class uiManager:NetworkBehaviour {
+public class uiManager:MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 		if(Input.GetKeyDown(KeyCode.Q)) {

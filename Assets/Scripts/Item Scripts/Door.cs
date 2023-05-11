@@ -2,14 +2,14 @@ using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
-public class Door:NetworkBehaviour, IInteractable {
+public class Door:MonoBehaviour, IInteractable {
 	[SerializeField] public bool locked = false;
 	[SerializeField] private int keyId;
 
 	[Header("CodeLock")]
 	[SerializeField] public bool codeLockDoor = false;
 
-	public NetworkVariable<int> code = new(1);
+	public int code = 1;
 
 	public static TextMeshProUGUI itemText;
 	private GameObject itemUI;
@@ -64,13 +64,10 @@ public class Door:NetworkBehaviour, IInteractable {
 		itemUI = GameObject.Find("ItemUI");
 		itemText = itemUI.GetComponentInChildren<TextMeshProUGUI>();
 		animator = GetComponentInParent<Animator>();
+		code = int.Parse(Random.Range(1000, 10000).ToString("D4"));
 
 	}
-	public override void OnNetworkSpawn() {
-		if(IsHost)
-			code.Value = int.Parse(Random.Range(1000, 10000).ToString("D4"));
-		base.OnNetworkSpawn();
-	}
+
 
 	[ServerRpc(RequireOwnership = false)]
 	private void OpenDoorServerRpc(bool state) {

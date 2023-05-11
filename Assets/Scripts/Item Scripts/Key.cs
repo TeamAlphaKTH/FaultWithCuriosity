@@ -2,7 +2,7 @@ using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
-public class Key:NetworkBehaviour, IInteractable {
+public class Key:MonoBehaviour, IInteractable {
 	[SerializeField] private int id = 0;
 
 	private TextMeshProUGUI itemText;
@@ -21,8 +21,9 @@ public class Key:NetworkBehaviour, IInteractable {
 
 	public void OnInteract() {
 		Inventory.keyIds.Add(id);
-		NetworkObjectReference key = gameObject;
-		RemoveKeyServerRpc(key);
+		//NetworkObjectReference key = gameObject;
+		//RemoveKeyServerRpc(key);
+		Destroy(gameObject);
 	}
 
 	public void OnStartHover() {

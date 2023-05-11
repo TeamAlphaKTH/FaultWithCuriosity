@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class IpPortInputScript:NetworkBehaviour {
+public class IpPortInputScript:MonoBehaviour {
 	private TMP_InputField ipAndPort;
 	private Button joinButton;
 	string inputText;

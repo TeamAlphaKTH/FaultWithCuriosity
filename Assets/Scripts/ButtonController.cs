@@ -2,7 +2,7 @@ using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
-public class ButtonController:NetworkBehaviour, IInteractable {
+public class ButtonController:MonoBehaviour, IInteractable {
 	public float MaxRange { get { return maxRange; } }
 	private const float maxRange = 2f;
 	private TextMeshProUGUI uiText;

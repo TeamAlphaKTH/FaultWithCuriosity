@@ -3,7 +3,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PhotoCapture:NetworkBehaviour {
+public class PhotoCapture:MonoBehaviour {
 	[Header("Camera Item Parameters")]
 	[SerializeField] public static float charges = 3;
 	public static bool canUseCamera = true;
@@ -40,17 +40,16 @@ public class PhotoCapture:NetworkBehaviour {
 	private bool gamble = false;
 
 	// set ItemPolaroid Bool child to false - guarantee that the bool is false in start
-	public override void OnNetworkSpawn() {
-		if(!IsOwner)
-			return;
+	public void Start() {
+
 		GUI = GameObject.Find("ItemUI");
-		base.OnNetworkSpawn();
+
 		itemPolaroid.transform.GetChild(2).gameObject.SetActive(false);
-		Flashlight = transform.parent.GetComponent<Flashlight>();
+		Flashlight = FindAnyObjectByType<Flashlight>();
 	}
 
 	void Update() {
-		if(!IsOwner || PauseMenu.paused || PauseMenu.pausedClient) {
+		if(PauseMenu.paused || PauseMenu.pausedClient) {
 			return;
 		}
 
@@ -163,8 +162,9 @@ public class PhotoCapture:NetworkBehaviour {
 		viewingPhoto = false;
 		currentPhotoFrame.SetActive(false);
 		currentItemPolaroid.transform.GetChild(1).gameObject.SetActive(false);
-		NetworkObjectReference polaroid = currentItemPolaroid.GetComponent<NetworkObject>();
-		DeletePolaroidServerRpc(polaroid);
+		//NetworkObjectReference polaroid = currentItemPolaroid.GetComponent<NetworkObject>();
+		//DeletePolaroidServerRpc(polaroid);
+		Destroy(currentItemPolaroid);
 		GUI.SetActive(true);
 	}
 
@@ -181,7 +181,13 @@ public class PhotoCapture:NetworkBehaviour {
 
 		Quaternion randomRotation = Random.rotation;
 		// Spawn Polaroid
-		SpawnPolaroidServerRpc(randomPosition, randomRotation, pictureBytes, gamble);
+		GameObject newPolaroid = Instantiate(itemPolaroid, randomPosition, randomRotation);
+		Texture2D pictureTexture = new(2, 2);
+		pictureTexture.LoadImage(pictureBytes);
+		Sprite pictureSprite = Sprite.Create(pictureTexture, new Rect(0, 0, pictureTexture.width, pictureTexture.height), new Vector2(0, 0), 50);
+		newPolaroid.transform.GetChild(1).GetChild(0).GetChild(0).GetChild(1).gameObject.GetComponent<Image>().sprite = pictureSprite;
+		newPolaroid.transform.GetChild(2).gameObject.SetActive(gamble);
+		//SpawnPolaroidServerRpc(randomPosition, randomRotation, pictureBytes, gamble);
 	}
 
 	/// <summary>

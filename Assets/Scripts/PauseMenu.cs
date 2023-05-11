@@ -1,7 +1,7 @@
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class PauseMenu:NetworkBehaviour {
+public class PauseMenu:MonoBehaviour {
 
 	public static bool paused = false;
 	public static bool pausedClient = false;
@@ -39,12 +39,9 @@ public class PauseMenu:NetworkBehaviour {
 		} else {
 			PausedMenu.SetActive(true);
 		}
-		if(IsHost) {
-			pauseServerRpc(true);
-			pausedClient = true;
-		} else {
-			pausedClient = true;
-		}
+
+		pausedClient = true;
+
 	}
 	// Plays time and puts pausemenu to false else only unpause client 
 	public void Play() {
@@ -56,12 +53,9 @@ public class PauseMenu:NetworkBehaviour {
 
 		PauseMenuCanvas.SetActive(false);
 		PausedMenu.SetActive(false);
-		if(IsHost) {
-			pauseServerRpc(false);
-			pausedClient = false;
-		} else {
-			pausedClient = false;
-		}
+
+		pausedClient = false;
+
 		if(OptionsMenu.activeSelf) {
 			OptionsMenu.SetActive(false);
 		}
@@ -71,18 +65,12 @@ public class PauseMenu:NetworkBehaviour {
 		paused = false;
 		PauseMenuCanvas.SetActive(false);
 		SceneManager.LoadScene(0);
-		if(IsHost) {
-			//Host has access to server and therfore wont need to disconnect using a RPC-server request to server
-			NetworkManager.Singleton.DisconnectClient(OwnerClientId);
-			NetworkManager.Singleton.Shutdown();
-		} else {
-			var clientIdToDisconnect = NetworkManager.Singleton.LocalClientId;
-			leaveServerRpc(clientIdToDisconnect);
-			//leaveServerRpc sends to server and as such the 
-		}
+		var clientIdToDisconnect = NetworkManager.Singleton.LocalClientId;
+		leaveServerRpc(clientIdToDisconnect);
+		//leaveServerRpc sends to server and as such the 
 		Cursor.lockState = CursorLockMode.Confined;
 		Cursor.visible = true;
-		Destroy(NetworkManager.Singleton.gameObject);
+		//Destroy(NetworkManager.Singleton.gameObject);
 	}
 
 	// Sends to Server 
@@ -111,8 +99,6 @@ public class PauseMenu:NetworkBehaviour {
 	//Send to all connected clients
 	[ClientRpc(Delivery = RpcDelivery.Reliable)]
 	public void leaveClientRpc(ulong clientId) {
-		if(NetworkManager.LocalClientId == clientId) {
-			NetworkManager.Singleton.Shutdown();
-		}
+
 	}
 }

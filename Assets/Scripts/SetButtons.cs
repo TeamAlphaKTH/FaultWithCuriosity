@@ -27,7 +27,7 @@ public class SetButtons:MonoBehaviour {
 		buttons[11].onClick.AddListener(() => Delete());
 	}
 	public void Enter() {
-		if(answer.text.Equals(door.code.Value.ToString())) {
+		if(answer.text.Equals(door.code.ToString())) {
 			answer.text = "";
 			door.SetBoolServerRpc();
 			keypadScript1.RemoveKeypadUI();
