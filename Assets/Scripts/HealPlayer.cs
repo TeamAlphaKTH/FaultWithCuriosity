@@ -16,6 +16,7 @@ public class HealPlayer:MonoBehaviour, IInteractable {
 			flashlight.SetDeadServerRpc(false);
 			flashlight.HealServerRpc();
 			Inventory.drugNr--;
+			flashlight.hasPlayed = false;
 			OnEndHover();
 		}
 
