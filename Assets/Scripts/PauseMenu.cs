@@ -1,8 +1,7 @@
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class PauseMenu : NetworkBehaviour
-{
+public class PauseMenu:NetworkBehaviour {
 
 	public static bool paused = false;
 	public static bool pausedClient = false;
@@ -10,99 +9,72 @@ public class PauseMenu : NetworkBehaviour
 	[SerializeField] private GameObject OptionsMenu;
 	[SerializeField] private GameObject PausedMenu;
 	// Start is called before the first frame update
-	void Start()
-	{
+	void Start() {
 		PauseMenuCanvas.SetActive(false);
 		Time.timeScale = 1.0f;
 	}
 
 	// Update is called once per frame
-	void Update()
-	{
-		Debug.Log(Cursor.visible);
-		if (paused || pausedClient)
-		{
+	void Update() {
+		if(paused || pausedClient) {
 			Stop();
-		}
-		else
-		{
+		} else {
 			Play();
 		}
-		if (Input.GetKeyDown(KeyCode.P))
-		{
-			if (paused || pausedClient)
-			{
+		if(Input.GetKeyDown(KeyCode.P)) {
+			if(paused || pausedClient) {
 				Play();
-			}
-			else
+			} else
 				Stop();
 		}
 	}
 
 	// Stops time if host else only pause for client 
-	public void Stop()
-	{
+	public void Stop() {
 		Cursor.lockState = CursorLockMode.Confined;
 		Cursor.visible = true;
 		PauseMenuCanvas.SetActive(true);
-		if (OptionsMenu.activeSelf)
-		{
+		if(OptionsMenu.activeSelf) {
 			PausedMenu.SetActive(false);
-		}
-		else
-		{
+		} else {
 			PausedMenu.SetActive(true);
 		}
-		if (IsHost)
-		{
+		if(IsHost) {
 			pauseServerRpc(true);
 			pausedClient = true;
-		}
-		else
-		{
+		} else {
 			pausedClient = true;
 		}
 	}
 	// Plays time and puts pausemenu to false else only unpause client 
-	public void Play()
-	{
+	public void Play() {
 		Cursor.lockState = CursorLockMode.Confined;
-		if (!Inventory.inventoryOpen && !keypadScript.keypadOn)
-		{
+		if(!Inventory.inventoryOpen) {
 			Cursor.lockState = CursorLockMode.Locked;
 			Cursor.visible = false;
 		}
-
 		PauseMenuCanvas.SetActive(false);
 		PausedMenu.SetActive(false);
-		if (IsHost)
-		{
+		if(IsHost) {
 			pauseServerRpc(false);
 			pausedClient = false;
-		}
-		else
-		{
+		} else {
 			pausedClient = false;
 		}
-		if (OptionsMenu.activeSelf)
-		{
+		if(OptionsMenu.activeSelf) {
 			OptionsMenu.SetActive(false);
 		}
 	}
-	public void MainMenuButton()
-	{
+	public void MainMenuButton() {
 		pausedClient = false;
 		paused = false;
 		PauseMenuCanvas.SetActive(false);
 		SceneManager.LoadScene(0);
-		if (IsHost)
-		{
+		if(IsHost) {
 			//Host has access to server and therfore wont need to disconnect using a RPC-server request to server
 			NetworkManager.Singleton.DisconnectClient(OwnerClientId);
 			NetworkManager.Singleton.Shutdown();
-		}
-		else
-		{
+		} else {
 			var clientIdToDisconnect = NetworkManager.Singleton.LocalClientId;
 			leaveServerRpc(clientIdToDisconnect);
 			//leaveServerRpc sends to server and as such the 
@@ -114,39 +86,31 @@ public class PauseMenu : NetworkBehaviour
 
 	// Sends to Server 
 	[ServerRpc]
-	public void pauseServerRpc(bool state)
-	{
+	public void pauseServerRpc(bool state) {
 		pauseClientRpc(state);
 	}
 
 	//any client should be able to do this Server RPC
 	[ServerRpc(RequireOwnership = false, Delivery = RpcDelivery.Reliable)]
-	public void leaveServerRpc(ulong clientId)
-	{
+	public void leaveServerRpc(ulong clientId) {
 		NetworkManager.Singleton.DisconnectClient(clientId);
 		leaveClientRpc(clientId);
 	}
 
 	// Changes states at client on demand from the server 
 	[ClientRpc]
-	public void pauseClientRpc(bool state)
-	{
+	public void pauseClientRpc(bool state) {
 		paused = state;
-		if (!paused)
-		{
+		if(!paused) {
 			Time.timeScale = 1f;
-		}
-		else
-		{
+		} else {
 			Time.timeScale = 0f;
 		}
 	}
 	//Send to all connected clients
 	[ClientRpc(Delivery = RpcDelivery.Reliable)]
-	public void leaveClientRpc(ulong clientId)
-	{
-		if (NetworkManager.LocalClientId == clientId)
-		{
+	public void leaveClientRpc(ulong clientId) {
+		if(NetworkManager.LocalClientId == clientId) {
 			NetworkManager.Singleton.Shutdown();
 		}
 	}
