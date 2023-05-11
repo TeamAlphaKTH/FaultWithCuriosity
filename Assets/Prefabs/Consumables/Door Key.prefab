@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9144011877717082039}
   - component: {fileID: 7570811491307205074}
   - component: {fileID: 7563685577951350040}
+  - component: {fileID: 6350916483140253571}
   m_Layer: 0
   m_Name: Door Key
   m_TagString: Untagged
@@ -87,6 +88,33 @@ CapsuleCollider:
   m_Height: 0.25
   m_Direction: 0
   m_Center: {x: 0.01, y: 0, z: 0}
+--- !u!54 &6350916483140253571
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6287503474903904895}
+  serializedVersion: 4
+  m_Mass: 0.2
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &393983378046335282
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -139,6 +167,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 20d131b1715998044a4acf42a520908f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 60a8e8c5f56385c458a763395ec6c865, type: 2}
     - target: {fileID: 919132149155446097, guid: 20d131b1715998044a4acf42a520908f, type: 3}
       propertyPath: m_Name
       value: Key
