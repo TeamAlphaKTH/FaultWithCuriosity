@@ -76,7 +76,7 @@ public class PhotoCapture:NetworkBehaviour {
 		}
 
 		// Close Photo
-		if(viewingPhoto && Input.GetKeyDown(FirstPersonController.useCameraButton)) {
+		if(viewingPhoto && Input.GetKeyDown(KeyCode.R)) {
 			RemovePhoto();
 		}
 
