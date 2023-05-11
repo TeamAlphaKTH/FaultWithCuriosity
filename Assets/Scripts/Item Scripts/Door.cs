@@ -64,8 +64,12 @@ public class Door:NetworkBehaviour, IInteractable {
 		itemUI = GameObject.Find("ItemUI");
 		itemText = itemUI.GetComponentInChildren<TextMeshProUGUI>();
 		animator = GetComponentInParent<Animator>();
-		code.Value = int.Parse(Random.Range(0, 10000).ToString("D4"));
 
+	}
+	public override void OnNetworkSpawn() {
+		if(IsHost)
+			code.Value = int.Parse(Random.Range(1000, 10000).ToString("D4"));
+		base.OnNetworkSpawn();
 	}
 
 	[ServerRpc(RequireOwnership = false)]

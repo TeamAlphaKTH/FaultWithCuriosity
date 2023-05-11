@@ -90,6 +90,11 @@ public class FirstPersonController:NetworkBehaviour {
 	[SerializeField] public static KeyCode useCameraButton = KeyCode.Mouse1;
 	[SerializeField] public static KeyCode openInventory = KeyCode.Tab;
 
+	[Header("Audio")]
+	[SerializeField] private AudioClip[] walkClips;
+	[SerializeField] private AudioSource myAudioSource;
+	private int pickSound;
+
 	// Slope sliding parameters
 	private Vector3 hitPointNormal;
 	private bool IsSliding {
@@ -153,6 +158,7 @@ public class FirstPersonController:NetworkBehaviour {
 
 		currentStamina = maxStamina;
 		staminaSlider.value = maxStamina;
+
 	}
 
 	private void SpawnEnemy() {
@@ -327,6 +333,15 @@ public class FirstPersonController:NetworkBehaviour {
 
 		// Move the character
 		characterController.Move(moveDirection * Time.deltaTime);
+
+		// sound for walking
+		if(characterController.isGrounded && moveDirection.x != 0 && moveDirection.z != 0) {
+			pickSound = UnityEngine.Random.Range(0, walkClips.Length);
+			if(!myAudioSource.isPlaying) {
+				myAudioSource.clip = walkClips[pickSound];
+				myAudioSource.Play();
+			}
+		}
 	}
 
 	/// <summary>
@@ -363,6 +378,7 @@ public class FirstPersonController:NetworkBehaviour {
 				moveDirection = (transform.TransformDirection(Vector3.left) * climbSpeed);
 				characterController.Move(moveDirection * Time.deltaTime);
 			}
+			HandleStamina();
 		}
 	}
 
