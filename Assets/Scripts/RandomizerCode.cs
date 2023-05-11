@@ -5,9 +5,6 @@ using Unity.Netcode;
 using UnityEngine;
 
 
-/// <summary>
-/// Put this script on the gameobject named "NoteUI".
-/// </summary>
 public class RandomizerCode:NetworkBehaviour {
 
 	[Header("Puzzle Controller")]
@@ -18,30 +15,35 @@ public class RandomizerCode:NetworkBehaviour {
 
 	[TextArea]
 	public string usage =
-		"Put this script on the gameobject named \"NoteUI\"\n\n" +
-		"To get the random number\nwrite \"[]\" where you want the number in your note text";
+		"Put this script on the gameobject named \"Note\" prefab\n\n" +
+		"To get the random number, write \"[]\" where you want the number in your note text";
 
+	[SerializeField] public NetworkVariable<int> randomNum = new(0);
 	private TMP_Text m_Text;
-	private GameObject[] levers;
 	private int numOfInputs;
-	private bool onFlag = true;
 
-	private void Start() {
-		if(m_InputController == null)
-			throw new MissingReferenceException("Component: InputController was not been assigned properly");
-
-		//Assign components
-		m_Text = GetComponentInChildren<TMP_Text>();
-
+	public override void OnNetworkSpawn() {
 		//Count amount of inputs
 		numOfInputs = m_InputController.inputs.Count;
 
-		//Genrate random number based on amounf of levers, Used by TMP_Text component of "Text"
-		int randomNum = UnityEngine.Random.Range(1, (int)Math.Pow(2, numOfInputs));
+		if(IsHost) {
+			//Genrate random number based on amounf of levers, Used by TMP_Text component of "Text"
+			randomNum.Value = UnityEngine.Random.Range(1, (int)Math.Pow(2, numOfInputs));
+		}
+		Setup();
+		base.OnNetworkSpawn();
+	}
+
+	private void Setup() {
+		if(m_InputController == null)
+			throw new MissingReferenceException("Component: InputController was not been assigned properly");
+
+		//Assign TMP_Text component
+		m_Text = transform.GetChild(1).GetChild(0).GetComponentInChildren<TMP_Text>();
 
 		//generate the custom bool-list
 		//starting with least significant at index0 and most significant at the last index
-		bool[] inputState = CreateBoolList(numOfInputs, randomNum);
+		bool[] inputState = CreateBoolList(numOfInputs, randomNum.Value);
 
 		//Change enable states for Input objects
 		int pointer = 0;
@@ -49,17 +51,17 @@ public class RandomizerCode:NetworkBehaviour {
 			input.enabled = inputState[pointer++];
 		}
 
-		//UPDATE THE TEXT TO CONTAIN randomNum somwwhere
+		//UPDATE THE TEXT TO CONTAIN randomNum
 		if(!m_Text.name.Equals("Text")) {
 			return;
 		}
 		if(!useHexa) {
 			StringBuilder n = new(m_Text.text);
-			n = n.Replace("[]", randomNum.ToString());
+			n = n.Replace("[]", randomNum.Value.ToString());
 			m_Text.text = n.ToString();
 		} else if(useHexa) {
 			StringBuilder n = new(m_Text.text);
-			n = n.Replace("[]", "0x" + randomNum.ToString("X"));
+			n = n.Replace("[]", "0x" + randomNum.Value.ToString("X"));
 			m_Text.text = n.ToString();
 		}
 	}
