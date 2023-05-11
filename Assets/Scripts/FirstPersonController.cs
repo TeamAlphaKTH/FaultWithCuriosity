@@ -82,6 +82,9 @@ public class FirstPersonController:NetworkBehaviour {
 	[SerializeField] private AudioSource myAudioSource;
 	private int pickSound;
 
+	[Header("Animations")]
+	[SerializeField] private Animator animator;
+
 	// Slope sliding parameters
 	private Vector3 hitPointNormal;
 	private bool IsSliding {
@@ -274,6 +277,8 @@ public class FirstPersonController:NetworkBehaviour {
 		// Calculates the movement direction of the character based on the current input vector and the orientation of the character in the world.
 		moveDirection = (transform.TransformDirection(Vector3.forward) * currentSpeed.x) + (transform.TransformDirection(Vector3.right) * currentSpeed.y);
 		moveDirection.y = moveDirectionY;
+
+		animator.SetFloat("Movement", currentSpeed.magnitude);
 	}
 
 	/// <summary>
