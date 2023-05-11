@@ -41,7 +41,7 @@ public class keypadScript : MonoBehaviour, IInteractable
 	}
 	private void Update()
 	{
-		if (Input.GetKeyDown(FirstPersonController.useCameraButton) && keypad.activeSelf)
+		if (Input.GetKeyDown(KeyCode.R) && keypad.activeSelf)
 		{
 			RemoveKeypadUI();
 		}

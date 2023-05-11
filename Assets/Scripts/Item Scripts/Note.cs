@@ -66,7 +66,7 @@ public class Note : MonoBehaviour, IInteractable
 	}
 	void Update()
 	{
-		if (isOn && Input.GetKeyDown(FirstPersonController.useCameraButton))
+		if (isOn && Input.GetKeyDown(KeyCode.R))
 		{
 			// If the note is on and the player presses escape, disable the note UI and enable movement and camera.
 			noteUI.SetActive(false);
