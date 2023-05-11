@@ -1119,19 +1119,19 @@ PrefabInstance:
     - target: {fileID: 7809751407034903663, guid: 56a9c618c1c3f1e4d9bcc3ad602d48b7, type: 3}
       propertyPath: inputs.Array.data[0].inputObject
       value: 
-      objectReference: {fileID: 9189285704508520080}
+      objectReference: {fileID: 1716991427536750055}
     - target: {fileID: 7809751407034903663, guid: 56a9c618c1c3f1e4d9bcc3ad602d48b7, type: 3}
       propertyPath: inputs.Array.data[1].inputObject
       value: 
-      objectReference: {fileID: 8759410929549268654}
+      objectReference: {fileID: 3232706604760937478}
     - target: {fileID: 7809751407034903663, guid: 56a9c618c1c3f1e4d9bcc3ad602d48b7, type: 3}
       propertyPath: inputs.Array.data[2].inputObject
       value: 
-      objectReference: {fileID: 3232706604760937478}
+      objectReference: {fileID: 8759410929549268654}
     - target: {fileID: 7809751407034903663, guid: 56a9c618c1c3f1e4d9bcc3ad602d48b7, type: 3}
       propertyPath: inputs.Array.data[3].inputObject
       value: 
-      objectReference: {fileID: 1716991427536750055}
+      objectReference: {fileID: 9189285704508520080}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1142,6 +1142,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2167213501060794772, guid: 56a9c618c1c3f1e4d9bcc3ad602d48b7, type: 3}
   m_PrefabInstance: {fileID: 1849201739082436267}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8487139780107641540 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7809751407034903663, guid: 56a9c618c1c3f1e4d9bcc3ad602d48b7, type: 3}
+  m_PrefabInstance: {fileID: 1849201739082436267}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4eb82384bd845544987a762f6168456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2280104359279441200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1634,8 +1645,8 @@ PrefabInstance:
       propertyPath: m_text
       value: "Where did I put my key? I thought the Celler Main Door was open but
         its locked and the key is missing... These lever have some connection to
-        the number 10. \n\nWait... what am I even doing? I think I am going crazy
-        down here.\n\n"
+        the number [] [HINT]. \n\nWait... what am I even doing? I think I am going
+        crazy down here.\n\n"
       objectReference: {fileID: 0}
     - target: {fileID: 5583231872413221682, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
       propertyPath: m_fontSize
@@ -1680,13 +1691,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1592855096101489577, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7313719386142491453}
   m_SourcePrefab: {fileID: 100100000, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
 --- !u!1 &2544808249353922297 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1592855096101489577, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
   m_PrefabInstance: {fileID: 3839895770949332304}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7313719386142491453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2544808249353922297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c3da1d2fd17774f9b1fc981400a0cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InputController: {fileID: 8487139780107641540}
+  useHexa: 0
+  usage: 'Put this script on the gameobject named "NoteUI"
+
+
+    To get the random
+    number
+
+    write "[]" where you want the number in your note text'
 --- !u!4 &8940899100639304593 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5286795536408688321, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
@@ -2315,8 +2350,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5583231872413221682, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
       propertyPath: m_text
-      value: These walls hide something. I feel that I could just "pass through"
-        some.
+      value: '[HINT]
+
+
+        "These walls hide something. I feel that I could just
+        "pass through" some."'
       objectReference: {fileID: 0}
     - target: {fileID: 5583231872413221682, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
       propertyPath: m_fontSize
