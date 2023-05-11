@@ -19,7 +19,6 @@ public class PauseMenu : NetworkBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		Debug.Log(Cursor.visible);
 		if (paused || pausedClient)
 		{
 			Stop();
