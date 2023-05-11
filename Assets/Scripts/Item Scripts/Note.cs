@@ -1,8 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class Note : MonoBehaviour, IInteractable
-{
+public class Note:MonoBehaviour, IInteractable {
 	public float MaxRange { get { return maxRange; } }
 	private const float maxRange = 2f;
 
@@ -17,21 +16,16 @@ public class Note : MonoBehaviour, IInteractable
 	// Change this to false if you want to use a note without a code lock.
 	[SerializeField] private bool isCodeLock = true;
 
-	public void OnEndHover()
-	{
+	public void OnEndHover() {
 		itemText.text = "";
 	}
 
-	public void OnInteract()
-	{
+	public void OnInteract() {
 		itemText.text = "";
 		// Set the code text to the code of the door
-		if (isCodeLock)
-		{
+		if(isCodeLock) {
 			codeText.text = "CODE: \n " + door.code.Value;
-		}
-		else
-		{
+		} else {
 			codeText.text = noteUI.GetComponentInChildren<TMP_Text>().text;
 		}
 
@@ -43,18 +37,15 @@ public class Note : MonoBehaviour, IInteractable
 		PhotoCapture.canUseCamera = false;
 	}
 
-	public void OnStartHover()
-	{
+	public void OnStartHover() {
 		itemText.text = "Press " + CameraMovement.interactKey + " to read note";
 	}
 
 
 	// Start is called before the first frame update
-	void Start()
-	{
+	void Start() {
 		// Get door component.
-		if (isCodeLock)
-		{
+		if(isCodeLock) {
 			door = transform.parent.parent.GetChild(1).GetChild(0).GetComponent<Door>();
 		}
 
@@ -64,10 +55,8 @@ public class Note : MonoBehaviour, IInteractable
 		noteUI = transform.parent.GetChild(1).GetComponent<Canvas>().gameObject;
 		codeText = noteUI.GetComponentInChildren<TMP_Text>();
 	}
-	void Update()
-	{
-		if (isOn && Input.GetKeyDown(KeyCode.R))
-		{
+	void Update() {
+		if(isOn && Input.GetKeyDown(KeyCode.R)) {
 			// If the note is on and the player presses escape, disable the note UI and enable movement and camera.
 			noteUI.SetActive(false);
 			CameraMovement.CanRotate = true;
