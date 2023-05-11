@@ -61,7 +61,7 @@ public class Note:MonoBehaviour, IInteractable {
 		codeText = noteUI.GetComponentInChildren<TMP_Text>();
 	}
 	void Update() {
-		if(isOn && Input.GetKeyDown(KeyCode.Escape)) {
+		if(isOn && Input.GetKeyDown(KeyCode.R)) {
 			// If the note is on and the player presses escape, disable the note UI and enable movement and camera.
 			noteUI.SetActive(false);
 			CameraMovement.CanRotate = true;
