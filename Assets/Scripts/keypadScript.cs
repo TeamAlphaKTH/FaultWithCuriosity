@@ -9,6 +9,7 @@ public class keypadScript:MonoBehaviour, IInteractable {
 	public GameObject codeLockUI;
 	public GameObject keypad;
 	public bool tester = false;
+	public static bool keypadOn = false;
 	public float MaxRange { get { return maxRange; } }
 	private const float maxRange = 100f;
 
@@ -44,19 +45,23 @@ public class keypadScript:MonoBehaviour, IInteractable {
 	}
 
 	private void ShowKeypadUI() {
+		keypadOn = true;
 		FirstPersonController.CanMove = false;
 		CameraMovement.CanRotate = false;
 		PhotoCapture.canUseCamera = false;
 		Cursor.lockState = CursorLockMode.Confined;
+		Cursor.visible = true;
 		keypad.SetActive(true);
 		Door.itemText.text = "";
 	}
 
 	public void RemoveKeypadUI() {
+		keypadOn = false;
 		FirstPersonController.CanMove = true;
 		CameraMovement.CanRotate = true;
 		PhotoCapture.canUseCamera = true;
 		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
 		keypad.SetActive(false);
 	}
 }
