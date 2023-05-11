@@ -40,6 +40,10 @@ public class Flashlight:NetworkBehaviour {
 	[Header("Animations")]
 	[SerializeField] private Animator animator;
 
+	[Header("Audio")]
+	[SerializeField] private AudioSource audioDeathScream;
+	public bool hasPlayed = false;
+
 	public override void OnNetworkSpawn() {
 		if(!IsOwner) { return; }
 
@@ -79,9 +83,13 @@ public class Flashlight:NetworkBehaviour {
 			FirstPersonController.CanMove = false;
 			PhotoCapture.canUseCamera = false;
 			Inventory.canOpenInventory = false;
-			if (NetworkManager.Singleton.GetComponent<UnityTransport>().ConnectionData.Address.Equals("127.0.0.1")) {
+			if(NetworkManager.Singleton.GetComponent<UnityTransport>().ConnectionData.Address.Equals("127.0.0.1")) {
 				GameOverServerRpc();
 			} else {
+				if(hasPlayed == false) {
+					audioDeathScream.Play();
+					hasPlayed = true;
+				}
 				itemText.text = endText;
 				currentTime += Time.deltaTime;
 				EnemyController.ScareTeleport(transform.position);
