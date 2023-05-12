@@ -1249,7 +1249,7 @@ Transform:
   - {fileID: 8945099733675583548}
   - {fileID: 2810700189564466274}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3860473612888176510
 GameObject:
@@ -3922,10 +3922,6 @@ PrefabInstance:
       value: 951099334
       objectReference: {fileID: 0}
     - target: {fileID: 7809751407034903663, guid: 56a9c618c1c3f1e4d9bcc3ad602d48b7, type: 3}
-      propertyPath: door
-      value: 
-      objectReference: {fileID: 2740935343467974108}
-    - target: {fileID: 7809751407034903663, guid: 56a9c618c1c3f1e4d9bcc3ad602d48b7, type: 3}
       propertyPath: inputs.Array.data[0].enabled
       value: 0
       objectReference: {fileID: 0}
@@ -3944,7 +3940,7 @@ PrefabInstance:
     - target: {fileID: 7809751407034903663, guid: 56a9c618c1c3f1e4d9bcc3ad602d48b7, type: 3}
       propertyPath: inputs.Array.data[0].inputObject
       value: 
-      objectReference: {fileID: 6979562717210331213}
+      objectReference: {fileID: 615163001822509882}
     - target: {fileID: 7809751407034903663, guid: 56a9c618c1c3f1e4d9bcc3ad602d48b7, type: 3}
       propertyPath: inputs.Array.data[1].inputObject
       value: 
@@ -3952,11 +3948,11 @@ PrefabInstance:
     - target: {fileID: 7809751407034903663, guid: 56a9c618c1c3f1e4d9bcc3ad602d48b7, type: 3}
       propertyPath: inputs.Array.data[2].inputObject
       value: 
-      objectReference: {fileID: 3712765310956882651}
+      objectReference: {fileID: 6979562717210331213}
     - target: {fileID: 7809751407034903663, guid: 56a9c618c1c3f1e4d9bcc3ad602d48b7, type: 3}
       propertyPath: inputs.Array.data[3].inputObject
       value: 
-      objectReference: {fileID: 615163001822509882}
+      objectReference: {fileID: 3712765310956882651}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4043,11 +4039,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff86caffaebf98e428e8e309a570fc08, type: 3}
---- !u!1 &2740935343467974108 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4110575278937875428, guid: ff86caffaebf98e428e8e309a570fc08, type: 3}
-  m_PrefabInstance: {fileID: 2234471801417690680}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4567649164206482948 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2333424211739265084, guid: ff86caffaebf98e428e8e309a570fc08, type: 3}
@@ -5289,10 +5280,58 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1592855096101489577, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 7187880834561288790, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2805745394946081307}
+      addedObject: {fileID: 609185495304520815}
+    - targetCorrespondingSourceObject: {fileID: 7187880834561288790, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6708128359016075575}
   m_SourcePrefab: {fileID: 100100000, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+--- !u!1 &981679032187971829 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7187880834561288790, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+  m_PrefabInstance: {fileID: 7953326610254283427}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &609185495304520815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981679032187971829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c3da1d2fd17774f9b1fc981400a0cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InputController: {fileID: 8157904365622383227}
+  useHexa: 0
+  useUniqueRange: 0
+  usage: 'Put this script on the gameobject named "NoteUI"
+
+
+    To get the random
+    number
+
+    write "[]" where you want the number in your note text'
+  randomNum:
+    m_InternalValue: 0
+--- !u!114 &6708128359016075575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981679032187971829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!4 &2810700189564466274 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5286795536408688321, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
@@ -5303,27 +5342,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1592855096101489577, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
   m_PrefabInstance: {fileID: 7953326610254283427}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2805745394946081307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8666351941289412874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98c3da1d2fd17774f9b1fc981400a0cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_InputController: {fileID: 8157904365622383227}
-  useHexa: 0
-  usage: 'Put this script on the gameobject named "NoteUI"
-
-
-    To get the random
-    number
-
-    write "[]" where you want the number in your note text'
 --- !u!1001 &7964865758154016514
 PrefabInstance:
   m_ObjectHideFlags: 0
