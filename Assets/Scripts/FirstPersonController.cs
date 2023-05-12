@@ -327,6 +327,9 @@ public class FirstPersonController:NetworkBehaviour {
 	/// </summary>
 	/// <param name="ladderHitbox"></param>
 	private void OnTriggerStay(Collider ladderHitbox) {
+		if(!IsOwner) {
+			return;
+		}
 		//Check that the gameobject is a "Ladder"
 		if(ladderHitbox.CompareTag("Ladder")) {
 			//Turn off gravity and normal movement while on "Ladder"
@@ -435,6 +438,9 @@ public class FirstPersonController:NetworkBehaviour {
 	/// </summary>
 	/// <param name="ladderHitbox"></param>
 	private void OnTriggerExit(Collider ladderHitbox) {
+		if(!IsOwner) {
+			return;
+		}
 		if(ladderHitbox.CompareTag("Ladder")) {
 			//Activates normal movement and gravity
 			CanMove = true;
