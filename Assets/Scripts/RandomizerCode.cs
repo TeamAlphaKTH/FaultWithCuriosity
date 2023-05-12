@@ -10,8 +10,9 @@ public class RandomizerCode:NetworkBehaviour {
 	[Header("Puzzle Controller")]
 	[SerializeField] private PuzzleInputController m_InputController;
 
-	[Header("Hexadecimal Number?")]
+	[Header("Settings")]
 	[SerializeField] public bool useHexa = false;
+	[SerializeField] public bool useUniqueRange = true;
 
 	[TextArea]
 	public string usage =
@@ -21,14 +22,25 @@ public class RandomizerCode:NetworkBehaviour {
 	[SerializeField] public NetworkVariable<int> randomNum = new(0);
 	private TMP_Text m_Text;
 	private int numOfInputs;
+	private int lowestNumber;
+	private int highestNumber;
 
 	public override void OnNetworkSpawn() {
 		//Count amount of inputs
 		numOfInputs = m_InputController.inputs.Count;
 
 		if(IsHost) {
+			//Settings
+			if(useUniqueRange) {
+				lowestNumber = 256;
+				highestNumber = 4095;
+			} else {
+				lowestNumber = 1;
+				highestNumber = (int)Math.Pow(2, numOfInputs);
+			}
+
 			//Genrate random number based on amounf of levers, Used by TMP_Text component of "Text"
-			randomNum.Value = UnityEngine.Random.Range(1, (int)Math.Pow(2, numOfInputs));
+			randomNum.Value = UnityEngine.Random.Range(lowestNumber, highestNumber);
 		}
 		Setup();
 		base.OnNetworkSpawn();

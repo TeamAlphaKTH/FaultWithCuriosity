@@ -1249,7 +1249,7 @@ Transform:
   - {fileID: 8945099733675583548}
   - {fileID: 2810700189564466274}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3860473612888176510
 GameObject:
@@ -3922,10 +3922,6 @@ PrefabInstance:
       value: 951099334
       objectReference: {fileID: 0}
     - target: {fileID: 7809751407034903663, guid: 56a9c618c1c3f1e4d9bcc3ad602d48b7, type: 3}
-      propertyPath: door
-      value: 
-      objectReference: {fileID: 2740935343467974108}
-    - target: {fileID: 7809751407034903663, guid: 56a9c618c1c3f1e4d9bcc3ad602d48b7, type: 3}
       propertyPath: inputs.Array.data[0].enabled
       value: 0
       objectReference: {fileID: 0}
@@ -4043,11 +4039,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff86caffaebf98e428e8e309a570fc08, type: 3}
---- !u!1 &2740935343467974108 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4110575278937875428, guid: ff86caffaebf98e428e8e309a570fc08, type: 3}
-  m_PrefabInstance: {fileID: 2234471801417690680}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4567649164206482948 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2333424211739265084, guid: ff86caffaebf98e428e8e309a570fc08, type: 3}
@@ -5315,6 +5306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InputController: {fileID: 8157904365622383227}
   useHexa: 0
+  useUniqueRange: 0
   usage: 'Put this script on the gameobject named "NoteUI"
 
 
