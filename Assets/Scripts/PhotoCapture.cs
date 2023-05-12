@@ -93,6 +93,10 @@ public class PhotoCapture:NetworkBehaviour {
 		// Wait for end of frame so that the UI is not captured in the screenshot
 		yield return new WaitForEndOfFrame();
 
+		//Smaller images for smaller screens
+		if(Screen.height < imageSize)
+			imageSize = Screen.height;
+
 		// Takes a screenshot of the screen
 		Rect regionToRead = new((Screen.width - imageSize) / 2, (Screen.height - imageSize) / 2, imageSize, imageSize);
 		Texture2D screenCapture = new(imageSize, imageSize, TextureFormat.RGB24, false);
