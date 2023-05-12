@@ -143,8 +143,7 @@ public class FirstPersonController:MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		if(Input.GetMouseButtonDown(0))
-			Cursor.lockState = CursorLockMode.Locked;
+
 		if(CanMove && !PauseMenu.pausedClient) {
 			HandleInput();
 			HandleJump();
