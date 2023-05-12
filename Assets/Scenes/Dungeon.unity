@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 3
+  m_AmbientIntensity: 0
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.4528302, g: 0.38189963, b: 0.34389463, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -4483,6 +4483,11 @@ PrefabInstance:
       propertyPath: leverSound
       value: 
       objectReference: {fileID: 1563662251}
+    - target: {fileID: 1717237385294161846, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
+      propertyPath: m_text
+      value: "Most West Pillar \nLeast Significant Bits\nMost East Pillar\nMost Significant
+        Bits"
+      objectReference: {fileID: 0}
     - target: {fileID: 1771163479067879526, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
       propertyPath: door
       value: 
