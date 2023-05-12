@@ -60,7 +60,7 @@ public class keypadScript:MonoBehaviour, IInteractable {
 		FirstPersonController.CanMove = true;
 		CameraMovement.CanRotate = true;
 		PhotoCapture.canUseCamera = true;
-		Cursor.lockState = CursorLockMode.Locked;
+
 		Cursor.visible = false;
 		keypad.SetActive(false);
 	}

@@ -38,7 +38,7 @@ public class Inventory:MonoBehaviour {
 		if(inventoryOpen && !canOpenInventory) {
 			inventory.SetActive(false);
 			inventoryOpen = false;
-			Cursor.lockState = CursorLockMode.Locked;
+			
 		}
 		//Keeps number of pills and batteries in the inventory up to date.
 		drugText.text = drugNr.ToString();
@@ -54,7 +54,7 @@ public class Inventory:MonoBehaviour {
 				case true:
 				inventory.SetActive(false);
 				inventoryOpen = false;
-				Cursor.lockState = CursorLockMode.Locked;
+				
 				CameraMovement.CanRotate = true;
 				PhotoCapture.canUseCamera = true;
 				break;

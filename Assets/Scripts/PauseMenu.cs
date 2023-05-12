@@ -47,7 +47,7 @@ public class PauseMenu:MonoBehaviour {
 	public void Play() {
 		Cursor.lockState = CursorLockMode.Confined;
 		if(!Inventory.inventoryOpen && !keypadScript.keypadOn) {
-			Cursor.lockState = CursorLockMode.Locked;
+			
 			Cursor.visible = false;
 		}
 
