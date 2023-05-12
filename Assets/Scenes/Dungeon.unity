@@ -5226,6 +5226,14 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 5873392621725166575, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
+      propertyPath: m_Name
+      value: Note 1 - Help
+      objectReference: {fileID: 0}
+    - target: {fileID: 5998218016076321856, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
+      propertyPath: useHexa
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5998218016076321856, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
       propertyPath: m_InputController
       value: 
@@ -5590,6 +5598,10 @@ PrefabInstance:
       propertyPath: leverSound
       value: 
       objectReference: {fileID: 351081335}
+    - target: {fileID: 9099108436951826502, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
+      propertyPath: m_Name
+      value: Note 6 - Description
+      objectReference: {fileID: 0}
     - target: {fileID: 9139199829023469316, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -5614,7 +5626,8 @@ PrefabInstance:
       propertyPath: leverSound
       value: 
       objectReference: {fileID: 121787582}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5998218016076321856, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
     m_RemovedGameObjects:
     - {fileID: 926684427696574465, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
     - {fileID: 6659091682905215040, guid: 65cc8a10e168d35429910e174c64ccfc, type: 3}
@@ -22495,6 +22508,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 20a9f88781215f045990a4c5c0084ec8, type: 2}
+    - target: {fileID: 1769015267894792229, guid: 87a43264dec9c9543819adb712661f11, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.011
+      objectReference: {fileID: 0}
+    - target: {fileID: 1769015267894792229, guid: 87a43264dec9c9543819adb712661f11, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.45
+      objectReference: {fileID: 0}
     - target: {fileID: 1882877454932506241, guid: 87a43264dec9c9543819adb712661f11, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
