@@ -14,6 +14,9 @@ public class ButtonController:MonoBehaviour, IInteractable {
 	/// </summary>
 	[SerializeField] bool clickOnce = false;
 
+	[Header("Audio")]
+	[SerializeField] private AudioSource leverSound;
+
 	// Start is called before the first frame update
 	void Start() {
 		uiText = GameObject.Find("ItemUI").GetComponentInChildren<TextMeshProUGUI>();
@@ -36,6 +39,7 @@ public class ButtonController:MonoBehaviour, IInteractable {
 	public void OnInteract() {
 		//Update the state depending on the clicked state
 		if(!clicked) {
+			leverSound.Play();
 			UpdateButtonServerRpc(true);
 			if(clickOnce) {
 				OnEndHover();
@@ -43,6 +47,7 @@ public class ButtonController:MonoBehaviour, IInteractable {
 				OnStartHover();
 			}
 		} else if(!clickOnce) {
+			leverSound.Play();
 			UpdateButtonServerRpc(false);
 			OnStartHover();
 		}

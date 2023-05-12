@@ -15,6 +15,8 @@ public class Door:MonoBehaviour, IInteractable {
 	private GameObject itemUI;
 	private Animator animator;
 
+	[Header("Door Sound")]
+	[SerializeField] private AudioSource doorSound;
 
 	public float MaxRange { get { return maxRange; } }
 	private const float maxRange = 100f;
@@ -34,9 +36,11 @@ public class Door:MonoBehaviour, IInteractable {
 			return;
 
 		if(!animator.GetBool("OpenDoor")) {
+			doorSound.Play();
 			OpenDoorServerRpc(true);
 			CloseDoorServerRpc(false);
 		} else {
+			doorSound.Play();
 			OpenDoorServerRpc(false);
 			CloseDoorServerRpc(true);
 		}
