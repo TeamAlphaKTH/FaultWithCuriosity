@@ -158,6 +158,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 3.435, z: 0}
+--- !u!1 &55132830 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1654255314871941471, guid: 6004ca227adbeb644a55257663ae3fb6, type: 3}
+  m_PrefabInstance: {fileID: 422185269}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &87236268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3359,11 +3364,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &394501517 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5427215359964511344, guid: c1341ea2e9dd9bc42a5c721e309f26bd, type: 3}
-  m_PrefabInstance: {fileID: 1391032977}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &409292233 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 515030054714901266, guid: 6004ca227adbeb644a55257663ae3fb6, type: 3}
@@ -11951,7 +11951,7 @@ PrefabInstance:
     - target: {fileID: 6924802371043986119, guid: c1341ea2e9dd9bc42a5c721e309f26bd, type: 3}
       propertyPath: door
       value: 
-      objectReference: {fileID: 394501517}
+      objectReference: {fileID: 55132830}
     - target: {fileID: 7807675452172071174, guid: c1341ea2e9dd9bc42a5c721e309f26bd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
