@@ -3555,6 +3555,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puzzle 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4871565271818875517, guid: 8372e1de9464ae141a48eabfae67b3d1, type: 3}
+      propertyPath: doorSound
+      value: 
+      objectReference: {fileID: 711509821}
     - target: {fileID: 4877858225280454440, guid: 8372e1de9464ae141a48eabfae67b3d1, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -4686,6 +4690,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 74930c175cb0b394bb42b979bf9441ae, type: 3}
   m_PrefabInstance: {fileID: 703039538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &711509821 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1767470123197541608, guid: 8372e1de9464ae141a48eabfae67b3d1, type: 3}
+  m_PrefabInstance: {fileID: 517697840}
   m_PrefabAsset: {fileID: 0}
 --- !u!43 &715041116
 Mesh:
