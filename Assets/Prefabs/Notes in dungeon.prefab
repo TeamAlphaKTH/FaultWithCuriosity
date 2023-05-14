@@ -36,7 +36,7 @@ Transform:
   - {fileID: 5889251191381372619}
   - {fileID: 2849616401285499392}
   - {fileID: 8082010266308210033}
-  - {fileID: 1101374318818395762}
+  - {fileID: 5050407221459562672}
   - {fileID: 2741674898799106233}
   - {fileID: 5833426626947710314}
   - {fileID: 3716794767823443813}
@@ -46,7 +46,7 @@ Transform:
   - {fileID: 5492011978094670649}
   - {fileID: 2134101146036676984}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &80569553743937180
 PrefabInstance:
@@ -558,7 +558,7 @@ PrefabInstance:
     - target: {fileID: 7409690114107146788, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
       propertyPath: noteUI
       value: 
-      objectReference: {fileID: 1101374318818395763}
+      objectReference: {fileID: 1824568485123214808}
     - target: {fileID: 7409690114107146788, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
       propertyPath: isCodeLock
       value: 0
@@ -568,14 +568,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
---- !u!4 &1101374318818395762 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5286795536408688321, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
-  m_PrefabInstance: {fileID: 1101374318818395761}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1101374318818395763 stripped
+--- !u!1 &1824568485123214808 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1592855096101489577, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
+  m_PrefabInstance: {fileID: 1101374318818395761}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5050407221459562672 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5286795536408688321, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
   m_PrefabInstance: {fileID: 1101374318818395761}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1742871380043431625
@@ -759,10 +759,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5583231872413221682, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
       propertyPath: m_text
-      value: 'I CAN STILL SEE HIM IN THIS DARKNESS
+      value: 'I CAN STILL SEE IT IN THIS DARKNESS
 
 
-        HE FOLLOWS ME WHERERVER
+        IT FOLLOWS ME WHERERVER
         I GO.
 
 
