@@ -8648,11 +8648,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1140873459 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7881743026153041357, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-  m_PrefabInstance: {fileID: 1952383325}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1209423531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14329,14 +14324,6 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2742622879
       objectReference: {fileID: 0}
-    - target: {fileID: 109233601851983325, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: GlobalObjectIdHash
-      value: 4080976255
-      objectReference: {fileID: 0}
-    - target: {fileID: 170795255552949485, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 559883845411815444, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 483140171
@@ -14353,18 +14340,6 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 1189914243
       objectReference: {fileID: 0}
-    - target: {fileID: 817446572374148648, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: door
-      value: 
-      objectReference: {fileID: 1140873459}
-    - target: {fileID: 840729631672317112, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_text
-      value: Ohhh my lovely boy Rikard..
-      objectReference: {fileID: 0}
-    - target: {fileID: 840729631672317112, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_fontStyle
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 941979026081344727, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 468392335
@@ -14372,18 +14347,6 @@ PrefabInstance:
     - target: {fileID: 951682173316809284, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2441663031
-      objectReference: {fileID: 0}
-    - target: {fileID: 1121176870255051083, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.006
-      objectReference: {fileID: 0}
-    - target: {fileID: 1121176870255051083, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.895
-      objectReference: {fileID: 0}
-    - target: {fileID: 1121176870255051083, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.815
       objectReference: {fileID: 0}
     - target: {fileID: 1141669079532010315, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: m_RootOrder
@@ -14429,93 +14392,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1189145804010974095, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1398101148883996699, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2238946688
-      objectReference: {fileID: 0}
-    - target: {fileID: 1571538461185855414, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_fontStyle
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1600458160669225421, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1682118879429354103, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1693180295285464076, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 4070273662
       objectReference: {fileID: 0}
-    - target: {fileID: 1747836746858446513, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1807212322349303050, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 604100807
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974995160532475245, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 2050859604314545803, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2076559238982210547, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2611051079471311283, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 4194246685
       objectReference: {fileID: 0}
-    - target: {fileID: 2651479707066469420, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2674687430208752060, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 4056520573
-      objectReference: {fileID: 0}
-    - target: {fileID: 2744967129472025919, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2775022746935910812, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 304956063
       objectReference: {fileID: 0}
-    - target: {fileID: 2799937088526552318, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2821937472634032719, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 718512085
       objectReference: {fileID: 0}
-    - target: {fileID: 3009206666837315640, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3044400546296444481, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2595739011
-      objectReference: {fileID: 0}
-    - target: {fileID: 3047194639768665411, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3068808582425629640, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_fontStyle
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3268987253981865542, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -14533,21 +14440,9 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 639369399
       objectReference: {fileID: 0}
-    - target: {fileID: 3440028324323009123, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_fontStyle
-      value: 33
-      objectReference: {fileID: 0}
-    - target: {fileID: 3440028324323009123, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278847561
-      objectReference: {fileID: 0}
     - target: {fileID: 3530591988192197884, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 3204850806
-      objectReference: {fileID: 0}
-    - target: {fileID: 3721676255995103645, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3807488145865659118, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -14565,17 +14460,9 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 3488362833
       objectReference: {fileID: 0}
-    - target: {fileID: 4043656456809259998, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4161141878929840667, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2412222166
-      objectReference: {fileID: 0}
-    - target: {fileID: 4225225441148248485, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_fontStyle
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4300270863840628105, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: m_Name
@@ -14584,10 +14471,6 @@ PrefabInstance:
     - target: {fileID: 4309782373762272808, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2705101900
-      objectReference: {fileID: 0}
-    - target: {fileID: 4378632232667975330, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4455065706738949485, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -14601,14 +14484,6 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2606863913
       objectReference: {fileID: 0}
-    - target: {fileID: 4575418695162022838, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 4609388833278489057, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4706519442326373215, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 3122720608
@@ -14621,37 +14496,17 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 1132176073
       objectReference: {fileID: 0}
-    - target: {fileID: 5122694469027976720, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_fontStyle
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5171631719738746608, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5194007906603856854, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2489081754
-      objectReference: {fileID: 0}
-    - target: {fileID: 5572239977003678038, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_fontStyle
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5642962101435295281, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 855683267
       objectReference: {fileID: 0}
-    - target: {fileID: 5669560707209774893, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5793322558327272787, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 1975916253
-      objectReference: {fileID: 0}
-    - target: {fileID: 5821946704515152931, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5912269358894697569, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -14661,73 +14516,25 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 1186873520
       objectReference: {fileID: 0}
-    - target: {fileID: 6208488477674868433, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6343715693097768108, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2812325196
-      objectReference: {fileID: 0}
-    - target: {fileID: 6743817440177066115, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 6785394193344827950, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6881362085244627349, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2309677491
       objectReference: {fileID: 0}
-    - target: {fileID: 6883377665908448145, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.375
-      objectReference: {fileID: 0}
-    - target: {fileID: 6883377665908448145, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.0395
-      objectReference: {fileID: 0}
-    - target: {fileID: 6883377665908448145, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.224
-      objectReference: {fileID: 0}
     - target: {fileID: 6909525356886037873, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 751551483
-      objectReference: {fileID: 0}
-    - target: {fileID: 6949922135628573088, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6967173769670369377, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7036817072284513198, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 3054548550
       objectReference: {fileID: 0}
-    - target: {fileID: 7044314455589333310, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7140816453516393345, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 489944777
-      objectReference: {fileID: 0}
-    - target: {fileID: 7150389395389861146, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7168779066664561477, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_fontStyle
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7168779066664561477, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278847561
       objectReference: {fileID: 0}
     - target: {fileID: 7288934832167031314, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -14741,33 +14548,13 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 77699822
       objectReference: {fileID: 0}
-    - target: {fileID: 7544150394178682014, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7733289343843945135, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 4282957242
       objectReference: {fileID: 0}
-    - target: {fileID: 7792018122959786460, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8027895799308119394, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 8028391101004100966, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8094267509623099184, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 73638182
-      objectReference: {fileID: 0}
-    - target: {fileID: 8212300377391815507, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8264016567496884042, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -14777,10 +14564,6 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 1694400981
       objectReference: {fileID: 0}
-    - target: {fileID: 8340338939085865616, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 300
-      objectReference: {fileID: 0}
     - target: {fileID: 8381613251250203436, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 1479447129
@@ -14788,10 +14571,6 @@ PrefabInstance:
     - target: {fileID: 8404020971584843060, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 1966738008
-      objectReference: {fileID: 0}
-    - target: {fileID: 8420610914534206200, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8491953006901493820, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -14801,10 +14580,6 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2031857977
       objectReference: {fileID: 0}
-    - target: {fileID: 8520131071478436736, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8720692468750416349, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2974112648
@@ -14813,17 +14588,9 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2059259467
       objectReference: {fileID: 0}
-    - target: {fileID: 8745880620936565951, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8763385236591230825, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 61204497
-      objectReference: {fileID: 0}
-    - target: {fileID: 8821509881200831484, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8915037072264081906, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -14840,14 +14607,6 @@ PrefabInstance:
     - target: {fileID: 9109478035035438702, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 198256755
-      objectReference: {fileID: 0}
-    - target: {fileID: 9199332542606607543, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_fontStyle
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9199332542606607543, guid: 6c57db9faf340df48b73efe69182dd19, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278847561
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
