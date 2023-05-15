@@ -403,7 +403,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7765067140304807686
 Transform:
@@ -926,14 +926,14 @@ Transform:
   - {fileID: 1964438636356276181}
   - {fileID: 8224416061373594751}
   - {fileID: 2418867674246886570}
-  - {fileID: 2485524854783436985}
+  - {fileID: 7916853053399332892}
   - {fileID: 5816597313731104058}
   - {fileID: 1424436585815131131}
   - {fileID: 7700674981610203643}
   - {fileID: 507222089198248656}
   - {fileID: 3613814022776134400}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1317056591101486739
 PrefabInstance:
@@ -2009,8 +2009,8 @@ PrefabInstance:
       propertyPath: m_text
       value: '
 
-        I feel as these walls hide something. It is almost as I
-        could just "pass through" them.'
+        I feel as these walls hide something. It is almost as I could
+        just "pass through" them.'
       objectReference: {fileID: 0}
     - target: {fileID: 5583231872413221682, guid: f4f65de5882516449b0d1c2280292f43, type: 3}
       propertyPath: m_fontSize
@@ -2159,12 +2159,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6241711588351758901}
   m_SourcePrefab: {fileID: 100100000, guid: 9ccac99508db1c5449b371e56d8501b1, type: 3}
---- !u!4 &2485524854783436985 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9ccac99508db1c5449b371e56d8501b1, type: 3}
-  m_PrefabInstance: {fileID: 7662019987424944119}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2969432375856280067 stripped
+--- !u!1 &7391989480898765478 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9ccac99508db1c5449b371e56d8501b1, type: 3}
   m_PrefabInstance: {fileID: 7662019987424944119}
@@ -2175,7 +2170,7 @@ MeshCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2969432375856280067}
+  m_GameObject: {fileID: 7391989480898765478}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -2191,6 +2186,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5510300748057922517, guid: 9ccac99508db1c5449b371e56d8501b1, type: 3}
+--- !u!4 &7916853053399332892 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9ccac99508db1c5449b371e56d8501b1, type: 3}
+  m_PrefabInstance: {fileID: 7662019987424944119}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7796157459660830187
 PrefabInstance:
   m_ObjectHideFlags: 0
