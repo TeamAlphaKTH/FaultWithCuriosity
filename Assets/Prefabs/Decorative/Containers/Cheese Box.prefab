@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d57724d8c0fb3c24995a8573fa85b7a9, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d57724d8c0fb3c24995a8573fa85b7a9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box
       objectReference: {fileID: 0}
+    - target: {fileID: -4168567435871050102, guid: d57724d8c0fb3c24995a8573fa85b7a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -3653173465114124121, guid: d57724d8c0fb3c24995a8573fa85b7a9, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.0091
@@ -82,11 +86,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d57724d8c0fb3c24995a8573fa85b7a9, type: 3}
       propertyPath: m_Name
-      value: Cheese Box Variant
+      value: Cheese Box
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d57724d8c0fb3c24995a8573fa85b7a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5151030938002311662, guid: d57724d8c0fb3c24995a8573fa85b7a9, type: 3}
       propertyPath: m_Name
       value: Lid
+      objectReference: {fileID: 0}
+    - target: {fileID: 5151030938002311662, guid: d57724d8c0fb3c24995a8573fa85b7a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

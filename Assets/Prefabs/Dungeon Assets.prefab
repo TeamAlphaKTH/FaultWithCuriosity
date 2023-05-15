@@ -241,7 +241,7 @@ Transform:
   - {fileID: 4131273185160824270}
   - {fileID: 181153884951842016}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &34897145714236134
 PrefabInstance:
@@ -324,6 +324,10 @@ PrefabInstance:
     - target: {fileID: 8598234841828849229, guid: ab97dac967882a44797a8a22dbea24d1, type: 3}
       propertyPath: m_Name
       value: Oil Can
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598234841828849229, guid: ab97dac967882a44797a8a22dbea24d1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8942109970668203255, guid: ab97dac967882a44797a8a22dbea24d1, type: 3}
       propertyPath: m_RootOrder
@@ -527,6 +531,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 262538201609452921, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1635712361444505287, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -571,9 +579,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2050879896812028014, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_Name
       value: Wooden Crate (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608780051589908482, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -593,6 +613,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 262538201609452921, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1635712361444505287, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -637,9 +661,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2050879896812028014, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_Name
       value: Wooden Crate (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608780051589908482, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -706,6 +742,10 @@ PrefabInstance:
     - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
       propertyPath: m_Name
       value: Wooden Table (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -799,6 +839,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rusted Can
       objectReference: {fileID: 0}
+    - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4448121049906728773, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -861,9 +905,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 1668419078510154931, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863192397848500399, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4977226941032737415, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
       propertyPath: m_Name
       value: Spray Paint Bottles Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977226941032737415, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5645676806908604477, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
       propertyPath: m_RootOrder
@@ -1115,6 +1171,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wooden Table (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1251,6 +1311,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rockingchair
       objectReference: {fileID: 0}
+    - target: {fileID: 6345270060408426902, guid: d7c40a9d7159322408add4dcb27d551a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1317,6 +1381,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wooden Table (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1338,6 +1406,10 @@ PrefabInstance:
     - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_Name
       value: Rusted Can
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4448121049906728773, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_RootOrder
@@ -1449,6 +1521,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bars
       objectReference: {fileID: 0}
+    - target: {fileID: 2992708888939272418, guid: a89eaf7590460b04b8953098b6b24093, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1467,6 +1543,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 262538201609452921, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1635712361444505287, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -1511,9 +1591,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2050879896812028014, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_Name
       value: Wooden Crate (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608780051589908482, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1533,9 +1625,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 1058221615503207503, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1649923283858515119, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
       propertyPath: m_Name
       value: Multi Cleaner (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649923283858515119, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2138757720578735637, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
       propertyPath: m_RootOrder
@@ -1580,6 +1680,10 @@ PrefabInstance:
     - target: {fileID: 2138757720578735637, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403438006155404725, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1646,6 +1750,10 @@ PrefabInstance:
     - target: {fileID: 2992708888939272418, guid: a89eaf7590460b04b8953098b6b24093, type: 3}
       propertyPath: m_Name
       value: Bars (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992708888939272418, guid: a89eaf7590460b04b8953098b6b24093, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1725,6 +1833,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wooden Table (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1743,9 +1855,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 3186028044361244020, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6964712055492561461, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_Name
       value: Wooden Bucket
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964712055492561461, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7776713914140823695, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_RootOrder
@@ -1790,6 +1910,10 @@ PrefabInstance:
     - target: {fileID: 7776713914140823695, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129296393020982452, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1927,6 +2051,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TV
       objectReference: {fileID: 0}
+    - target: {fileID: 4949790655363775810, guid: 62b22d793253918409a3b8d2d2280862, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1992,6 +2120,10 @@ PrefabInstance:
     - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
       propertyPath: m_Name
       value: Wooden Table
+      objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2084,6 +2216,10 @@ PrefabInstance:
     - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_Name
       value: Rusted Can (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4448121049906728773, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_RootOrder
@@ -2221,6 +2357,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wheelchair
       objectReference: {fileID: 0}
+    - target: {fileID: 66035996391347231, guid: ae2c0d76b1830574fad253c1f4e1573e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 838034358399651493, guid: ae2c0d76b1830574fad253c1f4e1573e, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -2283,6 +2423,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 262538201609452921, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1635712361444505287, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -2327,9 +2471,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2050879896812028014, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_Name
       value: Wooden Crate (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608780051589908482, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2349,9 +2505,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 3186028044361244020, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6964712055492561461, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_Name
       value: Wooden Bucket
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964712055492561461, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7776713914140823695, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_RootOrder
@@ -2397,6 +2561,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9129296393020982452, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2415,6 +2583,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 262538201609452921, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1635712361444505287, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -2459,9 +2631,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2050879896812028014, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_Name
       value: Wooden Crate (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608780051589908482, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2529,6 +2713,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rockingchair (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6345270060408426902, guid: d7c40a9d7159322408add4dcb27d551a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2547,9 +2735,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 3186028044361244020, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6964712055492561461, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_Name
       value: Wooden Bucket
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964712055492561461, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7776713914140823695, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_RootOrder
@@ -2595,6 +2791,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9129296393020982452, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2613,6 +2813,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 262538201609452921, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1635712361444505287, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -2657,9 +2861,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2050879896812028014, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_Name
       value: Wooden Crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608780051589908482, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2686,6 +2902,14 @@ PrefabInstance:
     - target: {fileID: 6279387176689119369, guid: d2f80818a0aa4f54e93d10c70f4ce8b0, type: 3}
       propertyPath: m_Name
       value: Battery
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279387176689119369, guid: d2f80818a0aa4f54e93d10c70f4ce8b0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665222930462744345, guid: d2f80818a0aa4f54e93d10c70f4ce8b0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7598801436304384089, guid: d2f80818a0aa4f54e93d10c70f4ce8b0, type: 3}
       propertyPath: m_RootOrder
@@ -2797,6 +3021,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wooden Table
       objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2815,6 +3043,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 1142814266440474261, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170476621774576596, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966863995103068938, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8183865598608139810, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -2863,6 +3103,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Russian Food Cans (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8852175581960453272, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2884,6 +3128,10 @@ PrefabInstance:
     - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_Name
       value: Rusted Can
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4448121049906728773, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_RootOrder
@@ -3091,6 +3339,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shelf
       objectReference: {fileID: 0}
+    - target: {fileID: 460742382806648575, guid: e1519774b0057b44a99b680f7c039039, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 950033490510355525, guid: e1519774b0057b44a99b680f7c039039, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -3201,6 +3453,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wooden Table (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3222,6 +3478,10 @@ PrefabInstance:
     - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_Name
       value: Rusted Can (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4448121049906728773, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_RootOrder
@@ -3285,9 +3545,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 1058221615503207503, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1649923283858515119, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
       propertyPath: m_Name
       value: Multi Cleaner
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649923283858515119, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2138757720578735637, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
       propertyPath: m_RootOrder
@@ -3332,6 +3600,10 @@ PrefabInstance:
     - target: {fileID: 2138757720578735637, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403438006155404725, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3421,9 +3693,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 3186028044361244020, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6964712055492561461, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_Name
       value: Wooden Bucket
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964712055492561461, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7776713914140823695, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_RootOrder
@@ -3469,6 +3749,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9129296393020982452, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3501,7 +3785,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7598801436304384089, guid: d2f80818a0aa4f54e93d10c70f4ce8b0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 89.65
+      value: 89.89
       objectReference: {fileID: 0}
     - target: {fileID: 7598801436304384089, guid: d2f80818a0aa4f54e93d10c70f4ce8b0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3509,7 +3793,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7598801436304384089, guid: d2f80818a0aa4f54e93d10c70f4ce8b0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 38.12
+      value: 38.286
       objectReference: {fileID: 0}
     - target: {fileID: 7598801436304384089, guid: d2f80818a0aa4f54e93d10c70f4ce8b0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3697,9 +3981,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 1058221615503207503, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1649923283858515119, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
       propertyPath: m_Name
       value: Multi Cleaner
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649923283858515119, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2138757720578735637, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
       propertyPath: m_RootOrder
@@ -3745,6 +4037,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8403438006155404725, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3766,6 +4062,10 @@ PrefabInstance:
     - target: {fileID: 460742382806648575, guid: e1519774b0057b44a99b680f7c039039, type: 3}
       propertyPath: m_Name
       value: Shelf
+      objectReference: {fileID: 0}
+    - target: {fileID: 460742382806648575, guid: e1519774b0057b44a99b680f7c039039, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 950033490510355525, guid: e1519774b0057b44a99b680f7c039039, type: 3}
       propertyPath: m_RootOrder
@@ -3899,6 +4199,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 262538201609452921, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1635712361444505287, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -3943,9 +4247,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2050879896812028014, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_Name
       value: Wooden Crate (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608780051589908482, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3965,9 +4281,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 4044598477995711188, guid: fc42e33df89c55c469d02d1f28312445, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5974181795396348672, guid: fc42e33df89c55c469d02d1f28312445, type: 3}
       propertyPath: m_Name
       value: Cassette Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5974181795396348672, guid: fc42e33df89c55c469d02d1f28312445, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6459109765477052858, guid: fc42e33df89c55c469d02d1f28312445, type: 3}
       propertyPath: m_RootOrder
@@ -4012,6 +4336,10 @@ PrefabInstance:
     - target: {fileID: 6459109765477052858, guid: fc42e33df89c55c469d02d1f28312445, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066275801693184696, guid: fc42e33df89c55c469d02d1f28312445, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4079,6 +4407,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rockingchair
       objectReference: {fileID: 0}
+    - target: {fileID: 6345270060408426902, guid: d7c40a9d7159322408add4dcb27d551a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4097,9 +4429,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 483062717251967418, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 877725218668929742, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3584675425397056745, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
       propertyPath: m_Name
       value: Lantern
+      objectReference: {fileID: 0}
+    - target: {fileID: 3584675425397056745, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4248165355461901907, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
       propertyPath: m_RootOrder
@@ -4145,6 +4489,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9129882001356873329, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4166,6 +4514,10 @@ PrefabInstance:
     - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_Name
       value: Rusted Can (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4448121049906728773, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_RootOrder
@@ -4277,6 +4629,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wooden Table
       objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4295,6 +4651,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 262538201609452921, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1635712361444505287, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -4339,9 +4699,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2050879896812028014, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_Name
       value: Wooden Crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608780051589908482, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4409,6 +4781,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wooden Table (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4430,6 +4806,10 @@ PrefabInstance:
     - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_Name
       value: Rusted Can (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4448121049906728773, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_RootOrder
@@ -4493,6 +4873,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 262538201609452921, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1635712361444505287, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -4537,9 +4921,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2050879896812028014, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_Name
       value: Wooden Crate (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608780051589908482, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4559,9 +4955,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 3186028044361244020, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6964712055492561461, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_Name
       value: Wooden Bucket (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964712055492561461, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7776713914140823695, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_RootOrder
@@ -4606,6 +5010,10 @@ PrefabInstance:
     - target: {fileID: 7776713914140823695, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129296393020982452, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4695,6 +5103,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 1058221615503207503, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1425412070182685859, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.063
@@ -4706,6 +5118,10 @@ PrefabInstance:
     - target: {fileID: 1649923283858515119, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
       propertyPath: m_Name
       value: Multi Cleaner
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649923283858515119, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2138757720578735637, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
       propertyPath: m_RootOrder
@@ -4750,6 +5166,10 @@ PrefabInstance:
     - target: {fileID: 2138757720578735637, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403438006155404725, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4817,6 +5237,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Croutches
       objectReference: {fileID: 0}
+    - target: {fileID: 1031623775958701633, guid: 0999fe3fcf38dea4ca806d28b8031ea0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2651844318865520267, guid: 0999fe3fcf38dea4ca806d28b8031ea0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8996422778339338716, guid: 0999fe3fcf38dea4ca806d28b8031ea0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4835,9 +5267,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 4044598477995711188, guid: fc42e33df89c55c469d02d1f28312445, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5974181795396348672, guid: fc42e33df89c55c469d02d1f28312445, type: 3}
       propertyPath: m_Name
       value: Cassette Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5974181795396348672, guid: fc42e33df89c55c469d02d1f28312445, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6459109765477052858, guid: fc42e33df89c55c469d02d1f28312445, type: 3}
       propertyPath: m_RootOrder
@@ -4883,6 +5323,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7066275801693184696, guid: fc42e33df89c55c469d02d1f28312445, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4901,6 +5345,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 1142814266440474261, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170476621774576596, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966863995103068938, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8183865598608139810, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -4948,6 +5404,10 @@ PrefabInstance:
     - target: {fileID: 8852175581960453272, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
       propertyPath: m_Name
       value: Russian Food Cans (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852175581960453272, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5015,6 +5475,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rockingchair (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6345270060408426902, guid: d7c40a9d7159322408add4dcb27d551a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5036,6 +5500,10 @@ PrefabInstance:
     - target: {fileID: 3996454044446175985, guid: 2436d4c80d5591246b557ce5863433ee, type: 3}
       propertyPath: m_Name
       value: Bolt Cutters
+      objectReference: {fileID: 0}
+    - target: {fileID: 3996454044446175985, guid: 2436d4c80d5591246b557ce5863433ee, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4340785505052616779, guid: 2436d4c80d5591246b557ce5863433ee, type: 3}
       propertyPath: m_RootOrder
@@ -5147,6 +5615,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wooden Table
       objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5212,6 +5684,10 @@ PrefabInstance:
     - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
       propertyPath: m_Name
       value: Wooden Table (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5279,6 +5755,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rockingchair
       objectReference: {fileID: 0}
+    - target: {fileID: 6345270060408426902, guid: d7c40a9d7159322408add4dcb27d551a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5300,6 +5780,10 @@ PrefabInstance:
     - target: {fileID: 540387215731357700, guid: 10c90d167464ae945b62553fc3fd2bda, type: 3}
       propertyPath: m_Name
       value: Megaphone Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 540387215731357700, guid: 10c90d167464ae945b62553fc3fd2bda, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 879336502413501118, guid: 10c90d167464ae945b62553fc3fd2bda, type: 3}
       propertyPath: m_RootOrder
@@ -5367,6 +5851,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Oil Can
       objectReference: {fileID: 0}
+    - target: {fileID: 8598234841828849229, guid: ab97dac967882a44797a8a22dbea24d1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8942109970668203255, guid: ab97dac967882a44797a8a22dbea24d1, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -5429,9 +5917,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 3186028044361244020, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6964712055492561461, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_Name
       value: Wooden Bucket
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964712055492561461, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7776713914140823695, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_RootOrder
@@ -5476,6 +5972,10 @@ PrefabInstance:
     - target: {fileID: 7776713914140823695, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129296393020982452, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5543,6 +6043,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rockingchair
       objectReference: {fileID: 0}
+    - target: {fileID: 6345270060408426902, guid: d7c40a9d7159322408add4dcb27d551a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5561,6 +6065,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 1668419078510154931, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2390347978614352972, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.04626131
@@ -5592,6 +6100,10 @@ PrefabInstance:
     - target: {fileID: 4977226941032737415, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
       propertyPath: m_Name
       value: Spray Paint Bottles Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977226941032737415, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5645676806908604477, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
       propertyPath: m_RootOrder
@@ -5782,6 +6294,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rockingchair
       objectReference: {fileID: 0}
+    - target: {fileID: 6345270060408426902, guid: d7c40a9d7159322408add4dcb27d551a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5940,9 +6456,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 483062717251967418, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 877725218668929742, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3584675425397056745, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
       propertyPath: m_Name
       value: Lantern
+      objectReference: {fileID: 0}
+    - target: {fileID: 3584675425397056745, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4248165355461901907, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
       propertyPath: m_RootOrder
@@ -5987,6 +6515,10 @@ PrefabInstance:
     - target: {fileID: 4248165355461901907, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129882001356873329, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6054,6 +6586,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TV
       objectReference: {fileID: 0}
+    - target: {fileID: 4949790655363775810, guid: 62b22d793253918409a3b8d2d2280862, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6072,6 +6608,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 1142814266440474261, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170476621774576596, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966863995103068938, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8183865598608139810, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -6120,6 +6668,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Russian Food Cans
       objectReference: {fileID: 0}
+    - target: {fileID: 8852175581960453272, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6141,6 +6693,10 @@ PrefabInstance:
     - target: {fileID: 3810330798467070143, guid: cc1b218a247302c4bb4b5d277449f646, type: 3}
       propertyPath: m_Name
       value: Handsaw
+      objectReference: {fileID: 0}
+    - target: {fileID: 3810330798467070143, guid: cc1b218a247302c4bb4b5d277449f646, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4587711170838553093, guid: cc1b218a247302c4bb4b5d277449f646, type: 3}
       propertyPath: m_RootOrder
@@ -6252,6 +6808,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wooden Table
       objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6273,6 +6833,10 @@ PrefabInstance:
     - target: {fileID: 8598234841828849229, guid: ab97dac967882a44797a8a22dbea24d1, type: 3}
       propertyPath: m_Name
       value: Oil Can
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598234841828849229, guid: ab97dac967882a44797a8a22dbea24d1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8942109970668203255, guid: ab97dac967882a44797a8a22dbea24d1, type: 3}
       propertyPath: m_RootOrder
@@ -6348,9 +6912,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 1668419078510154931, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863192397848500399, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4977226941032737415, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
       propertyPath: m_Name
       value: Spray Paint Bottles Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977226941032737415, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5645676806908604477, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
       propertyPath: m_RootOrder
@@ -6417,6 +6993,10 @@ PrefabInstance:
     - target: {fileID: 8598234841828849229, guid: ab97dac967882a44797a8a22dbea24d1, type: 3}
       propertyPath: m_Name
       value: Oil Can
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598234841828849229, guid: ab97dac967882a44797a8a22dbea24d1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8942109970668203255, guid: ab97dac967882a44797a8a22dbea24d1, type: 3}
       propertyPath: m_RootOrder
@@ -6550,9 +7130,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 1142814266440474261, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170476621774576596, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5457302126875680470, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.023
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966863995103068938, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8183865598608139810, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
       propertyPath: m_RootOrder
@@ -6613,6 +7205,10 @@ PrefabInstance:
     - target: {fileID: 8852175581960453272, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
       propertyPath: m_Name
       value: Russian Food Cans
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852175581960453272, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6680,6 +7276,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wooden Table
       objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6698,6 +7298,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 4199591264229047564, guid: 3287d958342a01a419ff0d715a075085, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6964962947857711138, guid: 3287d958342a01a419ff0d715a075085, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -6782,6 +7386,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dry Branches
       objectReference: {fileID: 0}
+    - target: {fileID: 7774150061635754648, guid: 3287d958342a01a419ff0d715a075085, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1389693975007760897, guid: 3287d958342a01a419ff0d715a075085, type: 3}
@@ -6802,9 +7410,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 1058221615503207503, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1649923283858515119, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
       propertyPath: m_Name
       value: Multi Cleaner
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649923283858515119, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2138757720578735637, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
       propertyPath: m_RootOrder
@@ -6849,6 +7465,10 @@ PrefabInstance:
     - target: {fileID: 2138757720578735637, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403438006155404725, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6938,9 +7558,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 483062717251967418, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 877725218668929742, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3584675425397056745, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
       propertyPath: m_Name
       value: Lantern
+      objectReference: {fileID: 0}
+    - target: {fileID: 3584675425397056745, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4248165355461901907, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
       propertyPath: m_RootOrder
@@ -6985,6 +7617,10 @@ PrefabInstance:
     - target: {fileID: 4248165355461901907, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129882001356873329, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7052,6 +7688,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cheese Box
       objectReference: {fileID: 0}
+    - target: {fileID: 4287736057426321041, guid: e802e92b8d8273f41abffe9ebed136a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087431059972975150, guid: e802e92b8d8273f41abffe9ebed136a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171278957915637066, guid: e802e92b8d8273f41abffe9ebed136a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7118,6 +7766,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rockingchair
       objectReference: {fileID: 0}
+    - target: {fileID: 6345270060408426902, guid: d7c40a9d7159322408add4dcb27d551a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7136,6 +7788,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 262538201609452921, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1635712361444505287, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -7180,9 +7836,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2050879896812028014, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_Name
       value: Wooden Crate (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608780051589908482, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7202,6 +7870,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 1142814266440474261, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170476621774576596, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966863995103068938, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8183865598608139810, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -7249,6 +7929,10 @@ PrefabInstance:
     - target: {fileID: 8852175581960453272, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
       propertyPath: m_Name
       value: Russian Food Cans
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852175581960453272, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7316,6 +8000,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bars (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2992708888939272418, guid: a89eaf7590460b04b8953098b6b24093, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7337,6 +8025,10 @@ PrefabInstance:
     - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_Name
       value: Rusted Can (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4448121049906728773, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_RootOrder
@@ -7403,6 +8095,10 @@ PrefabInstance:
     - target: {fileID: 8598234841828849229, guid: ab97dac967882a44797a8a22dbea24d1, type: 3}
       propertyPath: m_Name
       value: Oil Can
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598234841828849229, guid: ab97dac967882a44797a8a22dbea24d1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8942109970668203255, guid: ab97dac967882a44797a8a22dbea24d1, type: 3}
       propertyPath: m_RootOrder
@@ -7526,6 +8222,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wheelchair_01_2k (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 07ae14925315cba47b171ca38ff5192f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7574,6 +8274,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 262538201609452921, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1635712361444505287, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -7618,9 +8322,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2050879896812028014, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_Name
       value: Wooden Crate (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608780051589908482, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7640,6 +8356,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 262538201609452921, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1635712361444505287, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -7684,9 +8404,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2050879896812028014, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_Name
       value: Wooden Crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608780051589908482, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7916,9 +8648,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 1058221615503207503, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1649923283858515119, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
       propertyPath: m_Name
       value: Multi Cleaner (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649923283858515119, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2138757720578735637, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
       propertyPath: m_RootOrder
@@ -7964,6 +8704,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8403438006155404725, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7982,6 +8726,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 262538201609452921, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1635712361444505287, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -8026,9 +8774,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2050879896812028014, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_Name
       value: Wooden Crate (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608780051589908482, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8118,6 +8878,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 262538201609452921, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1635712361444505287, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -8162,9 +8926,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2050879896812028014, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_Name
       value: Wooden Crate (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608780051589908482, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8187,6 +8963,10 @@ PrefabInstance:
     - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_Name
       value: Rusted Can
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4448121049906728773, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_RootOrder
@@ -8250,9 +9030,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 3186028044361244020, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6964712055492561461, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_Name
       value: Wooden Bucket
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964712055492561461, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7776713914140823695, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_RootOrder
@@ -8298,6 +9086,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9129296393020982452, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8319,6 +9111,10 @@ PrefabInstance:
     - target: {fileID: 460742382806648575, guid: e1519774b0057b44a99b680f7c039039, type: 3}
       propertyPath: m_Name
       value: Shelf
+      objectReference: {fileID: 0}
+    - target: {fileID: 460742382806648575, guid: e1519774b0057b44a99b680f7c039039, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 950033490510355525, guid: e1519774b0057b44a99b680f7c039039, type: 3}
       propertyPath: m_RootOrder
@@ -8456,6 +9252,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Megaphone Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 540387215731357700, guid: 10c90d167464ae945b62553fc3fd2bda, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 879336502413501118, guid: 10c90d167464ae945b62553fc3fd2bda, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -8518,9 +9318,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 1668419078510154931, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863192397848500399, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4977226941032737415, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
       propertyPath: m_Name
       value: Spray Paint Bottles Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977226941032737415, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5645676806908604477, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
       propertyPath: m_RootOrder
@@ -8584,6 +9396,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 262538201609452921, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1635712361444505287, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -8628,9 +9444,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2050879896812028014, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_Name
       value: Wooden Crate (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608780051589908482, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8653,6 +9481,10 @@ PrefabInstance:
     - target: {fileID: 3996454044446175985, guid: 2436d4c80d5591246b557ce5863433ee, type: 3}
       propertyPath: m_Name
       value: Bolt Cutters
+      objectReference: {fileID: 0}
+    - target: {fileID: 3996454044446175985, guid: 2436d4c80d5591246b557ce5863433ee, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4340785505052616779, guid: 2436d4c80d5591246b557ce5863433ee, type: 3}
       propertyPath: m_RootOrder
@@ -8904,6 +9736,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rockingchair
       objectReference: {fileID: 0}
+    - target: {fileID: 6345270060408426902, guid: d7c40a9d7159322408add4dcb27d551a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8922,6 +9758,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 262538201609452921, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1635712361444505287, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -8966,9 +9806,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2050879896812028014, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_Name
       value: Wooden Crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608780051589908482, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9106,6 +9958,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wooden Table
       objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9124,6 +9980,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 1142814266440474261, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170476621774576596, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966863995103068938, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8183865598608139810, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -9172,6 +10040,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Russian Food Cans (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8852175581960453272, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9190,6 +10062,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 1142814266440474261, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170476621774576596, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966863995103068938, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8183865598608139810, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -9238,6 +10122,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Russian Food Cans
       objectReference: {fileID: 0}
+    - target: {fileID: 8852175581960453272, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9256,9 +10144,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 483062717251967418, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 877725218668929742, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3584675425397056745, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
       propertyPath: m_Name
       value: Lantern
+      objectReference: {fileID: 0}
+    - target: {fileID: 3584675425397056745, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4248165355461901907, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
       propertyPath: m_RootOrder
@@ -9304,6 +10204,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9129882001356873329, guid: caf1f474e4dbe1a4a8d95cc611d42bd5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9322,9 +10226,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 3186028044361244020, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6964712055492561461, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_Name
       value: Wooden Bucket (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964712055492561461, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7776713914140823695, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_RootOrder
@@ -9369,6 +10281,10 @@ PrefabInstance:
     - target: {fileID: 7776713914140823695, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129296393020982452, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9435,6 +10351,10 @@ PrefabInstance:
     - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
       propertyPath: m_Name
       value: Wooden Table (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9527,6 +10447,10 @@ PrefabInstance:
     - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_Name
       value: Rusted Can (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4448121049906728773, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_RootOrder
@@ -9638,6 +10562,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wooden Table (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9656,6 +10584,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 262538201609452921, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1635712361444505287, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -9700,9 +10632,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2050879896812028014, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_Name
       value: Wooden Crate (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608780051589908482, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9725,6 +10669,10 @@ PrefabInstance:
     - target: {fileID: 8598234841828849229, guid: ab97dac967882a44797a8a22dbea24d1, type: 3}
       propertyPath: m_Name
       value: Oil Can
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598234841828849229, guid: ab97dac967882a44797a8a22dbea24d1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8942109970668203255, guid: ab97dac967882a44797a8a22dbea24d1, type: 3}
       propertyPath: m_RootOrder
@@ -9791,6 +10739,10 @@ PrefabInstance:
     - target: {fileID: 5151323654359784949, guid: 4a6e94463d715ee46acdc924e1ba29cc, type: 3}
       propertyPath: m_Name
       value: Machete
+      objectReference: {fileID: 0}
+    - target: {fileID: 5151323654359784949, guid: 4a6e94463d715ee46acdc924e1ba29cc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5491855240630028111, guid: 4a6e94463d715ee46acdc924e1ba29cc, type: 3}
       propertyPath: m_RootOrder
@@ -9972,6 +10924,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wooden Table (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10060,6 +11016,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 262538201609452921, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1635712361444505287, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -10104,9 +11064,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2050879896812028014, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_Name
       value: Wooden Crate (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608780051589908482, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10129,6 +11101,10 @@ PrefabInstance:
     - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_Name
       value: Rusted Can (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4448121049906728773, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_RootOrder
@@ -10196,6 +11172,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rusted Can (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4448121049906728773, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -10258,9 +11238,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 4044598477995711188, guid: fc42e33df89c55c469d02d1f28312445, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5974181795396348672, guid: fc42e33df89c55c469d02d1f28312445, type: 3}
       propertyPath: m_Name
       value: Cassette Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5974181795396348672, guid: fc42e33df89c55c469d02d1f28312445, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6459109765477052858, guid: fc42e33df89c55c469d02d1f28312445, type: 3}
       propertyPath: m_RootOrder
@@ -10305,6 +11293,10 @@ PrefabInstance:
     - target: {fileID: 6459109765477052858, guid: fc42e33df89c55c469d02d1f28312445, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066275801693184696, guid: fc42e33df89c55c469d02d1f28312445, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10394,6 +11386,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 1142814266440474261, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170476621774576596, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966863995103068938, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8183865598608139810, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -10442,6 +11446,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Russian Food Cans
       objectReference: {fileID: 0}
+    - target: {fileID: 8852175581960453272, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10475,6 +11483,10 @@ PrefabInstance:
     - target: {fileID: 1335880792237193493, guid: d537fc2b1c6c303459b111c5a13c01d3, type: 3}
       propertyPath: m_Name
       value: Moss Rocks
+      objectReference: {fileID: 0}
+    - target: {fileID: 1335880792237193493, guid: d537fc2b1c6c303459b111c5a13c01d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1855993409540514735, guid: d537fc2b1c6c303459b111c5a13c01d3, type: 3}
       propertyPath: m_RootOrder
@@ -10519,6 +11531,14 @@ PrefabInstance:
     - target: {fileID: 1855993409540514735, guid: d537fc2b1c6c303459b111c5a13c01d3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2288925033402544470, guid: d537fc2b1c6c303459b111c5a13c01d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314423713231650416, guid: d537fc2b1c6c303459b111c5a13c01d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5024503037158986201, guid: d537fc2b1c6c303459b111c5a13c01d3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10679,6 +11699,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wooden Table
       objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10697,6 +11721,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 1142814266440474261, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170476621774576596, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966863995103068938, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8183865598608139810, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -10745,6 +11781,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Russian Food Cans
       objectReference: {fileID: 0}
+    - target: {fileID: 8852175581960453272, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10771,9 +11811,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.441
       objectReference: {fileID: 0}
+    - target: {fileID: 833094358865904572, guid: d537fc2b1c6c303459b111c5a13c01d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1335880792237193493, guid: d537fc2b1c6c303459b111c5a13c01d3, type: 3}
       propertyPath: m_Name
       value: Moss Rocks
+      objectReference: {fileID: 0}
+    - target: {fileID: 1335880792237193493, guid: d537fc2b1c6c303459b111c5a13c01d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1855993409540514735, guid: d537fc2b1c6c303459b111c5a13c01d3, type: 3}
       propertyPath: m_RootOrder
@@ -10819,6 +11867,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2288925033402544470, guid: d537fc2b1c6c303459b111c5a13c01d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3284419054222865305, guid: d537fc2b1c6c303459b111c5a13c01d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.287
@@ -10830,6 +11882,14 @@ PrefabInstance:
     - target: {fileID: 3284419054222865305, guid: d537fc2b1c6c303459b111c5a13c01d3, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.353
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461563384768854075, guid: d537fc2b1c6c303459b111c5a13c01d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978833773530762658, guid: d537fc2b1c6c303459b111c5a13c01d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7021076365136465499, guid: d537fc2b1c6c303459b111c5a13c01d3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10854,6 +11914,10 @@ PrefabInstance:
     - target: {fileID: 7549186639875079284, guid: d537fc2b1c6c303459b111c5a13c01d3, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.084
+      objectReference: {fileID: 0}
+    - target: {fileID: 8926194467761794014, guid: d537fc2b1c6c303459b111c5a13c01d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -10954,6 +12018,10 @@ PrefabInstance:
     - target: {fileID: 460742382806648575, guid: e1519774b0057b44a99b680f7c039039, type: 3}
       propertyPath: m_Name
       value: Shelf
+      objectReference: {fileID: 0}
+    - target: {fileID: 460742382806648575, guid: e1519774b0057b44a99b680f7c039039, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 950033490510355525, guid: e1519774b0057b44a99b680f7c039039, type: 3}
       propertyPath: m_RootOrder
@@ -11087,9 +12155,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 1668419078510154931, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863192397848500399, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4977226941032737415, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
       propertyPath: m_Name
       value: Spray Paint Bottles Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977226941032737415, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5645676806908604477, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
       propertyPath: m_RootOrder
@@ -11157,6 +12237,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shelf
       objectReference: {fileID: 0}
+    - target: {fileID: 460742382806648575, guid: e1519774b0057b44a99b680f7c039039, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 950033490510355525, guid: e1519774b0057b44a99b680f7c039039, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -11219,9 +12303,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 1058221615503207503, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1649923283858515119, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
       propertyPath: m_Name
       value: Multi Cleaner (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649923283858515119, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2138757720578735637, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
       propertyPath: m_RootOrder
@@ -11266,6 +12358,10 @@ PrefabInstance:
     - target: {fileID: 2138757720578735637, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403438006155404725, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11429,6 +12525,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Oil Can
       objectReference: {fileID: 0}
+    - target: {fileID: 8598234841828849229, guid: ab97dac967882a44797a8a22dbea24d1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8942109970668203255, guid: ab97dac967882a44797a8a22dbea24d1, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -11561,6 +12661,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 262538201609452921, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1635712361444505287, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -11605,9 +12709,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2050879896812028014, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_Name
       value: Wooden Crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608780051589908482, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11627,6 +12743,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 262538201609452921, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1635712361444505287, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -11671,9 +12791,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2050879896812028014, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_Name
       value: Wooden Crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608780051589908482, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11741,6 +12873,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wooden Table (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11762,6 +12898,10 @@ PrefabInstance:
     - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_Name
       value: Rusted Can
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4448121049906728773, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_RootOrder
@@ -11873,6 +13013,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wooden Table (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11894,6 +13038,10 @@ PrefabInstance:
     - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_Name
       value: Rusted Can (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4448121049906728773, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_RootOrder
@@ -11961,6 +13109,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rusted Can
       objectReference: {fileID: 0}
+    - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4448121049906728773, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -12023,9 +13175,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 3186028044361244020, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6964712055492561461, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_Name
       value: Wooden Bucket
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964712055492561461, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7776713914140823695, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_RootOrder
@@ -12071,6 +13231,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9129296393020982452, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12092,6 +13256,10 @@ PrefabInstance:
     - target: {fileID: 5151323654359784949, guid: 4a6e94463d715ee46acdc924e1ba29cc, type: 3}
       propertyPath: m_Name
       value: Machete
+      objectReference: {fileID: 0}
+    - target: {fileID: 5151323654359784949, guid: 4a6e94463d715ee46acdc924e1ba29cc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5491855240630028111, guid: 4a6e94463d715ee46acdc924e1ba29cc, type: 3}
       propertyPath: m_RootOrder
@@ -12202,6 +13370,10 @@ PrefabInstance:
     - target: {fileID: 2992708888939272418, guid: a89eaf7590460b04b8953098b6b24093, type: 3}
       propertyPath: m_Name
       value: Bars
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992708888939272418, guid: a89eaf7590460b04b8953098b6b24093, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12479,6 +13651,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wooden Table (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12544,6 +13720,10 @@ PrefabInstance:
     - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
       propertyPath: m_Name
       value: Wooden Table (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12703,6 +13883,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 1142814266440474261, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170476621774576596, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5247802050869838924, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.02
@@ -12718,6 +13906,10 @@ PrefabInstance:
     - target: {fileID: 5457302126875680470, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.048
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966863995103068938, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8183865598608139810, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
       propertyPath: m_RootOrder
@@ -12778,6 +13970,10 @@ PrefabInstance:
     - target: {fileID: 8852175581960453272, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
       propertyPath: m_Name
       value: Russian Food Cans (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852175581960453272, guid: 17ca8c68c56642c48b4ea6a264c60252, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12915,6 +14111,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wooden Table
       objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12981,6 +14181,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wooden Table
       objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13046,6 +14250,10 @@ PrefabInstance:
     - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
       propertyPath: m_Name
       value: Wooden Table (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13183,6 +14391,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bars (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2992708888939272418, guid: a89eaf7590460b04b8953098b6b24093, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13204,6 +14416,10 @@ PrefabInstance:
     - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_Name
       value: Rusted Can (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4448121049906728773, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_RootOrder
@@ -13267,9 +14483,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 3186028044361244020, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6964712055492561461, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_Name
       value: Wooden Bucket
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964712055492561461, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7776713914140823695, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_RootOrder
@@ -13314,6 +14538,10 @@ PrefabInstance:
     - target: {fileID: 7776713914140823695, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129296393020982452, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13406,6 +14634,10 @@ PrefabInstance:
     - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_Name
       value: Rusted Can
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4448121049906728773, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_RootOrder
@@ -13543,6 +14775,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rusted Can
       objectReference: {fileID: 0}
+    - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4448121049906728773, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -13605,6 +14841,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 262538201609452921, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1635712361444505287, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -13649,9 +14889,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2050879896812028014, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
       propertyPath: m_Name
       value: Wooden Crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159730100452273277, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608780051589908482, guid: 4ef67620508866b46be9993164401dfa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13674,6 +14926,10 @@ PrefabInstance:
     - target: {fileID: 5151323654359784949, guid: 4a6e94463d715ee46acdc924e1ba29cc, type: 3}
       propertyPath: m_Name
       value: Machete
+      objectReference: {fileID: 0}
+    - target: {fileID: 5151323654359784949, guid: 4a6e94463d715ee46acdc924e1ba29cc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5491855240630028111, guid: 4a6e94463d715ee46acdc924e1ba29cc, type: 3}
       propertyPath: m_RootOrder
@@ -13810,6 +15066,10 @@ PrefabInstance:
     - target: {fileID: 3996454044446175985, guid: 2436d4c80d5591246b557ce5863433ee, type: 3}
       propertyPath: m_Name
       value: Bolt Cutters
+      objectReference: {fileID: 0}
+    - target: {fileID: 3996454044446175985, guid: 2436d4c80d5591246b557ce5863433ee, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4340785505052616779, guid: 2436d4c80d5591246b557ce5863433ee, type: 3}
       propertyPath: m_RootOrder
@@ -13951,6 +15211,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rusted Can (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4448121049906728773, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -14087,6 +15351,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bolt Cutters
       objectReference: {fileID: 0}
+    - target: {fileID: 3996454044446175985, guid: 2436d4c80d5591246b557ce5863433ee, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4340785505052616779, guid: 2436d4c80d5591246b557ce5863433ee, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -14149,9 +15417,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 3186028044361244020, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6964712055492561461, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_Name
       value: Wooden Bucket
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964712055492561461, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7776713914140823695, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_RootOrder
@@ -14196,6 +15472,10 @@ PrefabInstance:
     - target: {fileID: 7776713914140823695, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129296393020982452, guid: 30610a49b1fc4d346bcfd0843aa0a5a6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14263,6 +15543,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rockingchair
       objectReference: {fileID: 0}
+    - target: {fileID: 6345270060408426902, guid: d7c40a9d7159322408add4dcb27d551a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14281,9 +15565,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 1668419078510154931, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863192397848500399, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4977226941032737415, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
       propertyPath: m_Name
       value: Spray Paint Bottles Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977226941032737415, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5645676806908604477, guid: 0fa5bacd170e4b547bee4cef6d98317f, type: 3}
       propertyPath: m_RootOrder
@@ -14395,6 +15691,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bar Door
       objectReference: {fileID: 0}
+    - target: {fileID: 7858330218118611735, guid: 19ba2b42e48603d4496395a0cec4fa87, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14416,6 +15716,10 @@ PrefabInstance:
     - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_Name
       value: Rusted Can (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4448121049906728773, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_RootOrder
@@ -14482,6 +15786,10 @@ PrefabInstance:
     - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_Name
       value: Rusted Can (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959005107945772543, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4448121049906728773, guid: a2c157a11060e5046ac12f27b89739b4, type: 3}
       propertyPath: m_RootOrder
@@ -14593,6 +15901,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wooden Table (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 734383726506000081, guid: ead22383f214a3e42a45612fd2862cf8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14681,9 +15993,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5098555497457762007}
     m_Modifications:
+    - target: {fileID: 1058221615503207503, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1649923283858515119, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
       propertyPath: m_Name
       value: Multi Cleaner (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649923283858515119, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2138757720578735637, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
       propertyPath: m_RootOrder
@@ -14728,6 +16048,10 @@ PrefabInstance:
     - target: {fileID: 2138757720578735637, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403438006155404725, guid: 2d0cfeae2741e9747a5dc53f8f9ac75a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: f73a4b6854e700c4f92bb64e8bc3fe0b, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f73a4b6854e700c4f92bb64e8bc3fe0b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -54,7 +54,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f73a4b6854e700c4f92bb64e8bc3fe0b, type: 3}
       propertyPath: m_Name
-      value: Shelf Variant
+      value: Shelf
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f73a4b6854e700c4f92bb64e8bc3fe0b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -3,10 +3,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Options:MonoBehaviour {
-	[Header("Text for Toggles")]
-	[SerializeField] private string on = "ON";
-	[SerializeField] private string off = "OFF";
-
 	private AudioSource[] allSound;
 	public static float volumeLevel = 1.0f;
 	[SerializeField] private Slider volumeSlider;

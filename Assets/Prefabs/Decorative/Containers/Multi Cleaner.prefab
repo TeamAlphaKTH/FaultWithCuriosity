@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 3f2b89676590edb49b2f89a7f4ad170f, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3f2b89676590edb49b2f89a7f4ad170f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -56,13 +56,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cap
       objectReference: {fileID: 0}
+    - target: {fileID: -1244154606432437173, guid: 3f2b89676590edb49b2f89a7f4ad170f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3f2b89676590edb49b2f89a7f4ad170f, type: 3}
       propertyPath: m_Name
-      value: Multi Cleaner Variant
+      value: Multi Cleaner
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f2b89676590edb49b2f89a7f4ad170f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1480368565993354673, guid: 3f2b89676590edb49b2f89a7f4ad170f, type: 3}
       propertyPath: m_Name
       value: Can
+      objectReference: {fileID: 0}
+    - target: {fileID: 1480368565993354673, guid: 3f2b89676590edb49b2f89a7f4ad170f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

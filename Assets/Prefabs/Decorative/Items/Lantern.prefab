@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8463295781104921766
 Transform:
@@ -104,7 +104,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 220798f8f266009488b76b681d61e600, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 220798f8f266009488b76b681d61e600, type: 3}
       propertyPath: m_LocalPosition.x
@@ -150,6 +150,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Glass
       objectReference: {fileID: 0}
+    - target: {fileID: -5669903352742675594, guid: 220798f8f266009488b76b681d61e600, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -1622863836166888365, guid: 220798f8f266009488b76b681d61e600, type: 3}
       propertyPath: m_LocalScale.x
       value: 150
@@ -166,6 +170,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lantern
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 220798f8f266009488b76b681d61e600, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2199408180417290569, guid: 220798f8f266009488b76b681d61e600, type: 3}
       propertyPath: m_LocalScale.x
       value: 150
@@ -181,6 +189,10 @@ PrefabInstance:
     - target: {fileID: 4308278413595623426, guid: 220798f8f266009488b76b681d61e600, type: 3}
       propertyPath: m_Name
       value: Lantern
+      objectReference: {fileID: 0}
+    - target: {fileID: 4308278413595623426, guid: 220798f8f266009488b76b681d61e600, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
