@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 05a4cdcefc6d02444bb2c8eccb7d97a7, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 05a4cdcefc6d02444bb2c8eccb7d97a7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -56,17 +56,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lid
       objectReference: {fileID: 0}
+    - target: {fileID: -7882082341998908331, guid: 05a4cdcefc6d02444bb2c8eccb7d97a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -527378689181591250, guid: 05a4cdcefc6d02444bb2c8eccb7d97a7, type: 3}
       propertyPath: m_Name
       value: Latch
       objectReference: {fileID: 0}
+    - target: {fileID: -527378689181591250, guid: 05a4cdcefc6d02444bb2c8eccb7d97a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 05a4cdcefc6d02444bb2c8eccb7d97a7, type: 3}
       propertyPath: m_Name
-      value: Wooden Crate Variant
+      value: Wooden Crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 05a4cdcefc6d02444bb2c8eccb7d97a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 959194852444639554, guid: 05a4cdcefc6d02444bb2c8eccb7d97a7, type: 3}
       propertyPath: m_Name
       value: Crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 959194852444639554, guid: 05a4cdcefc6d02444bb2c8eccb7d97a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

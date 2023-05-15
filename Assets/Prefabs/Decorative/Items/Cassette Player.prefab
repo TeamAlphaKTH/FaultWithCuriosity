@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 98db1d7dc68b67848bedae155768237d, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 98db1d7dc68b67848bedae155768237d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -56,9 +56,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cassette Player
       objectReference: {fileID: 0}
+    - target: {fileID: -4883710664865663767, guid: 98db1d7dc68b67848bedae155768237d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 98db1d7dc68b67848bedae155768237d, type: 3}
       propertyPath: m_Name
-      value: Cassette Player Variant
+      value: Cassette Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 98db1d7dc68b67848bedae155768237d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1416866649466593115, guid: 98db1d7dc68b67848bedae155768237d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -115,6 +123,10 @@ PrefabInstance:
     - target: {fileID: 7352314973667478661, guid: 98db1d7dc68b67848bedae155768237d, type: 3}
       propertyPath: m_Name
       value: Cassette Tape
+      objectReference: {fileID: 0}
+    - target: {fileID: 7352314973667478661, guid: 98db1d7dc68b67848bedae155768237d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

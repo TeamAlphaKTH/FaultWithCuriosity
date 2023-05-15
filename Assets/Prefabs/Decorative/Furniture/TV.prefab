@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 666e794f4928a244eaaf3dc9d573cf61, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 666e794f4928a244eaaf3dc9d573cf61, type: 3}
       propertyPath: m_LocalPosition.x
@@ -54,7 +54,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 666e794f4928a244eaaf3dc9d573cf61, type: 3}
       propertyPath: m_Name
-      value: TV Variant
+      value: TV
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 666e794f4928a244eaaf3dc9d573cf61, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -64,7 +68,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5219770588516335635}
   m_SourcePrefab: {fileID: 100100000, guid: 666e794f4928a244eaaf3dc9d573cf61, type: 3}
---- !u!1 &4949790655363775810 stripped
+--- !u!1 &242339012818085821 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 666e794f4928a244eaaf3dc9d573cf61, type: 3}
   m_PrefabInstance: {fileID: 1125231256438610668}
@@ -75,7 +79,7 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4949790655363775810}
+  m_GameObject: {fileID: 242339012818085821}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
